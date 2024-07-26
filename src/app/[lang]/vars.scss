@@ -1,0 +1,23 @@
+:root {
+    --black: #000;
+
+    --white: #fff;
+
+    --primary: #242424;
+
+    --secondary: #787878;
+
+    --placeholder: #aaa;
+
+    --gray: #fdfdfd;
+
+    --main: #ec001d;
+}
+
+@mixin swiperWithGrid {
+    width: 100%;
+    max-width: 100%;
+    max-height: 100vh;
+    min-height: 0;
+    min-width: 0;
+}
