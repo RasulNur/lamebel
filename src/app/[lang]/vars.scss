@@ -1,9 +1,10 @@
 :root {
     --black: #000;
+    --black: rgba(0, 0, 0, 0.3);
 
     --white: #fff;
 
-    --primary: #242424;
+    --primary: #222;
 
     --secondary: #787878;
 
@@ -11,7 +12,9 @@
 
     --gray: #fdfdfd;
 
-    --main: #ec001d;
+    --main: #f5ba16;
+
+    --blue: #09a6ea;
 }
 
 @mixin swiperWithGrid {

@@ -1,8 +1,7 @@
 /** @type {import('tailwindcss').Config} */
-import type { Config } from "tailwindcss";
+
 import plugin from "tailwindcss/plugin";
 module.exports = {
-    // const config: Config = {
     content: [
         "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
         "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -12,6 +11,7 @@ module.exports = {
         container: { center: true, padding: "1rem" },
         extend: {
             lineHeight: {
+                100: "100%",
                 110: "110%",
                 120: "120%",
                 130: "130%",
@@ -24,7 +24,7 @@ module.exports = {
                 200: "200%",
             },
             colors: {
-                black: { DEFAULT: "var(--black)" },
+                black: { DEFAULT: "var(--black)", 30: "var(--black-30)" },
 
                 white: {
                     DEFAULT: "var(--white)",
@@ -49,6 +49,10 @@ module.exports = {
                 main: {
                     DEFAULT: "var(--main)",
                 },
+
+                blue: {
+                    DEFAULT: "var(--blue)",
+                },
             },
         },
     },
@@ -62,11 +66,11 @@ module.exports = {
                 ".transition-300": {
                     "@apply transition-all duration-300": {},
                 },
-                ".transition-500": {
-                    "@apply transition-all duration-300": {},
+                ".main-btn": {
+                    "@apply flex-center gap-4 bg-main border-main border-2 text-white hover:bg-transparent hover:text-main py-4 px-6 rounded-[32px] min-w-[160px]":
+                        {},
                 },
             });
         }),
     ],
 };
-// export default config;
