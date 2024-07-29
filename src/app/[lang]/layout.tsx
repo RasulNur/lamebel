@@ -12,6 +12,7 @@ import "swiper/css/autoplay";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
 import "./globals.scss";
+import HeaderCategories from "../../components/layout/headerCategories/HeaderCategories";
 import { IRootLayoutParams } from "@/types/pageParams.types";
 
 const montserrat = Montserrat({
@@ -33,6 +34,7 @@ export default function RootLayout({
                     <ContextProviders lang={lang}>
                         <div className="min-h-screen h-full flex flex-col justify-between">
                             <Header lang={lang} />
+                            <HeaderCategories />
                             <main className="grow h-full">{children}</main>
                             <Footer lang={lang} />
                         </div>

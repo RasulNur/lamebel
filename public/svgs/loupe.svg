@@ -1,0 +1,9 @@
+<svg width="0" height="0" class="hidden">
+    <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 23 22" id="loupe">
+        <path
+            d="M9.95607 18.7793C14.8657 18.7793 18.8457 14.7993 18.8457 9.88966C18.8457 4.98004 14.8657 1 9.95607 1C5.04644 1 1.06641 4.98004 1.06641 9.88966C1.06641 14.7993 5.04644 18.7793 9.95607 18.7793Z"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+        <path d="M21.0681 20.9978L16.2344 16.1641" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        </path>
+    </symbol>
+</svg>

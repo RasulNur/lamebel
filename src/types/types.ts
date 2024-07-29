@@ -1,6 +1,14 @@
 import { Dispatch, SetStateAction } from "react";
 
-export type SpritesName = "telegram" | "menu" | "x";
+export type SpritesName =
+    | "telegram"
+    | "menu"
+    | "x"
+    | "heart"
+    | "loupe"
+    | "chevron"
+    | "tag"
+    | "cart";
 
 export type SetState<T> = Dispatch<SetStateAction<T>>;
 

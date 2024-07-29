@@ -7,7 +7,7 @@ const headerLinks = [
 
 export default function HeaderList() {
     return (
-        <ul className="flex items-center gap-6">
+        <ul className="2xl:flex hidden items-center gap-6">
             {headerLinks.map((link) => {
                 return (
                     <li key={link.id}>

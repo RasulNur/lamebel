@@ -41,6 +41,9 @@ module.exports = {
                 placeholder: {
                     DEFAULT: "var(--placeholder)",
                 },
+                placeholder2: {
+                    DEFAULT: "var(--placeholder2)",
+                },
 
                 gray: {
                     DEFAULT: "var(--gray)",
@@ -48,6 +51,7 @@ module.exports = {
 
                 main: {
                     DEFAULT: "var(--main)",
+                    light: "var(--main-light)",
                 },
 
                 blue: {
@@ -66,8 +70,18 @@ module.exports = {
                 ".transition-300": {
                     "@apply transition-all duration-300": {},
                 },
+                ".section-margin": {
+                    "@apply xl:mt-[120px] md:mt-[80px] mt-[60px]": {},
+                },
+                ".section-padding": {
+                    "@apply xl:py-[120px] md:py-[80px] py-[60px]": {},
+                },
+                ".swiper-with-grid": {
+                    "@apply w-full max-w-full max-h-screen min-h-0 min-w-0": {},
+                },
+
                 ".main-btn": {
-                    "@apply flex-center gap-4 bg-main border-main border-2 text-white hover:bg-transparent hover:text-main py-4 px-6 rounded-[32px] min-w-[160px]":
+                    "@apply flex-center gap-4 bg-main border-main border-2 text-white hover:bg-transparent hover:text-main py-4 px-6 rounded-[32px] min-w-[160px] w-max":
                         {},
                 },
             });
