@@ -28,6 +28,8 @@ module.exports = {
 
                 white: {
                     DEFAULT: "var(--white)",
+                    15: "var(--white-15)",
+                    80: "var(--white-80)",
                 },
 
                 primary: {
@@ -49,13 +51,27 @@ module.exports = {
                     DEFAULT: "var(--gray)",
                 },
 
+                gray2: {
+                    DEFAULT: "var(--gray2)",
+                },
+
+                gray3: {
+                    DEFAULT: "var(--gray3)",
+                },
+
                 main: {
                     DEFAULT: "var(--main)",
+                    5: "var(--main-5)",
+                    10: "var(--main-10)",
                     light: "var(--main-light)",
                 },
 
                 blue: {
                     DEFAULT: "var(--blue)",
+                },
+
+                red: {
+                    DEFAULT: "var(--red)",
                 },
             },
         },
@@ -70,8 +86,17 @@ module.exports = {
                 ".transition-300": {
                     "@apply transition-all duration-300": {},
                 },
+                ".sm-margin": {
+                    "@apply sm:mx-0 -mx-4": {},
+                },
+                ".section-header-wrapper": {
+                    "@apply flex flex-col md:gap-[60px] gap-10": {},
+                },
                 ".section-margin": {
                     "@apply xl:mt-[120px] md:mt-[80px] mt-[60px]": {},
+                },
+                ".last-section-margin": {
+                    "@apply xl:mb-[120px] md:mb-[80px] mb-[60px]": {},
                 },
                 ".section-padding": {
                     "@apply xl:py-[120px] md:py-[80px] py-[60px]": {},

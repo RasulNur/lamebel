@@ -4,6 +4,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import Image from "next/image";
 import Icon from "@/components/ui/Icon";
+import { useText } from "@/context/text.context";
 
 const slides = [
     {
@@ -27,6 +28,7 @@ const slides = [
 ];
 
 export default function HomeBanner() {
+    const { text } = useText();
     return (
         <Swiper
             slidesPerView={1}
@@ -59,7 +61,9 @@ export default function HomeBanner() {
                                 </p>
                             </div>
 
-                            <button className="main-btn">Подробнее</button>
+                            <button className="main-btn">
+                                {text("Подробнее")}
+                            </button>
 
                             <div className="absolute right-0 lg:top-1/2 lg:-translate-y-1/2 lg:bottom-auto sm:bottom-20 bottom-10 after:absolute lg:after:block after:hidden after:right-3 after:bottom-5 after:bg-white after:rounded-full xl:after:size-[494px] after:size-[420px] after:z-[0]">
                                 <Image

@@ -74,9 +74,15 @@ const products: IProduct[] = [
     },
 ];
 
-export default function ProductsSwiper() {
+export default function ProductsSwiper({
+    title,
+    subtitle,
+}: {
+    title: string;
+    subtitle: string;
+}) {
     return (
-        <div className="flex flex-col gap-[60px]">
+        <div className="section-header-wrapper">
             <SectionHeader
                 title="ШИРОКИЙ АССОРТИМЕНТ"
                 subtitle="Наша Продукция"
@@ -86,7 +92,7 @@ export default function ProductsSwiper() {
                 slidesPerView={1.2}
                 speed={600}
                 spaceBetween={24}
-                // autoplay={{ delay: 10000 }}
+                autoplay={{ delay: 10000 }}
                 modules={[Autoplay, Pagination]}
                 className="swiper-with-grid products-swiper"
                 breakpoints={{

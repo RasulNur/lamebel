@@ -3,10 +3,12 @@
     --black: rgba(0, 0, 0, 0.3);
 
     --white: #fff;
+    --white-15: rgba(255, 255, 255, 0.15);
+    --white-80: rgba(255, 255, 255, 0.8);
 
     --primary: #222;
 
-    --secondary: #787878;
+    --secondary: #828282;
 
     --placeholder: #bdbdbd;
 
@@ -14,10 +16,18 @@
 
     --gray: #fdfdfd;
 
+    --gray2: #f5f5f5;
+
+    --gray3: #e0e0e0;
+
     --main: #f5ba16;
+    --main-5: rgba(255, 195, 27, 0.05);
+    --main-10: rgba(255, 195, 27, 0.05);
     --main-light: #fffbef;
 
     --blue: #09a6ea;
+
+    --red: #f20c0c;
 }
 
 @mixin swiperWithGrid {

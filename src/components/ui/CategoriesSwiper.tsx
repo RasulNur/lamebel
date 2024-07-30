@@ -26,7 +26,7 @@ const categories: ICategory[] = [
 
 export default function CategoriesSwiper() {
     return (
-        <div className="flex flex-col gap-[60px]">
+        <div className="section-header-wrapper">
             <SectionHeader
                 title="ШИРОКИЙ АССОРТИМЕНТ"
                 subtitle="Наша Каталог"

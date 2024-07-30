@@ -29,7 +29,7 @@ function Fancybox(props: PropsWithChildren<Props>) {
 
     return (
         <div
-            className="lg:grid grid-cols-[96px,1fr] gap-2 lg:max-h-[500px]"
+            // className="lg:grid grid-cols-[96px,1fr] gap-2 lg:max-h-[500px]"
             ref={containerRef}>
             {props.children}
         </div>

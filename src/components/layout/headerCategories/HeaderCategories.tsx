@@ -17,7 +17,7 @@ export default function HeaderCategories() {
                             <Link
                                 href="/"
                                 key={link.id}
-                                className="py-2 text-sm">
+                                className="py-2 text-sm hover:text-main">
                                 {link.title}
                             </Link>
                         );

@@ -1,3 +1,4 @@
+import { FormikState } from "formik";
 import { Dispatch, SetStateAction } from "react";
 
 export type SpritesName =
@@ -22,3 +23,10 @@ export type InputNames =
     | "expiry"
     | "message"
     | "new_password";
+
+export interface ISubmitFormFuncParams<FormValues> {
+    values: FormValues;
+    resetForm: (
+        nextState?: Partial<FormikState<FormValues>> | undefined,
+    ) => void;
+}
