@@ -28,7 +28,7 @@ export default async function HomePage({
                 }}
             />
 
-            <section>
+            <section className="mt-5">
                 <div className="container">
                     <Contacts settings={settings} lang={lang} />
                 </div>
@@ -38,7 +38,7 @@ export default async function HomePage({
                 <MapSection settings={settings} />
             </SectionWrapper>
 
-            <SectionWrapper>
+            <SectionWrapper className="last-section-margin">
                 <InstagramSwiper />
             </SectionWrapper>
         </>

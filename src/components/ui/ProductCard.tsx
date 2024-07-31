@@ -2,7 +2,6 @@ import Link from "next/link";
 import Icon from "./Icon";
 import Image from "next/image";
 import { IProduct } from "@/types/api/products.types";
-// import { IProduct } from "./ProductsSwiper";
 
 const colors = [
     { id: 0, color: "#FF53E8" },
@@ -12,7 +11,7 @@ const colors = [
 
 export default function ProductCard({ product }: { product: IProduct }) {
     return (
-        <div className="flex flex-col gap-3 h-full">
+        <div className="flex flex-col gap-3 h-full relative">
             <Link
                 href={`/product/${product.id}-${product.slug}`}
                 className="p-4 flex-center">
@@ -24,6 +23,14 @@ export default function ProductCard({ product }: { product: IProduct }) {
                     className="md:size-[250px] size-[200px] object-contain object-center"
                 />
             </Link>
+
+            <button className="p-2 group absolute right-3 top-3 w-fit">
+                <Icon
+                    name="heart"
+                    className="stroke-primary group-hover:stroke-red size-5"
+                />
+            </button>
+
             <div className="flex flex-col gap-4 grow h-full">
                 <Link
                     href={`/product/${product.id}-${product.slug}`}
@@ -42,7 +49,7 @@ export default function ProductCard({ product }: { product: IProduct }) {
                     })}
                 </div>
                 <div className="flex items-center justify-between gap-2">
-                    <div className="flex xl:flex-row flex-col xl:items-center xl:gap-2 gap-1">
+                    <div className="flex flex-col gap-1">
                         <div className="font-bold sm:text-lg text-base leading-130">
                             {product.current_price_formatted}
                         </div>
@@ -52,7 +59,7 @@ export default function ProductCard({ product }: { product: IProduct }) {
                             </div>
                         )}
                     </div>
-                    {product.discount_formatted && (
+                    {/* {product.discount_formatted && (
                         <div className="relative">
                             <Icon
                                 name="tag"
@@ -60,12 +67,13 @@ export default function ProductCard({ product }: { product: IProduct }) {
                             />
                             <span className="absolute left-[22px] top-1/2 -translate-y-1/2 text-[12px] font-medium text-placeholder2">
                                 {product.discount_formatted}
-                                {/* -15% */}
                             </span>
                         </div>
-                    )}
+                    )} */}
                 </div>
             </div>
+
+            <button className="main-btn w-full py-[10px]">В корзину</button>
         </div>
     );
 }

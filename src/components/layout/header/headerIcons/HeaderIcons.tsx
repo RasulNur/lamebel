@@ -8,10 +8,10 @@ export default function HeaderIcons() {
             <button type="button" className="group p-2 md:block hidden">
                 <Icon name="loupe" className={svgClassnames} />
             </button>
-            <Link href="/" className="group p-2">
+            <Link href="/cart" className="group p-2">
                 <Icon name="cart" className={svgClassnames} />
             </Link>
-            <Link href="/" className="group p-2">
+            <Link href="/wishlist" className="group p-2">
                 <Icon name="heart" className={svgClassnames} />
             </Link>
         </div>

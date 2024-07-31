@@ -5,8 +5,11 @@ import Link from "next/link";
 import HeaderMenu from "./headerMenu/HeaderMenu";
 import HeaderList from "./headerList/HeaderList";
 import HeaderIcons from "./headerIcons/HeaderIcons";
+import { getSettings } from "@/api/settingsApi";
+import { numberWithSpaces } from "@/utils/numberWithSpaces";
 
 export default async function Header({ lang }: { lang: Lang }) {
+    const settings = await getSettings({ lang });
     return (
         <header className="sticky top-0 py-6 bg-white z-[90] lg:shadow-none shadow-md">
             <div className="container flex items-center justify-between gap-6">
@@ -25,26 +28,32 @@ export default async function Header({ lang }: { lang: Lang }) {
                         <HeaderMenu />
                     </div>
 
-                    <HeaderList />
+                    <HeaderList lang={lang} />
                 </div>
                 <div className="flex items-center xl:gap-6 sm:gap-4 gap-2">
-                    <Link
-                        href={"/"}
-                        className="group bg-blue py-3 2xl:px-5 px-3 lg:flex-center hidden gap-3 text-white hover:text-blue hover:bg-transparent border-2 border-blue rounded-[30px] font-semibold text-sm">
-                        <Icon
-                            name="telegram"
-                            className="block fill-white group-hover:fill-blue"
-                        />
-                        <span className="2xl:inline-block hidden">
-                            Наш канал в телеграм
-                        </span>
-                    </Link>
-
-                    <Link
-                        href={"tel:+998 99 123 45 67"}
-                        className="lg:block hidden font-semibold hover:text-main py-2">
-                        +998 99 123 45 67
-                    </Link>
+                    {settings.telegram && (
+                        <Link
+                            href={settings.telegram}
+                            className="group bg-blue py-3 2xl:px-5 px-3 lg:flex-center hidden gap-3 text-white hover:text-blue hover:bg-transparent border-2 border-blue rounded-[30px] font-semibold text-sm">
+                            <Icon
+                                name="telegram"
+                                className="block fill-white group-hover:fill-blue"
+                            />
+                            <span className="2xl:inline-block hidden">
+                                Наш канал в телеграм
+                            </span>
+                        </Link>
+                    )}
+                    {settings.phone && (
+                        <Link
+                            href={`tel:${settings.phone}`}
+                            className="lg:block hidden font-semibold hover:text-main py-2">
+                            {numberWithSpaces(
+                                settings.phone,
+                                "#### ## ### ## ##",
+                            )}
+                        </Link>
+                    )}
 
                     <HeaderIcons />
                     <div className="2xl:hidden">

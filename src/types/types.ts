@@ -12,6 +12,7 @@ export type SpritesName =
     | "location"
     | "mail"
     | "phone"
+    | "filter"
     | "cart";
 
 export type SetState<T> = Dispatch<SetStateAction<T>>;
@@ -32,4 +33,12 @@ export interface ISubmitFormFuncParams<FormValues> {
     resetForm: (
         nextState?: Partial<FormikState<FormValues>> | undefined,
     ) => void;
+}
+export type SortDirectionType = "asc" | "desc";
+
+export type OrderBy = "created_at" | "price" | "views" | "rating" | "discount";
+
+export interface IUseLimitParams {
+    data: any[];
+    limitNumber: number;
 }

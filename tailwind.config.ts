@@ -59,6 +59,10 @@ module.exports = {
                     DEFAULT: "var(--gray3)",
                 },
 
+                gray4: {
+                    DEFAULT: "var(--gray4)",
+                },
+
                 main: {
                     DEFAULT: "var(--main)",
                     5: "var(--main-5)",
@@ -107,6 +111,14 @@ module.exports = {
 
                 ".main-btn": {
                     "@apply flex-center gap-4 bg-main border-main border-2 text-white hover:bg-transparent hover:text-main py-4 px-6 rounded-[32px] min-w-[160px] w-max":
+                        {},
+                },
+                ".common-products-grid": {
+                    "@apply md:grid-cols-3 min-[400px]:grid-cols-2 grid-cols-1 sm:gap-x-6 sm:gap-y-7 gap-x-5 gap-y-6":
+                        {},
+                },
+                ".products-grid-wrapper": {
+                    "@apply lg:grid flex flex-col grid-cols-[300px,1fr] gap-5":
                         {},
                 },
             });

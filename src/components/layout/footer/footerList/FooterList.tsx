@@ -1,35 +1,26 @@
+import { ISingleMenu } from "@/types/api/menus.types";
 import Link from "next/link";
 
-interface IMenu {
-    id: number;
-    name: string;
-    items: {
-        id: number;
-        link?: string;
-        name: string;
-    }[];
-}
-
-export default function FooterList({ menu }: { menu: IMenu }) {
+export default function FooterList({ menu }: { menu: ISingleMenu }) {
     return (
         <div className="flex flex-col sm:gap-8 gap-4 sm:items-baseline items-center">
-            <h3 className="font-bold text-lg leading-130">{menu.name}</h3>
+            <h3 className="font-bold text-lg leading-130">{menu.data.name}</h3>
             <ul className="flex flex-col gap-4 sm:items-baseline items-center sm:text-start text-center">
-                {menu.items.map((item, id) => {
-                    if (item.link) {
+                {menu.data.menuItems.map((item, id) => {
+                    if (item.url) {
                         return (
                             <li key={item.id}>
                                 <Link
-                                    href="/"
+                                    href={item.url}
                                     className="py-1 block hover:text-main">
-                                    {item.name}
+                                    {item.title}
                                 </Link>
                             </li>
                         );
                     } else {
                         return (
                             <li key={item.id}>
-                                <p className="py-1 block">{item.name}</p>
+                                <p className="py-1 block">{item.title}</p>
                             </li>
                         );
                     }

@@ -4,6 +4,7 @@ import Breadcrumbs from "@/components/ui/Breadcrumbs";
 import { Lang } from "@/types/api/api.types";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
+import PageHeader from "../../../../components/ui/PageHeader";
 
 export default async function TextPage({
     params: { id, lang },
@@ -17,24 +18,24 @@ export default async function TextPage({
     const { text } = await getTexts({ lang });
 
     return (
-        <div className="container">
-            <div className="page-header">
-                <Breadcrumbs
-                    breadcrumbs={{
-                        links: [{ href: "/", title: text("Главная") }],
-                        current: page.data.seo_title,
-                    }}
-                />
-
-                <h1 className="page-heading">{page.data.seo_title}</h1>
-            </div>
-
-            <div
-                className="text-section lg:mt-10 mt-5"
-                dangerouslySetInnerHTML={{
-                    __html: page.data.body,
-                }}></div>
-        </div>
+        <>
+            <PageHeader
+                breadcrumbs={{
+                    links: [{ href: "/", title: text("Главная") }],
+                    current: page.data.seo_title,
+                }}
+                title={page.data.seo_title}
+            />
+            <section className="mt-5 last-section-margin">
+                <div className="container">
+                    <div
+                        className="text-section lg:mt-10 mt-5"
+                        dangerouslySetInnerHTML={{
+                            __html: page.data.body,
+                        }}></div>
+                </div>
+            </section>
+        </>
     );
 }
 

@@ -1,6 +1,14 @@
 import { SVGProps } from "react";
-import { InputNames, SpritesName } from "./types";
-import { Lang } from "./api/api.types";
+import { InputNames, SetState, SpritesName } from "./types";
+import { IMeta, Lang } from "./api/api.types";
+import { IProducts } from "./api/products.types";
+import {
+    ICategories,
+    ICategoryAttributes,
+    ICategoryBrands,
+    IPrices,
+    ISingleCategory,
+} from "./api/categories.types";
 
 export interface IIconProps
     extends Omit<SVGProps<SVGSVGElement>, "name" | "type"> {
@@ -37,4 +45,57 @@ export interface IContextProvidersProps {
 export interface IOvalSpinnerProps {
     size: number;
     type?: "main" | "second";
+}
+
+export interface IPaginationButtonProps {
+    handleClick: ({ page }: { page: number }) => void;
+    meta: IMeta;
+    type: "prev" | "next";
+}
+
+export interface IPaginationNumbersProps {
+    meta: IMeta;
+    visibleNumbers: number[];
+    handleClick: ({ page }: { page: number }) => void;
+}
+export interface IPageHeaderProps {
+    categoryId: number;
+    lang: Lang;
+}
+export interface ICategoriesProps {
+    products: IProducts;
+    categoryId: number;
+    lang: Lang;
+}
+export interface ICategoriesFiltersProps {
+    subCategories: ICategories;
+    categoryBrands: ICategoryBrands;
+    price: IPrices;
+    attributes: ICategoryAttributes;
+    parentCategory: ISingleCategory | string;
+}
+export interface IHideFilterProps {
+    setIsOpen: SetState<boolean>;
+    isOpen: boolean;
+    title: string;
+}
+export interface ICheckboxProps {
+    label: string;
+    isChecked: boolean;
+    handleChecked: () => void;
+}
+export interface IAttributeCheckboxProps {
+    label: string;
+    attrId: number;
+    attrValId: number;
+    attrSlug: string;
+    attrValSlug: string;
+}
+
+export interface IProductsFiltersMenuProps {
+    subCategories: ICategories;
+    categoryBrands: ICategoryBrands;
+    price: IPrices;
+    attributes: ICategoryAttributes;
+    parentCategory: ISingleCategory | string;
 }
