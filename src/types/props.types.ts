@@ -1,5 +1,6 @@
 import { SVGProps } from "react";
 import { InputNames, SpritesName } from "./types";
+import { Lang } from "./api/api.types";
 
 export interface IIconProps
     extends Omit<SVGProps<SVGSVGElement>, "name" | "type"> {
@@ -28,3 +29,12 @@ export type BreadcrumbsType = {
     }[];
     current: string;
 };
+export interface IContextProvidersProps {
+    children: React.ReactNode;
+    lang: Lang;
+}
+
+export interface IOvalSpinnerProps {
+    size: number;
+    type?: "main" | "second";
+}

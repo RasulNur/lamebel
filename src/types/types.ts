@@ -9,6 +9,9 @@ export type SpritesName =
     | "loupe"
     | "chevron"
     | "tag"
+    | "location"
+    | "mail"
+    | "phone"
     | "cart";
 
 export type SetState<T> = Dispatch<SetStateAction<T>>;

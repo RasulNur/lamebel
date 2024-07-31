@@ -1,16 +1,20 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ICategory } from "./CategoriesSwiper";
+import { ICategoryTree } from "@/types/api/categories.types";
 
-export default function CategoryCard({ category }: { category: ICategory }) {
+export default function CategoryCard({
+    category,
+}: {
+    category: ICategoryTree;
+}) {
     return (
         <Link
-            href="/"
+            href={`/categories/${category.id}-${category.slug}`}
             className="flex flex-col items-center text-center gap-3 group">
             <div className="py-4">
                 <Image
                     src={category.img}
-                    alt={category.title}
+                    alt={category.name}
                     width={150}
                     height={150}
                     className="object-contain object-center w-[150px] h-[150px]"
@@ -18,7 +22,7 @@ export default function CategoryCard({ category }: { category: ICategory }) {
             </div>
 
             <h4 className="font-medium group-hover:text-main transition-300">
-                {category.title}
+                {category.name}
             </h4>
         </Link>
     );

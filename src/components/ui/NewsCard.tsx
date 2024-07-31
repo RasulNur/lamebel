@@ -1,17 +1,15 @@
 import Link from "next/link";
 import Image from "next/image";
+import { IPublicationsPublication } from "@/types/api/publications.types";
 
-interface ISingleNews {
-    id: number;
-    title: string;
-    text: string;
-    img: string;
-}
-
-export default function NewsCard({ singleNews }: { singleNews: ISingleNews }) {
+export default function NewsCard({
+    singleNews,
+}: {
+    singleNews: IPublicationsPublication;
+}) {
     return (
         <div className="flex flex-col gap-4 h-full grow">
-            <Link href="/">
+            <Link href={`/news/${singleNews.id}-${singleNews.slug}`}>
                 <Image
                     src={singleNews.img}
                     alt=""
@@ -22,13 +20,13 @@ export default function NewsCard({ singleNews }: { singleNews: ISingleNews }) {
             </Link>
             <div className="flex flex-col gap-4 h-full">
                 <Link
-                    href="/"
+                    href={`/news/${singleNews.id}-${singleNews.slug}`}
                     className="text-xl leading-130 font-semibold line-clamp-2 hover:text-main h-[52px]">
-                    {singleNews.title}
+                    {singleNews.name}
                 </Link>
 
                 <p className="font-medium leading-140 text-secondary line-clamp-3">
-                    {singleNews.text}
+                    {singleNews.description}
                 </p>
             </div>
         </div>

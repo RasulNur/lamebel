@@ -1,0 +1,9 @@
+<svg width="0" height="0" class="hidden">
+    <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26 23" id="mail">
+        <path
+            d="M3.4 1.67188H22.6C23.92 1.67188 25 2.81544 25 4.21312V19.4606C25 20.8583 23.92 22.0019 22.6 22.0019H3.4C2.08 22.0019 1 20.8583 1 19.4606V4.21312C1 2.81544 2.08 1.67188 3.4 1.67188Z"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+        <path d="M25 4.32812L13 13.3281L1 4.32812" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        </path>
+    </symbol>
+</svg>

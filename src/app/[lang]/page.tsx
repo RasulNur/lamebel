@@ -14,24 +14,47 @@ import InstagramSwiper from "@/components/ui/InstagramSwiper";
 import SeoSection from "@/components/ui/SeoSection";
 import OffersSwiper from "@/components/pages/home/offersSwiper/OffersSwiper";
 import MapSection from "@/components/pages/home/mapSection/MapSection";
+import { getCategoriesTree } from "@/api/categoriesApi";
+import { getProducts } from "@/api/productsApi";
+import { getSettings } from "@/api/settingsApi";
+import { getPublications } from "@/api/publicationsApi";
 
 export default async function HomePage({
     params: { lang },
 }: {
     params: { lang: Lang };
 }) {
+    const settings = await getSettings({ lang });
+    const categories = await getCategoriesTree({ lang });
+    const bestsellerProducts = await getProducts({
+        quantity: 10,
+        is_bestseller: 1,
+        lang,
+    });
+    const newProducts = await getProducts({
+        quantity: 10,
+        is_new: 1,
+        lang,
+    });
+    const news = await getPublications({
+        type: 2,
+        quantity: 6,
+        lang,
+    });
+
     return (
         <>
             <HomeBanner />
 
             <SectionWrapper>
-                <CategoriesSwiper />
+                <CategoriesSwiper categories={categories} />
             </SectionWrapper>
 
             <SectionWrapper>
                 <ProductsSwiper
+                    products={newProducts}
                     subtitle="ШИРОКИЙ АССОРТИМЕНТ"
-                    title="Наша Продукция"
+                    title="Новинки"
                 />
             </SectionWrapper>
 
@@ -41,6 +64,7 @@ export default async function HomePage({
 
             <SectionWrapper className="bg-main-light section-padding">
                 <ProductsSwiper
+                    products={bestsellerProducts}
                     subtitle="ШИРОКИЙ АССОРТИМЕНТ"
                     title="Хиты интернет продаж"
                 />
@@ -55,11 +79,11 @@ export default async function HomePage({
             </SectionWrapper>
 
             <SectionWrapper>
-                <MapSection />
+                <MapSection settings={settings} />
             </SectionWrapper>
 
             <SectionWrapper>
-                <NewsSwiper />
+                <NewsSwiper news={news} />
             </SectionWrapper>
 
             <SectionWrapper className="bg-[url(/images/contacts-bg.png)] bg-center bg-cover bg-no-repeat section-padding">

@@ -1,7 +1,8 @@
 import Link from "next/link";
 import Icon from "./Icon";
 import Image from "next/image";
-import { IProduct } from "./ProductsSwiper";
+import { IProduct } from "@/types/api/products.types";
+// import { IProduct } from "./ProductsSwiper";
 
 const colors = [
     { id: 0, color: "#FF53E8" },
@@ -12,10 +13,12 @@ const colors = [
 export default function ProductCard({ product }: { product: IProduct }) {
     return (
         <div className="flex flex-col gap-3 h-full">
-            <Link href="/" className="p-4 flex-center">
+            <Link
+                href={`/product/${product.id}-${product.slug}`}
+                className="p-4 flex-center">
                 <Image
                     src={product.img}
-                    alt={product.title}
+                    alt={product.name}
                     width={250}
                     height={250}
                     className="md:size-[250px] size-[200px] object-contain object-center"
@@ -23,9 +26,9 @@ export default function ProductCard({ product }: { product: IProduct }) {
             </Link>
             <div className="flex flex-col gap-4 grow h-full">
                 <Link
-                    href="/"
+                    href={`/product/${product.id}-${product.slug}`}
                     className="font-medium leading-150 grow h-full hover:text-main line-clamp-2">
-                    {product.title}
+                    {product.name}
                 </Link>
 
                 <div className="flex items-center gap-1">
@@ -41,21 +44,26 @@ export default function ProductCard({ product }: { product: IProduct }) {
                 <div className="flex items-center justify-between gap-2">
                     <div className="flex xl:flex-row flex-col xl:items-center xl:gap-2 gap-1">
                         <div className="font-bold sm:text-lg text-base leading-130">
-                            2.500.000 сум
+                            {product.current_price_formatted}
                         </div>
-                        <div className="text-[12px] leading-130 line-through opacity-50">
-                            5.000.000 сум
+                        {product.old_price_formatted && (
+                            <div className="text-[12px] leading-130 line-through opacity-50">
+                                {product.old_price_formatted}
+                            </div>
+                        )}
+                    </div>
+                    {product.discount_formatted && (
+                        <div className="relative">
+                            <Icon
+                                name="tag"
+                                className="w-[56px] h-[24px] stroke-placeholder2 fill-none"
+                            />
+                            <span className="absolute left-[22px] top-1/2 -translate-y-1/2 text-[12px] font-medium text-placeholder2">
+                                {product.discount_formatted}
+                                {/* -15% */}
+                            </span>
                         </div>
-                    </div>
-                    <div className="relative">
-                        <Icon
-                            name="tag"
-                            className="w-[56px] h-[24px] stroke-placeholder2 fill-none"
-                        />
-                        <span className="absolute left-[22px] top-1/2 -translate-y-1/2 text-[12px] font-medium text-placeholder2">
-                            -15%
-                        </span>
-                    </div>
+                    )}
                 </div>
             </div>
         </div>

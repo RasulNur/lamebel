@@ -94,15 +94,15 @@ export default function OverlapInput({
                 <Field
                     name={name}
                     className={classNames(
-                        inputClass,
                         "max-h-[250px] min-h-[100px]",
+                        inputClass,
                     )}
                     type="text"
                     placeholder=""
                     id={`overlap-input-${id}`}
                     disabled={disabled}
                     minLength={minLength}
-                    maxLength={maxLength}
+                    maxLength={255}
                     autoComplete="on"
                     as="textarea"
                 />

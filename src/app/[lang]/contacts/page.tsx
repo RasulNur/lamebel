@@ -7,6 +7,7 @@ import MapSection from "@/components/pages/home/mapSection/MapSection";
 import { getTexts } from "@/api/textsApi";
 import { getSettings } from "@/api/settingsApi";
 import PageHeader from "../../../components/ui/PageHeader";
+import Contacts from "@/components/pages/contacts/Contacts";
 
 export default async function HomePage({
     params: { lang },
@@ -27,8 +28,14 @@ export default async function HomePage({
                 }}
             />
 
+            <section>
+                <div className="container">
+                    <Contacts settings={settings} lang={lang} />
+                </div>
+            </section>
+
             <SectionWrapper>
-                <MapSection />
+                <MapSection settings={settings} />
             </SectionWrapper>
 
             <SectionWrapper>
