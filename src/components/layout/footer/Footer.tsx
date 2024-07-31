@@ -61,13 +61,15 @@ function Footer({ lang }: { lang: Lang }) {
                     </Link>
                     <div className="grid xl:grid-cols-4 sm:grid-cols-2 2xl:gap-[100px] gap-10 w-full">
                         {menus.map((menu) => {
-                            return <FooterList menu={menu} />;
+                            return <FooterList key={menu.id} menu={menu} />;
                         })}
                     </div>
                 </div>
 
                 <div className="flex sm:flex-row flex-col items-center justify-between gap-10 py-4 text-sm">
-                    <p>© 2024 lamebel.uz | Все права защищены</p>
+                    <p className="text-center">
+                        © 2024 lamebel.uz | Все права защищены
+                    </p>
 
                     <Link
                         href="https://inweb.uz/"

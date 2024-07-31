@@ -7,15 +7,13 @@ import ProductsSwiper from "@/components/ui/ProductsSwiper";
 import SectionWrapper from "@/components/layout/SectionWrapper";
 import HomeAdvantages from "@/components/pages/home/homeAdvantages/HomeAdvantages";
 import HomeAbout from "@/components/pages/home/homeAbout/HomeAbout";
-import HomeMap from "@/components/pages/home/homeMap/HomeMap";
 import NewsSwiper from "@/components/pages/home/newsSwiper/NewsSwiper";
 import ContactsSection from "@/components/ui/ContactsSection";
-import SectionHeader from "@/components/ui/SectionHeader";
-import VideoReviews from "@/components/pages/home/reviewsSwiper/ReviewsSwiper";
 import ReviewsSwiper from "@/components/pages/home/reviewsSwiper/ReviewsSwiper";
 import InstagramSwiper from "@/components/ui/InstagramSwiper";
 import SeoSection from "@/components/ui/SeoSection";
 import OffersSwiper from "@/components/pages/home/offersSwiper/OffersSwiper";
+import MapSection from "@/components/pages/home/mapSection/MapSection";
 
 export default async function HomePage({
     params: { lang },
@@ -57,7 +55,7 @@ export default async function HomePage({
             </SectionWrapper>
 
             <SectionWrapper>
-                <HomeMap />
+                <MapSection />
             </SectionWrapper>
 
             <SectionWrapper>

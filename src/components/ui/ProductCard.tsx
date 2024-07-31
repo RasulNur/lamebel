@@ -50,7 +50,7 @@ export default function ProductCard({ product }: { product: IProduct }) {
                     <div className="relative">
                         <Icon
                             name="tag"
-                            className="w-[56px] h-[24px] stroke-placeholder2"
+                            className="w-[56px] h-[24px] stroke-placeholder2 fill-none"
                         />
                         <span className="absolute left-[22px] top-1/2 -translate-y-1/2 text-[12px] font-medium text-placeholder2">
                             -15%

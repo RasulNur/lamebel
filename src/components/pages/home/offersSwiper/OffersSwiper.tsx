@@ -1,3 +1,5 @@
+"use client";
+
 import OfferCard from "@/components/ui/OfferCard";
 import SectionHeader from "@/components/ui/SectionHeader";
 import { Autoplay, Pagination } from "swiper/modules";
@@ -19,6 +21,21 @@ const offers = [
         title: "Мебель и товары для детской со скидками",
         img: "/images/offers/03.png",
     },
+    {
+        id: 3,
+        title: "Мебель и товары для детской со скидками",
+        img: "/images/offers/01.png",
+    },
+    {
+        id: 4,
+        title: "Мебель и товары для детской со скидками",
+        img: "/images/offers/02.png",
+    },
+    {
+        id: 5,
+        title: "Мебель и товары для детской со скидками",
+        img: "/images/offers/03.png",
+    },
 ];
 
 export default function OffersSwiper() {
@@ -32,15 +49,14 @@ export default function OffersSwiper() {
             <Swiper
                 slidesPerView={1.2}
                 speed={600}
-                spaceBetween={24}
+                spaceBetween={20}
                 autoplay={{ delay: 10000 }}
                 modules={[Autoplay, Pagination]}
                 className="swiper-with-grid products-swiper"
                 breakpoints={{
-                    370: { slidesPerView: 1.5 },
-                    520: { slidesPerView: 2 },
-                    768: { slidesPerView: 3 },
-                    1280: { slidesPerView: 4 },
+                    400: { slidesPerView: 1.5 },
+                    500: { slidesPerView: 2 },
+                    1024: { slidesPerView: 3, spaceBetween: 24 },
                 }}
                 pagination={{
                     clickable: true,
@@ -49,7 +65,9 @@ export default function OffersSwiper() {
                 }}>
                 {offers.map((offer) => {
                     return (
-                        <SwiperSlide key={offer.id} className="h-auto">
+                        <SwiperSlide
+                            key={offer.id}
+                            className="2xl:h-[600px] xl:h-[550px] sm:h-[450px] h-[350px]">
                             <OfferCard offer={offer} />
                         </SwiperSlide>
                     );

@@ -9,7 +9,7 @@ const links = [
 
 export default function HeaderCategories() {
     return (
-        <div className="sticky top-[97px] lg:block hidden bg-white z-[90]">
+        <div className="sticky xl:top-[100px] top-[97px] lg:block hidden bg-white z-[90] shadow-md">
             <div className="container py-2">
                 <div className="flex items-center gap-6">
                     {links.map((link) => {

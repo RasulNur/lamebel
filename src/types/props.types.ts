@@ -16,3 +16,15 @@ export interface IOverlapInputProps {
     minLength?: number;
     maxLength?: number;
 }
+
+export interface IBreadcrumbsProps {
+    breadcrumbs: BreadcrumbsType;
+}
+
+export type BreadcrumbsType = {
+    links: {
+        href: string;
+        title: string;
+    }[];
+    current: string;
+};

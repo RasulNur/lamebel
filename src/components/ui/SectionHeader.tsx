@@ -6,7 +6,7 @@ export default function SectionHeader({
     subtitle: string;
 }) {
     return (
-        <div className="flex flex-col gap-1 w-max">
+        <div className="flex flex-col gap-1">
             <h4 className="font-semibold lg:text-lg text-base leading-160 uppercase text-placeholder">
                 {subtitle}
             </h4>

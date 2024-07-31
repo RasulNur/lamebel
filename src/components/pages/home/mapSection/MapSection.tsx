@@ -1,6 +1,6 @@
 import SectionHeader from "@/components/ui/SectionHeader";
 
-export default function HomeMap() {
+export default function MapSection() {
     return (
         <div className="section-header-wrapper">
             <SectionHeader

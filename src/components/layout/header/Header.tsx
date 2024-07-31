@@ -8,7 +8,7 @@ import HeaderIcons from "./headerIcons/HeaderIcons";
 
 export default async function Header({ lang }: { lang: Lang }) {
     return (
-        <header className="sticky top-0 py-6 bg-white z-[90]">
+        <header className="sticky top-0 py-6 bg-white z-[90] lg:shadow-none shadow-md">
             <div className="container flex items-center justify-between gap-6">
                 <div className="flex items-center gap-6">
                     <Link href={"/"}>
