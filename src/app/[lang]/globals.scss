@@ -239,3 +239,35 @@ svg,
         }
     }
 }
+
+.auth-menu {
+    .auth-form-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+    }
+    .auth-title {
+        font-size: 20px;
+        font-weight: 600;
+        line-height: 110%;
+    }
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        fieldset {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .btns-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+    }
+}
+
+.vi__character {
+    border: 1px solid var(--main);
+}

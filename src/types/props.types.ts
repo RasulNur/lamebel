@@ -1,5 +1,10 @@
-import { SVGProps } from "react";
-import { InputNames, SetState, SpritesName } from "./types";
+import { FormEventHandler, SVGProps } from "react";
+import {
+    FulfillAfterOtpType,
+    InputNames,
+    SetState,
+    SpritesName,
+} from "./types";
 import { IMeta, Lang } from "./api/api.types";
 import { IProducts } from "./api/products.types";
 import {
@@ -105,4 +110,18 @@ export interface IMenuWrapperProps {
     menuContent: React.ReactNode;
     isOpen: boolean;
     closeModal: () => void;
+}
+export interface IOtpModalProps {
+    isOpen: boolean;
+    formPhone: string;
+    fulfillAfterOtp: FulfillAfterOtpType;
+    setIsOpen: SetState<boolean>;
+    lang: Lang;
+}
+export interface IOtpFormProps {
+    handleSubmit: FormEventHandler<HTMLFormElement>;
+    otp: string;
+    setOtp: SetState<string>;
+    formPhone: string;
+    lang: Lang;
 }

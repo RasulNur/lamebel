@@ -8,7 +8,7 @@ export default async function Header({ lang }: { lang: Lang }) {
     return (
         <header className="sticky top-0 z-[90] bg-white shadow-md">
             <HeaderTop lang={lang} settings={settings} />
-            <HeaderCategories />
+            <HeaderCategories settings={settings} />
         </header>
     );
 }

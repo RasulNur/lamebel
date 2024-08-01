@@ -12,6 +12,9 @@ export type SpritesName =
     | "tag"
     | "location"
     | "mail"
+    | "user"
+    | "eye-off"
+    | "eye"
     | "phone"
     | "filter"
     | "cart";
@@ -48,3 +51,7 @@ export interface ILangOption {
     lang: Lang;
     label: string;
 }
+
+export type AuthTab = "login" | "register" | "reset-password";
+
+export type FulfillAfterOtpType = ({ otp }: { otp: string }) => void;

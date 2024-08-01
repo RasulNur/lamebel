@@ -121,7 +121,7 @@ export default function OverlapInput({
             )}
 
             <label htmlFor={`overlap-input-${id}`}>{placeholder}</label>
-            {/* {(name === "password" ||
+            {(name === "password" ||
                 name === "confrim_password" ||
                 name === "new_password") && (
                 <button
@@ -137,7 +137,7 @@ export default function OverlapInput({
                         name={passwordType === "password" ? "eye-off" : "eye"}
                     />
                 </button>
-            )} */}
+            )}
             <ErrorMessage name={name}>
                 {(msg) => <p className="pl-1 text-xs text-red">{msg}</p>}
             </ErrorMessage>

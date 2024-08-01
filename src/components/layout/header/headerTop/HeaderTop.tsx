@@ -1,4 +1,3 @@
-import Icon from "@/components/ui/Icon";
 import Image from "next/image";
 import Link from "next/link";
 import { numberWithSpaces } from "@/utils/numberWithSpaces";
@@ -36,19 +35,6 @@ export default function HeaderTop({
                     <HeaderList lang={lang} />
                 </div>
                 <div className="flex items-center xl:gap-6 sm:gap-4 gap-2">
-                    {settings.telegram && (
-                        <Link
-                            href={settings.telegram}
-                            className="group bg-blue py-3 2xl:px-5 px-3 lg:flex-center hidden gap-3 text-white hover:text-blue hover:bg-transparent border-2 border-blue rounded-[30px] font-semibold text-sm">
-                            <Icon
-                                name="telegram"
-                                className="block fill-white group-hover:fill-blue"
-                            />
-                            <span className="2xl:inline-block hidden">
-                                Наш канал в телеграм
-                            </span>
-                        </Link>
-                    )}
                     {settings.phone && (
                         <Link
                             href={`tel:${settings.phone}`}
@@ -60,7 +46,8 @@ export default function HeaderTop({
                         </Link>
                     )}
 
-                    <HeaderIcons />
+                    <HeaderIcons lang={lang} />
+
                     <div className="2xl:hidden">
                         <HeaderMenu />
                     </div>
