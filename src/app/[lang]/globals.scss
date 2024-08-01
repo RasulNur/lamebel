@@ -213,3 +213,29 @@ svg,
         }
     }
 }
+
+.price-slider {
+    .rc-slider-track {
+        background-color: var(--main);
+    }
+    .rc-slider-handle {
+        border-color: var(--main);
+        background-color: var(--white);
+        width: 16px;
+        height: 16px;
+        top: 50%;
+        margin-top: 0;
+        transform: translate(-50%, -50%) !important;
+        opacity: 1;
+        transition: border 0.3s, box-shadow 0.3s, background-color 0.3s;
+        cursor: pointer;
+        &.rc-slider-handle-dragging,
+        &:hover {
+            border-color: var(--main) !important;
+            background-color: var(--main);
+        }
+        &.rc-slider-handle-dragging {
+            box-shadow: none !important;
+        }
+    }
+}

@@ -65,13 +65,13 @@ export default function HomeBanner() {
                                 {text("Подробнее")}
                             </button>
 
-                            <div className="absolute right-0 lg:top-1/2 lg:-translate-y-1/2 lg:bottom-auto sm:bottom-20 bottom-10 after:absolute lg:after:block after:hidden after:right-3 after:bottom-5 after:bg-white after:rounded-full xl:after:size-[494px] after:size-[420px] after:z-[0]">
+                            <div className="absolute right-0 lg:top-1/2 lg:-translate-y-1/2 lg:bottom-auto sm:bottom-20 bottom-10 after:absolute lg:after:block after:hidden after:right-3 after:bottom-5 after:bg-white after:rounded-full xl:after:size-[494px] after:size-[420px] after:z-[-2]">
                                 <Image
                                     src={slide.img}
                                     alt={slide.title}
                                     width={470}
                                     height={620}
-                                    className="xl:w-[470px] lg:w-[400px] md:w-[350px] sm:w-[300px] w-[220px] h-auto object-contain relative z-[1]"
+                                    className="xl:w-[470px] lg:w-[400px] md:w-[350px] sm:w-[300px] w-[220px] h-auto object-contain relative z-[-1]"
                                 />
                             </div>
                         </div>

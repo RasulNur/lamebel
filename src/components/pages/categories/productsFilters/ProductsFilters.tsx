@@ -6,7 +6,7 @@ import FilterPrice from "../filterPrice/FilterPrice";
 import ParentCategory from "../parentCategory/ParentCategory";
 import { ICategoriesFiltersProps } from "@/types/props.types";
 
-export default async function ProductsFilters({
+export default function ProductsFilters({
     attributes,
     categoryBrands,
     price,
@@ -14,7 +14,7 @@ export default async function ProductsFilters({
     parentCategory,
 }: ICategoriesFiltersProps) {
     return (
-        <div className="pb-6 pt-4 pr-6 lg:flex hidden flex-col gap-10">
+        <div className="flex flex-col gap-10 grow h-full">
             <ParentCategory parentCategory={parentCategory} />
 
             {subCategories.data.length > 0 && (

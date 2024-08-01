@@ -1,5 +1,6 @@
 import { FormikState } from "formik";
 import { Dispatch, SetStateAction } from "react";
+import { Lang } from "./api/api.types";
 
 export type SpritesName =
     | "telegram"
@@ -41,4 +42,9 @@ export type OrderBy = "created_at" | "price" | "views" | "rating" | "discount";
 export interface IUseLimitParams {
     data: any[];
     limitNumber: number;
+}
+export interface ILangOption {
+    id: number;
+    lang: Lang;
+    label: string;
 }

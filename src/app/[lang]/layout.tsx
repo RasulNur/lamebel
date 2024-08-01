@@ -34,7 +34,7 @@ export default function RootLayout({
                     <ContextProviders lang={lang}>
                         <div className="min-h-screen h-full flex flex-col justify-between">
                             <Header lang={lang} />
-                            <HeaderCategories />
+
                             <main className="grow h-full">{children}</main>
                             <Footer lang={lang} />
                         </div>

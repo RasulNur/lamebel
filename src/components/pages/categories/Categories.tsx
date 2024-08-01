@@ -24,13 +24,15 @@ export default async function Categories({
 
     return (
         <div className="products-grid-wrapper">
-            <ProductsFilters
-                subCategories={subCategories}
-                categoryBrands={categoryBrands}
-                price={price}
-                attributes={attributes}
-                parentCategory={parentCategory}
-            />
+            <div className="lg:block hidden pb-6 pt-4 pr-6">
+                <ProductsFilters
+                    subCategories={subCategories}
+                    categoryBrands={categoryBrands}
+                    price={price}
+                    attributes={attributes}
+                    parentCategory={parentCategory}
+                />
+            </div>
 
             <div className="flex flex-col gap-7">
                 <div className="flex items-center justify-between">

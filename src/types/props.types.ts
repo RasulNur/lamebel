@@ -99,3 +99,10 @@ export interface IProductsFiltersMenuProps {
     attributes: ICategoryAttributes;
     parentCategory: ISingleCategory | string;
 }
+
+export interface IMenuWrapperProps {
+    menuBtn: React.ReactNode;
+    menuContent: React.ReactNode;
+    isOpen: boolean;
+    closeModal: () => void;
+}

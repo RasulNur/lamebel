@@ -18,7 +18,7 @@ export default function Attribute({
     });
     const { text } = useText();
     const [isOpen, setIsOpen] = useState<boolean>(true);
-    console.log({ attribute });
+
     return (
         <div>
             <HideFilter
