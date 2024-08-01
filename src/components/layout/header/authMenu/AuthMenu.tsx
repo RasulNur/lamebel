@@ -22,9 +22,9 @@ export default function AuthMenu({ lang }: { lang: Lang }) {
     }
 
     return (
-        <div>
+        <>
             {token ? (
-                <Link href="/profile" className="group p-2">
+                <Link href="/dashboard/profile" className="group p-2">
                     <Icon
                         name="user"
                         className="stroke-primary group-hover:stroke-main size-5"
@@ -47,6 +47,6 @@ export default function AuthMenu({ lang }: { lang: Lang }) {
                     }
                 />
             )}
-        </div>
+        </>
     );
 }

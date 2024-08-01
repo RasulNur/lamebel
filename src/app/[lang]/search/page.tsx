@@ -39,7 +39,10 @@ export default async function SearchPage({
 
             <section className="mt-5 last-section-margin">
                 <div className="container">
-                    <Search products={products} />
+                    <Search
+                        products={products}
+                        keyword={searchParams.keyword}
+                    />
                 </div>
             </section>
         </>

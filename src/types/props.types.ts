@@ -1,6 +1,8 @@
 import { FormEventHandler, SVGProps } from "react";
 import {
+    DashboardRoutes,
     FulfillAfterOtpType,
+    IDashboardTab,
     InputNames,
     SetState,
     SpritesName,
@@ -124,4 +126,9 @@ export interface IOtpFormProps {
     setOtp: SetState<string>;
     formPhone: string;
     lang: Lang;
+}
+
+export interface IDashboardLinkProps {
+    tab: IDashboardTab;
+    activeRoute: DashboardRoutes;
 }

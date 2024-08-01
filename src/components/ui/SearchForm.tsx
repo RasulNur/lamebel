@@ -5,14 +5,14 @@ import { useText } from "@/context/text.context";
 import { useRouter } from "next/navigation";
 import { FormEventHandler, useState } from "react";
 
-export default function SearchForm() {
+export default function SearchForm({ keyword = "" }: { keyword?: string }) {
     const { push } = useRouter();
-    const [value, setValue] = useState<string>("");
+    const params = new URLSearchParams("");
+    const [value, setValue] = useState<string>(keyword);
     const { text } = useText();
     const handleSubmit: FormEventHandler<HTMLFormElement> = (e) => {
         e.preventDefault();
 
-        const params = new URLSearchParams("");
         params.set("keyword", value);
 
         push(`/search?${params.toString()}`, { scroll: false });
@@ -24,6 +24,7 @@ export default function SearchForm() {
             <div className="overlap-input">
                 <input
                     value={value}
+                    className="!py-[14.5px]"
                     onChange={(e) => setValue(e.target.value)}
                     type="text"
                     minLength={3}

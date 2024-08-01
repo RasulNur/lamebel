@@ -4,8 +4,9 @@ import MenuWrapper from "@/components/ui/MenuWrapper";
 import { useState } from "react";
 import Icon from "@/components/ui/Icon";
 import HeaderMenuContent from "./headerMenuContent/HeaderMenuContent";
+import { ISingleMenu } from "@/types/api/menus.types";
 
-export default function HeaderMenu() {
+export default function HeaderMenu({ menu }: { menu?: ISingleMenu }) {
     let [isOpen, setIsOpen] = useState(false);
 
     function closeModal() {
@@ -32,7 +33,9 @@ export default function HeaderMenu() {
                         <span className="2xl:inline-block hidden">Каталог</span>
                     </button>
                 }
-                menuContent={<HeaderMenuContent closeModal={closeModal} />}
+                menuContent={
+                    <HeaderMenuContent menu={menu} closeModal={closeModal} />
+                }
             />
         </>
     );

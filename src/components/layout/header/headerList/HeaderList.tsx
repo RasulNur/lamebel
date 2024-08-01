@@ -1,10 +1,7 @@
-import { getMenu } from "@/api/menusApi";
-import { Lang } from "@/types/api/api.types";
+import { ISingleMenu } from "@/types/api/menus.types";
 import Link from "next/link";
 
-export default async function HeaderList({ lang }: { lang: Lang }) {
-    const menu = await getMenu({ menuId: 2, lang });
-
+export default function HeaderList({ menu }: { menu: ISingleMenu }) {
     return (
         <ul className="2xl:flex hidden items-center gap-6">
             {menu.data.menuItems.map((link) => {

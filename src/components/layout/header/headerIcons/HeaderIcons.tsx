@@ -4,14 +4,28 @@ import LangDropdown from "../langDropdown/LangDropdown";
 import AuthMenu from "../authMenu/AuthMenu";
 import { Lang } from "@/types/api/api.types";
 
-export default function HeaderIcons({ lang }: { lang: Lang }) {
+import { SetState } from "@/types/types";
+
+export default function HeaderIcons({
+    lang,
+    setIsSearchOpen,
+}: {
+    lang: Lang;
+    setIsSearchOpen: SetState<boolean>;
+}) {
     let svgClassnames = "stroke-primary group-hover:stroke-main size-5";
     return (
         <div className="flex items-center gap-2">
             <LangDropdown />
 
-            <button type="button" className="group p-2 md:block hidden">
-                <Icon name="loupe" className={svgClassnames} />
+            <button
+                type="button"
+                className="2xl:flex hidden group p-2"
+                onClick={() => setIsSearchOpen((prev) => !prev)}>
+                <Icon
+                    name="loupe"
+                    className="stroke-primary group-hover:stroke-main size-5"
+                />
             </button>
 
             <Link href="/cart" className="group p-2">

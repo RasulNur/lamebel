@@ -17,6 +17,7 @@ export type SpritesName =
     | "eye"
     | "phone"
     | "filter"
+    | "exit"
     | "cart";
 
 export type SetState<T> = Dispatch<SetStateAction<T>>;
@@ -55,3 +56,12 @@ export interface ILangOption {
 export type AuthTab = "login" | "register" | "reset-password";
 
 export type FulfillAfterOtpType = ({ otp }: { otp: string }) => void;
+
+export type DashboardRoutes = "orders" | "profile" | "addresses";
+
+export interface IDashboardTab {
+    id: number;
+    title: string;
+    iconName: SpritesName;
+    route: DashboardRoutes;
+}

@@ -42,6 +42,7 @@ export default function HomeBanner() {
             // }}
             navigation={{
                 hiddenClass: "!hidden",
+                disabledClass: "pointer-events-none",
                 nextEl: ".swiper-next",
                 prevEl: ".swiper-prev",
             }}>
@@ -81,16 +82,16 @@ export default function HomeBanner() {
             <div className="absolute left-0 top-0 size-full">
                 <div className="container size-full flex items-end">
                     <div className="relative z-[2] w-max">
-                        <button className="md:p-5 p-4 bg-white swiper-prev">
+                        <button className="group md:p-5 p-4 bg-white swiper-prev">
                             <Icon
                                 name="chevron"
-                                className="stroke-primary md:size-5 rotate-180"
+                                className="stroke-primary group-hover:stroke-main md:size-5 rotate-180"
                             />
                         </button>
-                        <button className="md:p-5 p-4 bg-white swiper-next">
+                        <button className="group md:p-5 p-4 bg-white swiper-next">
                             <Icon
                                 name="chevron"
-                                className="stroke-primary md:size-5"
+                                className="stroke-primary group-hover:stroke-main md:size-5"
                             />
                         </button>
                     </div>

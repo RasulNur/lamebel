@@ -33,14 +33,13 @@ export default function HeaderCategories({
                 {settings.telegram && (
                     <Link
                         href={settings.telegram}
-                        className="group bg-blue py-3 2xl:px-5 px-3 lg:flex-center hidden gap-3 text-white hover:text-blue hover:bg-transparent border-2 border-blue rounded-[30px] font-semibold text-sm">
+                        className="group bg-blue py-[10px] 2xl:px-5 px-3 lg:flex-center hidden gap-3 text-white hover:text-blue hover:bg-transparent border-2 border-blue rounded-[30px] font-semibold text-sm">
                         <Icon
                             name="telegram"
                             className="block fill-white group-hover:fill-blue"
                         />
-                        <span className="2xl:inline-block hidden">
-                            Наш канал в телеграм
-                        </span>
+                        {/* <span className="2xl:inline-block hidden"> */}
+                        <span>Наш канал в телеграм</span>
                     </Link>
                 )}
             </div>
