@@ -5,7 +5,7 @@ export default function FooterBottom() {
     return (
         <div className="flex sm:flex-row flex-col items-center justify-between gap-10 py-4 text-sm">
             <p className="text-center">
-                © 2024 lamebel.uz | Все права защищены
+                © {new Date().getFullYear()} lamebel.uz | Все права защищены
             </p>
 
             <Link

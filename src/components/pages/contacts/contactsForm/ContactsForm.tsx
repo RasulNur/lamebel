@@ -1,6 +1,7 @@
 "use client";
 
 import { sendFeedback } from "@/api/contactsApi";
+import OvalSpinner from "@/components/ui/OvalSpinner";
 import OverlapInput from "@/components/ui/OverlapInput";
 import { useText } from "@/context/text.context";
 import useValidation from "@/hooks/useValidation";
@@ -75,7 +76,13 @@ export default function ContactsForm({ lang }: { lang: Lang }) {
                                 disabled={isSubmitting}
                             />
                         </div>
-                        <button className="main-btn">
+                        <button
+                            className="main-btn"
+                            disabled={isSubmitting}
+                            type="submit">
+                            {isSubmitting && (
+                                <OvalSpinner size={16} type="second" />
+                            )}
                             {text("Отправить")}
                         </button>
                     </Form>

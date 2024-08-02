@@ -9,6 +9,7 @@ import { ISubmitFormFuncParams } from "@/types/types";
 import { sendFeedback } from "@/api/contactsApi";
 import { Lang } from "@/types/api/api.types";
 import { useText } from "@/context/text.context";
+import OvalSpinner from "./OvalSpinner";
 
 const initialValues: IContactsForm = {
     name: "",
@@ -82,7 +83,13 @@ export default function ContactsSection({ lang }: { lang: Lang }) {
                                 disabled={isSubmitting}
                             />
                         </div>
-                        <button className="main-btn">
+                        <button
+                            className="main-btn"
+                            disabled={isSubmitting}
+                            type="submit">
+                            {isSubmitting && (
+                                <OvalSpinner size={16} type="second" />
+                            )}
                             {text("Отправить")}
                         </button>
                     </Form>

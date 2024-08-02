@@ -2,6 +2,8 @@ import Link from "next/link";
 import Icon from "./Icon";
 import Image from "next/image";
 import { IProduct } from "@/types/api/products.types";
+import WishlistButton from "./WishlistButton";
+import CartButton from "./CartButton";
 
 const colors = [
     { id: 0, color: "#FF53E8" },
@@ -14,7 +16,7 @@ export default function ProductCard({ product }: { product: IProduct }) {
         <div className="flex flex-col gap-3 h-full relative">
             <Link
                 href={`/product/${product.id}-${product.slug}`}
-                className="p-4 flex-center">
+                className="p-4 flex-center bg-white">
                 <Image
                     src={product.img}
                     alt={product.name}
@@ -23,13 +25,10 @@ export default function ProductCard({ product }: { product: IProduct }) {
                     className="md:size-[250px] size-[200px] object-contain object-center"
                 />
             </Link>
-
-            <button className="p-2 group absolute right-3 top-3 w-fit">
-                <Icon
-                    name="heart"
-                    className="stroke-primary group-hover:stroke-red size-5"
-                />
-            </button>
+            <WishlistButton
+                product={product}
+                className="absolute right-3 top-3"
+            />
 
             <div className="flex flex-col gap-4 grow h-full">
                 <Link
@@ -73,7 +72,7 @@ export default function ProductCard({ product }: { product: IProduct }) {
                 </div>
             </div>
 
-            <button className="main-btn w-full py-[10px]">В корзину</button>
+            <CartButton product={product} className="w-full" />
         </div>
     );
 }

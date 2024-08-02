@@ -63,6 +63,10 @@ module.exports = {
                     DEFAULT: "var(--gray4)",
                 },
 
+                gray5: {
+                    DEFAULT: "var(--gray5)",
+                },
+
                 main: {
                     DEFAULT: "var(--main)",
                     5: "var(--main-5)",

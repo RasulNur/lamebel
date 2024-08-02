@@ -1,11 +1,10 @@
 import { getTexts } from "@/api/textsApi";
+import Wishlist from "@/components/pages/wishlist/Wishlist";
+import PageHeader from "@/components/ui/PageHeader";
 import { Lang } from "@/types/api/api.types";
 import { Metadata } from "next";
-import PageHeader from "@/components/ui/PageHeader";
-import DashboardTabs from "@/components/pages/dashboard/DashboardTabs";
-import Addresses from "@/components/pages/addresses/Addresses";
 
-export default async function AddressesPage({
+export default async function WishlistPage({
     params: { lang },
 }: {
     params: { lang: Lang };
@@ -15,16 +14,18 @@ export default async function AddressesPage({
     return (
         <>
             <PageHeader
+                title={text("Избранное")}
                 breadcrumbs={{
                     links: [{ href: "/", title: text("Главная") }],
-                    current: "Manzillar",
+                    current: text("Избранное"),
                 }}
-                title="Manzillar"
             />
 
-            <DashboardTabs activeRoute="addresses" lang={lang}>
-                <Addresses lang={lang} />
-            </DashboardTabs>
+            <section className="mt-5 last-section-margin">
+                <div className="container">
+                    <Wishlist />
+                </div>
+            </section>
         </>
     );
 }
@@ -36,8 +37,8 @@ export async function generateMetadata({
 }): Promise<Metadata> {
     const { text } = await getTexts({ lang });
     return {
-        title: "Адреса",
-        description: "Адреса",
-        keywords: "Адреса",
+        title: text("Избранное"),
+        description: text("Избранное"),
+        keywords: text("Избранное"),
     };
 }

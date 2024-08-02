@@ -4,6 +4,7 @@ import { Lang } from "./api/api.types";
 
 export type SpritesName =
     | "telegram"
+    | "check"
     | "menu"
     | "x"
     | "heart"
@@ -18,6 +19,9 @@ export type SpritesName =
     | "phone"
     | "filter"
     | "exit"
+    | "minus"
+    | "trash"
+    | "plus"
     | "cart";
 
 export type SetState<T> = Dispatch<SetStateAction<T>>;
@@ -38,6 +42,7 @@ export interface ISubmitFormFuncParams<FormValues> {
     resetForm: (
         nextState?: Partial<FormikState<FormValues>> | undefined,
     ) => void;
+    setSubmitting?: (isSubmitting: boolean) => void;
 }
 export type SortDirectionType = "asc" | "desc";
 
@@ -65,3 +70,6 @@ export interface IDashboardTab {
     iconName: SpritesName;
     route: DashboardRoutes;
 }
+
+export type PaymentMethodType = "cash" | "card" | "installment" | "alifnasiya";
+export type ShippingMethodType = "free" | "pickup";

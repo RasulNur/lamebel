@@ -2,6 +2,9 @@ import { getProfile } from "@/api/profileApi";
 import { getCookies } from "next-client-cookies/server";
 import { getTexts } from "@/api/textsApi";
 import { Lang } from "@/types/api/api.types";
+import UpdateProfile from "./updateProfile/UpdateProfile";
+import UpdatePhone from "./updatePhone/UpdatePhone";
+import UpdatePassword from "./updatePassword/UpdatePassword";
 
 export default async function Profile({ lang }: { lang: Lang }) {
     const cookies = getCookies();
@@ -14,19 +17,19 @@ export default async function Profile({ lang }: { lang: Lang }) {
                 <h3 className="font-medium text-lg text-center leading-130 mb-4 w-max">
                     {text("Ваши данные")}
                 </h3>
-                {/* {typeof profile !== "string" && (
+                {typeof profile !== "string" && (
                     <>
                         <UpdateProfile profile={profile} lang={lang} />
                     </>
-                )} */}
+                )}
             </div>
-            {/* {typeof profile !== "string" && (
+            {typeof profile !== "string" && (
                 <>
                     <UpdatePhone profile={profile} lang={lang} />
                 </>
-            )} */}
+            )}
 
-            {/* <UpdatePassword lang={lang} /> */}
+            <UpdatePassword lang={lang} />
         </div>
     );
 }

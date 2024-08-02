@@ -3,6 +3,9 @@ import { Lang } from "@/types/api/api.types";
 import { Metadata } from "next";
 import PageHeader from "@/components/ui/PageHeader";
 import DashboardTabs from "@/components/pages/dashboard/DashboardTabs";
+import { getCookies } from "next-client-cookies/server";
+import { getOrders } from "@/api/orderApi";
+import Orders from "../../../../components/pages/orders/Orders";
 
 export default async function OrdersPage({
     params: { lang },
@@ -10,6 +13,8 @@ export default async function OrdersPage({
     params: { lang: Lang };
 }) {
     const { text } = await getTexts({ lang });
+    const cookies = getCookies();
+    const orders = await getOrders({ token: cookies.get("token"), lang });
 
     return (
         <>
@@ -22,7 +27,7 @@ export default async function OrdersPage({
             />
 
             <DashboardTabs activeRoute="orders" lang={lang}>
-                {/* <Orders lang={lang} /> */}
+                {typeof orders !== "string" && <Orders orders={orders} />}
             </DashboardTabs>
         </>
     );

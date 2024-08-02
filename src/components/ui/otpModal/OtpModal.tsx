@@ -35,7 +35,9 @@ function OtpModal({
                     otp: Number(otp),
                     phone_number: formattedPhone,
                 },
-            }).then(() => fulfillAfterOtp({ otp }));
+            }).then(() => {
+                fulfillAfterOtp({ otp });
+            });
         } catch (err) {
             throw err;
         }

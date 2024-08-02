@@ -1,11 +1,12 @@
 import { getTexts } from "@/api/textsApi";
+import Cart from "@/components/pages/cart/Cart";
+import CartTotal from "@/components/pages/cart/CartTotal";
+import CartWrapper from "@/components/ui/CartWrapper";
+import PageHeader from "@/components/ui/PageHeader";
 import { Lang } from "@/types/api/api.types";
 import { Metadata } from "next";
-import PageHeader from "@/components/ui/PageHeader";
-import DashboardTabs from "@/components/pages/dashboard/DashboardTabs";
-import Addresses from "@/components/pages/addresses/Addresses";
 
-export default async function AddressesPage({
+export default async function CartPage({
     params: { lang },
 }: {
     params: { lang: Lang };
@@ -15,16 +16,14 @@ export default async function AddressesPage({
     return (
         <>
             <PageHeader
+                title={text("Корзина")}
                 breadcrumbs={{
                     links: [{ href: "/", title: text("Главная") }],
-                    current: "Manzillar",
+                    current: text("Корзина"),
                 }}
-                title="Manzillar"
             />
 
-            <DashboardTabs activeRoute="addresses" lang={lang}>
-                <Addresses lang={lang} />
-            </DashboardTabs>
+            <CartWrapper content={<Cart />} sidebar={<CartTotal />} />
         </>
     );
 }
@@ -36,8 +35,8 @@ export async function generateMetadata({
 }): Promise<Metadata> {
     const { text } = await getTexts({ lang });
     return {
-        title: "Адреса",
-        description: "Адреса",
-        keywords: "Адреса",
+        title: text("Корзина"),
+        description: text("Корзина"),
+        keywords: text("Корзина"),
     };
 }

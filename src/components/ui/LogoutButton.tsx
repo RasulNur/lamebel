@@ -6,18 +6,24 @@ import { useRouter } from "next/navigation";
 import Icon from "./Icon";
 import { useText } from "@/context/text.context";
 import { Lang } from "@/types/api/api.types";
+import { useState } from "react";
+import OvalSpinner from "./OvalSpinner";
 
 export default function LogoutButton({ lang }: { lang: Lang }) {
     const cookies = useCookies();
     let token = cookies.get("token");
     const { refresh, replace } = useRouter();
     const { text } = useText();
+    const [isLoading, setIsLoading] = useState<boolean>(false);
     const handleLogout = () => {
         if (typeof token !== "undefined") {
-            logout({ token, lang }).then(() => {
-                replace("/");
-                refresh();
-            });
+            setIsLoading(true);
+            logout({ token, lang })
+                .then(() => {
+                    replace("/");
+                    refresh();
+                })
+                .finally(() => setIsLoading(false));
         }
     };
     return (
@@ -27,7 +33,12 @@ export default function LogoutButton({ lang }: { lang: Lang }) {
                 "flex items-center gap-3 font-medium group hover:text-main py-2 w-full"
             }
             onClick={handleLogout}>
-            <Icon name="exit" className={"group-hover:fill-main !size-6"} />
+            {isLoading ? (
+                <OvalSpinner size={24} type="second" />
+            ) : (
+                <Icon name="exit" className={"group-hover:fill-main !size-6"} />
+            )}
+
             {text("Выйти")}
         </button>
     );

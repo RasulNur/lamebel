@@ -43,7 +43,7 @@ export default function DashboardTabs({
     return (
         <section className="mt-5 last-section-margin">
             <div className="container">
-                <div className="products-grid-wrapper">
+                <div className="products-grid-wrapper lg:gap-5 gap-10">
                     <div className="flex flex-col gap-4">
                         {dashboardTabs.map((tab) => {
                             return (

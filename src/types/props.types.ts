@@ -8,7 +8,7 @@ import {
     SpritesName,
 } from "./types";
 import { IMeta, Lang } from "./api/api.types";
-import { IProducts } from "./api/products.types";
+import { IProduct, IProducts } from "./api/products.types";
 import {
     ICategories,
     ICategoryAttributes,
@@ -16,6 +16,11 @@ import {
     IPrices,
     ISingleCategory,
 } from "./api/categories.types";
+import { IProfile } from "./api/profile.types";
+import { IUpdatePhoneForm } from "./form.types";
+import { FormikState, FormikValues } from "formik";
+import { IPaymentMethods, IShippingMethods } from "./api/checkoutMethods.types";
+import { IAddress, IAddresses } from "./api/address.types";
 
 export interface IIconProps
     extends Omit<SVGProps<SVGSVGElement>, "name" | "type"> {
@@ -131,4 +136,62 @@ export interface IOtpFormProps {
 export interface IDashboardLinkProps {
     tab: IDashboardTab;
     activeRoute: DashboardRoutes;
+}
+export interface IUpdateProfileProps {
+    profile: IProfile;
+    lang: Lang;
+}
+
+export interface IUpdatePhoneProps {
+    profile: IProfile;
+    lang: Lang;
+}
+export interface IUpdatePhoneFormProps {
+    setIsOtpModalOpen: SetState<boolean>;
+    isOtpModalOpen: boolean;
+    values: IUpdatePhoneForm;
+    fulfillAfterOtp: ({ otp }: { otp: string }) => void;
+    lang: Lang;
+    isSubmitting: boolean;
+}
+export interface IUpdatePasswordForm {
+    password: string;
+    new_password: string;
+    confrim_password: string;
+}
+export interface IWishlistButtonProps {
+    product: IProduct;
+    className?: string;
+}
+export interface ICartButtonProps {
+    className?: string;
+    product: IProduct;
+    quantity?: number;
+}
+
+export interface IQuantityProps {
+    productQuantity: number;
+    product: IProduct;
+    setQuantity?: SetState<number>;
+}
+
+export interface ICheckoutProps {
+    paymentMethods: IPaymentMethods;
+    shippingMethods: IShippingMethods;
+    addresses: IAddresses;
+}
+
+export interface ICheckoutFormProps {
+    paymentMethods: IPaymentMethods;
+    shippingMethods: IShippingMethods;
+    addresses: IAddresses;
+}
+export interface IRadioInputProps {
+    name: string;
+    value: string;
+    title: string;
+}
+export interface IAddressCardProps {
+    address: IAddress;
+    lang: Lang;
 }
