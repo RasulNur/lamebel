@@ -265,18 +265,21 @@ export const CartProvider = ({ children, lang }: ICardProvideProps) => {
         }
     };
 
-    const checkout = ({ body, setIsLoading }: ICartCheckout) => {
+    const checkout = ({
+        body,
+    }: // setIsLoading
+    ICartCheckout) => {
         const {
             address_id,
             name,
             payment_method_id,
             phone_number,
             shipping_method_id,
-            email,
+            // email,
             message,
         } = body;
         if (token) {
-            setIsLoading(true);
+            // setIsLoading(true);
             createOrder({
                 token,
                 body: {
@@ -285,20 +288,20 @@ export const CartProvider = ({ children, lang }: ICardProvideProps) => {
                     payment_method_id,
                     phone_number,
                     shipping_method_id,
-                    email,
+                    // email,
                     message,
                 },
                 lang,
-            })
-                .then((data) => {
-                    getCart({ token, lang }).then((data) => {
-                        if (typeof data !== "string") {
-                            setApiCart(data);
-                        }
-                    });
-                    replace(`/order/${data.data.id}`);
-                })
-                .finally(() => setIsLoading(false));
+            }).then((data) => {
+                getCart({ token, lang }).then((data) => {
+                    if (typeof data !== "string") {
+                        setApiCart(data);
+                    }
+                });
+                replace(`/dashboard/orders`);
+                toast.success("Заказ оформлен успешно");
+            });
+            // .finally(() => setIsLoading(false));
         }
     };
 

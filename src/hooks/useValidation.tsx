@@ -12,13 +12,19 @@ export default function useValidation() {
     const isPhoneText = text("Неправильный формат номера телефона");
     const passwordMatchText = text("Пароли должны совпадать друг с другом");
     const maxLength255Text = text("Нужно ввести не более 255 символов");
-    const maxLength25Text = "Максимум 25 символа";
-    const minLengthText = "Минимум 3 символа";
+    const maxLength50000Text = "Нужно ввести не более 5000 символов";
+    const maxLength25Text = "Нужно ввести не более 25 символов";
+    const minLengthText = "Нужно ввести минимум 3 символа";
 
     const nameValidation = Yup.string()
         .required(requiredText)
         .min(MIN_LENGTH, minLengthText)
         .max(MAX_LENGTH, maxLength25Text);
+
+    const addressValidation = Yup.string()
+        .required(requiredText)
+        .min(MIN_LENGTH, minLengthText)
+        .max(50000, maxLength50000Text);
 
     const messageValidation = Yup.string()
         .required(requiredText)
@@ -56,8 +62,8 @@ export default function useValidation() {
     const checkoutValidationSchema = Yup.object({
         name: nameValidation,
         phone_number: phoneValidation,
-        pin: pinValidation,
-        expiry: expiryValidation,
+        // pin: pinValidation,
+        // expiry: expiryValidation,
         message: messageValidation,
         payment_method: paymentRadioValidation,
         shipping_method: shippingRadioValidation,
@@ -93,6 +99,9 @@ export default function useValidation() {
         phone_number: phoneValidation,
         message: messageValidation,
     });
+    const addressValidationSchema = Yup.object({
+        address: addressValidation,
+    });
 
     return {
         checkoutValidationSchema,
@@ -103,5 +112,6 @@ export default function useValidation() {
         updateProfileValidationSchema,
         updatePhoneValidationSchema,
         contactsValidationSchema,
+        addressValidationSchema,
     };
 }

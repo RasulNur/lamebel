@@ -8,6 +8,7 @@ import { useState } from "react";
 import OvalSpinner from "./OvalSpinner";
 import { useText } from "@/context/text.context";
 import { IAddressCardProps } from "@/types/props.types";
+import AddressModal from "./AddressModal";
 
 export default function AddressCard({ address, lang }: IAddressCardProps) {
     const cookies = useCookies();
@@ -48,15 +49,17 @@ export default function AddressCard({ address, lang }: IAddressCardProps) {
                         </address>
                     )}
                 </div>
-                <div className="flex items-center gap-4">
-                    <Link
-                        href={`/dashboard/addresses/update/${address.id}?lat=${address.latitude}&lng=${address.longitude}`}
-                        className="text-sm leading-110 hover:text-main">
-                        {text("Изменить")}
-                    </Link>
+                <div className="flex items-center gap-6">
+                    <AddressModal
+                        currentAddress={address}
+                        lang={lang}
+                        type="update"
+                        btnClassname="text-sm leading-110 hover:text-main py-2"
+                    />
+
                     <button
                         disabled={isLoading}
-                        className="flex-center gap-[5px] text-sm leading-110 hover:enabled:text-main"
+                        className="flex-center gap-1 text-sm leading-110 hover:text-main py-2"
                         onClick={handleDelete}>
                         {isLoading && <OvalSpinner size={14} />}
                         {text("Удалить")}

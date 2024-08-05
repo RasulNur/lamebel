@@ -35,3 +35,6 @@ export interface ICheckoutForm {
     message: string;
     address_id: string;
 }
+export interface IAddressForm {
+    address: string;
+}

@@ -33,7 +33,7 @@ export default function HeaderTop({
                             title="Lamebel"
                             width={248}
                             height={48}
-                            className="lg:min-w-[248px] md:min-w-[200px] sm:min-w-[160px] min-w-[120px] h-auto"
+                            className="lg:min-w-[248px] lg:w-[248px] md:min-w-[200px] md:w-[200px] sm:min-w-[160px] sm:w-[160px] min-w-[120px] w-[120px] h-auto"
                         />
                     </Link>
                     <div className="2xl:block hidden">

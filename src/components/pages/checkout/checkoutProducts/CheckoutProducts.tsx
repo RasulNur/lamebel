@@ -8,7 +8,7 @@ export default function CheckoutProducts() {
     const token = cookies.get("token");
 
     return (
-        <div className="">
+        <div className="max-h-[400px] overflow-y-auto pr-2">
             {((token && apiCart.items && apiCart.items.length > 0) ||
                 (!token && localCartQuantity > 0)) && (
                 <div className="grid gap-10">

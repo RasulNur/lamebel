@@ -112,9 +112,12 @@ module.exports = {
                 ".swiper-with-grid": {
                     "@apply w-full max-w-full max-h-screen min-h-0 min-w-0": {},
                 },
-
+                ".custom-btn": {
+                    "@apply flex-center gap-4 border-2 border-transparent py-4 px-6 rounded-[32px] min-w-[160px] w-max":
+                        {},
+                },
                 ".main-btn": {
-                    "@apply flex-center gap-4 bg-main border-main border-2 text-white hover:bg-transparent hover:text-main py-4 px-6 rounded-[32px] min-w-[160px] w-max":
+                    "@apply custom-btn bg-main border-main text-white hover:bg-transparent hover:text-main":
                         {},
                 },
                 ".common-products-grid": {

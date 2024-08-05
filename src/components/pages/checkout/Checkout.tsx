@@ -19,13 +19,22 @@ export default function Checkout({
     paymentMethods,
     shippingMethods,
     addresses,
+    lang,
 }: ICheckoutProps) {
     const initialValues: ICheckoutForm = {
         name: "",
         phone_number: "",
         payment_method: "cash",
         shipping_method: "pickup",
-        address_id: "",
+        address_id:
+            addresses.data.length > 0
+                ? addresses.data.filter((el) => el.is_default === 1).length > 0
+                    ? String(
+                          addresses.data.filter((el) => el.is_default === 1)[0]
+                              .id,
+                      )
+                    : String(addresses.data[0].id)
+                : "",
         message: "",
     };
 
@@ -57,6 +66,7 @@ export default function Checkout({
             (!token && cart && cart.length == 0)
         ) {
             toast.error(text("В корзине пока ничего нет"));
+            resetForm();
             replace("/");
         }
 
@@ -79,7 +89,7 @@ export default function Checkout({
                     address_id: Number(address_id),
                 },
 
-                setIsLoading,
+                // setIsLoading,
             });
 
             resetForm();
@@ -93,14 +103,16 @@ export default function Checkout({
             onSubmit={(values, { resetForm }) =>
                 handleSubmit({ values, resetForm })
             }>
-            {() => (
+            {({ isSubmitting, setFieldValue }) => (
                 <Form className="grid lg:grid-cols-[1fr,400px] gap-10">
                     <CheckoutForm
+                        lang={lang}
                         addresses={addresses}
                         paymentMethods={paymentMethods}
                         shippingMethods={shippingMethods}
+                        setFieldValue={setFieldValue}
                     />
-                    <CheckoutTotal isLoading={isLoading} />
+                    <CheckoutTotal isSubmitting={isSubmitting} />
                 </Form>
             )}
         </Formik>

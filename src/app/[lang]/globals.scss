@@ -271,3 +271,18 @@ svg,
 .vi__character {
     border: 1px solid var(--main);
 }
+
+.product-gallery-item {
+    grid-column: span 2;
+
+    &:last-child,
+    &:nth-last-child(2) {
+        grid-column: span 1;
+        @media (max-width: 1535px) {
+            min-height: 370px;
+        }
+        @media (max-width: 1279px) {
+            min-height: 250px;
+        }
+    }
+}

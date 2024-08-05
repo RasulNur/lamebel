@@ -35,6 +35,7 @@ export type InputNames =
     | "pin"
     | "expiry"
     | "message"
+    | "address"
     | "new_password";
 
 export interface ISubmitFormFuncParams<FormValues> {

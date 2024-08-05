@@ -33,7 +33,7 @@ export default async function Addresses({ lang }: { lang: Lang }) {
                         </div>
                     )}
 
-                    <AddressModal type="create" />
+                    <AddressModal type="create" lang={lang} />
                 </div>
             )}
         </>

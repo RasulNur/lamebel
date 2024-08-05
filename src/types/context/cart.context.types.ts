@@ -39,7 +39,10 @@ export interface ICartContextProps {
     }) => void | null;
     localCartTotal: number;
     localCartQuantity: number;
-    checkout: ({ body, setIsLoading }: ICartCheckout) => void | null;
+    checkout: ({
+        body,
+    }: // setIsLoading
+    ICartCheckout) => void | null;
 }
 
 export interface ICartAddProduct {
@@ -72,7 +75,7 @@ export interface IToggleCart {
 
 export interface ICartCheckout {
     body: ICreateOrderBody;
-    setIsLoading: SetState<boolean>;
+    // setIsLoading: SetState<boolean>;
 }
 
 export interface ICardProvideProps {

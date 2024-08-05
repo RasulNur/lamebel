@@ -6,7 +6,11 @@ import { useCookies } from "next-client-cookies";
 import CheckoutProducts from "../checkoutProducts/CheckoutProducts";
 import OvalSpinner from "@/components/ui/OvalSpinner";
 
-export default function CheckoutTotal({ isLoading }: { isLoading: boolean }) {
+export default function CheckoutTotal({
+    isSubmitting,
+}: {
+    isSubmitting: boolean;
+}) {
     const cookies = useCookies();
     const token = cookies.get("token");
     const { apiCart, localCartTotal, localCartQuantity } = useCart();
@@ -36,12 +40,12 @@ export default function CheckoutTotal({ isLoading }: { isLoading: boolean }) {
             </div>
 
             <button
-                disabled={isLoading}
+                disabled={isSubmitting}
                 type="submit"
                 className={`main-btn w-full ${
                     token && apiCart.quantity > 0 ? "" : "pointer-events-none"
                 }`}>
-                {isLoading && <OvalSpinner size={16} type="second" />}
+                {isSubmitting && <OvalSpinner size={16} type="second" />}
                 {text("Оформить заказ")}
             </button>
         </div>

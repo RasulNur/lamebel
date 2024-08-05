@@ -69,11 +69,11 @@ export interface ICreateOrderParams {
 export interface ICreateOrderBody {
     name: string;
     phone_number: string;
-    email?: string;
+    // email?: string;
     address_id: number;
     payment_method_id: number;
     shipping_method_id: number;
-    message?: string;
+    message: string;
 }
 
 export interface IGetOrderParams {

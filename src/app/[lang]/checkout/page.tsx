@@ -38,6 +38,7 @@ export default async function CheckoutPage({
                 <section className="mt-5 last-section-margin">
                     <div className="container">
                         <Checkout
+                            lang={lang}
                             paymentMethods={paymentMethods}
                             shippingMethods={shippingMethods}
                             addresses={addresses}

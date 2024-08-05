@@ -17,8 +17,8 @@ import {
     ISingleCategory,
 } from "./api/categories.types";
 import { IProfile } from "./api/profile.types";
-import { IUpdatePhoneForm } from "./form.types";
-import { FormikState, FormikValues } from "formik";
+import { ICheckoutForm, IUpdatePhoneForm } from "./form.types";
+import { FormikErrors, FormikState, FormikValues } from "formik";
 import { IPaymentMethods, IShippingMethods } from "./api/checkoutMethods.types";
 import { IAddress, IAddresses } from "./api/address.types";
 
@@ -179,12 +179,19 @@ export interface ICheckoutProps {
     paymentMethods: IPaymentMethods;
     shippingMethods: IShippingMethods;
     addresses: IAddresses;
+    lang: Lang;
 }
 
 export interface ICheckoutFormProps {
     paymentMethods: IPaymentMethods;
     shippingMethods: IShippingMethods;
     addresses: IAddresses;
+    lang: Lang;
+    setFieldValue: (
+        field: string,
+        value: any,
+        shouldValidate?: boolean | undefined,
+    ) => Promise<void | FormikErrors<ICheckoutForm>>;
 }
 export interface IRadioInputProps {
     name: string;

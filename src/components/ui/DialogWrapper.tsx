@@ -2,6 +2,7 @@
 
 import { SetState } from "@/types/types";
 import { Dialog, DialogBackdrop, DialogPanel } from "@headlessui/react";
+import Icon from "./Icon";
 
 export default function DialogWrapper({
     button,
@@ -9,12 +10,16 @@ export default function DialogWrapper({
     title,
     isOpen,
     setIsOpen,
+    dialogClassname,
+    titleClassname,
 }: {
     button: React.ReactNode;
     content: React.ReactNode;
     title: string;
     setIsOpen: SetState<boolean>;
     isOpen: boolean;
+    dialogClassname?: string;
+    titleClassname?: string;
 }) {
     return (
         <>
@@ -28,8 +33,17 @@ export default function DialogWrapper({
 
                 <DialogPanel
                     transition
-                    className="flex flex-col gap-8 bg-white shadow-lg sm:w-[400px] h-max w-full z-[1] transition-300 ease-out data-[closed]:opacity-0 data-[closed]:translate-x-1/2 py-6 px-4 overflow-y-auto">
-                    <h3 className="font-bold text-xl text-center">{title}</h3>
+                    className={`relative flex flex-col gap-8 bg-white shadow-lg sm:w-[400px] h-max max-h-[400px] w-full z-[1] transition-300 ease-out data-[closed]:opacity-0 data-[closed]:translate-y-5 py-6 px-4 overflow-y-auto ${dialogClassname}`}>
+                    <button
+                        onClick={() => setIsOpen(false)}
+                        type="button"
+                        className="p-2 absolute right-2 top-4">
+                        <Icon name="x" className="stroke-primary !size-3" />
+                    </button>
+                    <h3
+                        className={`font-bold text-xl text-center ${titleClassname}`}>
+                        {title}
+                    </h3>
 
                     {content}
                 </DialogPanel>

@@ -11,6 +11,8 @@ export default function CheckoutForm({
     addresses,
     paymentMethods,
     shippingMethods,
+    lang,
+    setFieldValue,
 }: ICheckoutFormProps) {
     const { text } = useText();
 
@@ -20,7 +22,7 @@ export default function CheckoutForm({
                 <h3 className="mb-5 text-lg leading-130 font-medium">
                     {text("Ваши данные")}
                 </h3>
-                <fieldset className="grid md:grid-cols-2 grid-cols-1 gap-8 w-full">
+                <fieldset className="grid xl:grid-cols-2 grid-cols-1 gap-8 w-full">
                     <OverlapInput
                         id="checkout-name"
                         name="name"
@@ -38,7 +40,11 @@ export default function CheckoutForm({
 
             <CheckoutPayment paymentMethods={paymentMethods} />
 
-            <CheckoutAddresses addresses={addresses} />
+            <CheckoutAddresses
+                addresses={addresses}
+                lang={lang}
+                setFieldValue={setFieldValue}
+            />
 
             <div className="flex flex-col gap-5">
                 <h3 className="text-lg leading-130 font-medium">
