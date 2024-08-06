@@ -2,13 +2,16 @@ import { getProducts } from "@/api/productsApi";
 import { getTexts } from "@/api/textsApi";
 import Search from "@/components/pages/search/Search";
 import Breadcrumbs from "@/components/ui/Breadcrumbs";
-import { Lang } from "@/types/api/api.types";
-import { ISearchParams } from "@/types/pageParams.types";
+import {
+    IExtendedPageParams,
+    IPageParams,
+    ISearchPageSearchParams,
+} from "@/types/pageParams.types";
 
 export default async function SearchPage({
     searchParams,
     params: { lang },
-}: ISearchParams) {
+}: IExtendedPageParams<ISearchPageSearchParams>) {
     const { text } = await getTexts({ lang });
     const { sort, direction, page } = searchParams;
     const products = await getProducts({
@@ -49,11 +52,7 @@ export default async function SearchPage({
     );
 }
 
-export async function generateMetadata({
-    params: { lang },
-}: {
-    params: { lang: Lang };
-}) {
+export async function generateMetadata({ params: { lang } }: IPageParams) {
     const { text } = await getTexts({ lang });
 
     return {

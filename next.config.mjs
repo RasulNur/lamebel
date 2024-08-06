@@ -7,6 +7,55 @@ const nextConfig = {
     env: {
         API: process.env.API_URL,
     },
+    async redirects() {
+        return [
+            {
+                source: "/dashboard/profile",
+                missing: [
+                    {
+                        type: "cookie",
+                        key: "token",
+                    },
+                ],
+                permanent: false,
+                destination: "/",
+            },
+            {
+                source: "/dashboard/orders",
+                missing: [
+                    {
+                        type: "cookie",
+                        key: "token",
+                    },
+                ],
+                permanent: false,
+                destination: "/",
+            },
+            {
+                source: "/dashboard/addresses",
+
+                missing: [
+                    {
+                        type: "cookie",
+                        key: "token",
+                    },
+                ],
+                permanent: false,
+                destination: "/",
+            },
+            {
+                source: "/checkout",
+                missing: [
+                    {
+                        type: "cookie",
+                        key: "token",
+                    },
+                ],
+                permanent: false,
+                destination: "/",
+            },
+        ];
+    },
 };
 
 export default nextConfig;

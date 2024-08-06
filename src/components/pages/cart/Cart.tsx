@@ -2,8 +2,6 @@
 
 import CartProductCard from "@/components/ui/CartProductCard";
 import Empty from "@/components/ui/Empty";
-import ProductCard from "@/components/ui/ProductCard";
-
 import { useCart } from "@/context/cart.context";
 import { useCookies } from "next-client-cookies";
 

@@ -5,19 +5,17 @@ import {
 } from "@/api/productsApi";
 import { notFound } from "next/navigation";
 import { getTexts } from "@/api/textsApi";
-import { Lang } from "@/types/api/api.types";
 import PageHeader from "@/components/ui/PageHeader";
 import SectionWrapper from "@/components/layout/SectionWrapper";
 import ProductsSwiper from "@/components/ui/ProductsSwiper";
 import Product from "@/components/pages/product/Product";
 import { getReviews } from "@/api/reviewsApi";
 import { getProductGroup } from "@/api/productGroupApi";
+import { IPageParamsWithId } from "@/types/pageParams.types";
 
 export default async function ProductPage({
     params: { id, lang },
-}: {
-    params: { id: string; lang: Lang };
-}) {
+}: IPageParamsWithId) {
     const product = await getProduct({
         productId: Number(id.split("-")[0]),
         lang,
@@ -78,9 +76,7 @@ export default async function ProductPage({
 
 export async function generateMetadata({
     params: { id, lang },
-}: {
-    params: { id: string; lang: Lang };
-}) {
+}: IPageParamsWithId) {
     const slug = id.split("-").slice(1).join("-");
 
     const product = await getProduct({

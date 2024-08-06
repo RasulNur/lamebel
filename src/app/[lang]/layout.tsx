@@ -12,7 +12,7 @@ import "swiper/css/autoplay";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
 import "./globals.scss";
-import HeaderCategories from "../../components/layout/headerCategories/HeaderCategories";
+
 import { IRootLayoutParams } from "@/types/pageParams.types";
 
 const montserrat = Montserrat({

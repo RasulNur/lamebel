@@ -1,9 +1,9 @@
-import { IProduct } from "@/types/api/products.types";
 import Image from "next/image";
 import Link from "next/link";
 import Quantity from "./Quantity";
 import WishlistButton from "./WishlistButton";
 import RemoveFromCart from "../pages/cart/removeFromCart/RemoveFromCart";
+import { ICartProductCardProps } from "@/types/props.types";
 
 const colors = [
     { id: 0, color: "#FF53E8" },
@@ -14,10 +14,7 @@ const colors = [
 export default function CartProductCard({
     product,
     quantity,
-}: {
-    product: IProduct;
-    quantity?: number;
-}) {
+}: ICartProductCardProps) {
     return (
         <div className="flex gap-5 min-[500px]:flex-row flex-col">
             <Link

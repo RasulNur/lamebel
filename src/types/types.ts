@@ -1,6 +1,8 @@
 import { FormikErrors, FormikState } from "formik";
 import { Dispatch, SetStateAction } from "react";
 import { Lang } from "./api/api.types";
+import { IProduct } from "./api/products.types";
+import { IQuantityChangerLoading } from "./context/cart.context.types";
 
 export type SpritesName =
     | "telegram"
@@ -51,6 +53,7 @@ export interface ISubmitFormFuncParams<FormValues> {
         shouldValidate?: boolean | undefined,
     ) => Promise<void | FormikErrors<FormValues>>;
 }
+
 export type SortDirectionType = "asc" | "desc";
 
 export type OrderBy = "created_at" | "price" | "views" | "rating" | "discount";
@@ -86,4 +89,11 @@ export interface IGroupAttribute {
     id: number;
     parentId: number;
     isActive: boolean;
+}
+
+export interface IUseQuantityParams {
+    productQuantity: number;
+    setQuantity?: SetState<number>;
+    product: IProduct;
+    // setIsLoading: SetState<IQuantityChangerLoading>;
 }

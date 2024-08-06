@@ -1,17 +1,12 @@
 import { getPublication } from "@/api/publicationsApi";
 import { getTexts } from "@/api/textsApi";
 import SingleNews from "@/components/pages/news/SingleNews";
-import Breadcrumbs from "@/components/ui/Breadcrumbs";
 import PageHeader from "@/components/ui/PageHeader";
-import { Lang } from "@/types/api/api.types";
+import { IPageParamsWithId } from "@/types/pageParams.types";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 
-export default async function SingleNewsPage({
-    params,
-}: {
-    params: { id: string; lang: Lang };
-}) {
+export default async function SingleNewsPage({ params }: IPageParamsWithId) {
     const id = params.id.split("-")[0];
     const { text } = await getTexts({ lang: params.lang });
     const publication = await getPublication({
@@ -38,9 +33,7 @@ export default async function SingleNewsPage({
 
 export async function generateMetadata({
     params,
-}: {
-    params: { id: string; lang: Lang };
-}): Promise<Metadata> {
+}: IPageParamsWithId): Promise<Metadata> {
     const id = params.id.split("-")[0];
     const slug = params.id.split("-").slice(1).join("-");
 

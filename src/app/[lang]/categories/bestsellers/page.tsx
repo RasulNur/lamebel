@@ -1,15 +1,13 @@
 import { Metadata } from "next";
 import { getTexts } from "@/api/textsApi";
-import { ICategoriesPagesProps } from "@/types/pageParams.types";
-import { Lang } from "@/types/api/api.types";
+import { CategoriesPagesParams, IPageParams } from "@/types/pageParams.types";
 import PageHeader from "../../../../components/ui/PageHeader";
-import ProductsGrid from "@/components/ui/ProductsGrid";
 import FilteredProducts from "@/components/pages/categories/FilteredProducts";
 
 export default async function BestsellersPage({
     searchParams: { page },
     params: { lang },
-}: ICategoriesPagesProps) {
+}: CategoriesPagesParams) {
     const { text } = await getTexts({ lang });
 
     return (
@@ -34,9 +32,7 @@ export default async function BestsellersPage({
 
 export async function generateMetadata({
     params: { lang },
-}: {
-    params: { lang: Lang };
-}): Promise<Metadata> {
+}: IPageParams): Promise<Metadata> {
     const { text } = await getTexts({ lang });
     return {
         title: text("Хиты продаж"),

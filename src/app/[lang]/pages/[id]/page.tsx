@@ -1,16 +1,13 @@
-import { getPage, getPages } from "@/api/pagesApi";
+import { getPage } from "@/api/pagesApi";
 import { getTexts } from "@/api/textsApi";
-import Breadcrumbs from "@/components/ui/Breadcrumbs";
-import { Lang } from "@/types/api/api.types";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import PageHeader from "../../../../components/ui/PageHeader";
+import { IPageParamsWithId } from "@/types/pageParams.types";
 
 export default async function TextPage({
     params: { id, lang },
-}: {
-    params: { id: string; lang: Lang };
-}) {
+}: IPageParamsWithId) {
     const page = await getPage({
         pageId: Number(id.split("-")[0]),
         lang,
@@ -41,9 +38,7 @@ export default async function TextPage({
 
 export async function generateMetadata({
     params: { id, lang },
-}: {
-    params: { id: string; lang: Lang };
-}): Promise<Metadata> {
+}: IPageParamsWithId): Promise<Metadata> {
     const slug = id.split("-").slice(1).join("-");
 
     const page = await getPage({ pageId: Number(id.split("-")[0]), lang });

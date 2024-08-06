@@ -1,14 +1,8 @@
 import React from "react";
-import { BreadcrumbsType } from "@/types/props.types";
 import Breadcrumbs from "./Breadcrumbs";
+import { IPageHeaderProps } from "@/types/props.types";
 
-export default function PageHeader({
-    title,
-    breadcrumbs,
-}: {
-    title: string;
-    breadcrumbs: BreadcrumbsType;
-}) {
+export default function PageHeader({ title, breadcrumbs }: IPageHeaderProps) {
     return (
         <div className="container py-5 flex flex-col gap-3">
             <Breadcrumbs breadcrumbs={breadcrumbs} />

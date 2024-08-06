@@ -13,11 +13,11 @@ import {
     IProduct,
     IProductAttributes,
     IProducts,
-    ISingleProduct,
     ProductsFilter,
 } from "./api/products.types";
 import {
     ICategories,
+    ICategoriesTree,
     ICategoryAttributes,
     ICategoryBrands,
     IPrices,
@@ -25,7 +25,7 @@ import {
 } from "./api/categories.types";
 import { IProfile } from "./api/profile.types";
 import { ICheckoutForm, IReviewsForm, IUpdatePhoneForm } from "./form.types";
-import { FormikErrors, FormikState, FormikValues } from "formik";
+import { FormikErrors } from "formik";
 import { IPaymentMethods, IShippingMethods } from "./api/checkoutMethods.types";
 import { IAddress, IAddresses } from "./api/address.types";
 import {
@@ -33,6 +33,8 @@ import {
     IProductGroupAttribute,
     IProductGroupAttributeValue,
 } from "./api/productGroup.types";
+import { ISettings } from "./api/settings.types";
+import { IPublications } from "./api/publications.types";
 
 export interface IIconProps
     extends Omit<SVGProps<SVGSVGElement>, "name" | "type"> {
@@ -82,7 +84,7 @@ export interface IPaginationNumbersProps {
     visibleNumbers: number[];
     handleClick: ({ page }: { page: number }) => void;
 }
-export interface IPageHeaderProps {
+export interface ICategoriesPageHeaderProps {
     categoryId: number;
     lang: Lang;
 }
@@ -248,4 +250,29 @@ export interface IProductGroupsButtonProps {
     activeAttributes: IGroupAttribute[];
     groupAttrVal: IProductGroupAttributeValue;
     groupAttr: IProductGroupAttribute;
+}
+
+export interface IHomeSectionWrapperProps {
+    settings: ISettings;
+    categories: ICategoriesTree;
+    bestsellerProducts: IProducts;
+    newProducts: IProducts;
+    news: IPublications;
+    lang: Lang;
+}
+export interface IPageHeaderProps {
+    title: string;
+    breadcrumbs: BreadcrumbsType;
+}
+export interface ICartWrapperProps {
+    content: React.ReactNode;
+    sidebar: React.ReactNode;
+}
+export interface ICartProductCardProps {
+    product: IProduct;
+    quantity?: number;
+}
+
+export interface IRemoveFromCartProps {
+    product: IProduct;
 }

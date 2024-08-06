@@ -1,15 +1,13 @@
 import { Metadata } from "next";
 import { getTexts } from "@/api/textsApi";
 import PageHeader from "@/components/ui/PageHeader";
-import { Lang } from "@/types/api/api.types";
 import { getCategoriesTree } from "@/api/categoriesApi";
 import Catalog from "@/components/pages/categories/Catalog";
+import { IPageParams } from "@/types/pageParams.types";
 
 export default async function CategoriesPage({
     params: { lang },
-}: {
-    params: { lang: Lang };
-}) {
+}: IPageParams) {
     const { text } = await getTexts({ lang });
     const categoriesTree = await getCategoriesTree({ lang });
     return (
@@ -33,9 +31,7 @@ export default async function CategoriesPage({
 
 export async function generateMetadata({
     params: { lang },
-}: {
-    params: { lang: Lang };
-}): Promise<Metadata> {
+}: IPageParams): Promise<Metadata> {
     const { text } = await getTexts({ lang });
     return {
         title: text("Категории"),

@@ -1,19 +1,15 @@
 import { Lang } from "./api/api.types";
 import { OrderBy, SortDirectionType } from "./types";
 
-export interface IRootLayoutParams {
+export interface IRootLayoutParams extends IPageParams {
     children: React.ReactNode;
-    params: { lang: Lang };
 }
-export interface INewsPageParams {
-    params: { lang: Lang };
-    searchParams: { page?: string };
-}
+
 export interface ICategoryPageParams {
     params: { id: string; lang: Lang };
-    searchParams: ICategorySearchParams;
+    searchParams: ICategoryPageSearchParams;
 }
-export interface ICategorySearchParams {
+export interface ICategoryPageSearchParams {
     is_discounted?: string;
     is_bestseller?: string;
     is_new?: string;
@@ -27,18 +23,30 @@ export interface ICategorySearchParams {
     direction?: SortDirectionType;
     page?: string;
 }
-export interface ISearchParams {
-    params: { lang: Lang };
-    searchParams: {
-        keyword: string;
-        page?: string;
-        sort?: OrderBy;
-        direction?: SortDirectionType;
-    };
+
+export interface ISearchPageSearchParams {
+    keyword: string;
+    page?: string;
+    sort?: OrderBy;
+    direction?: SortDirectionType;
 }
-export interface ICategoriesPagesProps {
-    searchParams: {
-        page?: string;
-    };
+
+export interface INewsPageSearchParams {
+    page?: string;
+}
+
+export type CategoriesPagesParams = IExtendedPageParams<{
+    page?: string;
+}>;
+
+export interface IExtendedPageParams<SearchParams> extends IPageParams {
+    searchParams: SearchParams;
+}
+
+export interface IPageParams {
     params: { lang: Lang };
+}
+
+export interface IPageParamsWithId {
+    params: { id: string; lang: Lang };
 }

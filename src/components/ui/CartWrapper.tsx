@@ -1,12 +1,8 @@
 "use client";
 
-export default function CartWrapper({
-    content,
-    sidebar,
-}: {
-    content: React.ReactNode;
-    sidebar: React.ReactNode;
-}) {
+import { ICartWrapperProps } from "@/types/props.types";
+
+export default function CartWrapper({ content, sidebar }: ICartWrapperProps) {
     return (
         <section className="mt-5 last-section-margin">
             <div className="container">

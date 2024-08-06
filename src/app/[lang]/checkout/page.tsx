@@ -1,10 +1,6 @@
 import { getTexts } from "@/api/textsApi";
-import Cart from "@/components/pages/cart/Cart";
-import CartTotal from "@/components/pages/cart/CartTotal";
 import Checkout from "@/components/pages/checkout/Checkout";
-import CartWrapper from "@/components/ui/CartWrapper";
 import PageHeader from "@/components/ui/PageHeader";
-import { Lang } from "@/types/api/api.types";
 import { Metadata } from "next";
 import {
     getPaymentMethods,
@@ -12,12 +8,9 @@ import {
 } from "@/api/checkoutMethodsApi";
 import { getAddresses } from "@/api/addressesApi";
 import { getCookies } from "next-client-cookies/server";
+import { IPageParams } from "@/types/pageParams.types";
 
-export default async function CheckoutPage({
-    params: { lang },
-}: {
-    params: { lang: Lang };
-}) {
+export default async function CheckoutPage({ params: { lang } }: IPageParams) {
     const cookies = getCookies();
     const token = cookies.get("token");
     const { text } = await getTexts({ lang });
@@ -52,9 +45,7 @@ export default async function CheckoutPage({
 
 export async function generateMetadata({
     params: { lang },
-}: {
-    params: { lang: Lang };
-}): Promise<Metadata> {
+}: IPageParams): Promise<Metadata> {
     const { text } = await getTexts({ lang });
     return {
         title: text("Оформление заказа"),

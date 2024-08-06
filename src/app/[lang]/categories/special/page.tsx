@@ -1,14 +1,13 @@
 import { Metadata } from "next";
 import { getTexts } from "@/api/textsApi";
-import { ICategoriesPagesProps } from "@/types/pageParams.types";
+import { CategoriesPagesParams, IPageParams } from "@/types/pageParams.types";
 import PageHeader from "@/components/ui/PageHeader";
 import FilteredProducts from "@/components/pages/categories/FilteredProducts";
-import { Lang } from "@/types/api/api.types";
 
 export default async function SpecialPage({
     searchParams: { page },
     params: { lang },
-}: ICategoriesPagesProps) {
+}: CategoriesPagesParams) {
     const { text } = await getTexts({ lang });
 
     return (
@@ -33,9 +32,7 @@ export default async function SpecialPage({
 
 export async function generateMetadata({
     params: { lang },
-}: {
-    params: { lang: Lang };
-}): Promise<Metadata> {
+}: IPageParams): Promise<Metadata> {
     const { text } = await getTexts({ lang });
     return {
         title: text("Специально для вас"),

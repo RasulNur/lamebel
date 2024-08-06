@@ -1,5 +1,4 @@
 import { getPage } from "@/api/pagesApi";
-import { Lang } from "@/types/api/api.types";
 import { Metadata } from "next";
 import SectionWrapper from "@/components/layout/SectionWrapper";
 import InstagramSwiper from "@/components/ui/InstagramSwiper";
@@ -8,12 +7,9 @@ import { getTexts } from "@/api/textsApi";
 import { getSettings } from "@/api/settingsApi";
 import PageHeader from "../../../components/ui/PageHeader";
 import Contacts from "@/components/pages/contacts/Contacts";
+import { IPageParams } from "@/types/pageParams.types";
 
-export default async function HomePage({
-    params: { lang },
-}: {
-    params: { lang: Lang };
-}) {
+export default async function HomePage({ params: { lang } }: IPageParams) {
     const settings = await getSettings({ lang });
     const page = await getPage({ pageId: 2, lang });
     const { text } = await getTexts({ lang });
@@ -47,9 +43,7 @@ export default async function HomePage({
 
 export async function generateMetadata({
     params: { lang },
-}: {
-    params: { lang: Lang };
-}): Promise<Metadata> {
+}: IPageParams): Promise<Metadata> {
     const page = await getPage({ pageId: 2, lang });
 
     return {

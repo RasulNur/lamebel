@@ -3,14 +3,10 @@ import Cart from "@/components/pages/cart/Cart";
 import CartTotal from "@/components/pages/cart/CartTotal";
 import CartWrapper from "@/components/ui/CartWrapper";
 import PageHeader from "@/components/ui/PageHeader";
-import { Lang } from "@/types/api/api.types";
+import { IPageParams } from "@/types/pageParams.types";
 import { Metadata } from "next";
 
-export default async function CartPage({
-    params: { lang },
-}: {
-    params: { lang: Lang };
-}) {
+export default async function CartPage({ params: { lang } }: IPageParams) {
     const { text } = await getTexts({ lang });
 
     return (
@@ -30,9 +26,7 @@ export default async function CartPage({
 
 export async function generateMetadata({
     params: { lang },
-}: {
-    params: { lang: Lang };
-}): Promise<Metadata> {
+}: IPageParams): Promise<Metadata> {
     const { text } = await getTexts({ lang });
     return {
         title: text("Корзина"),

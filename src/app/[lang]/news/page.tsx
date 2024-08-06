@@ -4,13 +4,16 @@ import { getTexts } from "@/api/textsApi";
 import News from "@/components/pages/news/News";
 import PageHeader from "@/components/ui/PageHeader";
 import { Lang } from "@/types/api/api.types";
-import { INewsPageParams } from "@/types/pageParams.types";
+import {
+    IExtendedPageParams,
+    INewsPageSearchParams,
+} from "@/types/pageParams.types";
 import { Metadata } from "next";
 
 export default async function NewsPage({
     params: { lang },
     searchParams,
-}: INewsPageParams) {
+}: IExtendedPageParams<INewsPageSearchParams>) {
     const page = await getPage({ pageId: 9, lang });
     const { text } = await getTexts({ lang });
     const news = await getPublications({

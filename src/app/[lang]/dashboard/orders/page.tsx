@@ -1,17 +1,13 @@
 import { getTexts } from "@/api/textsApi";
-import { Lang } from "@/types/api/api.types";
 import { Metadata } from "next";
 import PageHeader from "@/components/ui/PageHeader";
 import DashboardTabs from "@/components/pages/dashboard/DashboardTabs";
 import { getCookies } from "next-client-cookies/server";
 import { getOrders } from "@/api/orderApi";
 import Orders from "../../../../components/pages/orders/Orders";
+import { IPageParams } from "@/types/pageParams.types";
 
-export default async function OrdersPage({
-    params: { lang },
-}: {
-    params: { lang: Lang };
-}) {
+export default async function OrdersPage({ params: { lang } }: IPageParams) {
     const { text } = await getTexts({ lang });
     const cookies = getCookies();
     const orders = await getOrders({ token: cookies.get("token"), lang });
@@ -35,9 +31,7 @@ export default async function OrdersPage({
 
 export async function generateMetadata({
     params: { lang },
-}: {
-    params: { lang: Lang };
-}): Promise<Metadata> {
+}: IPageParams): Promise<Metadata> {
     const { text } = await getTexts({ lang });
     return {
         title: text("Мои заказы"),

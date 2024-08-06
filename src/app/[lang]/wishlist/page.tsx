@@ -1,14 +1,10 @@
 import { getTexts } from "@/api/textsApi";
 import Wishlist from "@/components/pages/wishlist/Wishlist";
 import PageHeader from "@/components/ui/PageHeader";
-import { Lang } from "@/types/api/api.types";
+import { IPageParams } from "@/types/pageParams.types";
 import { Metadata } from "next";
 
-export default async function WishlistPage({
-    params: { lang },
-}: {
-    params: { lang: Lang };
-}) {
+export default async function WishlistPage({ params: { lang } }: IPageParams) {
     const { text } = await getTexts({ lang });
 
     return (
@@ -32,9 +28,7 @@ export default async function WishlistPage({
 
 export async function generateMetadata({
     params: { lang },
-}: {
-    params: { lang: Lang };
-}): Promise<Metadata> {
+}: IPageParams): Promise<Metadata> {
     const { text } = await getTexts({ lang });
     return {
         title: text("Избранное"),

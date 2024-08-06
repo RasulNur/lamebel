@@ -1,15 +1,11 @@
 import { getTexts } from "@/api/textsApi";
-import { Lang } from "@/types/api/api.types";
 import { Metadata } from "next";
 import PageHeader from "@/components/ui/PageHeader";
 import DashboardTabs from "@/components/pages/dashboard/DashboardTabs";
 import Addresses from "@/components/pages/addresses/Addresses";
+import { IPageParams } from "@/types/pageParams.types";
 
-export default async function AddressesPage({
-    params: { lang },
-}: {
-    params: { lang: Lang };
-}) {
+export default async function AddressesPage({ params: { lang } }: IPageParams) {
     const { text } = await getTexts({ lang });
 
     return (
@@ -31,9 +27,7 @@ export default async function AddressesPage({
 
 export async function generateMetadata({
     params: { lang },
-}: {
-    params: { lang: Lang };
-}): Promise<Metadata> {
+}: IPageParams): Promise<Metadata> {
     const { text } = await getTexts({ lang });
     return {
         title: "Адреса",

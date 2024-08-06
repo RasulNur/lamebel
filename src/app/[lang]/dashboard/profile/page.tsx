@@ -2,14 +2,10 @@ import { getTexts } from "@/api/textsApi";
 import DashboardTabs from "@/components/pages/dashboard/DashboardTabs";
 import Profile from "@/components/pages/profile/Profile";
 import PageHeader from "@/components/ui/PageHeader";
-import { Lang } from "@/types/api/api.types";
+import { IPageParams } from "@/types/pageParams.types";
 import { Metadata } from "next";
 
-export default async function ProfilePage({
-    params: { lang },
-}: {
-    params: { lang: Lang };
-}) {
+export default async function ProfilePage({ params: { lang } }: IPageParams) {
     const { text } = await getTexts({ lang });
     return (
         <>
@@ -30,9 +26,7 @@ export default async function ProfilePage({
 
 export async function generateMetadata({
     params: { lang },
-}: {
-    params: { lang: Lang };
-}): Promise<Metadata> {
+}: IPageParams): Promise<Metadata> {
     const { text } = await getTexts({ lang });
     return {
         title: text("Профиль"),
