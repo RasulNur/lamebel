@@ -10,7 +10,7 @@ export default function ProductsGrid({ products }: { products: IProducts }) {
         <div className="flex flex-col gap-7">
             {(!products.data ||
                 (products.data && products.data.length == 0)) && <Empty />}
-            <div className="grid 2xl:grid-cols-4 xl:grid-cols-3 lg:grid-cols-2 common-products-grid">
+            <div className="sidebar-products-grid">
                 {products.data.map((product) => {
                     return <ProductCard product={product} key={product.id} />;
                 })}

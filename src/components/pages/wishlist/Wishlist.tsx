@@ -34,7 +34,7 @@ export default function Wishlist() {
                             {text("Очистить корзину")}
                         </button>
                     </div>
-                    <div className="grid 2xl:grid-cols-4 xl:grid-cols-3 lg:grid-cols-2 common-products-grid">
+                    <div className="products-grid">
                         {token
                             ? apiWishlist.items &&
                               apiWishlist.items.map((item) => {

@@ -1,9 +1,9 @@
 import Link from "next/link";
-import Icon from "./Icon";
 import Image from "next/image";
 import { IProduct } from "@/types/api/products.types";
 import WishlistButton from "./WishlistButton";
 import CartButton from "./CartButton";
+import ProductDiscount from "./ProductDiscount";
 
 const colors = [
     { id: 0, color: "#FF53E8" },
@@ -58,17 +58,7 @@ export default function ProductCard({ product }: { product: IProduct }) {
                             </div>
                         )}
                     </div>
-                    {/* {product.discount_formatted && (
-                        <div className="relative">
-                            <Icon
-                                name="tag"
-                                className="w-[56px] h-[24px] stroke-placeholder2 fill-none"
-                            />
-                            <span className="absolute left-[22px] top-1/2 -translate-y-1/2 text-[12px] font-medium text-placeholder2">
-                                {product.discount_formatted}
-                            </span>
-                        </div>
-                    )} */}
+                    <ProductDiscount product={product} />
                 </div>
             </div>
 

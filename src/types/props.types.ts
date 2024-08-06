@@ -3,12 +3,19 @@ import {
     DashboardRoutes,
     FulfillAfterOtpType,
     IDashboardTab,
+    IGroupAttribute,
     InputNames,
     SetState,
     SpritesName,
 } from "./types";
 import { IMeta, Lang } from "./api/api.types";
-import { IProduct, IProducts } from "./api/products.types";
+import {
+    IProduct,
+    IProductAttributes,
+    IProducts,
+    ISingleProduct,
+    ProductsFilter,
+} from "./api/products.types";
 import {
     ICategories,
     ICategoryAttributes,
@@ -21,6 +28,11 @@ import { ICheckoutForm, IReviewsForm, IUpdatePhoneForm } from "./form.types";
 import { FormikErrors, FormikState, FormikValues } from "formik";
 import { IPaymentMethods, IShippingMethods } from "./api/checkoutMethods.types";
 import { IAddress, IAddresses } from "./api/address.types";
+import {
+    IProductGroup,
+    IProductGroupAttribute,
+    IProductGroupAttributeValue,
+} from "./api/productGroup.types";
 
 export interface IIconProps
     extends Omit<SVGProps<SVGSVGElement>, "name" | "type"> {
@@ -218,4 +230,22 @@ export interface IRatingProps {
         shouldValidate?: boolean | undefined,
     ) => Promise<void | FormikErrors<IReviewsForm>>;
     values: IReviewsForm;
+}
+export interface ICategoriesPagesProductsProps {
+    filterName: ProductsFilter;
+    swiperName: ProductsFilter;
+    page?: string;
+    lang: Lang;
+}
+
+export interface IProductGroupsProps {
+    attributes: IProductAttributes;
+    productGroup: IProductGroup | "Not exist";
+}
+
+export interface IProductGroupsButtonProps {
+    productGroup: IProductGroup;
+    activeAttributes: IGroupAttribute[];
+    groupAttrVal: IProductGroupAttributeValue;
+    groupAttr: IProductGroupAttribute;
 }

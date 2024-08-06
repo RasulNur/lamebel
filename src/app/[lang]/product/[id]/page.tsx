@@ -11,6 +11,7 @@ import SectionWrapper from "@/components/layout/SectionWrapper";
 import ProductsSwiper from "@/components/ui/ProductsSwiper";
 import Product from "@/components/pages/product/Product";
 import { getReviews } from "@/api/reviewsApi";
+import { getProductGroup } from "@/api/productGroupApi";
 
 export default async function ProductPage({
     params: { id, lang },
@@ -32,6 +33,10 @@ export default async function ProductPage({
     });
     const reviews = await getReviews({ lang, productId: product.data.id });
     const { text } = await getTexts({ lang });
+    const productGroup = await getProductGroup({
+        lang,
+        productGroupId: product.data.product_group_id,
+    });
     return (
         <>
             <PageHeader
@@ -56,6 +61,7 @@ export default async function ProductPage({
                         productAttributes={productAttributes}
                         lang={lang}
                         reviews={reviews}
+                        productGroup={productGroup}
                     />
                 </div>
             </section>
@@ -66,9 +72,6 @@ export default async function ProductPage({
                     title="Хиты интернет продаж"
                 />
             </SectionWrapper>
-            {/* <div>
-                <Product product={product} lang={lang} />
-            </div> */}
         </>
     );
 }

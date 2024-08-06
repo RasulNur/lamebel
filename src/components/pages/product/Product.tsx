@@ -7,17 +7,20 @@ import ProductTabs from "./productTabs/ProductTabs";
 import { useState } from "react";
 import { Lang } from "@/types/api/api.types";
 import { IReviews } from "@/types/api/reviews.types";
+import { IProductGroup } from "@/types/api/productGroup.types";
 
 export default function Product({
     product,
     productAttributes,
     lang,
     reviews,
+    productGroup,
 }: {
     product: ISingleProduct;
     productAttributes: IProductAttributes;
     lang: Lang;
     reviews: IReviews;
+    productGroup: IProductGroup | "Not exist";
 }) {
     const [tabIndex, setTabIndex] = useState<number>(0);
 
@@ -38,7 +41,12 @@ export default function Product({
                     </div>
                 </div>
 
-                <ProductSidebar product={product} setTabIndex={setTabIndex} />
+                <ProductSidebar
+                    product={product}
+                    setTabIndex={setTabIndex}
+                    attributes={productAttributes}
+                    productGroup={productGroup}
+                />
             </div>
             <div className="lg:hidden">
                 <ProductTabs

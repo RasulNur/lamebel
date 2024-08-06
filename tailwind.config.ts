@@ -124,6 +124,14 @@ module.exports = {
                     "@apply md:grid-cols-3 min-[400px]:grid-cols-2 grid-cols-1 sm:gap-x-6 sm:gap-y-7 gap-x-5 gap-y-6":
                         {},
                 },
+                ".products-grid": {
+                    "@apply grid 2xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 common-products-grid":
+                        {},
+                },
+                ".sidebar-products-grid": {
+                    "@apply grid 2xl:grid-cols-4 xl:grid-cols-3 lg:grid-cols-2 common-products-grid":
+                        {},
+                },
                 ".products-grid-wrapper": {
                     "@apply lg:grid flex flex-col grid-cols-[300px,1fr] gap-5":
                         {},

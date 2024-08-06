@@ -36,3 +36,9 @@ export interface ISearchParams {
         direction?: SortDirectionType;
     };
 }
+export interface ICategoriesPagesProps {
+    searchParams: {
+        page?: string;
+    };
+    params: { lang: Lang };
+}

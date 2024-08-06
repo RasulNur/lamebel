@@ -79,4 +79,11 @@ export interface IDashboardTab {
 }
 
 export type PaymentMethodType = "cash" | "card" | "installment" | "alifnasiya";
+
 export type ShippingMethodType = "free" | "pickup";
+
+export interface IGroupAttribute {
+    id: number;
+    parentId: number;
+    isActive: boolean;
+}

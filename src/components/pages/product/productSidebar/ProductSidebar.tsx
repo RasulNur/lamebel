@@ -1,15 +1,23 @@
 import CartButton from "@/components/ui/CartButton";
 import WishlistButton from "@/components/ui/WishlistButton";
-import { ISingleProduct } from "@/types/api/products.types";
+import { IProductAttributes, ISingleProduct } from "@/types/api/products.types";
 import ProductLinks from "./productLinks/ProductLinks";
 import { SetState } from "@/types/types";
+import ProductDiscount from "@/components/ui/ProductDiscount";
+import ProductGroups from "./productGroups/ProductGroups";
+import { Lang } from "@/types/api/api.types";
+import { IProductGroup } from "@/types/api/productGroup.types";
 
 export default function ProductSidebar({
     product,
     setTabIndex,
+    attributes,
+    productGroup,
 }: {
     product: ISingleProduct;
     setTabIndex: SetState<number>;
+    attributes: IProductAttributes;
+    productGroup: IProductGroup | "Not exist";
 }) {
     const colors = [
         { id: 0, color: "#FF53E8" },
@@ -37,18 +45,27 @@ export default function ProductSidebar({
                 {product.data.name}
             </h3>
 
-            <div className="flex items-center gap-2">
-                <div className="font-bold sm:text-xl text-lg leading-130">
-                    {product.data.current_price_formatted}
-                </div>
-                {product.data.old_price_formatted && (
-                    <div className="text-sm leading-130 line-through opacity-50">
-                        {product.data.old_price_formatted}
+            <div className="flex items-center gap-2 justify-between">
+                <div className="flex flex-col gap-1">
+                    <div className="font-bold sm:text-xl text-lg leading-130">
+                        {product.data.current_price_formatted}
                     </div>
-                )}
+                    {product.data.old_price_formatted && (
+                        <div className="text-sm leading-130 line-through opacity-50">
+                            {product.data.old_price_formatted}
+                        </div>
+                    )}
+                </div>
+                <ProductDiscount product={productItem} type="product" />
             </div>
+            {product.data.product_group_id && (
+                <ProductGroups
+                    attributes={attributes}
+                    productGroup={productGroup}
+                />
+            )}
 
-            <div className="flex items-center gap-1">
+            {/* <div className="flex items-center gap-1">
                 {colors.map((el) => {
                     return (
                         <div
@@ -57,7 +74,7 @@ export default function ProductSidebar({
                             className={`border border-placeholder2 size-8 rounded-full`}></div>
                     );
                 })}
-            </div>
+            </div> */}
 
             <CartButton product={productItem} className="!py-4 w-full" />
 

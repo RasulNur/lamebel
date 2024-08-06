@@ -39,13 +39,13 @@ export default function ProductTabs({
             className="relative flex flex-col gap-10">
             <BlockForScroll id="product-tabs" />
 
-            <TabList className="flex sm:flex-row flex-col sm:items-center gap-4">
+            <TabList className="flex sm:flex-row flex-col items-center gap-4">
                 {tabs.map((tab) => {
                     return (
                         <Tab as={Fragment} key={tab.id}>
                             {({ selected }) => (
                                 <button
-                                    className={`custom-btn hover:border-main outline-none text-main ${
+                                    className={`custom-btn hover:border-main outline-none text-main sm:w-max w-full ${
                                         selected
                                             ? "bg-main border-main text-white"
                                             : ""
