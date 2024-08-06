@@ -89,6 +89,7 @@ export type Tag =
     | "Promotions"
     | "ProductGroup"
     | "Banners"
+    | "Reviews"
     | "Pages"
     | "Orders";
 export type Method = "POST" | "PUT" | "DELETE";

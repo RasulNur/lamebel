@@ -1,4 +1,4 @@
-import { FormikState } from "formik";
+import { FormikErrors, FormikState } from "formik";
 import { Dispatch, SetStateAction } from "react";
 import { Lang } from "./api/api.types";
 
@@ -22,6 +22,7 @@ export type SpritesName =
     | "minus"
     | "trash"
     | "plus"
+    | "star"
     | "cart";
 
 export type SetState<T> = Dispatch<SetStateAction<T>>;
@@ -44,6 +45,11 @@ export interface ISubmitFormFuncParams<FormValues> {
         nextState?: Partial<FormikState<FormValues>> | undefined,
     ) => void;
     setSubmitting?: (isSubmitting: boolean) => void;
+    setFieldValue?: (
+        field: string,
+        value: any,
+        shouldValidate?: boolean | undefined,
+    ) => Promise<void | FormikErrors<FormValues>>;
 }
 export type SortDirectionType = "asc" | "desc";
 

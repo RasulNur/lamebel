@@ -9,6 +9,7 @@ export default function useValidation() {
     const { text } = useText();
 
     const requiredText = text("Поле обязательно для заполнения");
+    const emailText = "Неправильный формат электронной почты";
     const isPhoneText = text("Неправильный формат номера телефона");
     const passwordMatchText = text("Пароли должны совпадать друг с другом");
     const maxLength255Text = text("Нужно ввести не более 255 символов");
@@ -59,11 +60,18 @@ export default function useValidation() {
     const shippingRadioValidation = Yup.string().required(requiredText);
     const addressRadioValidation = Yup.string().required(requiredText);
 
+    const emailValidation = Yup.string()
+        .required(requiredText)
+        .email(emailText);
+
+    const ratingValidation = Yup.number()
+        .required()
+        .min(1, "Поставьте рейтинг")
+        .max(5, "Максимальный рейтингг 5");
+
     const checkoutValidationSchema = Yup.object({
         name: nameValidation,
         phone_number: phoneValidation,
-        // pin: pinValidation,
-        // expiry: expiryValidation,
         message: messageValidation,
         payment_method: paymentRadioValidation,
         shipping_method: shippingRadioValidation,
@@ -99,6 +107,12 @@ export default function useValidation() {
         phone_number: phoneValidation,
         message: messageValidation,
     });
+    const reviewsValidationSchema = Yup.object({
+        name: nameValidation,
+        email: emailValidation,
+        message: messageValidation,
+        rating: ratingValidation,
+    });
     const addressValidationSchema = Yup.object({
         address: addressValidation,
     });
@@ -113,5 +127,6 @@ export default function useValidation() {
         updatePhoneValidationSchema,
         contactsValidationSchema,
         addressValidationSchema,
+        reviewsValidationSchema,
     };
 }

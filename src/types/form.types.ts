@@ -38,3 +38,10 @@ export interface ICheckoutForm {
 export interface IAddressForm {
     address: string;
 }
+
+export interface IReviewsForm {
+    name: string;
+    email: string;
+    message: string;
+    rating: number;
+}

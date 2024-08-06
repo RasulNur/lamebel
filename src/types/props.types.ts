@@ -17,7 +17,7 @@ import {
     ISingleCategory,
 } from "./api/categories.types";
 import { IProfile } from "./api/profile.types";
-import { ICheckoutForm, IUpdatePhoneForm } from "./form.types";
+import { ICheckoutForm, IReviewsForm, IUpdatePhoneForm } from "./form.types";
 import { FormikErrors, FormikState, FormikValues } from "formik";
 import { IPaymentMethods, IShippingMethods } from "./api/checkoutMethods.types";
 import { IAddress, IAddresses } from "./api/address.types";
@@ -201,4 +201,21 @@ export interface IRadioInputProps {
 export interface IAddressCardProps {
     address: IAddress;
     lang: Lang;
+}
+
+export interface IRatingProps {
+    strokeColor?: string;
+    fillColor?: string;
+    activeStrokeColor?: string;
+    activeFillColor?: string;
+    count?: number;
+    wrapperClassName?: string;
+    iconClassname?: string;
+
+    setFieldValue: (
+        field: string,
+        value: any,
+        shouldValidate?: boolean | undefined,
+    ) => Promise<void | FormikErrors<IReviewsForm>>;
+    values: IReviewsForm;
 }

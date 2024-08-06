@@ -1,4 +1,8 @@
-import { getProduct, getProducts } from "@/api/productsApi";
+import {
+    getProduct,
+    getProductAttributes,
+    getProducts,
+} from "@/api/productsApi";
 import { notFound } from "next/navigation";
 import { getTexts } from "@/api/textsApi";
 import { Lang } from "@/types/api/api.types";
@@ -6,6 +10,7 @@ import PageHeader from "@/components/ui/PageHeader";
 import SectionWrapper from "@/components/layout/SectionWrapper";
 import ProductsSwiper from "@/components/ui/ProductsSwiper";
 import Product from "@/components/pages/product/Product";
+import { getReviews } from "@/api/reviewsApi";
 
 export default async function ProductPage({
     params: { id, lang },
@@ -21,6 +26,11 @@ export default async function ProductPage({
         quantity: 10,
         lang,
     });
+    const productAttributes = await getProductAttributes({
+        productId: product.data.id,
+        lang,
+    });
+    const reviews = await getReviews({ lang, productId: product.data.id });
     const { text } = await getTexts({ lang });
     return (
         <>
@@ -41,7 +51,12 @@ export default async function ProductPage({
 
             <section className="mt-5 last-section-margin">
                 <div className="container">
-                    <Product product={product} />
+                    <Product
+                        product={product}
+                        productAttributes={productAttributes}
+                        lang={lang}
+                        reviews={reviews}
+                    />
                 </div>
             </section>
             <SectionWrapper className="bg-main-light section-padding">

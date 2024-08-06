@@ -1,12 +1,24 @@
 "use client";
 
-import { ISingleProduct } from "@/types/api/products.types";
+import { IProductAttributes, ISingleProduct } from "@/types/api/products.types";
 import ProductSidebar from "./productSidebar/ProductSidebar";
 import ProductGallery from "./productGallery/ProductGallery";
 import ProductTabs from "./productTabs/ProductTabs";
 import { useState } from "react";
+import { Lang } from "@/types/api/api.types";
+import { IReviews } from "@/types/api/reviews.types";
 
-export default function Product({ product }: { product: ISingleProduct }) {
+export default function Product({
+    product,
+    productAttributes,
+    lang,
+    reviews,
+}: {
+    product: ISingleProduct;
+    productAttributes: IProductAttributes;
+    lang: Lang;
+    reviews: IReviews;
+}) {
     const [tabIndex, setTabIndex] = useState<number>(0);
 
     return (
@@ -18,6 +30,10 @@ export default function Product({ product }: { product: ISingleProduct }) {
                         <ProductTabs
                             tabIndex={tabIndex}
                             setTabIndex={setTabIndex}
+                            productAttributes={productAttributes}
+                            product={product}
+                            lang={lang}
+                            reviews={reviews}
                         />
                     </div>
                 </div>
@@ -25,7 +41,14 @@ export default function Product({ product }: { product: ISingleProduct }) {
                 <ProductSidebar product={product} setTabIndex={setTabIndex} />
             </div>
             <div className="lg:hidden">
-                <ProductTabs tabIndex={tabIndex} setTabIndex={setTabIndex} />
+                <ProductTabs
+                    tabIndex={tabIndex}
+                    setTabIndex={setTabIndex}
+                    productAttributes={productAttributes}
+                    product={product}
+                    lang={lang}
+                    reviews={reviews}
+                />
             </div>
         </div>
     );
