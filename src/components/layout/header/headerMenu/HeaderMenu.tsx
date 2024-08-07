@@ -6,7 +6,7 @@ import Icon from "@/components/ui/Icon";
 import HeaderMenuContent from "./headerMenuContent/HeaderMenuContent";
 import { IHeaderMenuProps } from "@/types/props.types";
 
-export default function HeaderMenu({ menu }: IHeaderMenuProps) {
+export default function HeaderMenu({ menu, categories }: IHeaderMenuProps) {
     let [isOpen, setIsOpen] = useState(false);
 
     function closeModal() {
@@ -34,7 +34,11 @@ export default function HeaderMenu({ menu }: IHeaderMenuProps) {
                     </button>
                 }
                 menuContent={
-                    <HeaderMenuContent menu={menu} closeModal={closeModal} />
+                    <HeaderMenuContent
+                        menu={menu}
+                        closeModal={closeModal}
+                        categories={categories}
+                    />
                 }
             />
         </>

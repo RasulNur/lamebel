@@ -6,6 +6,7 @@ import { IHeaderMenuContentProps } from "@/types/props.types";
 export default function HeaderMenuContent({
     closeModal,
     menu,
+    categories,
 }: IHeaderMenuContentProps) {
     return (
         <div className="flex flex-col gap-5">
@@ -18,7 +19,7 @@ export default function HeaderMenuContent({
             <SearchForm />
 
             {menu && (
-                <ul className="2xl:hidden flex-col gap-2">
+                <ul className="2xl:hidden flex flex-col gap-2">
                     {menu.data.menuItems.map((link) => {
                         return (
                             <li key={link.id}>
@@ -32,6 +33,20 @@ export default function HeaderMenuContent({
                     })}
                 </ul>
             )}
+
+            <ul className="flex flex-col gap-2">
+                {categories.data.map((category) => {
+                    return (
+                        <li key={category.id}>
+                            <Link
+                                href={category.url}
+                                className="inline-block py-2 hover:text-main text-sm font-medium w-full">
+                                {category.name}
+                            </Link>
+                        </li>
+                    );
+                })}
+            </ul>
         </div>
     );
 }

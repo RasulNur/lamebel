@@ -10,7 +10,12 @@ import { useState } from "react";
 import SearchForm from "@/components/ui/SearchForm";
 import { IHeaderTopProps } from "@/types/props.types";
 
-export default function HeaderTop({ lang, settings, menu }: IHeaderTopProps) {
+export default function HeaderTop({
+    lang,
+    settings,
+    menu,
+    categories,
+}: IHeaderTopProps) {
     const [isSearchOpen, setIsSearchOpen] = useState<boolean>(false);
     return (
         <div className="py-6">
@@ -27,7 +32,7 @@ export default function HeaderTop({ lang, settings, menu }: IHeaderTopProps) {
                         />
                     </Link>
                     <div className="2xl:block hidden">
-                        <HeaderMenu />
+                        <HeaderMenu categories={categories} />
                     </div>
 
                     {isSearchOpen ? (
@@ -56,7 +61,7 @@ export default function HeaderTop({ lang, settings, menu }: IHeaderTopProps) {
                     />
 
                     <div className="2xl:hidden">
-                        <HeaderMenu menu={menu} />
+                        <HeaderMenu menu={menu} categories={categories} />
                     </div>
                 </div>
             </div>

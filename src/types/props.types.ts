@@ -542,13 +542,16 @@ export interface IHeaderTopProps {
     lang: Lang;
     settings: ISettings;
     menu: ISingleMenu;
+    categories: ICategoriesTree;
 }
 export interface IHeaderMenuProps {
     menu?: ISingleMenu;
+    categories: ICategoriesTree;
 }
 export interface IHeaderMenuContentProps {
     closeModal: () => void;
     menu?: ISingleMenu;
+    categories: ICategoriesTree;
 }
 export interface IHeaderListProps {
     menu: ISingleMenu;
