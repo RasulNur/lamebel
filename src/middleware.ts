@@ -9,31 +9,25 @@ import {
 
 function withRedirectsMiddleware(middleware: NextMiddleware) {
     return async (req: NextRequest, e: NextFetchEvent) => {
-        const {
-            nextUrl: { pathname },
-            url,
-        } = req;
-        const redirectData = [
-            {
-                from: "/en/pages/3-o-nas",
-                to: "/en/contacts",
-            },
-            {
-                from: "/en/categories/1-smartfony-i-gadzety",
-                to: "/en/categories",
-            },
-        ];
-        console.log({ url, pathname });
+        // const {
+        //     nextUrl: { pathname },
+        //     url,
+        // } = req;
 
-        for (const item of redirectData) {
-            console.log({ item });
-            if (pathname === item.from) {
-                console.log("done");
-                return NextResponse.redirect(new URL(item.to, url), {
-                    status: 301,
-                });
-            }
-        }
+        // const redirectData = [
+        //     {
+        //         from: "",
+        //         to: "",
+        //     },
+        // ];
+
+        // for (const item of redirectData) {
+        //     if (pathname === item.from) {
+        //         return NextResponse.redirect(new URL(item.to, url), {
+        //             status: 301,
+        //         });
+        //     }
+        // }
 
         return middleware(req, e);
     };
