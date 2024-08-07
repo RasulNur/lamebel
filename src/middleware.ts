@@ -15,20 +15,25 @@ function withRedirectsMiddleware(middleware: NextMiddleware) {
         } = req;
         const redirectData = [
             {
+                from: "/en/pages/3-o-nas",
+                to: "/en/contacts",
+            },
+            {
                 from: "/en/categories/1-smartfony-i-gadzety",
                 to: "/en/categories",
             },
         ];
+        console.log({ url, pathname });
 
-        redirectData.forEach((item) => {
-            console.log({ pathname, item });
-            if (pathname == item.from) {
+        for (const item of redirectData) {
+            console.log({ item });
+            if (pathname === item.from) {
                 console.log("done");
                 return NextResponse.redirect(new URL(item.to, url), {
                     status: 301,
                 });
             }
-        });
+        }
 
         return middleware(req, e);
     };
