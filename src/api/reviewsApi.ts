@@ -1,15 +1,12 @@
-import { Lang } from "@/types/api/api.types";
 import { fetchGET, fetchMutate } from "./fetch";
-import { ICreateReviewParams, IReviews } from "@/types/api/reviews.types";
+import {
+    ICreateReviewParams,
+    IGetReviewsParams,
+    IReviews,
+} from "@/types/api/reviews.types";
 import toast from "react-hot-toast";
 
-export const getReviews = async ({
-    lang,
-    productId,
-}: {
-    lang: Lang;
-    productId: number;
-}) => {
+export const getReviews = async ({ lang, productId }: IGetReviewsParams) => {
     return await fetchGET({
         url: `reviews?product_id=${productId}`,
         tag: "Reviews",

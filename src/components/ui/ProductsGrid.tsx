@@ -1,11 +1,11 @@
 "use client";
 
-import { IProducts } from "@/types/api/products.types";
 import ProductCard from "./ProductCard";
 import Pagination from "./pagination/Pagination";
 import Empty from "./Empty";
+import { IProductsGridProps } from "@/types/props.types";
 
-export default function ProductsGrid({ products }: { products: IProducts }) {
+export default function ProductsGrid({ products }: IProductsGridProps) {
     return (
         <div className="flex flex-col gap-7">
             {(!products.data ||

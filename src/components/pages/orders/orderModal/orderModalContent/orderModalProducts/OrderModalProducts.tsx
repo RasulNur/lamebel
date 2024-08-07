@@ -1,9 +1,11 @@
 import { useText } from "@/context/text.context";
-import { IOrder } from "@/types/api/orders.types";
+import { IOrderModalProductsProps } from "@/types/props.types";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function OrderModalProducts({ order }: { order: IOrder }) {
+export default function OrderModalProducts({
+    order,
+}: IOrderModalProductsProps) {
     const { text } = useText();
 
     return (

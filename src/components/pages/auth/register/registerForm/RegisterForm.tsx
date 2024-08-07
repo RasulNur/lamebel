@@ -1,16 +1,13 @@
 import OvalSpinner from "@/components/ui/OvalSpinner";
 import OverlapInput from "@/components/ui/OverlapInput";
 import { useText } from "@/context/text.context";
-import { AuthTab, SetState } from "@/types/types";
+import { IRegisterFormProps } from "@/types/props.types";
 import { Form } from "formik";
 
 export default function RegisterForm({
     isSubmitting,
     setAuthTab,
-}: {
-    isSubmitting: boolean;
-    setAuthTab: SetState<AuthTab>;
-}) {
+}: IRegisterFormProps) {
     const { text } = useText();
     return (
         <Form>

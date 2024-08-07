@@ -1,18 +1,12 @@
 import ReviewsForm from "./reviewsForm/ReviewsForm";
 import ReviewsList from "./reviewsList/ReviewsList";
-import { ISingleProduct } from "@/types/api/products.types";
-import { Lang } from "@/types/api/api.types";
-import { IReviews } from "@/types/api/reviews.types";
+import { IProductReviewsProps } from "@/types/props.types";
 
 export default function ProductReviews({
     product,
     lang,
     reviews,
-}: {
-    product: ISingleProduct;
-    lang: Lang;
-    reviews: IReviews;
-}) {
+}: IProductReviewsProps) {
     return (
         <div className="flex flex-col gap-10">
             <ReviewsList reviews={reviews} />

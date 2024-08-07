@@ -1,10 +1,9 @@
+import { ISectionHeaderProps } from "@/types/props.types";
+
 export default function SectionHeader({
     title,
     subtitle,
-}: {
-    title: string;
-    subtitle: string;
-}) {
+}: ISectionHeaderProps) {
     return (
         <div className="flex flex-col gap-1">
             <h4 className="font-semibold lg:text-lg text-base leading-160 uppercase text-placeholder">

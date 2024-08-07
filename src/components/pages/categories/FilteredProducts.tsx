@@ -4,7 +4,6 @@ import SectionWrapper from "@/components/layout/SectionWrapper";
 import ProductCard from "@/components/ui/ProductCard";
 import ProductsSwiper from "@/components/ui/ProductsSwiper";
 import Pagination from "@/components/ui/pagination/Pagination";
-import { ProductsFilter } from "@/types/api/products.types";
 import { ICategoriesPagesProductsProps } from "@/types/props.types";
 
 export default async function FilteredProducts({
@@ -27,29 +26,6 @@ export default async function FilteredProducts({
         lang,
     });
     const { text } = await getTexts({ lang });
-
-    const getTitle = (swiperName: ProductsFilter) => {
-        return swiperName == "is_bestseller"
-            ? text("Хиты продаж")
-            : swiperName == "is_popular"
-            ? text("Популярные товары")
-            : swiperName == "is_new"
-            ? text("Все новинки")
-            : swiperName == "is_special"
-            ? text("Специально для вас")
-            : text("Все акции");
-    };
-    const getLink = (swiperName: ProductsFilter) => {
-        return swiperName == "is_bestseller"
-            ? "bestsellers"
-            : swiperName == "is_popular"
-            ? "popular"
-            : swiperName == "is_new"
-            ? "new"
-            : swiperName == "is_special"
-            ? "special"
-            : "promotion";
-    };
 
     return (
         <>

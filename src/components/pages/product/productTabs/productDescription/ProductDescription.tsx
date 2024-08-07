@@ -1,10 +1,8 @@
-import { ISingleProduct } from "@/types/api/products.types";
+import { IProductDescriptionProps } from "@/types/props.types";
 
 export default function ProductDescription({
     product,
-}: {
-    product: ISingleProduct;
-}) {
+}: IProductDescriptionProps) {
     return (
         <div className="text-section">
             <p>{product.data.description}</p>

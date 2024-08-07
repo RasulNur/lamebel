@@ -1,9 +1,9 @@
 import Empty from "@/components/ui/Empty";
 import NewsCard from "@/components/ui/NewsCard";
 import Pagination from "@/components/ui/pagination/Pagination";
-import { IPublications } from "@/types/api/publications.types";
+import { INewsProps } from "@/types/props.types";
 
-export default function News({ news }: { news: IPublications }) {
+export default function News({ news }: INewsProps) {
     return (
         <>
             {(!news.data || (news.data && news.data.length == 0)) && <Empty />}

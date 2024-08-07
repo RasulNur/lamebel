@@ -5,11 +5,11 @@ import { useCookies } from "next-client-cookies";
 import { useRouter } from "next/navigation";
 import Icon from "./Icon";
 import { useText } from "@/context/text.context";
-import { Lang } from "@/types/api/api.types";
 import { useState } from "react";
 import OvalSpinner from "./OvalSpinner";
+import { ILogoutButtonProps } from "@/types/props.types";
 
-export default function LogoutButton({ lang }: { lang: Lang }) {
+export default function LogoutButton({ lang }: ILogoutButtonProps) {
     const cookies = useCookies();
     let token = cookies.get("token");
     const { refresh, replace } = useRouter();

@@ -4,10 +4,10 @@ import HideFilter from "@/components/ui/HideFilter";
 import { useEffect, useState } from "react";
 import Slider from "rc-slider";
 import "rc-slider/assets/index.css";
-import { IPrices } from "@/types/api/categories.types";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { IFilterPriceProps } from "@/types/props.types";
 
-export default function FilterPrice({ price }: { price: IPrices }) {
+export default function FilterPrice({ price }: IFilterPriceProps) {
     const MIN = price.min;
     const MAX = price.max;
     const [value, setValue] = useState<number[]>([MIN, MAX]);

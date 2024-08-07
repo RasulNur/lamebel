@@ -2,15 +2,15 @@ import { loginCheck, resetPassword, sendOtp } from "@/api/authApi";
 import OtpModal from "@/components/ui/otpModal/OtpModal";
 import { useText } from "@/context/text.context";
 import useValidation from "@/hooks/useValidation";
-import { Lang } from "@/types/api/api.types";
 import { IResetPasswordForm } from "@/types/form.types";
-import { AuthTab, ISubmitFormFuncParams, SetState } from "@/types/types";
+import { ISubmitFormFuncParams } from "@/types/types";
 import { formatPhone } from "@/utils/formatPhone";
 import { Formik } from "formik";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import toast from "react-hot-toast";
 import ResetPasswordForm from "./resetPasswordForm/ResetPasswordForm";
+import { IResetPasswordProps } from "@/types/props.types";
 
 const initialValues: IResetPasswordForm = {
     phone_number: "",
@@ -21,12 +21,7 @@ const initialValues: IResetPasswordForm = {
 export default function ResetPassword({
     setAuthTab,
     lang,
-    closeModal,
-}: {
-    setAuthTab: SetState<AuthTab>;
-    lang: Lang;
-    closeModal: () => void;
-}) {
+}: IResetPasswordProps) {
     const { resetPasswordValidationSchema } = useValidation();
     const [isOtpModalOpen, setIsOtpModalOpen] = useState<boolean>(false);
     const [otpData, setOtpData] = useState<IResetPasswordForm>();

@@ -1,8 +1,7 @@
 import { FormikErrors, FormikState } from "formik";
 import { Dispatch, SetStateAction } from "react";
-import { Lang } from "./api/api.types";
+import { IMeta, Lang } from "./api/api.types";
 import { IProduct } from "./api/products.types";
-import { IQuantityChangerLoading } from "./context/cart.context.types";
 
 export type SpritesName =
     | "telegram"
@@ -62,6 +61,10 @@ export interface IUseLimitParams {
     data: any[];
     limitNumber: number;
 }
+export interface IUsePaginationParams {
+    meta: IMeta;
+}
+
 export interface ILangOption {
     id: number;
     lang: Lang;

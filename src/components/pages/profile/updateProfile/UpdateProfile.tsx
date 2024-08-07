@@ -25,7 +25,6 @@ export default function UpdateProfile({ profile, lang }: IUpdateProfileProps) {
 
     const handleSubmit = ({
         values,
-        resetForm,
         setSubmitting,
     }: ISubmitFormFuncParams<IUpdateProfileForm>) => {
         const { name } = values;
@@ -34,7 +33,7 @@ export default function UpdateProfile({ profile, lang }: IUpdateProfileProps) {
                 body: { name },
                 token: token,
                 lang,
-            }).then((data) => {
+            }).then(() => {
                 toast.success("Информация профиля изменена!");
                 refresh();
                 setSubmitting && setSubmitting(false);

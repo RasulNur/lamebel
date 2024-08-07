@@ -1,4 +1,3 @@
-import { getProductGroup } from "@/api/productGroupApi";
 import { IProductGroupsProps } from "@/types/props.types";
 import ProductGroupsButton from "./productGroupsButton/ProductGroupsButton";
 

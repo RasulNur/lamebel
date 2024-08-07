@@ -1,10 +1,6 @@
-import { ISinglePublication } from "@/types/api/publications.types";
+import { ISingleNewsProps } from "@/types/props.types";
 
-export default function SingleNews({
-    publication,
-}: {
-    publication: ISinglePublication;
-}) {
+export default function SingleNews({ publication }: ISingleNewsProps) {
     return (
         <div
             className="text-section lg:mt-10 mt-5"

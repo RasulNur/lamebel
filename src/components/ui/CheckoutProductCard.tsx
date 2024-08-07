@@ -1,16 +1,13 @@
 "use client";
 
 import { useText } from "@/context/text.context";
-import { IProduct } from "@/types/api/products.types";
+import { ICheckoutProductCardProps } from "@/types/props.types";
 import Link from "next/link";
 
 export default function CheckoutProductCard({
     product,
     quantity,
-}: {
-    product: IProduct;
-    quantity?: number;
-}) {
+}: ICheckoutProductCardProps) {
     const { text } = useText();
     return (
         <div className="flex flex-col gap-2">

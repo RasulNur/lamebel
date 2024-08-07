@@ -1,8 +1,8 @@
 "use client";
 
-import { SetState } from "@/types/types";
 import { Dialog, DialogBackdrop, DialogPanel } from "@headlessui/react";
 import Icon from "./Icon";
+import { IDialogWrapperProps } from "@/types/props.types";
 
 export default function DialogWrapper({
     button,
@@ -12,15 +12,7 @@ export default function DialogWrapper({
     setIsOpen,
     dialogClassname,
     titleClassname,
-}: {
-    button: React.ReactNode;
-    content: React.ReactNode;
-    title: string;
-    setIsOpen: SetState<boolean>;
-    isOpen: boolean;
-    dialogClassname?: string;
-    titleClassname?: string;
-}) {
+}: IDialogWrapperProps) {
     return (
         <>
             {button}

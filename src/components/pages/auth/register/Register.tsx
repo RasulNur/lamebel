@@ -2,15 +2,15 @@ import { loginCheck, register, sendOtp } from "@/api/authApi";
 import OtpModal from "@/components/ui/otpModal/OtpModal";
 import { useText } from "@/context/text.context";
 import useValidation from "@/hooks/useValidation";
-import { Lang } from "@/types/api/api.types";
 import { IRegisterForm } from "@/types/form.types";
-import { AuthTab, ISubmitFormFuncParams, SetState } from "@/types/types";
+import { ISubmitFormFuncParams } from "@/types/types";
 import { formatPhone } from "@/utils/formatPhone";
 import { Formik } from "formik";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import toast from "react-hot-toast";
 import RegisterForm from "./registerForm/RegisterForm";
+import { IRegisterProps } from "@/types/props.types";
 
 const initialValues: IRegisterForm = {
     name: "",
@@ -22,11 +22,7 @@ export default function Register({
     setAuthTab,
     lang,
     closeModal,
-}: {
-    setAuthTab: SetState<AuthTab>;
-    lang: Lang;
-    closeModal: () => void;
-}) {
+}: IRegisterProps) {
     const { registerValidationSchema } = useValidation();
     const [isOtpModalOpen, setIsOtpModalOpen] = useState<boolean>(false);
     const [otpData, setOtpData] = useState<IRegisterForm>();

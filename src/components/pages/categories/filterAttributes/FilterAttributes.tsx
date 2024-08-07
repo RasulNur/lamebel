@@ -1,11 +1,9 @@
-import { ICategoryAttributes } from "@/types/api/categories.types";
 import Attribute from "./attribute/Attribute";
+import { IFilterAttributesProps } from "@/types/props.types";
 
 export default function FilterAttributes({
     attributes,
-}: {
-    attributes: ICategoryAttributes;
-}) {
+}: IFilterAttributesProps) {
     return (
         <div className="flex flex-col gap-10">
             {attributes.data.map((attribute) => {

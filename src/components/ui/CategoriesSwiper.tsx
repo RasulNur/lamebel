@@ -4,13 +4,11 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import SectionHeader from "./SectionHeader";
 import { Autoplay, Pagination } from "swiper/modules";
 import CategoryCard from "@/components/ui/CategoryCard";
-import { ICategoriesTree } from "@/types/api/categories.types";
+import { ICategoriesSwiperProps } from "@/types/props.types";
 
 export default function CategoriesSwiper({
     categories,
-}: {
-    categories: ICategoriesTree;
-}) {
+}: ICategoriesSwiperProps) {
     return (
         <div className="section-header-wrapper">
             <SectionHeader title="ШИРОКИЙ АССОРТИМЕНТ" subtitle="Наш Каталог" />

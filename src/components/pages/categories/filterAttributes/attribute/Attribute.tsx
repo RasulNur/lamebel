@@ -1,17 +1,13 @@
 "use client";
 
 import HideFilter from "@/components/ui/HideFilter";
-import { ICategoryAttribute } from "@/types/api/categories.types";
 import AttributeCheckbox from "./attributeCheckbox/AttributeCheckbox";
 import { useState } from "react";
 import useLimit from "@/hooks/useLimit";
 import { useText } from "@/context/text.context";
+import { IAttributeProps } from "@/types/props.types";
 
-export default function Attribute({
-    attribute,
-}: {
-    attribute: ICategoryAttribute;
-}) {
+export default function Attribute({ attribute }: IAttributeProps) {
     const { handleLimit, isShow, limit } = useLimit({
         data: attribute.attribute_values,
         limitNumber: 5,

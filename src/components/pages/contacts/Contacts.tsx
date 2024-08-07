@@ -1,15 +1,8 @@
-import { ISettings } from "@/types/api/settings.types";
 import ContactsLinks from "./contactsLinks/ContactsLinks";
 import ContactsForm from "./contactsForm/ContactsForm";
-import { Lang } from "@/types/api/api.types";
+import { IContactsProps } from "@/types/props.types";
 
-export default function Contacts({
-    settings,
-    lang,
-}: {
-    settings: ISettings;
-    lang: Lang;
-}) {
+export default function Contacts({ settings, lang }: IContactsProps) {
     return (
         <div className="flex flex-col gap-10">
             <p className="leading-150 max-w-[900px]">

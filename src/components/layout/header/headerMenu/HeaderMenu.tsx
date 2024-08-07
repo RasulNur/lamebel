@@ -4,9 +4,9 @@ import MenuWrapper from "@/components/ui/MenuWrapper";
 import { useState } from "react";
 import Icon from "@/components/ui/Icon";
 import HeaderMenuContent from "./headerMenuContent/HeaderMenuContent";
-import { ISingleMenu } from "@/types/api/menus.types";
+import { IHeaderMenuProps } from "@/types/props.types";
 
-export default function HeaderMenu({ menu }: { menu?: ISingleMenu }) {
+export default function HeaderMenu({ menu }: IHeaderMenuProps) {
     let [isOpen, setIsOpen] = useState(false);
 
     function closeModal() {

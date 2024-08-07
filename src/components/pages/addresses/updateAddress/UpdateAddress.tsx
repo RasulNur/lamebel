@@ -1,28 +1,19 @@
-import {
-    createAddress,
-    setDefaultAddress,
-    updateAddress,
-} from "@/api/addressesApi";
+import { updateAddress } from "@/api/addressesApi";
 import { useText } from "@/context/text.context";
 import useValidation from "@/hooks/useValidation";
-import { Lang } from "@/types/api/api.types";
 import { IAddressForm } from "@/types/form.types";
-import { ISubmitFormFuncParams, SetState } from "@/types/types";
+import { ISubmitFormFuncParams } from "@/types/types";
 import { Form, Formik } from "formik";
 import { useCookies } from "next-client-cookies";
 import OverlapInput from "@/components/ui/OverlapInput";
 import { useRouter } from "next/navigation";
-import { IAddress } from "@/types/api/address.types";
+import { IUpdateAddressProps } from "@/types/props.types";
 
 export default function UpdateAddress({
     lang,
     setIsOpen,
     currentAddress,
-}: {
-    lang: Lang;
-    setIsOpen: SetState<boolean>;
-    currentAddress?: IAddress;
-}) {
+}: IUpdateAddressProps) {
     const initialValues: IAddressForm = {
         address: currentAddress?.address_line_1 || "",
     };
@@ -32,10 +23,7 @@ export default function UpdateAddress({
     const { refresh } = useRouter();
     const { addressValidationSchema } = useValidation();
 
-    const handleSubmit = ({
-        values,
-        resetForm,
-    }: ISubmitFormFuncParams<IAddressForm>) => {
+    const handleSubmit = ({ values }: ISubmitFormFuncParams<IAddressForm>) => {
         const { address } = values;
 
         if (token && currentAddress && address) {

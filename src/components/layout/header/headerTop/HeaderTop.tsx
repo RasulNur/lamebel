@@ -6,21 +6,11 @@ import { numberWithSpaces } from "@/utils/numberWithSpaces";
 import HeaderMenu from "../headerMenu/HeaderMenu";
 import HeaderList from "../headerList/HeaderList";
 import HeaderIcons from "../headerIcons/HeaderIcons";
-import { ISettings } from "@/types/api/settings.types";
-import { Lang } from "@/types/api/api.types";
 import { useState } from "react";
 import SearchForm from "@/components/ui/SearchForm";
-import { ISingleMenu } from "@/types/api/menus.types";
+import { IHeaderTopProps } from "@/types/props.types";
 
-export default function HeaderTop({
-    lang,
-    settings,
-    menu,
-}: {
-    lang: Lang;
-    settings: ISettings;
-    menu: ISingleMenu;
-}) {
+export default function HeaderTop({ lang, settings, menu }: IHeaderTopProps) {
     const [isSearchOpen, setIsSearchOpen] = useState<boolean>(false);
     return (
         <div className="py-6">

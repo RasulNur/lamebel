@@ -1,9 +1,8 @@
 "use client";
 
 import HideFilter from "@/components/ui/HideFilter";
-import { useEffect, useState } from "react";
-import Icon from "../../../ui/Icon";
-import { ICategoryBrand, ICategoryBrands } from "@/types/api/categories.types";
+import { useState } from "react";
+import { ICategoryBrands } from "@/types/api/categories.types";
 import BrandCheckbox from "./brandCheckbox/BrandCheckbox";
 import useLimit from "@/hooks/useLimit";
 import { useText } from "@/context/text.context";
@@ -15,19 +14,6 @@ export default function FilterBrands({ brands }: { brands: ICategoryBrands }) {
     });
     const { text } = useText();
     const [isOpen, setIsOpen] = useState<boolean>(true);
-    const [searchBrand, setSearchBrand] = useState<string>("");
-    const [filteredBrands, setFilteredBrands] = useState<ICategoryBrand[]>([]);
-
-    useEffect(() => {
-        setFilteredBrands(brands.data);
-    }, []);
-    useEffect(() => {
-        setFilteredBrands(
-            brands.data.filter((brand) =>
-                brand.name.toLowerCase().includes(searchBrand.toLowerCase()),
-            ),
-        );
-    }, [searchBrand]);
 
     return (
         <div>
@@ -38,11 +24,11 @@ export default function FilterBrands({ brands }: { brands: ICategoryBrands }) {
             />
             <div className={`${isOpen ? "flex" : "hidden"} flex-col gap-3`}>
                 <div className="flex flex-col gap-2">
-                    {filteredBrands.slice(0, limit).map((brand) => {
+                    {brands.data.slice(0, limit).map((brand) => {
                         return <BrandCheckbox key={brand.id} brand={brand} />;
                     })}
                 </div>
-                {filteredBrands.length > 5 && (
+                {brands.data.length > 5 && (
                     <button
                         type="button"
                         onClick={handleLimit}

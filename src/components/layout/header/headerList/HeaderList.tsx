@@ -1,7 +1,7 @@
-import { ISingleMenu } from "@/types/api/menus.types";
+import { IHeaderListProps } from "@/types/props.types";
 import Link from "next/link";
 
-export default function HeaderList({ menu }: { menu: ISingleMenu }) {
+export default function HeaderList({ menu }: IHeaderListProps) {
     return (
         <ul className="2xl:flex hidden items-center gap-6">
             {menu.data.menuItems.map((link) => {

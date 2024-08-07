@@ -4,11 +4,11 @@ import Icon from "@/components/ui/Icon";
 import MenuWrapper from "../../../ui/MenuWrapper";
 import { useState } from "react";
 import AuthMenuContent from "./authMenuContent/AuthMenuContent";
-import { Lang } from "@/types/api/api.types";
 import { useCookies } from "next-client-cookies";
 import Link from "next/link";
+import { IAuthMenuProps } from "@/types/props.types";
 
-export default function AuthMenu({ lang }: { lang: Lang }) {
+export default function AuthMenu({ lang }: IAuthMenuProps) {
     let [isOpen, setIsOpen] = useState(false);
     const cookies = useCookies();
     const token = cookies.get("token");

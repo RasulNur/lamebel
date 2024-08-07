@@ -1,9 +1,9 @@
 import Icon from "@/components/ui/Icon";
-import { ISettings } from "@/types/api/settings.types";
+import { IContactsLinksProps } from "@/types/props.types";
 import { numberWithSpaces } from "@/utils/numberWithSpaces";
 import Link from "next/link";
 
-export default function ContactsLinks({ settings }: { settings: ISettings }) {
+export default function ContactsLinks({ settings }: IContactsLinksProps) {
     return (
         <div>
             <h3 className="lg:text-2xl md:text-xl text-lg leading-110 font-semibold mb-8">

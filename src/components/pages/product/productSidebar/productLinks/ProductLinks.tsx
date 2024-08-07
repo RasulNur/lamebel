@@ -1,6 +1,6 @@
 "use client";
 
-import { SetState } from "@/types/types";
+import { IProductLinksProps } from "@/types/props.types";
 
 const links = [
     { id: 0, title: "Xарактеристики" },
@@ -8,11 +8,7 @@ const links = [
     { id: 2, title: "Отзывы" },
 ];
 
-export default function ProductLinks({
-    setTabIndex,
-}: {
-    setTabIndex: SetState<number>;
-}) {
+export default function ProductLinks({ setTabIndex }: IProductLinksProps) {
     const handleClick = (id: number) => {
         setTabIndex(id);
         document

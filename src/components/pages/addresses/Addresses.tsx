@@ -5,7 +5,6 @@ import AddressModal from "@/components/ui/AddressModal";
 import Empty from "@/components/ui/Empty";
 import { Lang } from "@/types/api/api.types";
 import { getCookies } from "next-client-cookies/server";
-import Link from "next/link";
 
 export default async function Addresses({ lang }: { lang: Lang }) {
     const cookies = getCookies();

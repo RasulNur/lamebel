@@ -2,11 +2,11 @@
 
 import DialogWrapper from "@/components/ui/DialogWrapper";
 import { useText } from "@/context/text.context";
-import { IOrder } from "@/types/api/orders.types";
 import { useState } from "react";
 import OrderModalContent from "./orderModalContent/OrderModalContent";
+import { IOrderModalProps } from "@/types/props.types";
 
-export default function OrderModal({ order }: { order: IOrder }) {
+export default function OrderModal({ order }: IOrderModalProps) {
     const { text } = useText();
     const [isOpen, setIsOpen] = useState<boolean>(false);
 

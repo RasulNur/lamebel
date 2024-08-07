@@ -1,13 +1,11 @@
 import RadioInput from "@/components/ui/RadioInput";
 import { useText } from "@/context/text.context";
-import { IShippingMethods } from "@/types/api/checkoutMethods.types";
+import { ICheckoutShippingProps } from "@/types/props.types";
 import { ErrorMessage } from "formik";
 
 export default function CheckoutShipping({
     shippingMethods,
-}: {
-    shippingMethods: IShippingMethods;
-}) {
+}: ICheckoutShippingProps) {
     const { text } = useText();
     return (
         <div className="flex flex-col gap-5">

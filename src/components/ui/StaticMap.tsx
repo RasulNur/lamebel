@@ -1,8 +1,9 @@
 "use client";
 
+import { IStaticMapProps } from "@/types/props.types";
 import { useEffect, useRef } from "react";
 
-export default function StaticMap({ iframe }: { iframe: string }) {
+export default function StaticMap({ iframe }: IStaticMapProps) {
     const mapRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {

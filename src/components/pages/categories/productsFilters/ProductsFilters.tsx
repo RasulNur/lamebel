@@ -4,7 +4,7 @@ import FilterBrands from "../filterBrands/FilterBrands";
 import FilterCategories from "../filterCategories/FilterCategories";
 import FilterPrice from "../filterPrice/FilterPrice";
 import ParentCategory from "../parentCategory/ParentCategory";
-import { ICategoriesFiltersProps } from "@/types/props.types";
+import { IProductsFiltersProps } from "@/types/props.types";
 
 export default function ProductsFilters({
     attributes,
@@ -12,7 +12,7 @@ export default function ProductsFilters({
     price,
     subCategories,
     parentCategory,
-}: ICategoriesFiltersProps) {
+}: IProductsFiltersProps) {
     return (
         <div className="flex flex-col gap-10 grow h-full">
             <ParentCategory parentCategory={parentCategory} />

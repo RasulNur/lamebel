@@ -1,9 +1,9 @@
 import Checkbox from "@/components/ui/Checkbox";
-import { ICategoryBrand } from "@/types/api/categories.types";
+import { IBrandCheckboxProps } from "@/types/props.types";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
-export default function BrandCheckbox({ brand }: { brand: ICategoryBrand }) {
+export default function BrandCheckbox({ brand }: IBrandCheckboxProps) {
     const [isChecked, setIsChecked] = useState<boolean>(false);
     const searchParams = useSearchParams();
     const pathname = usePathname();

@@ -1,12 +1,8 @@
 import Icon from "@/components/ui/Icon";
-import { ISingleCategory } from "@/types/api/categories.types";
+import { IParentCategory } from "@/types/props.types";
 import Link from "next/link";
 
-export default function ParentCategory({
-    parentCategory,
-}: {
-    parentCategory: ISingleCategory | string;
-}) {
+export default function ParentCategory({ parentCategory }: IParentCategory) {
     return (
         <>
             {typeof parentCategory !== "string" && (

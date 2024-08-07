@@ -1,12 +1,12 @@
 import { getProfile } from "@/api/profileApi";
 import { getCookies } from "next-client-cookies/server";
 import { getTexts } from "@/api/textsApi";
-import { Lang } from "@/types/api/api.types";
 import UpdateProfile from "./updateProfile/UpdateProfile";
 import UpdatePhone from "./updatePhone/UpdatePhone";
 import UpdatePassword from "./updatePassword/UpdatePassword";
+import { IProfileProps } from "@/types/props.types";
 
-export default async function Profile({ lang }: { lang: Lang }) {
+export default async function Profile({ lang }: IProfileProps) {
     const cookies = getCookies();
     const profile = await getProfile({ token: cookies.get("token"), lang });
     const { text } = await getTexts({ lang });

@@ -1,17 +1,13 @@
 import OvalSpinner from "@/components/ui/OvalSpinner";
 import OverlapInput from "@/components/ui/OverlapInput";
 import { useText } from "@/context/text.context";
-import { AuthTab, SetState } from "@/types/types";
+import { IResetPasswordFormProps } from "@/types/props.types";
 import { Form } from "formik";
-import Link from "next/link";
 
 export default function ResetPasswordForm({
     isSubmitting,
     setAuthTab,
-}: {
-    isSubmitting: boolean;
-    setAuthTab: SetState<AuthTab>;
-}) {
+}: IResetPasswordFormProps) {
     const { text } = useText();
     return (
         <Form>

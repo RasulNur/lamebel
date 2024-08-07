@@ -1,17 +1,13 @@
 import OvalSpinner from "@/components/ui/OvalSpinner";
 import OverlapInput from "@/components/ui/OverlapInput";
 import { useText } from "@/context/text.context";
-import { AuthTab, SetState } from "@/types/types";
+import { ILoginFormProps } from "@/types/props.types";
 import { Form } from "formik";
-import Link from "next/link";
 
 export default function LoginForm({
     isSubmitting,
     setAuthTab,
-}: {
-    isSubmitting: boolean;
-    setAuthTab: SetState<AuthTab>;
-}) {
+}: ILoginFormProps) {
     const { text } = useText();
 
     return (

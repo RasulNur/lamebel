@@ -1,16 +1,10 @@
 "use client";
 
-import Fancybox from "@/components/ui/fancybox/Fancybox";
-import { ISingleProduct } from "@/types/api/products.types";
-import Image from "next/image";
 import GalleryGrid from "./galleryGrid/GalleryGrid";
 import GallerySwiper from "./gallerySwiper/GallerySwiper";
+import { IProductGalleryProps } from "@/types/props.types";
 
-export default function ProductGallery({
-    product,
-}: {
-    product: ISingleProduct;
-}) {
+export default function ProductGallery({ product }: IProductGalleryProps) {
     return (
         <>
             <div className="lg:block hidden">

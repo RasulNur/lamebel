@@ -1,11 +1,11 @@
 "use client";
 
-import { IMeta } from "@/types/api/api.types";
+import { IPaginationProps } from "@/types/props.types";
 import PaginationButton from "./PaginationButton";
 import PaginationNumbers from "./PaginationNumbers";
 import usePagination from "@/hooks/usePagination";
 
-export default function Pagination({ meta }: { meta: IMeta }) {
+export default function Pagination({ meta }: IPaginationProps) {
     const { handleClick, visibleNumbers } = usePagination({ meta });
 
     return (

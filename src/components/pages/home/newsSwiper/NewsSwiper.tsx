@@ -3,11 +3,11 @@
 import Icon from "@/components/ui/Icon";
 import NewsCard from "@/components/ui/NewsCard";
 import SectionHeader from "@/components/ui/SectionHeader";
-import { IPublications } from "@/types/api/publications.types";
+import { INewsSwiperProps } from "@/types/props.types";
 import { Autoplay, Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
-export default function NewsSwiper({ news }: { news: IPublications }) {
+export default function NewsSwiper({ news }: INewsSwiperProps) {
     return (
         <div className="section-header-wrapper">
             <div className="flex sm:flex-row flex-col gap-5 sm:items-center justify-between">

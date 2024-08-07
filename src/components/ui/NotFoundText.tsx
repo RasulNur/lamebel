@@ -1,8 +1,8 @@
 import { getTexts } from "@/api/textsApi";
-import { Lang } from "@/types/api/api.types";
+import { INotFoundTextProps } from "@/types/props.types";
 import Link from "next/link";
 
-export default async function NotFoundText({ lang }: { lang: Lang }) {
+export default async function NotFoundText({ lang }: INotFoundTextProps) {
     const { text } = await getTexts({ lang });
     return (
         <div className="max-w-[476px] mx-auto text-center flex flex-col items-center py-[80px]">

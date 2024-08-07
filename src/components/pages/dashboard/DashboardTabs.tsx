@@ -2,20 +2,16 @@
 
 import LogoutButton from "@/components/ui/LogoutButton";
 import { useText } from "@/context/text.context";
-import { Lang } from "@/types/api/api.types";
-import { DashboardRoutes, IDashboardTab } from "@/types/types";
+import { IDashboardTab } from "@/types/types";
 import { useCookies } from "next-client-cookies";
 import DashboardLink from "./dashboardLink/DashboardLink";
+import { IDashboardTabsProps } from "@/types/props.types";
 
 export default function DashboardTabs({
     children,
     activeRoute,
     lang,
-}: {
-    children: React.ReactNode;
-    activeRoute: DashboardRoutes;
-    lang: Lang;
-}) {
+}: IDashboardTabsProps) {
     const cookies = useCookies();
     const token = cookies.get("token");
     const { text } = useText();

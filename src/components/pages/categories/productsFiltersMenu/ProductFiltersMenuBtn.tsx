@@ -1,11 +1,10 @@
 import Icon from "@/components/ui/Icon";
 import { useText } from "@/context/text.context";
+import { IProductFiltersMenuBtnProps } from "@/types/props.types";
 
 export default function ProductFiltersMenuBtn({
     openModal,
-}: {
-    openModal: () => void;
-}) {
+}: IProductFiltersMenuBtnProps) {
     const { text } = useText();
     return (
         <button

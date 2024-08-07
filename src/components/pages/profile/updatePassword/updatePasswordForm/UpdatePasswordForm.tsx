@@ -1,13 +1,12 @@
 import OvalSpinner from "@/components/ui/OvalSpinner";
 import OverlapInput from "@/components/ui/OverlapInput";
 import { useText } from "@/context/text.context";
+import { IUpdatePasswordFormProps } from "@/types/props.types";
 import { Form } from "formik";
 
 export default function UpdatePasswordForm({
     isSubmitting,
-}: {
-    isSubmitting: boolean;
-}) {
+}: IUpdatePasswordFormProps) {
     const { text } = useText();
 
     return (

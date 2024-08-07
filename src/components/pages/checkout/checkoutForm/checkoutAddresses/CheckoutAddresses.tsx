@@ -1,24 +1,14 @@
 import RadioInput from "@/components/ui/RadioInput";
 import { useText } from "@/context/text.context";
-import { IAddresses } from "@/types/api/address.types";
-import { ErrorMessage, FormikErrors } from "formik";
+import { ErrorMessage } from "formik";
 import AddressModal from "../../../../ui/AddressModal";
-import { Lang } from "@/types/api/api.types";
-import { ICheckoutForm } from "@/types/form.types";
+import { ICheckoutAddressesProps } from "@/types/props.types";
 
 export default function CheckoutAddresses({
     addresses,
     lang,
     setFieldValue,
-}: {
-    addresses: IAddresses;
-    lang: Lang;
-    setFieldValue: (
-        field: string,
-        value: any,
-        shouldValidate?: boolean | undefined,
-    ) => Promise<void | FormikErrors<ICheckoutForm>>;
-}) {
+}: ICheckoutAddressesProps) {
     const { text } = useText();
 
     return (

@@ -1,7 +1,5 @@
-import { DashboardRoutes, IDashboardTab } from "@/types/types";
 import classNames from "classnames";
 import Link from "next/link";
-
 import { IDashboardLinkProps } from "@/types/props.types";
 import Icon from "@/components/ui/Icon";
 

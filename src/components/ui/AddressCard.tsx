@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useCookies } from "next-client-cookies";
 import { deleteAddress } from "@/api/addressesApi";

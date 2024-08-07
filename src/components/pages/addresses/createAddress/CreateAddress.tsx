@@ -1,27 +1,19 @@
 import { createAddress, setDefaultAddress } from "@/api/addressesApi";
 import { useText } from "@/context/text.context";
 import useValidation from "@/hooks/useValidation";
-import { Lang } from "@/types/api/api.types";
-import { IAddressForm, ICheckoutForm } from "@/types/form.types";
-import { ISubmitFormFuncParams, SetState } from "@/types/types";
-import { Form, Formik, FormikErrors } from "formik";
+import { IAddressForm } from "@/types/form.types";
+import { ISubmitFormFuncParams } from "@/types/types";
+import { Form, Formik } from "formik";
 import { useCookies } from "next-client-cookies";
 import OverlapInput from "@/components/ui/OverlapInput";
 import { useRouter } from "next/navigation";
+import { ICreateAddressProps } from "@/types/props.types";
 
 export default function CreateAddress({
     lang,
     setIsOpen,
     setFieldValue,
-}: {
-    lang: Lang;
-    setIsOpen: SetState<boolean>;
-    setFieldValue?: (
-        field: string,
-        value: any,
-        shouldValidate?: boolean | undefined,
-    ) => Promise<void | FormikErrors<ICheckoutForm>>;
-}) {
+}: ICreateAddressProps) {
     const initialValues: IAddressForm = {
         address: "",
     };
@@ -31,10 +23,7 @@ export default function CreateAddress({
     const { refresh } = useRouter();
     const { addressValidationSchema } = useValidation();
 
-    const handleSubmit = ({
-        values,
-        resetForm,
-    }: ISubmitFormFuncParams<IAddressForm>) => {
+    const handleSubmit = ({ values }: ISubmitFormFuncParams<IAddressForm>) => {
         const { address } = values;
 
         if (token && address) {

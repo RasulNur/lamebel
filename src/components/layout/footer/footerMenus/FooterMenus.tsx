@@ -1,12 +1,12 @@
 import { getMenu } from "@/api/menusApi";
 import FooterList from "../footerList/FooterList";
-import { Lang } from "@/types/api/api.types";
 import Link from "next/link";
 import { getSettings } from "@/api/settingsApi";
 import { numberWithSpaces } from "@/utils/numberWithSpaces";
 import { getTexts } from "@/api/textsApi";
+import { IFooterMenusProps } from "@/types/props.types";
 
-export default async function FooterMenus({ lang }: { lang: Lang }) {
+export default async function FooterMenus({ lang }: IFooterMenusProps) {
     const menu5 = await getMenu({ menuId: 5, lang });
     const menu3 = await getMenu({ menuId: 3, lang });
     const menu4 = await getMenu({ menuId: 4, lang });

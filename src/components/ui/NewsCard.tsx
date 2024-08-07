@@ -1,12 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
-import { IPublicationsPublication } from "@/types/api/publications.types";
+import { INewsCardProps } from "@/types/props.types";
 
-export default function NewsCard({
-    singleNews,
-}: {
-    singleNews: IPublicationsPublication;
-}) {
+export default function NewsCard({ singleNews }: INewsCardProps) {
     return (
         <div className="flex flex-col gap-4 h-full grow">
             <Link href={`/news/${singleNews.id}-${singleNews.slug}`}>

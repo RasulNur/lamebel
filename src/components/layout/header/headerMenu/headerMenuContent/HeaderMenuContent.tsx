@@ -1,15 +1,12 @@
 import Icon from "@/components/ui/Icon";
 import SearchForm from "../../../../ui/SearchForm";
-import { ISingleMenu } from "@/types/api/menus.types";
 import Link from "next/link";
+import { IHeaderMenuContentProps } from "@/types/props.types";
 
 export default function HeaderMenuContent({
     closeModal,
     menu,
-}: {
-    closeModal: () => void;
-    menu?: ISingleMenu;
-}) {
+}: IHeaderMenuContentProps) {
     return (
         <div className="flex flex-col gap-5">
             <div className="flex items-center justify-end">

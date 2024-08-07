@@ -31,7 +31,6 @@ import {
 } from "@/types/context/cart.context.types";
 import { SetState } from "@/types/types";
 import { useText } from "./text.context";
-import { Lang } from "@/types/api/api.types";
 
 const CartContext = createContext<ICartContextProps>({
     cart: [],
@@ -265,21 +264,16 @@ export const CartProvider = ({ children, lang }: ICardProvideProps) => {
         }
     };
 
-    const checkout = ({
-        body,
-    }: // setIsLoading
-    ICartCheckout) => {
+    const checkout = ({ body }: ICartCheckout) => {
         const {
             address_id,
             name,
             payment_method_id,
             phone_number,
             shipping_method_id,
-            // email,
             message,
         } = body;
         if (token) {
-            // setIsLoading(true);
             createOrder({
                 token,
                 body: {
@@ -288,11 +282,10 @@ export const CartProvider = ({ children, lang }: ICardProvideProps) => {
                     payment_method_id,
                     phone_number,
                     shipping_method_id,
-                    // email,
                     message,
                 },
                 lang,
-            }).then((data) => {
+            }).then(() => {
                 getCart({ token, lang }).then((data) => {
                     if (typeof data !== "string") {
                         setApiCart(data);
@@ -301,7 +294,6 @@ export const CartProvider = ({ children, lang }: ICardProvideProps) => {
                 replace(`/dashboard/orders`);
                 toast.success("Заказ оформлен успешно");
             });
-            // .finally(() => setIsLoading(false));
         }
     };
 

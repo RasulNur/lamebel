@@ -1,13 +1,10 @@
 "use client";
 
-import { IProductAttributes, ISingleProduct } from "@/types/api/products.types";
 import ProductSidebar from "./productSidebar/ProductSidebar";
 import ProductGallery from "./productGallery/ProductGallery";
 import ProductTabs from "./productTabs/ProductTabs";
 import { useState } from "react";
-import { Lang } from "@/types/api/api.types";
-import { IReviews } from "@/types/api/reviews.types";
-import { IProductGroup } from "@/types/api/productGroup.types";
+import { IProductProps } from "@/types/props.types";
 
 export default function Product({
     product,
@@ -15,13 +12,7 @@ export default function Product({
     lang,
     reviews,
     productGroup,
-}: {
-    product: ISingleProduct;
-    productAttributes: IProductAttributes;
-    lang: Lang;
-    reviews: IReviews;
-    productGroup: IProductGroup | "Not exist";
-}) {
+}: IProductProps) {
     const [tabIndex, setTabIndex] = useState<number>(0);
 
     return (

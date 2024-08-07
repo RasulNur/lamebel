@@ -1,29 +1,16 @@
 import CartButton from "@/components/ui/CartButton";
 import WishlistButton from "@/components/ui/WishlistButton";
-import { IProductAttributes, ISingleProduct } from "@/types/api/products.types";
 import ProductLinks from "./productLinks/ProductLinks";
-import { SetState } from "@/types/types";
 import ProductDiscount from "@/components/ui/ProductDiscount";
 import ProductGroups from "./productGroups/ProductGroups";
-import { Lang } from "@/types/api/api.types";
-import { IProductGroup } from "@/types/api/productGroup.types";
+import { IProductSidebarProps } from "@/types/props.types";
 
 export default function ProductSidebar({
     product,
     setTabIndex,
     attributes,
     productGroup,
-}: {
-    product: ISingleProduct;
-    setTabIndex: SetState<number>;
-    attributes: IProductAttributes;
-    productGroup: IProductGroup | "Not exist";
-}) {
-    const colors = [
-        { id: 0, color: "#FF53E8" },
-        { id: 1, color: "#fff" },
-        { id: 2, color: "#FFDD1F" },
-    ];
+}: IProductSidebarProps) {
     const {
         h1_name,
         body,
@@ -64,17 +51,6 @@ export default function ProductSidebar({
                     productGroup={productGroup}
                 />
             )}
-
-            {/* <div className="flex items-center gap-1">
-                {colors.map((el) => {
-                    return (
-                        <div
-                            key={el.id}
-                            style={{ backgroundColor: el.color }}
-                            className={`border border-placeholder2 size-8 rounded-full`}></div>
-                    );
-                })}
-            </div> */}
 
             <CartButton product={productItem} className="!py-4 w-full" />
 

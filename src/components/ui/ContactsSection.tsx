@@ -7,9 +7,9 @@ import useValidation from "@/hooks/useValidation";
 import { formatPhone } from "@/utils/formatPhone";
 import { ISubmitFormFuncParams } from "@/types/types";
 import { sendFeedback } from "@/api/contactsApi";
-import { Lang } from "@/types/api/api.types";
 import { useText } from "@/context/text.context";
 import OvalSpinner from "./OvalSpinner";
+import { IContactsSectionProps } from "@/types/props.types";
 
 const initialValues: IContactsForm = {
     name: "",
@@ -17,7 +17,7 @@ const initialValues: IContactsForm = {
     message: "",
 };
 
-export default function ContactsSection({ lang }: { lang: Lang }) {
+export default function ContactsSection({ lang }: IContactsSectionProps) {
     const { contactsValidationSchema } = useValidation();
     const { text } = useText();
 

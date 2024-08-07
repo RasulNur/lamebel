@@ -4,19 +4,12 @@ import OverlapInput from "@/components/ui/OverlapInput";
 import Rating from "@/components/ui/Rating";
 import { useText } from "@/context/text.context";
 import useValidation from "@/hooks/useValidation";
-import { Lang } from "@/types/api/api.types";
-import { ISingleProduct } from "@/types/api/products.types";
 import { IReviewsForm } from "@/types/form.types";
+import { IReviewsFormProps } from "@/types/props.types";
 import { ISubmitFormFuncParams } from "@/types/types";
 import { Form, Formik } from "formik";
 
-export default function ReviewsForm({
-    product,
-    lang,
-}: {
-    product: ISingleProduct;
-    lang: Lang;
-}) {
+export default function ReviewsForm({ product, lang }: IReviewsFormProps) {
     const { reviewsValidationSchema } = useValidation();
     const { text } = useText();
 

@@ -1,5 +1,6 @@
 import { FormEventHandler, SVGProps } from "react";
 import {
+    AuthTab,
     DashboardRoutes,
     FulfillAfterOtpType,
     IDashboardTab,
@@ -13,13 +14,17 @@ import {
     IProduct,
     IProductAttributes,
     IProducts,
+    ISingleProduct,
     ProductsFilter,
 } from "./api/products.types";
 import {
     ICategories,
     ICategoriesTree,
+    ICategoryAttribute,
     ICategoryAttributes,
+    ICategoryBrand,
     ICategoryBrands,
+    ICategoryTree,
     IPrices,
     ISingleCategory,
 } from "./api/categories.types";
@@ -34,7 +39,14 @@ import {
     IProductGroupAttributeValue,
 } from "./api/productGroup.types";
 import { ISettings } from "./api/settings.types";
-import { IPublications } from "./api/publications.types";
+import {
+    IPublications,
+    IPublicationsPublication,
+    ISinglePublication,
+} from "./api/publications.types";
+import { IOrder, IOrders } from "./api/orders.types";
+import { IReview, IReviews } from "./api/reviews.types";
+import { ISingleMenu } from "./api/menus.types";
 
 export interface IIconProps
     extends Omit<SVGProps<SVGSVGElement>, "name" | "type"> {
@@ -93,7 +105,8 @@ export interface ICategoriesProps {
     categoryId: number;
     lang: Lang;
 }
-export interface ICategoriesFiltersProps {
+
+export interface IProductsFiltersProps {
     subCategories: ICategories;
     categoryBrands: ICategoryBrands;
     price: IPrices;
@@ -275,4 +288,332 @@ export interface ICartProductCardProps {
 
 export interface IRemoveFromCartProps {
     product: IProduct;
+}
+
+export interface ISectionWrapperProps {
+    children: React.ReactNode;
+    className?: string;
+}
+
+export interface IParentCategory {
+    parentCategory: ISingleCategory | string;
+}
+
+export interface IFilterCategoriesProps {
+    categories: ICategories;
+}
+export interface IBrandCheckboxProps {
+    brand: ICategoryBrand;
+}
+export interface IFilterAttributesProps {
+    attributes: ICategoryAttributes;
+}
+export interface IAttributeProps {
+    attribute: ICategoryAttribute;
+}
+export interface IFilterPriceProps {
+    price: IPrices;
+}
+export interface IClearFiltersProps {
+    price: IPrices;
+}
+export interface IProductsGridProps {
+    products: IProducts;
+}
+export interface IProductCardProps {
+    product: IProduct;
+}
+
+export interface IProductDiscountProps {
+    product: IProduct;
+    type?: "card" | "product";
+}
+export interface IProductFiltersMenuBtnProps {
+    openModal: () => void;
+}
+export interface IPaginationProps {
+    meta: IMeta;
+}
+export interface IProductsSwiperProps {
+    title: string;
+    subtitle: string;
+    products: IProducts;
+}
+export interface ISectionHeaderProps {
+    title: string;
+    subtitle: string;
+}
+export interface ICatalogProps {
+    categoriesTree: ICategoriesTree;
+}
+
+export interface ICategoryCardProps {
+    category: ICategoryTree;
+}
+export interface ICheckoutTotalProps {
+    isSubmitting: boolean;
+}
+export interface ICheckoutProductCardProps {
+    product: IProduct;
+    quantity?: number;
+}
+export interface ICheckoutAddressesProps {
+    addresses: IAddresses;
+    lang: Lang;
+    setFieldValue: (
+        field: string,
+        value: any,
+        shouldValidate?: boolean | undefined,
+    ) => Promise<void | FormikErrors<ICheckoutForm>>;
+}
+export interface IAddressModalProps {
+    type: "create" | "update";
+    lang: Lang;
+    btnClassname?: string;
+    currentAddress?: IAddress;
+    setFieldValue?: (
+        field: string,
+        value: any,
+        shouldValidate?: boolean | undefined,
+    ) => Promise<void | FormikErrors<ICheckoutForm>>;
+}
+export interface IDialogWrapperProps {
+    button: React.ReactNode;
+    content: React.ReactNode;
+    title: string;
+    setIsOpen: SetState<boolean>;
+    isOpen: boolean;
+    dialogClassname?: string;
+    titleClassname?: string;
+}
+export interface ICheckoutShippingProps {
+    shippingMethods: IShippingMethods;
+}
+export interface ICheckoutPaymentProps {
+    paymentMethods: IPaymentMethods;
+}
+export interface ICreateAddressProps {
+    lang: Lang;
+    setIsOpen: SetState<boolean>;
+    setFieldValue?: (
+        field: string,
+        value: any,
+        shouldValidate?: boolean | undefined,
+    ) => Promise<void | FormikErrors<ICheckoutForm>>;
+}
+export interface IUpdateAddressProps {
+    lang: Lang;
+    setIsOpen: SetState<boolean>;
+    currentAddress?: IAddress;
+}
+export interface IContactsProps {
+    settings: ISettings;
+    lang: Lang;
+}
+export interface IContactsLinksProps {
+    settings: ISettings;
+}
+export interface IContactsFormProps {
+    lang: Lang;
+}
+export interface IMapSectionProps {
+    settings: ISettings;
+}
+export interface IStaticMapProps {
+    iframe: string;
+}
+export interface IDashboardTabsProps {
+    children: React.ReactNode;
+    activeRoute: DashboardRoutes;
+    lang: Lang;
+}
+export interface ILogoutButtonProps {
+    lang: Lang;
+}
+export interface IOrdersProps {
+    orders: IOrders;
+}
+export interface IOrderModalProps {
+    order: IOrder;
+}
+export interface IOrderModalContentProps {
+    order: IOrder;
+}
+export interface IOrderModalProductsProps {
+    order: IOrder;
+}
+export interface IOrderModalInfoProps {
+    order: IOrder;
+}
+export interface IProfileProps {
+    lang: Lang;
+}
+export interface IUpdatePasswordProps {
+    lang: Lang;
+}
+export interface IUpdatePasswordFormProps {
+    isSubmitting: boolean;
+}
+export interface ISingleNewsProps {
+    publication: ISinglePublication;
+}
+export interface INewsProps {
+    news: IPublications;
+}
+export interface INewsCardProps {
+    singleNews: IPublicationsPublication;
+}
+
+export interface IProductProps {
+    product: ISingleProduct;
+    productAttributes: IProductAttributes;
+    lang: Lang;
+    reviews: IReviews;
+    productGroup: IProductGroup | "Not exist";
+}
+export interface IProductGalleryProps {
+    product: ISingleProduct;
+}
+export interface IGalleryGridProps {
+    product: ISingleProduct;
+}
+export interface IGallerySwiperProps {
+    product: ISingleProduct;
+}
+export interface IProductTabsProps {
+    tabIndex: number;
+    setTabIndex: SetState<number>;
+    productAttributes: IProductAttributes;
+    product: ISingleProduct;
+    lang: Lang;
+    reviews: IReviews;
+}
+export interface IBlockForScrollProps {
+    id: string;
+}
+export interface IProductСharacteristicsProps {
+    productAttributes: IProductAttributes;
+}
+export interface IProductDescriptionProps {
+    product: ISingleProduct;
+}
+export interface IProductReviewsProps {
+    product: ISingleProduct;
+    lang: Lang;
+    reviews: IReviews;
+}
+export interface IReviewsListProps {
+    reviews: IReviews;
+}
+export interface IReviewCardProps {
+    review: IReview;
+}
+export interface IStaticRatingProps {
+    rating: number;
+}
+export interface IReviewsFormProps {
+    product: ISingleProduct;
+    lang: Lang;
+}
+export interface IProductSidebarProps {
+    product: ISingleProduct;
+    setTabIndex: SetState<number>;
+    attributes: IProductAttributes;
+    productGroup: IProductGroup | "Not exist";
+}
+export interface IProductLinksProps {
+    setTabIndex: SetState<number>;
+}
+export interface ISearchProps {
+    products: IProducts;
+    keyword: string;
+}
+export interface ISearchFormProps {
+    keyword?: string;
+}
+export interface IErrorProps {
+    reset: () => void;
+}
+
+export interface IHeaderProps {
+    lang: Lang;
+}
+export interface IHeaderTopProps {
+    lang: Lang;
+    settings: ISettings;
+    menu: ISingleMenu;
+}
+export interface IHeaderMenuProps {
+    menu?: ISingleMenu;
+}
+export interface IHeaderMenuContentProps {
+    closeModal: () => void;
+    menu?: ISingleMenu;
+}
+export interface IHeaderListProps {
+    menu: ISingleMenu;
+}
+export interface IHeaderIconsProps {
+    lang: Lang;
+    setIsSearchOpen: SetState<boolean>;
+}
+export interface IAuthMenuProps {
+    lang: Lang;
+}
+export interface IAuthMenuContentProps {
+    closeModal: () => void;
+    lang: Lang;
+}
+export interface ILoginProps {
+    setAuthTab: SetState<AuthTab>;
+    lang: Lang;
+    closeModal: () => void;
+}
+export interface ILoginFormProps {
+    isSubmitting: boolean;
+    setAuthTab: SetState<AuthTab>;
+}
+export interface IRegisterProps {
+    setAuthTab: SetState<AuthTab>;
+    lang: Lang;
+    closeModal: () => void;
+}
+export interface IRegisterFormProps {
+    isSubmitting: boolean;
+    setAuthTab: SetState<AuthTab>;
+}
+export interface IResetPasswordProps {
+    setAuthTab: SetState<AuthTab>;
+    lang: Lang;
+}
+export interface IResetPasswordFormProps {
+    isSubmitting: boolean;
+    setAuthTab: SetState<AuthTab>;
+}
+export interface IHeaderCategoriesProps {
+    settings: ISettings;
+}
+export interface IFooterProps {
+    lang: Lang;
+}
+export interface IFooterMenusProps {
+    lang: Lang;
+}
+export interface IFooterListProps {
+    menu: ISingleMenu;
+}
+export interface ICategoriesSwiperProps {
+    categories: ICategoriesTree;
+}
+export interface IHomeAboutProps {
+    lang: Lang;
+}
+export interface INewsSwiperProps {
+    news: IPublications;
+}
+export interface IContactsSectionProps {
+    lang: Lang;
+}
+export interface INotFoundTextProps {
+    lang: Lang;
 }

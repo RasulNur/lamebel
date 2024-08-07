@@ -1,11 +1,11 @@
 "use client";
 
 import { useText } from "@/context/text.context";
-import { IOrder } from "@/types/api/orders.types";
 import OrderModalProducts from "./orderModalProducts/OrderModalProducts";
 import OrderModalInfo from "./orderModalInfo/OrderModalInfo";
+import { IOrderModalContentProps } from "@/types/props.types";
 
-export default function OrderModalContent({ order }: { order: IOrder }) {
+export default function OrderModalContent({ order }: IOrderModalContentProps) {
     const { text } = useText();
 
     return (

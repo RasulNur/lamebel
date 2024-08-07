@@ -1,15 +1,12 @@
 "use client";
 
-import { SetState } from "@/types/types";
 import { Tab, TabGroup, TabList, TabPanel, TabPanels } from "@headlessui/react";
 import { Fragment } from "react";
 import ProductDescription from "./productDescription/ProductDescription";
 import ProductReviews from "./productReviews/ProductReviews";
 import ProductСharacteristics from "./productСharacteristics/ProductСharacteristics";
-import { IProductAttributes, ISingleProduct } from "@/types/api/products.types";
 import BlockForScroll from "../../../ui/BlockForScroll";
-import { Lang } from "@/types/api/api.types";
-import { IReviews } from "@/types/api/reviews.types";
+import { IProductTabsProps } from "@/types/props.types";
 
 const tabs = [
     { id: 0, title: "Xарактеристики" },
@@ -24,14 +21,7 @@ export default function ProductTabs({
     product,
     lang,
     reviews,
-}: {
-    tabIndex: number;
-    setTabIndex: SetState<number>;
-    productAttributes: IProductAttributes;
-    product: ISingleProduct;
-    lang: Lang;
-    reviews: IReviews;
-}) {
+}: IProductTabsProps) {
     return (
         <TabGroup
             selectedIndex={tabIndex}

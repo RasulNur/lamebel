@@ -25,3 +25,7 @@ export interface ICreateReviewParams {
     };
     lang: Lang;
 }
+export interface IGetReviewsParams {
+    lang: Lang;
+    productId: number;
+}

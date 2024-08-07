@@ -1,8 +1,8 @@
 import SectionHeader from "@/components/ui/SectionHeader";
 import StaticMap from "../../../ui/StaticMap";
-import { ISettings } from "../../../../types/api/settings.types";
+import { IMapSectionProps } from "@/types/props.types";
 
-export default function MapSection({ settings }: { settings: ISettings }) {
+export default function MapSection({ settings }: IMapSectionProps) {
     return (
         <div className="section-header-wrapper">
             <SectionHeader

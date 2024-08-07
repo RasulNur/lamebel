@@ -1,5 +1,5 @@
 import Icon from "@/components/ui/Icon";
-import { ISettings } from "@/types/api/settings.types";
+import { IHeaderCategoriesProps } from "@/types/props.types";
 import Link from "next/link";
 
 const links = [
@@ -9,11 +9,7 @@ const links = [
     { id: 3, title: "Коллекция «Цветы»" },
 ];
 
-export default function HeaderCategories({
-    settings,
-}: {
-    settings: ISettings;
-}) {
+export default function HeaderCategories({ settings }: IHeaderCategoriesProps) {
     return (
         <div className="lg:block hidden">
             <div className="container py-2 flex items-center justify-between">
@@ -38,7 +34,6 @@ export default function HeaderCategories({
                             name="telegram"
                             className="block fill-white group-hover:fill-blue"
                         />
-                        {/* <span className="2xl:inline-block hidden"> */}
                         <span>Наш канал в телеграм</span>
                     </Link>
                 )}

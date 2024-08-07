@@ -1,8 +1,8 @@
-import { IMeta } from "@/types/api/api.types";
+import { IUsePaginationParams } from "@/types/types";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
-export default function usePagination({ meta }: { meta: IMeta }) {
+export default function usePagination({ meta }: IUsePaginationParams) {
     const searchParams = useSearchParams();
     const pathname = usePathname();
     const { replace } = useRouter();

@@ -5,12 +5,9 @@ import { useText } from "@/context/text.context";
 import { useCookies } from "next-client-cookies";
 import CheckoutProducts from "../checkoutProducts/CheckoutProducts";
 import OvalSpinner from "@/components/ui/OvalSpinner";
+import { ICheckoutTotalProps } from "@/types/props.types";
 
-export default function CheckoutTotal({
-    isSubmitting,
-}: {
-    isSubmitting: boolean;
-}) {
+export default function CheckoutTotal({ isSubmitting }: ICheckoutTotalProps) {
     const cookies = useCookies();
     const token = cookies.get("token");
     const { apiCart, localCartTotal, localCartQuantity } = useCart();

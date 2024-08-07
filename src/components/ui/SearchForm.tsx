@@ -2,10 +2,11 @@
 
 import Icon from "@/components/ui/Icon";
 import { useText } from "@/context/text.context";
+import { ISearchFormProps } from "@/types/props.types";
 import { useRouter } from "next/navigation";
 import { FormEventHandler, useState } from "react";
 
-export default function SearchForm({ keyword = "" }: { keyword?: string }) {
+export default function SearchForm({ keyword = "" }: ISearchFormProps) {
     const { push } = useRouter();
     const params = new URLSearchParams("");
     const [value, setValue] = useState<string>(keyword);

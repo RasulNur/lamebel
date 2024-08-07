@@ -1,28 +1,20 @@
 import { login } from "@/api/authApi";
 import useValidation from "@/hooks/useValidation";
 import { ILoginForm } from "@/types/form.types";
-import { AuthTab, ISubmitFormFuncParams, SetState } from "@/types/types";
+import { ISubmitFormFuncParams } from "@/types/types";
 import { formatPhone } from "@/utils/formatPhone";
 import { Formik } from "formik";
 import { useRouter } from "next/navigation";
 import LoginForm from "./loginForm/LoginForm";
-import { Lang } from "@/types/api/api.types";
 import { useText } from "@/context/text.context";
+import { ILoginProps } from "@/types/props.types";
 
 const initialValues: ILoginForm = {
     phone_number: "",
     password: "",
 };
 
-export default function Login({
-    setAuthTab,
-    lang,
-    closeModal,
-}: {
-    setAuthTab: SetState<AuthTab>;
-    lang: Lang;
-    closeModal: () => void;
-}) {
+export default function Login({ setAuthTab, lang, closeModal }: ILoginProps) {
     const { push, refresh } = useRouter();
     const { loginValidationSchema } = useValidation();
     const { text } = useText();

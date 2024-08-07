@@ -1,17 +1,15 @@
 "use client";
 
 import HideFilter from "@/components/ui/HideFilter";
-import { ICategories } from "@/types/api/categories.types";
 import useLimit from "@/hooks/useLimit";
 import Link from "next/link";
 import { useState } from "react";
 import { useText } from "@/context/text.context";
+import { IFilterCategoriesProps } from "@/types/props.types";
 
 export default function FilterCategories({
     categories,
-}: {
-    categories: ICategories;
-}) {
+}: IFilterCategoriesProps) {
     const { handleLimit, isShow, limit } = useLimit({
         data: categories.data,
         limitNumber: 5,

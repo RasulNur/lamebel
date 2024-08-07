@@ -5,10 +5,7 @@ import { useState } from "react";
 import DialogWrapper from "./DialogWrapper";
 import CreateAddress from "../pages/addresses/createAddress/CreateAddress";
 import UpdateAddress from "../pages/addresses/updateAddress/UpdateAddress";
-import { Lang } from "@/types/api/api.types";
-import { IAddress } from "@/types/api/address.types";
-import { FormikErrors } from "formik";
-import { ICheckoutForm } from "@/types/form.types";
+import { IAddressModalProps } from "@/types/props.types";
 
 export default function AddressModal({
     type,
@@ -16,17 +13,7 @@ export default function AddressModal({
     btnClassname = "main-btn",
     currentAddress,
     setFieldValue,
-}: {
-    type: "create" | "update";
-    lang: Lang;
-    btnClassname?: string;
-    currentAddress?: IAddress;
-    setFieldValue?: (
-        field: string,
-        value: any,
-        shouldValidate?: boolean | undefined,
-    ) => Promise<void | FormikErrors<ICheckoutForm>>;
-}) {
+}: IAddressModalProps) {
     const [isOpen, setIsOpen] = useState<boolean>(false);
     const { text } = useText();
 

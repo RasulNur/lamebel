@@ -1,7 +1,7 @@
-import { ISingleMenu } from "@/types/api/menus.types";
+import { IFooterListProps } from "@/types/props.types";
 import Link from "next/link";
 
-export default function FooterList({ menu }: { menu: ISingleMenu }) {
+export default function FooterList({ menu }: IFooterListProps) {
     return (
         <div className="flex flex-col sm:gap-8 gap-4 sm:items-baseline items-center">
             <h3 className="font-bold text-lg leading-130">{menu.data.name}</h3>

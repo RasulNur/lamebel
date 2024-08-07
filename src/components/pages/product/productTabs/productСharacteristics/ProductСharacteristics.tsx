@@ -1,12 +1,10 @@
 import { useText } from "@/context/text.context";
 import useLimit from "@/hooks/useLimit";
-import { IProductAttributes } from "@/types/api/products.types";
+import { IProductСharacteristicsProps } from "@/types/props.types";
 
 export default function ProductСharacteristics({
     productAttributes,
-}: {
-    productAttributes: IProductAttributes;
-}) {
+}: IProductСharacteristicsProps) {
     const { text } = useText();
     const { handleLimit, isShow, limit } = useLimit({
         data: productAttributes.data,

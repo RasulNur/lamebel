@@ -1,9 +1,9 @@
 import Link from "next/link";
 import Image from "next/image";
-import { IProduct } from "@/types/api/products.types";
 import WishlistButton from "./WishlistButton";
 import CartButton from "./CartButton";
 import ProductDiscount from "./ProductDiscount";
+import { IProductCardProps } from "@/types/props.types";
 
 const colors = [
     { id: 0, color: "#FF53E8" },
@@ -11,7 +11,7 @@ const colors = [
     { id: 2, color: "#FFDD1F" },
 ];
 
-export default function ProductCard({ product }: { product: IProduct }) {
+export default function ProductCard({ product }: IProductCardProps) {
     return (
         <div className="flex flex-col gap-3 h-full relative">
             <Link

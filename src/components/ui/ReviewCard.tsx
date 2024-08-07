@@ -1,7 +1,7 @@
-import { IReview } from "@/types/api/reviews.types";
 import StaticRating from "./StaticRating";
+import { IReviewCardProps } from "@/types/props.types";
 
-export default function ReviewCard({ review }: { review: IReview }) {
+export default function ReviewCard({ review }: IReviewCardProps) {
     return (
         <div className="flex items-center justify-between gap-5 bg-main-light p-5">
             <div className="flex flex-col gap-3">

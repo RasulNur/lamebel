@@ -1,12 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ICategoryTree } from "@/types/api/categories.types";
+import { ICategoryCardProps } from "@/types/props.types";
 
-export default function CategoryCard({
-    category,
-}: {
-    category: ICategoryTree;
-}) {
+export default function CategoryCard({ category }: ICategoryCardProps) {
     return (
         <Link
             href={`/categories/${category.id}-${category.slug}`}

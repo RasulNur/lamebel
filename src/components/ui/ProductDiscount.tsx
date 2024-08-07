@@ -1,14 +1,11 @@
 import React from "react";
 import Icon from "@/components/ui/Icon";
-import { IProduct } from "@/types/api/products.types";
+import { IProductDiscountProps } from "@/types/props.types";
 
 export default function ProductDiscount({
     product,
     type = "card",
-}: {
-    product: IProduct;
-    type?: "card" | "product";
-}) {
+}: IProductDiscountProps) {
     return (
         <>
             {Number(product.discount) > 0 && (

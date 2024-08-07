@@ -1,8 +1,8 @@
 import { useText } from "@/context/text.context";
-import { IOrder } from "@/types/api/orders.types";
+import { IOrderModalInfoProps } from "@/types/props.types";
 import { numberWithSpaces } from "@/utils/numberWithSpaces";
 
-export default function OrderModalInfo({ order }: { order: IOrder }) {
+export default function OrderModalInfo({ order }: IOrderModalInfoProps) {
     const { text } = useText();
     const orderInfos = [
         { id: 0, title: text("Адрес"), info: order.address_line_1 },
@@ -40,30 +40,6 @@ export default function OrderModalInfo({ order }: { order: IOrder }) {
                     </div>
                 );
             })}
-            {/* <div className="flex items-center justify-between gap-5">
-                <h4>{text("Адрес")}</h4>
-                {order.address_line_1}
-            </div>
-            <div className="flex items-center justify-between gap-5">
-                <h4>{text("Дата заказа")}</h4>
-                {order.created_at}
-            </div>
-            <div className="flex items-center justify-between gap-5">
-                <h4>{text("Ваше имя")}</h4>
-                {order.name}
-            </div>
-            <div className="flex items-center justify-between gap-5">
-                <h4>{text("Номер телефона")}</h4>
-                {order.phone_number}
-            </div>
-            <div className="flex items-center justify-between gap-5">
-                <h4>{text("Способ оплаты")}</h4>
-                {order.payment_method_title}
-            </div>
-            <div className="flex items-center justify-between gap-5">
-                <h4>{text("Метод доставки")}</h4>
-                {order.shipping_method_title}
-            </div> */}
         </div>
     );
 }

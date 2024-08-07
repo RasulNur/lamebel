@@ -6,10 +6,9 @@ import { useRouter } from "next/navigation";
 import { updatePassword } from "@/api/profileApi";
 import { useCookies } from "next-client-cookies";
 import toast from "react-hot-toast";
-import { IUpdatePasswordForm } from "@/types/props.types";
+import { IUpdatePasswordForm, IUpdatePasswordProps } from "@/types/props.types";
 import UpdatePasswordForm from "./updatePasswordForm/UpdatePasswordForm";
 import useValidation from "@/hooks/useValidation";
-import { Lang } from "@/types/api/api.types";
 
 const initialValues: IUpdatePasswordForm = {
     password: "",
@@ -17,7 +16,7 @@ const initialValues: IUpdatePasswordForm = {
     confrim_password: "",
 };
 
-export default function UpdatePassword({ lang }: { lang: Lang }) {
+export default function UpdatePassword({ lang }: IUpdatePasswordProps) {
     const { refresh } = useRouter();
     const cookies = useCookies();
     const token = cookies.get("token");

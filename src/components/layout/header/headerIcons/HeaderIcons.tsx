@@ -2,20 +2,16 @@ import Link from "next/link";
 import Icon from "../../../ui/Icon";
 import LangDropdown from "../langDropdown/LangDropdown";
 import AuthMenu from "../authMenu/AuthMenu";
-import { Lang } from "@/types/api/api.types";
-import { SetState } from "@/types/types";
 import { useWishlist } from "@/context/wishlist.context";
 import { useCart } from "@/context/cart.context";
 import { useEffect, useState } from "react";
 import { useCookies } from "next-client-cookies";
+import { IHeaderIconsProps } from "@/types/props.types";
 
 export default function HeaderIcons({
     lang,
     setIsSearchOpen,
-}: {
-    lang: Lang;
-    setIsSearchOpen: SetState<boolean>;
-}) {
+}: IHeaderIconsProps) {
     const cookies = useCookies();
     const token = cookies.get("token");
     let svgClassnames =

@@ -12,7 +12,6 @@ export default function Rating({
     strokeColor = "var(--main)",
     wrapperClassName,
     iconClassname,
-
     setFieldValue,
     values,
 }: IRatingProps) {

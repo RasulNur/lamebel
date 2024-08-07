@@ -1,7 +1,7 @@
 import ReviewCard from "@/components/ui/ReviewCard";
-import { IReviews } from "@/types/api/reviews.types";
+import { IReviewsListProps } from "@/types/props.types";
 
-export default function ReviewsList({ reviews }: { reviews: IReviews }) {
+export default function ReviewsList({ reviews }: IReviewsListProps) {
     return (
         <div className="flex flex-col gap-5">
             {reviews.data.map((review) => {

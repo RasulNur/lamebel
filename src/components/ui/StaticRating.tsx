@@ -1,6 +1,7 @@
+import { IStaticRatingProps } from "@/types/props.types";
 import Icon from "./Icon";
 
-export default function StaticRating({ rating }: { rating: number }) {
+export default function StaticRating({ rating }: IStaticRatingProps) {
     return (
         <div className="grid grid-cols-5 gap-1 items-center w-max">
             {Array(rating)

@@ -13,7 +13,6 @@ import useValidation from "@/hooks/useValidation";
 import { ISubmitFormFuncParams } from "@/types/types";
 import { formatPhone } from "@/utils/formatPhone";
 import toast from "react-hot-toast";
-import { useState } from "react";
 
 export default function Checkout({
     paymentMethods,
@@ -42,7 +41,6 @@ export default function Checkout({
     const cookies = useCookies();
     const token = cookies.get("token");
     const { replace } = useRouter();
-    const [isLoading, setIsLoading] = useState<boolean>(false);
     const { text } = useText();
     const { checkoutValidationSchema } = useValidation();
 
@@ -88,8 +86,6 @@ export default function Checkout({
                     shipping_method_id: Number(shippingMethodId),
                     address_id: Number(address_id),
                 },
-
-                // setIsLoading,
             });
 
             resetForm();

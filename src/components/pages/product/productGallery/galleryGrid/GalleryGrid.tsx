@@ -1,10 +1,10 @@
 "use client";
 
 import Fancybox from "@/components/ui/fancybox/Fancybox";
-import { ISingleProduct } from "@/types/api/products.types";
+import { IGalleryGridProps } from "@/types/props.types";
 import Image from "next/image";
 
-export default function GalleryGrid({ product }: { product: ISingleProduct }) {
+export default function GalleryGrid({ product }: IGalleryGridProps) {
     return (
         <Fancybox>
             <div className="grid grid-cols-2 gap-5">
