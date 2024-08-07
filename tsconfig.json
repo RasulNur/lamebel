@@ -27,7 +27,7 @@
         "**/*.tsx",
         ".next/types/**/*.ts",
         "i18nConfig.js",
-        "src/middleware.js",
+        "src/middleware.ts",
         "src/components/ui/Fancybox.tsx"
     ],
     "exclude": ["node_modules"]
