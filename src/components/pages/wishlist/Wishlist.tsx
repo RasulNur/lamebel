@@ -2,7 +2,7 @@
 
 import Empty from "@/components/ui/Empty";
 import OvalSpinner from "@/components/ui/OvalSpinner";
-import ProductCard from "@/components/ui/ProductCard";
+import ProductCard from "@/components/ui/cards/ProductCard";
 import { useText } from "@/context/text.context";
 import { useWishlist } from "@/context/wishlist.context";
 import { useCookies } from "next-client-cookies";

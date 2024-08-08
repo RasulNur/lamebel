@@ -1,6 +1,6 @@
 "use client";
 
-import MenuWrapper from "@/components/ui/MenuWrapper";
+import MenuWrapper from "@/components/ui/headless/MenuWrapper";
 import { useState } from "react";
 import Icon from "@/components/ui/Icon";
 import HeaderMenuContent from "./headerMenuContent/HeaderMenuContent";

@@ -1,6 +1,6 @@
 "use client";
 
-import LogoutButton from "@/components/ui/LogoutButton";
+import LogoutButton from "@/components/ui/buttons/LogoutButton";
 import { useText } from "@/context/text.context";
 import { IDashboardTab } from "@/types/types";
 import { useCookies } from "next-client-cookies";

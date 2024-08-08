@@ -1,7 +1,7 @@
 "use client";
 
 import Icon from "@/components/ui/Icon";
-import NewsCard from "@/components/ui/NewsCard";
+import NewsCard from "@/components/ui/cards/NewsCard";
 import SectionHeader from "@/components/ui/SectionHeader";
 import { INewsSwiperProps } from "@/types/props.types";
 import { Autoplay, Navigation } from "swiper/modules";

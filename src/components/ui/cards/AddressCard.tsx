@@ -4,10 +4,10 @@ import { useRouter } from "next/navigation";
 import { useCookies } from "next-client-cookies";
 import { deleteAddress } from "@/api/addressesApi";
 import { useState } from "react";
-import OvalSpinner from "./OvalSpinner";
+import OvalSpinner from "../OvalSpinner";
 import { useText } from "@/context/text.context";
 import { IAddressCardProps } from "@/types/props.types";
-import AddressModal from "./AddressModal";
+import AddressModal from "../headless/AddressModal";
 
 export default function AddressCard({ address, lang }: IAddressCardProps) {
     const cookies = useCookies();

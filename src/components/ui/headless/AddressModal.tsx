@@ -3,8 +3,8 @@
 import { useText } from "@/context/text.context";
 import { useState } from "react";
 import DialogWrapper from "./DialogWrapper";
-import CreateAddress from "../pages/addresses/createAddress/CreateAddress";
-import UpdateAddress from "../pages/addresses/updateAddress/UpdateAddress";
+import CreateAddress from "../../pages/addresses/createAddress/CreateAddress";
+import UpdateAddress from "../../pages/addresses/updateAddress/UpdateAddress";
 import { IAddressModalProps } from "@/types/props.types";
 
 export default function AddressModal({

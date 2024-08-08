@@ -1,16 +1,16 @@
 import SectionWrapper from "@/components/layout/SectionWrapper";
 import HomeBanner from "./homeBanner/HomeBanner";
-import CategoriesSwiper from "@/components/ui/CategoriesSwiper";
-import ProductsSwiper from "@/components/ui/ProductsSwiper";
+import CategoriesSwiper from "@/components/ui/swipers/CategoriesSwiper";
+import ProductsSwiper from "@/components/ui/swipers/ProductsSwiper";
 import OffersSwiper from "./offersSwiper/OffersSwiper";
 import HomeAdvantages from "./homeAdvantages/HomeAdvantages";
 import HomeAbout from "./homeAbout/HomeAbout";
-import MapSection from "./mapSection/MapSection";
+import MapSection from "../../ui/sections/MapSection";
 import NewsSwiper from "./newsSwiper/NewsSwiper";
-import ContactsSection from "@/components/ui/ContactsSection";
+import ContactsSection from "@/components/ui/sections/ContactsSection";
 import ReviewsSwiper from "./reviewsSwiper/ReviewsSwiper";
-import InstagramSwiper from "@/components/ui/InstagramSwiper";
-import SeoSection from "@/components/ui/SeoSection";
+import InstagramSwiper from "@/components/ui/swipers/InstagramSwiper";
+import SeoSection from "@/components/ui/sections/SeoSection";
 import { IHomeSectionWrapperProps } from "@/types/props.types";
 
 export default function HomeSectionsWrapper({

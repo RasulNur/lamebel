@@ -1,7 +1,7 @@
 "use client";
 
 import { Dialog, DialogBackdrop, DialogPanel } from "@headlessui/react";
-import Icon from "./Icon";
+import Icon from "../Icon";
 import { IDialogWrapperProps } from "@/types/props.types";
 
 export default function DialogWrapper({

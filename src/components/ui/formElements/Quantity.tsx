@@ -1,7 +1,7 @@
 "use client";
 
-import Icon from "./Icon";
-import OvalSpinner from "./OvalSpinner";
+import Icon from "../Icon";
+import OvalSpinner from "../OvalSpinner";
 import { IQuantityProps } from "@/types/props.types";
 import useQuantity from "@/hooks/useQuantity";
 

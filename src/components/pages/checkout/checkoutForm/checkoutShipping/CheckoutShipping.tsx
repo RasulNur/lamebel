@@ -1,4 +1,4 @@
-import RadioInput from "@/components/ui/RadioInput";
+import RadioInput from "@/components/ui/formElements/RadioInput";
 import { useText } from "@/context/text.context";
 import { ICheckoutShippingProps } from "@/types/props.types";
 import { ErrorMessage } from "formik";

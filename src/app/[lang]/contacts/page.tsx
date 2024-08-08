@@ -1,8 +1,8 @@
 import { getPage } from "@/api/pagesApi";
 import { Metadata } from "next";
 import SectionWrapper from "@/components/layout/SectionWrapper";
-import InstagramSwiper from "@/components/ui/InstagramSwiper";
-import MapSection from "@/components/pages/home/mapSection/MapSection";
+import InstagramSwiper from "@/components/ui/swipers/InstagramSwiper";
+import MapSection from "@/components/ui/sections/MapSection";
 import { getTexts } from "@/api/textsApi";
 import { getSettings } from "@/api/settingsApi";
 import PageHeader from "../../../components/ui/PageHeader";

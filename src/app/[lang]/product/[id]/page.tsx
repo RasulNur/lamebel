@@ -7,7 +7,7 @@ import { notFound } from "next/navigation";
 import { getTexts } from "@/api/textsApi";
 import PageHeader from "@/components/ui/PageHeader";
 import SectionWrapper from "@/components/layout/SectionWrapper";
-import ProductsSwiper from "@/components/ui/ProductsSwiper";
+import ProductsSwiper from "@/components/ui/swipers/ProductsSwiper";
 import Product from "@/components/pages/product/Product";
 import { getReviews } from "@/api/reviewsApi";
 import { getProductGroup } from "@/api/productGroupApi";

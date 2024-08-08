@@ -1,4 +1,4 @@
-import CategoryCard from "@/components/ui/CategoryCard";
+import CategoryCard from "@/components/ui/cards/CategoryCard";
 import { ICatalogProps } from "@/types/props.types";
 
 export default function Catalog({ categoriesTree }: ICatalogProps) {

@@ -1,5 +1,5 @@
-import CartButton from "@/components/ui/CartButton";
-import WishlistButton from "@/components/ui/WishlistButton";
+import CartButton from "@/components/ui/buttons/CartButton";
+import WishlistButton from "@/components/ui/buttons/WishlistButton";
 import ProductLinks from "./productLinks/ProductLinks";
 import ProductDiscount from "@/components/ui/ProductDiscount";
 import ProductGroups from "./productGroups/ProductGroups";

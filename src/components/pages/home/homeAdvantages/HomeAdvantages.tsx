@@ -1,4 +1,4 @@
-import AdvantageCard from "@/components/ui/AdvantageCard";
+import AdvantageCard from "@/components/ui/cards/AdvantageCard";
 import SectionHeader from "@/components/ui/SectionHeader";
 
 const advantages = [

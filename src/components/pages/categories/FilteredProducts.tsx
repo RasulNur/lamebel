@@ -1,8 +1,8 @@
 import { getProducts } from "@/api/productsApi";
 import { getTexts } from "@/api/textsApi";
 import SectionWrapper from "@/components/layout/SectionWrapper";
-import ProductCard from "@/components/ui/ProductCard";
-import ProductsSwiper from "@/components/ui/ProductsSwiper";
+import ProductCard from "@/components/ui/cards/ProductCard";
+import ProductsSwiper from "@/components/ui/swipers/ProductsSwiper";
 import Pagination from "@/components/ui/pagination/Pagination";
 import { ICategoriesPagesProductsProps } from "@/types/props.types";
 

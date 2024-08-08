@@ -3,10 +3,10 @@
 import { logout } from "@/api/authApi";
 import { useCookies } from "next-client-cookies";
 import { useRouter } from "next/navigation";
-import Icon from "./Icon";
+import Icon from "../Icon";
 import { useText } from "@/context/text.context";
 import { useState } from "react";
-import OvalSpinner from "./OvalSpinner";
+import OvalSpinner from "../OvalSpinner";
 import { ILogoutButtonProps } from "@/types/props.types";
 
 export default function LogoutButton({ lang }: ILogoutButtonProps) {

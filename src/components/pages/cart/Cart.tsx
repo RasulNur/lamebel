@@ -1,6 +1,6 @@
 "use client";
 
-import CartProductCard from "@/components/ui/CartProductCard";
+import CartProductCard from "@/components/ui/cards/CartProductCard";
 import Empty from "@/components/ui/Empty";
 import { useCart } from "@/context/cart.context";
 import { useCookies } from "next-client-cookies";

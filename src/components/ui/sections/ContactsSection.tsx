@@ -1,14 +1,14 @@
 "use client";
 
 import { Form, Formik } from "formik";
-import OverlapInput from "./OverlapInput";
+import OverlapInput from "../OverlapInput";
 import { IContactsForm } from "@/types/form.types";
 import useValidation from "@/hooks/useValidation";
 import { formatPhone } from "@/utils/formatPhone";
 import { ISubmitFormFuncParams } from "@/types/types";
 import { sendFeedback } from "@/api/contactsApi";
 import { useText } from "@/context/text.context";
-import OvalSpinner from "./OvalSpinner";
+import OvalSpinner from "../OvalSpinner";
 import { IContactsSectionProps } from "@/types/props.types";
 
 const initialValues: IContactsForm = {

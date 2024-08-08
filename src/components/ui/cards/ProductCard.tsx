@@ -1,8 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
-import WishlistButton from "./WishlistButton";
-import CartButton from "./CartButton";
-import ProductDiscount from "./ProductDiscount";
+import WishlistButton from "../buttons/WishlistButton";
+import CartButton from "../buttons/CartButton";
+import ProductDiscount from "../ProductDiscount";
 import { IProductCardProps } from "@/types/props.types";
 
 const colors = [

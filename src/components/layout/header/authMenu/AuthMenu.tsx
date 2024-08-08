@@ -1,7 +1,7 @@
 "use client";
 
 import Icon from "@/components/ui/Icon";
-import MenuWrapper from "../../../ui/MenuWrapper";
+import MenuWrapper from "../../../ui/headless/MenuWrapper";
 import { useState } from "react";
 import AuthMenuContent from "./authMenuContent/AuthMenuContent";
 import { useCookies } from "next-client-cookies";

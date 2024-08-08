@@ -1,7 +1,7 @@
-import RadioInput from "@/components/ui/RadioInput";
+import RadioInput from "@/components/ui/formElements/RadioInput";
 import { useText } from "@/context/text.context";
 import { ErrorMessage } from "formik";
-import AddressModal from "../../../../ui/AddressModal";
+import AddressModal from "../../../../ui/headless/AddressModal";
 import { ICheckoutAddressesProps } from "@/types/props.types";
 
 export default function CheckoutAddresses({

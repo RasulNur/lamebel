@@ -3,7 +3,7 @@ import { getProducts } from "@/api/productsApi";
 import SectionWrapper from "@/components/layout/SectionWrapper";
 import Categories from "@/components/pages/categories/Categories";
 import CategoriesPageHeader from "@/components/pages/categories/CategoriesPageHeader";
-import SeoSection from "@/components/ui/SeoSection";
+import SeoSection from "@/components/ui/sections/SeoSection";
 import { Lang } from "@/types/api/api.types";
 import { ICategoryPageParams } from "@/types/pageParams.types";
 import { Metadata } from "next";

@@ -1,10 +1,10 @@
 "use client";
 
 import { useWishlist } from "@/context/wishlist.context";
-import Icon from "./Icon";
+import Icon from "../Icon";
 import { useState } from "react";
 import classNames from "classnames";
-import OvalSpinner from "./OvalSpinner";
+import OvalSpinner from "../OvalSpinner";
 import { IWishlistButtonProps } from "@/types/props.types";
 
 export default function WishlistButton({

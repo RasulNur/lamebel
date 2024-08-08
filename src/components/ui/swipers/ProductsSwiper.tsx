@@ -1,9 +1,9 @@
 "use client";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import SectionHeader from "./SectionHeader";
+import SectionHeader from "../SectionHeader";
 import { Autoplay, Pagination } from "swiper/modules";
-import ProductCard from "./ProductCard";
+import ProductCard from "../cards/ProductCard";
 import { IProductsSwiperProps } from "@/types/props.types";
 
 export default function ProductsSwiper({

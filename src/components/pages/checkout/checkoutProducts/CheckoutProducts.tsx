@@ -1,4 +1,4 @@
-import CheckoutProductCard from "@/components/ui/CheckoutProductCard";
+import CheckoutProductCard from "@/components/ui/cards/CheckoutProductCard";
 import { useCart } from "@/context/cart.context";
 import { useCookies } from "next-client-cookies";
 

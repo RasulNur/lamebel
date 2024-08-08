@@ -1,6 +1,6 @@
 "use client";
 
-import DialogWrapper from "@/components/ui/DialogWrapper";
+import DialogWrapper from "@/components/ui/headless/DialogWrapper";
 import { useText } from "@/context/text.context";
 import { useState } from "react";
 import OrderModalContent from "./orderModalContent/OrderModalContent";

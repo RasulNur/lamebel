@@ -1,5 +1,5 @@
 import SectionHeader from "@/components/ui/SectionHeader";
-import StaticMap from "../../../ui/StaticMap";
+import StaticMap from "../StaticMap";
 import { IMapSectionProps } from "@/types/props.types";
 
 export default function MapSection({ settings }: IMapSectionProps) {

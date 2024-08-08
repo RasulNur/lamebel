@@ -1,7 +1,7 @@
 import { createReview } from "@/api/reviewsApi";
 import OvalSpinner from "@/components/ui/OvalSpinner";
 import OverlapInput from "@/components/ui/OverlapInput";
-import Rating from "@/components/ui/Rating";
+import Rating from "@/components/ui/formElements/Rating";
 import { useText } from "@/context/text.context";
 import useValidation from "@/hooks/useValidation";
 import { IReviewsForm } from "@/types/form.types";

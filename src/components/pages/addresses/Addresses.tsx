@@ -1,7 +1,7 @@
 import { getAddresses } from "@/api/addressesApi";
 import { getTexts } from "@/api/textsApi";
-import AddressCard from "@/components/ui/AddressCard";
-import AddressModal from "@/components/ui/AddressModal";
+import AddressCard from "@/components/ui/cards/AddressCard";
+import AddressModal from "@/components/ui/headless/AddressModal";
 import Empty from "@/components/ui/Empty";
 import { Lang } from "@/types/api/api.types";
 import { getCookies } from "next-client-cookies/server";

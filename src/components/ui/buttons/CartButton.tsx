@@ -1,10 +1,10 @@
 "use client";
 
 import classNames from "classnames";
-import Icon from "./Icon";
+import Icon from "../Icon";
 import { useCart } from "@/context/cart.context";
 import { useState } from "react";
-import OvalSpinner from "./OvalSpinner";
+import OvalSpinner from "../OvalSpinner";
 import { ICartButtonProps } from "@/types/props.types";
 import { useText } from "@/context/text.context";
 

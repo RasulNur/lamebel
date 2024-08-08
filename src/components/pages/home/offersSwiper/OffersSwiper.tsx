@@ -1,7 +1,7 @@
 "use client";
 
-import OfferCard from "@/components/ui/OfferCard";
 import SectionHeader from "@/components/ui/SectionHeader";
+import OfferCard from "@/components/ui/cards/OfferCard";
 import { Autoplay, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 

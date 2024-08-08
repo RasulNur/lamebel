@@ -1,6 +1,6 @@
 "use client";
 
-import ProductCard from "./ProductCard";
+import ProductCard from "./cards/ProductCard";
 import Pagination from "./pagination/Pagination";
 import Empty from "./Empty";
 import { IProductsGridProps } from "@/types/props.types";
