@@ -23,7 +23,6 @@ function withRedirectsMiddleware(middleware: NextMiddleware) {
         }).then((response) => {
             return response.json();
         });
-        console.log({ data });
 
         const redirectData = [
             {

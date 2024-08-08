@@ -39,7 +39,7 @@ export default function HeaderMenuContent({
                     return (
                         <li key={category.id}>
                             <Link
-                                href={category.url}
+                                href={`/categories/${category.id}-${category.slug}`}
                                 className="inline-block py-2 hover:text-main text-sm font-medium w-full">
                                 {category.name}
                             </Link>
