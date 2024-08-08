@@ -28,10 +28,10 @@ export default function ProductsFilters({
             )}
             {price.max > 0 && <FilterPrice price={price} />}
 
-            {subCategories.data.length > 0 &&
-                categoryBrands.data.length > 0 &&
-                price.max > 0 &&
-                attributes.data.length > 0 && <ClearFilters price={price} />}
+            {(subCategories.data.length > 0 ||
+                categoryBrands.data.length > 0 ||
+                price.max > 0 ||
+                attributes.data.length > 0) && <ClearFilters price={price} />}
         </div>
     );
 }

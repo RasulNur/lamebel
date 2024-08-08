@@ -7,7 +7,7 @@ export default function ParentCategory({ parentCategory }: IParentCategory) {
         <>
             {typeof parentCategory !== "string" && (
                 <Link
-                    className="red-btn red-link group max-w-none"
+                    className="main-btn group"
                     href={`/categories/${parentCategory.data.id}-${parentCategory.data.slug}`}>
                     <Icon
                         name="chevron"

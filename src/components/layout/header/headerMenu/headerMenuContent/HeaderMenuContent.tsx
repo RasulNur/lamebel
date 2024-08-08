@@ -25,6 +25,7 @@ export default function HeaderMenuContent({
                             <li key={link.id}>
                                 <Link
                                     href={link.url}
+                                    onClick={closeModal}
                                     className="inline-block py-2 hover:text-main text-sm font-medium w-full">
                                     {link.title}
                                 </Link>
@@ -40,6 +41,7 @@ export default function HeaderMenuContent({
                         <li key={category.id}>
                             <Link
                                 href={`/categories/${category.id}-${category.slug}`}
+                                onClick={closeModal}
                                 className="inline-block py-2 hover:text-main text-sm font-medium w-full">
                                 {category.name}
                             </Link>
