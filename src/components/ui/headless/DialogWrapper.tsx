@@ -25,7 +25,7 @@ export default function DialogWrapper({
 
                 <DialogPanel
                     transition
-                    className={`relative flex flex-col gap-8 bg-white shadow-lg sm:w-[400px] h-max max-h-[400px] w-full z-[1] transition-300 ease-out data-[closed]:opacity-0 data-[closed]:translate-y-5 py-6 px-4 overflow-y-auto ${dialogClassname}`}>
+                    className={`relative flex flex-col gap-8 bg-white shadow-lg sm:w-[400px] h-max max-h-[400px] w-full z-[1] transition-300 ease-out data-[closed]:opacity-0 data-[closed]:translate-y-5 py-6 px-4 overflow-y-auto rounded-xl ${dialogClassname}`}>
                     <button
                         onClick={() => setIsOpen(false)}
                         type="button"

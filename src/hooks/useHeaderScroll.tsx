@@ -5,9 +5,9 @@ export default function useHeaderScroll() {
 
     useEffect(() => {
         const handleScroll = () => {
-            if (window.scrollY > 200 && !isHidden) {
+            if (window.scrollY > 160 && !isHidden) {
                 setIsHidden(true);
-            } else if (window.scrollY <= 200) {
+            } else if (window.scrollY <= 160) {
                 setIsHidden(false);
             }
         };

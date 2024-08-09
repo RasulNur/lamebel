@@ -22,7 +22,7 @@ export default function HeaderTop({
 
     return (
         <div
-            className={`relative py-3 bg-white z-[90] transition-all duration-500 ${
+            className={`relative py-3 bg-white z-[90] transition-all duration-500 header-top ${
                 isHidden ? "shadow-md" : ""
             }`}>
             <div className="container flex items-center justify-between gap-6">

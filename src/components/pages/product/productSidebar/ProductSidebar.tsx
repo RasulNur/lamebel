@@ -1,9 +1,12 @@
+"use client";
+
 import CartButton from "@/components/ui/buttons/CartButton";
 import WishlistButton from "@/components/ui/buttons/WishlistButton";
 import ProductLinks from "./productLinks/ProductLinks";
 import ProductDiscount from "@/components/ui/ProductDiscount";
 import ProductGroups from "./productGroups/ProductGroups";
 import { IProductSidebarProps } from "@/types/props.types";
+import useHeaderSize from "@/hooks/useHeaderSize";
 
 export default function ProductSidebar({
     product,
@@ -21,8 +24,12 @@ export default function ProductSidebar({
         ...productItem
     } = product.data;
 
+    const { height } = useHeaderSize();
+
     return (
-        <div className="sticky top-[170px] lg:p-6 p-0 flex flex-col lg:gap-8 gap-6 lg:border border-gray5 h-max bg-white">
+        <div
+            className="sticky flex flex-col lg:gap-8 gap-6 h-max bg-white transition-300"
+            style={{ top: `${height + 20}px` }}>
             <div className="flex items-center justify-between">
                 <div></div>
                 <WishlistButton product={productItem} />
