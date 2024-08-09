@@ -13,7 +13,7 @@ const colors = [
 
 export default function ProductCard({ product }: IProductCardProps) {
     return (
-        <div className="flex flex-col gap-3 h-full relative">
+        <div className="flex flex-col gap-3 h-full relative max-w-[358px]">
             <Link
                 href={`/product/${product.id}-${product.slug}`}
                 className="p-4 flex-center bg-white">

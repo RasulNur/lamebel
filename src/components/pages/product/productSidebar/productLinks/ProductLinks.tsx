@@ -17,12 +17,12 @@ export default function ProductLinks({ setTabIndex }: IProductLinksProps) {
     };
 
     return (
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col">
             {links.map((link) => {
                 return (
                     <button
                         type="button"
-                        className="py-2 w-full text-start hover:text-main font-semibold"
+                        className="py-4 w-full text-start hover:text-main font-medium border-b last:border-0 border-gray5"
                         key={link.id}
                         onClick={() => handleClick(link.id)}>
                         {link.title}

@@ -21,6 +21,7 @@ export type SpritesName =
     | "filter"
     | "exit"
     | "minus"
+    | "fire"
     | "trash"
     | "plus"
     | "star"

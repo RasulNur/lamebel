@@ -7,6 +7,7 @@ import ProductDiscount from "@/components/ui/ProductDiscount";
 import ProductGroups from "./productGroups/ProductGroups";
 import { IProductSidebarProps } from "@/types/props.types";
 import useHeaderSize from "@/hooks/useHeaderSize";
+import ProductSticker from "@/components/ui/ProductSticker";
 
 export default function ProductSidebar({
     product,
@@ -31,7 +32,7 @@ export default function ProductSidebar({
             className="sticky flex flex-col lg:gap-8 gap-6 h-max bg-white transition-300"
             style={{ top: `${height + 20}px` }}>
             <div className="flex items-center justify-between">
-                <div></div>
+                <ProductSticker />
                 <WishlistButton product={productItem} />
             </div>
 

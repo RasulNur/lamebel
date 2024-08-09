@@ -81,6 +81,11 @@ module.exports = {
                 red: {
                     DEFAULT: "var(--red)",
                 },
+
+                orange: {
+                    DEFAULT: "var(--orange)",
+                    light: "var(--orange-light)",
+                },
             },
         },
     },
