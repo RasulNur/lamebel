@@ -12,6 +12,7 @@ import Product from "@/components/pages/product/Product";
 import { getReviews } from "@/api/reviewsApi";
 import { getProductGroup } from "@/api/productGroupApi";
 import { IPageParamsWithId } from "@/types/pageParams.types";
+import ReviewsSwiper from "@/components/ui/swipers/reviewsSwiper/ReviewsSwiper";
 
 export default async function ProductPage({
     params: { id, lang },
@@ -69,6 +70,9 @@ export default async function ProductPage({
                     subtitle="ШИРОКИЙ АССОРТИМЕНТ"
                     title="Хиты интернет продаж"
                 />
+            </SectionWrapper>
+            <SectionWrapper className="last-section-margin">
+                <ReviewsSwiper />
             </SectionWrapper>
         </>
     );

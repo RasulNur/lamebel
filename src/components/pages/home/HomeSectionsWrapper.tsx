@@ -8,7 +8,7 @@ import HomeAbout from "./homeAbout/HomeAbout";
 import MapSection from "../../ui/sections/MapSection";
 import NewsSwiper from "./newsSwiper/NewsSwiper";
 import ContactsSection from "@/components/ui/sections/ContactsSection";
-import ReviewsSwiper from "./reviewsSwiper/ReviewsSwiper";
+import ReviewsSwiper from "../../ui/swipers/reviewsSwiper/ReviewsSwiper";
 import InstagramSwiper from "@/components/ui/swipers/InstagramSwiper";
 import SeoSection from "@/components/ui/sections/SeoSection";
 import { IHomeSectionWrapperProps } from "@/types/props.types";
