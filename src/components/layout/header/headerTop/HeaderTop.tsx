@@ -6,9 +6,10 @@ import { numberWithSpaces } from "@/utils/numberWithSpaces";
 import HeaderMenu from "../headerMenu/HeaderMenu";
 import HeaderList from "../headerList/HeaderList";
 import HeaderIcons from "../headerIcons/HeaderIcons";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import SearchForm from "@/components/ui/SearchForm";
 import { IHeaderTopProps } from "@/types/props.types";
+import useHeaderScroll from "@/hooks/useHeaderScroll";
 
 export default function HeaderTop({
     lang,
@@ -17,8 +18,13 @@ export default function HeaderTop({
     categories,
 }: IHeaderTopProps) {
     const [isSearchOpen, setIsSearchOpen] = useState<boolean>(false);
+    const { isHidden } = useHeaderScroll();
+
     return (
-        <div className="py-6">
+        <div
+            className={`relative py-3 bg-white z-[90] transition-all duration-500 ${
+                isHidden ? "shadow-md" : ""
+            }`}>
             <div className="container flex items-center justify-between gap-6">
                 <div className="flex items-center gap-6 w-full">
                     <Link href={"/"}>
@@ -28,7 +34,7 @@ export default function HeaderTop({
                             title="Lamebel"
                             width={248}
                             height={48}
-                            className="lg:min-w-[248px] lg:w-[248px] md:min-w-[200px] md:w-[200px] sm:min-w-[160px] sm:w-[160px] min-w-[120px] w-[120px] h-auto"
+                            className=" lg:min-w-[200px] lg:w-[200px] sm:min-w-[160px] sm:w-[160px] min-[400px]:min-w-[140px] w-[140px] h-auto"
                         />
                     </Link>
                     <div className="2xl:block hidden">

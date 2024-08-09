@@ -1,5 +1,12 @@
+"use client";
+
+import useHeaderSize from "@/hooks/useHeaderSize";
 import { IBlockForScrollProps } from "@/types/props.types";
 
 export default function BlockForScroll({ id }: IBlockForScrollProps) {
-    return <div id={id} className="absolute lg:-top-[160px] -top-[95px]"></div>;
+    const { height } = useHeaderSize();
+
+    return (
+        <div id={id} className="absolute" style={{ top: `-${height}px` }}></div>
+    );
 }

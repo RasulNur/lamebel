@@ -25,7 +25,7 @@ export default function HomeSectionsWrapper({
         <>
             <HomeBanner />
 
-            <SectionWrapper>
+            <SectionWrapper className="md:mt-20 mt-[60px]">
                 <CategoriesSwiper categories={categories} />
             </SectionWrapper>
 

@@ -36,7 +36,7 @@ export default function HomeBanner() {
             spaceBetween={20}
             autoplay={{ delay: 10000 }}
             modules={[Autoplay, Navigation, Pagination]}
-            className="h-screen min-h-[400px] xl:max-h-[800px] sm:max-h-[620px] max-h-[500px]"
+            className="h-screen min-h-[400px] xl:max-h-[700px] lg:max-h-[600px] sm:max-h-[550px] max-h-[500px]"
             // pagination={{
             //     type: "fraction",
             // }}
@@ -72,7 +72,7 @@ export default function HomeBanner() {
                                     alt={slide.title}
                                     width={470}
                                     height={620}
-                                    className="xl:w-[470px] lg:w-[400px] md:w-[350px] sm:w-[300px] w-[220px] h-auto object-contain relative z-[-1]"
+                                    className="xl:w-[470px] lg:w-[350px] md:w-[300px] sm:w-[250px] w-[220px] h-auto object-contain relative z-[-1]"
                                 />
                             </div>
                         </div>

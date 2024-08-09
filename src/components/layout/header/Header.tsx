@@ -10,7 +10,7 @@ export default async function Header({ lang }: IHeaderProps) {
     const menu = await getMenu({ menuId: 2, lang });
     const categories = await getCategoriesTree({ lang });
     return (
-        <header className="sticky top-0 z-[90] bg-white shadow-md">
+        <header className="sticky top-0 z-[90] header">
             <HeaderTop
                 lang={lang}
                 settings={settings}
