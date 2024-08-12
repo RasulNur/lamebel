@@ -36,7 +36,10 @@ export default function CartButton({
             {isLoading ? (
                 <OvalSpinner size={16} type={"second"} />
             ) : type === "icon" ? (
-                <Icon name="cart" className="stroke-white min-w-4 min-h-4" />
+                <Icon
+                    name="cart"
+                    className="stroke-white min-w-4 min-h-4 group-hover:stroke-main"
+                />
             ) : product.in_stock === 0 ? (
                 text("Нет в наличии")
             ) : (
