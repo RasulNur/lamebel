@@ -19,12 +19,15 @@ export default function HeaderCategories({ settings }: IHeaderCategoriesProps) {
 
     return (
         <div
-            className={`relative block transition-all duration-500 bg-white z-[89] shadow-md ${
+            className={`block transition-all duration-500 bg-white z-[89] shadow-md ${
                 isHidden
-                    ? "!fixed invisible opacity-0 -translate-y-full w-full"
-                    : "visible opacity-100 translate-y-0"
+                    ? "absolute invisible opacity-0 -translate-y-full w-full pointer-events-none z-[-99]"
+                    : "relative visible opacity-100 translate-y-0"
             }`}>
-            <div className="container py-2 flex items-center justify-between">
+            <div
+                className={`container py-2 ${
+                    isHidden ? "h-0 opacity-0" : ""
+                } flex items-center justify-between`}>
                 <div className="lg:flex hidden items-center gap-6">
                     {links.map((link) => {
                         return (
@@ -66,3 +69,7 @@ export default function HeaderCategories({ settings }: IHeaderCategoriesProps) {
         </div>
     );
 }
+
+// ${
+//     isHidden ? "hidden" : "flex"
+// }

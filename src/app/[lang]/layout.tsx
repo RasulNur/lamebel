@@ -14,6 +14,7 @@ import "swiper/css/thumbs";
 import "./globals.scss";
 
 import { IRootLayoutParams } from "@/types/pageParams.types";
+import MainWrapper from "@/components/layout/MainWrapper";
 
 const montserrat = Montserrat({
     subsets: ["latin"],
@@ -35,7 +36,8 @@ export default function RootLayout({
                         <div className="min-h-screen h-full flex flex-col justify-between">
                             <Header lang={lang} />
 
-                            <main className="grow h-full">{children}</main>
+                            <MainWrapper>{children}</MainWrapper>
+
                             <Footer lang={lang} />
                         </div>
                     </ContextProviders>

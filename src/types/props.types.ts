@@ -634,3 +634,7 @@ export interface IProductPageWrapperProps {
     bestsellerProducts: IProduct[];
     similarProducts: IProduct[];
 }
+
+export interface IMainWrapperProps {
+    children: React.ReactNode;
+}

@@ -16,7 +16,7 @@ export const setItemWithExpiry = ({
 };
 
 export const getItemWithExpiry = ({ key }: { key: string }) => {
-    const itemStr = localStorage.getItem(key);
+    const itemStr = typeof window !== "undefined" && localStorage.getItem(key);
 
     if (!itemStr) {
         return null;
