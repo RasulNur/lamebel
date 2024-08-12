@@ -31,6 +31,7 @@ export default function HomeSectionsWrapper({
 
             <SectionWrapper>
                 <ProductsSwiper
+                    lang={lang}
                     products={newProducts.data}
                     subtitle="ШИРОКИЙ АССОРТИМЕНТ"
                     title="Новинки"
@@ -43,6 +44,7 @@ export default function HomeSectionsWrapper({
 
             <SectionWrapper className="bg-main-light section-padding">
                 <ProductsSwiper
+                    lang={lang}
                     products={bestsellerProducts.data}
                     subtitle="ШИРОКИЙ АССОРТИМЕНТ"
                     title="Хиты интернет продаж"

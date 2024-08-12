@@ -12,6 +12,7 @@ export default function CartButton({
     className,
     product,
     quantity = 1,
+    type = "text",
 }: ICartButtonProps) {
     const { checkExist: checkCartExist, toggleCart } = useCart();
     const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -21,18 +22,21 @@ export default function CartButton({
             disabled={isLoading || product.in_stock === 0}
             onClick={() => toggleCart({ product, quantity, setIsLoading })}
             className={classNames(
-                "main-btn py-[10px] group flex items-center gap-2",
+                `main-btn py-[10px] ${
+                    type === "icon" ? "min-w-0 w-fit" : ""
+                } group flex items-center gap-2`,
                 `${
                     product.in_stock === 0
                         ? "bg-placeholder2 border-placeholder2 hover:bg-placeholder2 pointer-events-none hover:text-main"
                         : ""
                 }`,
-
                 className,
             )}
             type="button">
             {isLoading ? (
                 <OvalSpinner size={16} type={"second"} />
+            ) : type === "icon" ? (
+                <Icon name="cart" className="stroke-white min-w-4 min-h-4" />
             ) : product.in_stock === 0 ? (
                 text("Нет в наличии")
             ) : (
@@ -50,6 +54,26 @@ export default function CartButton({
                     )}
                 </>
             )}
+
+            {/* {isLoading ? (
+                <OvalSpinner size={16} type={"second"} />
+            ) : product.in_stock === 0 ? (
+                text("Нет в наличии")
+            ) : (
+                <>
+                    {checkCartExist(product.id) ? (
+                        <>
+                            <Icon
+                                name="check"
+                                className="stroke-white group-hover:stroke-main"
+                            />
+                            {text("В корзине")}
+                        </>
+                    ) : (
+                        text("В корзину")
+                    )}
+                </>
+            )} */}
         </button>
     );
 }

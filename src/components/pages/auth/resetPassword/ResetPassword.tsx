@@ -1,5 +1,5 @@
 import { loginCheck, resetPassword, sendOtp } from "@/api/authApi";
-import OtpModal from "@/components/ui/otpModal/OtpModal";
+import OtpModal from "@/components/ui/headless/otpModal/OtpModal";
 import { useText } from "@/context/text.context";
 import useValidation from "@/hooks/useValidation";
 import { IResetPasswordForm } from "@/types/form.types";

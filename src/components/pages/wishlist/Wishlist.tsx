@@ -5,10 +5,11 @@ import OvalSpinner from "@/components/ui/OvalSpinner";
 import ProductCard from "@/components/ui/cards/ProductCard";
 import { useText } from "@/context/text.context";
 import { useWishlist } from "@/context/wishlist.context";
+import { IWishlistProps } from "@/types/props.types";
 import { useCookies } from "next-client-cookies";
 import { useState } from "react";
 
-export default function Wishlist() {
+export default function Wishlist({ lang }: IWishlistProps) {
     const { apiWishlist, wishlist, clearWishlist } = useWishlist();
     const cookies = useCookies();
     const token = cookies.get("token");
@@ -39,6 +40,7 @@ export default function Wishlist() {
                               apiWishlist.items.map((item) => {
                                   return (
                                       <ProductCard
+                                          lang={lang}
                                           key={item.id}
                                           product={item.product}
                                       />
@@ -47,6 +49,7 @@ export default function Wishlist() {
                             : wishlist.map((item) => {
                                   return (
                                       <ProductCard
+                                          lang={lang}
                                           key={item.id}
                                           product={item}
                                       />

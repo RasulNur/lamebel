@@ -45,6 +45,7 @@ export default async function FilteredProducts({
                                 {products.data.map((product) => {
                                     return (
                                         <ProductCard
+                                            lang={lang}
                                             key={product.id}
                                             product={product}
                                         />
@@ -61,6 +62,7 @@ export default async function FilteredProducts({
 
             <SectionWrapper className="last-section-margin">
                 <ProductsSwiper
+                    lang={lang}
                     products={swiperProducts.data}
                     subtitle="ШИРОКИЙ АССОРТИМЕНТ"
                     title="Новинки"

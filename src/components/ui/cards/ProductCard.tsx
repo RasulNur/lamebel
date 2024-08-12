@@ -4,6 +4,7 @@ import WishlistButton from "../buttons/WishlistButton";
 import CartButton from "../buttons/CartButton";
 import ProductDiscount from "../ProductDiscount";
 import { IProductCardProps } from "@/types/props.types";
+import BuyModal from "../headless/buyModal/BuyModal";
 
 const colors = [
     { id: 0, color: "#FF53E8" },
@@ -11,7 +12,7 @@ const colors = [
     { id: 2, color: "#FFDD1F" },
 ];
 
-export default function ProductCard({ product }: IProductCardProps) {
+export default function ProductCard({ product, lang }: IProductCardProps) {
     return (
         <div className="flex flex-col gap-3 h-full relative max-w-[358px]">
             <Link
@@ -61,8 +62,14 @@ export default function ProductCard({ product }: IProductCardProps) {
                     <ProductDiscount product={product} />
                 </div>
             </div>
-
-            <CartButton product={product} className="w-full" />
+            <div className="flex items-center gap-2 pb-[2px]">
+                <CartButton product={product} type="icon" />
+                <BuyModal
+                    product={product}
+                    lang={lang}
+                    className="w-full grow"
+                />
+            </div>
         </div>
     );
 }

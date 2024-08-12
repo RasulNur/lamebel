@@ -47,7 +47,7 @@ export default async function Categories({
                     </div>
                 </div>
 
-                <ProductsGrid products={products} />
+                <ProductsGrid products={products} lang={lang} />
             </div>
         </div>
     );

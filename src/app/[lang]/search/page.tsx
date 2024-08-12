@@ -43,6 +43,7 @@ export default async function SearchPage({
             <section className="mt-5 last-section-margin">
                 <div className="container">
                     <Search
+                        lang={lang}
                         products={products}
                         keyword={searchParams.keyword}
                     />

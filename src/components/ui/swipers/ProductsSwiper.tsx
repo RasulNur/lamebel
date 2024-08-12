@@ -10,6 +10,7 @@ export default function ProductsSwiper({
     title,
     subtitle,
     products,
+    lang,
 }: IProductsSwiperProps) {
     return (
         <div className="section-header-wrapper">
@@ -36,7 +37,7 @@ export default function ProductsSwiper({
                 {products.map((product) => {
                     return (
                         <SwiperSlide key={product.id} className="h-auto">
-                            <ProductCard product={product} />
+                            <ProductCard product={product} lang={lang} />
                         </SwiperSlide>
                     );
                 })}

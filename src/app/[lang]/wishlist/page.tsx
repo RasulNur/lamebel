@@ -19,7 +19,7 @@ export default async function WishlistPage({ params: { lang } }: IPageParams) {
 
             <section className="mt-5 last-section-margin">
                 <div className="container">
-                    <Wishlist />
+                    <Wishlist lang={lang} />
                 </div>
             </section>
         </>

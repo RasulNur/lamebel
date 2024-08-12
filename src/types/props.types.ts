@@ -194,6 +194,7 @@ export interface ICartButtonProps {
     className?: string;
     product: IProduct;
     quantity?: number;
+    type?: "text" | "icon";
 }
 
 export interface IQuantityProps {
@@ -319,9 +320,11 @@ export interface IClearFiltersProps {
 }
 export interface IProductsGridProps {
     products: IProducts;
+    lang: Lang;
 }
 export interface IProductCardProps {
     product: IProduct;
+    lang: Lang;
 }
 
 export interface IProductDiscountProps {
@@ -338,6 +341,7 @@ export interface IProductsSwiperProps {
     title: string;
     subtitle: string;
     products: IProduct[];
+    lang: Lang;
 }
 export interface ISectionHeaderProps {
     title: string;
@@ -527,6 +531,7 @@ export interface IProductLinksProps {
 export interface ISearchProps {
     products: IProducts;
     keyword: string;
+    lang: Lang;
 }
 export interface ISearchFormProps {
     keyword?: string;
@@ -626,6 +631,7 @@ export interface INotFoundTextProps {
 
 export interface IViewedSwiperProps {
     productId: number;
+    lang: Lang;
 }
 
 export interface IProductPageWrapperProps {
@@ -640,4 +646,17 @@ export interface IProductPageWrapperProps {
 
 export interface IMainWrapperProps {
     children: React.ReactNode;
+}
+
+export interface IBuyModalFormProps {
+    product: IProduct;
+    lang: Lang;
+}
+export interface IBuyModalProps {
+    product: IProduct;
+    lang: Lang;
+    className?: string;
+}
+export interface IWishlistProps {
+    lang: Lang;
 }

@@ -5,6 +5,11 @@ export interface IContactsForm {
     phone_number: string;
     message: string;
 }
+export interface IBuyForm {
+    name: string;
+    phone_number: string;
+    message: string;
+}
 export interface ILoginForm {
     phone_number: string;
     password: string;

@@ -68,6 +68,7 @@ export default function ProductPageWrapper({
             </section>
             <SectionWrapper className="bg-main-light section-padding">
                 <ProductsSwiper
+                    lang={lang}
                     products={bestsellerProducts}
                     subtitle="ШИРОКИЙ АССОРТИМЕНТ"
                     title="Хиты интернет продаж"
@@ -75,6 +76,7 @@ export default function ProductPageWrapper({
             </SectionWrapper>
             <SectionWrapper>
                 <ProductsSwiper
+                    lang={lang}
                     products={similarProducts}
                     subtitle="ШИРОКИЙ АССОРТИМЕНТ"
                     title="Похожие товары"
@@ -89,7 +91,7 @@ export default function ProductPageWrapper({
                 <ProductAdvantages />
             </SectionWrapper>
 
-            <ViewedSwiper productId={product.data.id} />
+            <ViewedSwiper productId={product.data.id} lang={lang} />
         </>
     );
 }
