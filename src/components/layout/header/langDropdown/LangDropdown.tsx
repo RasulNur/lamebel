@@ -64,7 +64,7 @@ export default function LangDropdown() {
             className="relative z-[91]">
             <ListboxButton
                 type="button"
-                className="h-full relative flex items-center gap-2 sm:text-base text-sm font-semibold capitalize hover:text-main p-2">
+                className="h-full relative flex items-center gap-2 sm:text-base text-sm font-semibold capitalize hover:text-main sm:p-2 p-1">
                 {selectedLang.label}
             </ListboxButton>
             <ListboxOptions

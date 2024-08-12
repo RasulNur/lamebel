@@ -5,7 +5,7 @@ import { ISearchProps } from "@/types/props.types";
 export default function Search({ products, keyword }: ISearchProps) {
     return (
         <div className="products-grid-wrapper">
-            <SearchForm keyword={keyword} />
+            <SearchForm keyword={keyword} className="grow w-full" />
 
             <ProductsGrid products={products} />
         </div>

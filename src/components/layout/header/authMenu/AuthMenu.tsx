@@ -24,7 +24,7 @@ export default function AuthMenu({ lang }: IAuthMenuProps) {
     return (
         <>
             {token ? (
-                <Link href="/dashboard/profile" className="group p-2">
+                <Link href="/dashboard/profile" className="group sm:p-2 p-1">
                     <Icon
                         name="user"
                         className="stroke-primary group-hover:stroke-main size-5"

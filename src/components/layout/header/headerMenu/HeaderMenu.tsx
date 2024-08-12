@@ -24,7 +24,7 @@ export default function HeaderMenu({ menu, categories }: IHeaderMenuProps) {
                 isOpen={isOpen}
                 menuBtn={
                     <button
-                        className="group main-btn w-max min-w-0 2xl:py-4 2xl:px-6 p-3"
+                        className="group main-btn w-max min-w-0 2xl:py-4 2xl:px-6 sm:p-3 p-2"
                         onClick={openModal}>
                         <Icon
                             name="menu"

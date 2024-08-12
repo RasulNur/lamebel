@@ -52,17 +52,15 @@ export default function HeaderCategories({ settings }: IHeaderCategoriesProps) {
                 {settings.telegram && (
                     <Link
                         href={settings.telegram}
-                        className="group bg-blue py-[10px] max-[550px]:py-3 2xl:px-5 px-3 flex-center gap-3 text-white hover:text-blue hover:bg-transparent border-2 border-blue rounded-[30px] font-semibold text-sm">
+                        className="group bg-blue py-2 2xl:px-3 px-2 flex-center gap-3 text-white hover:text-blue hover:bg-transparent border-2 border-blue rounded-[30px] font-semibold text-sm">
                         <Icon
                             name="telegram"
                             className="block fill-white group-hover:fill-blue"
                         />
                         <span className="sm:inline hidden max-[550px]:hidden">
-                            Наш канал в телеграм
-                        </span>
-                        <span className="sm:hidden max-[550px]:hidden">
                             Наш телеграм
                         </span>
+                        <span className="sm:hidden">Телеграм</span>
                     </Link>
                 )}
             </div>

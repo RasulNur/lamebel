@@ -10,6 +10,8 @@ import { useEffect, useState } from "react";
 import SearchForm from "@/components/ui/SearchForm";
 import { IHeaderTopProps } from "@/types/props.types";
 import useHeaderScroll from "@/hooks/useHeaderScroll";
+import LangDropdown from "../langDropdown/LangDropdown";
+import HeaderSearch from "../headerSearch/HeaderSearch";
 
 export default function HeaderTop({
     lang,
@@ -26,7 +28,7 @@ export default function HeaderTop({
                 isHidden ? "shadow-md" : ""
             }`}>
             <div className="container flex items-center justify-between gap-6">
-                <div className="flex items-center gap-6 w-full">
+                <div className="flex items-center gap-6">
                     <Link href={"/"}>
                         <Image
                             src="/images/logo.svg"
@@ -41,15 +43,11 @@ export default function HeaderTop({
                         <HeaderMenu categories={categories} />
                     </div>
 
-                    {isSearchOpen ? (
-                        <div className="2xl:block hidden w-full">
-                            <SearchForm />
-                        </div>
-                    ) : (
-                        <HeaderList menu={menu} />
-                    )}
+                    <HeaderList menu={menu} />
                 </div>
-                <div className="flex items-center xl:gap-6 sm:gap-4 gap-2 shrink-0">
+                <div className="flex items-center justify-end xl:gap-6 sm:gap-4 gap-2 shrink-0 grow">
+                    <HeaderSearch />
+
                     {settings.phone && (
                         <Link
                             href={`tel:${settings.phone}`}
@@ -60,6 +58,8 @@ export default function HeaderTop({
                             )}
                         </Link>
                     )}
+
+                    <LangDropdown />
 
                     <HeaderIcons
                         lang={lang}

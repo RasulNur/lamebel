@@ -7,6 +7,7 @@ import { useCart } from "@/context/cart.context";
 import { useEffect, useState } from "react";
 import { useCookies } from "next-client-cookies";
 import { IHeaderIconsProps } from "@/types/props.types";
+import HeaderSearch from "../headerSearch/HeaderSearch";
 
 export default function HeaderIcons({
     lang,
@@ -36,28 +37,16 @@ export default function HeaderIcons({
 
     return (
         <div className="flex items-center gap-2">
-            <LangDropdown />
-
-            <button
-                type="button"
-                className="2xl:flex hidden group p-2"
-                onClick={() => setIsSearchOpen((prev) => !prev)}>
-                <Icon
-                    name="loupe"
-                    className="stroke-primary group-hover:stroke-main size-5"
-                />
-            </button>
-
-            <Link href="/cart" className="group p-2 relative">
+            <Link href="/cart" className="group sm:p-2 p-1 relative">
                 <Icon name="cart" className={svgClassnames} />
-                <span className="flex-center absolute top-0 right-0 bg-main text-white size-4 rounded-full text-[8.5px] z-[1] select-none">
+                <span className="flex-center absolute sm:top-0 -top-[3px] sm:right-0 -right-[3px] bg-main text-white size-4 rounded-full text-[8.5px] z-[1] select-none">
                     {cartQuantity}
                 </span>
             </Link>
 
             <Link
                 href="/wishlist"
-                className="group p-2 sm:block hidden relative">
+                className="group sm:p-2 p-1 sm:block hidden relative">
                 <Icon name="heart" className={svgClassnames} />
                 <span className="flex-center absolute top-0 right-0 bg-main text-white size-4 rounded-full text-[8.5px] z-[1] select-none">
                     {wishlistQuantity}

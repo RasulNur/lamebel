@@ -16,7 +16,7 @@ export default function HeaderMenuContent({
                 </button>
             </div>
 
-            <SearchForm />
+            <SearchForm className="grow w-full" />
 
             {menu && (
                 <ul className="2xl:hidden flex flex-col gap-2">

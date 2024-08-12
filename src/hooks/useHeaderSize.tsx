@@ -2,13 +2,15 @@ import { useEffect, useState } from "react";
 import useHeaderScroll from "./useHeaderScroll";
 
 export default function useHeaderSize() {
-    const [height, setHeight] = useState<number>(136);
+    const [height, setHeight] = useState<number>(132);
     const { isHidden } = useHeaderScroll();
 
     const handleScroll = (headerHeight: number) => {
         setHeight(headerHeight);
     };
-
+    useEffect(() => {
+        console.log({ height });
+    }, [height]);
     useEffect(() => {
         const header = document.querySelector("header.header");
         if (header) {
@@ -23,6 +25,11 @@ export default function useHeaderSize() {
             };
         }
     }, [height, isHidden]);
+
+    useEffect(() => {
+        const header = document.querySelector("header.header");
+        header && setHeight(header.clientHeight);
+    }, []);
 
     return { height };
 }

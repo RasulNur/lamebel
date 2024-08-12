@@ -530,6 +530,9 @@ export interface ISearchProps {
 }
 export interface ISearchFormProps {
     keyword?: string;
+    className?: string;
+    inputClassName?: string;
+    setIsFocused?: SetState<boolean>;
 }
 export interface IErrorProps {
     reset: () => void;
