@@ -15,16 +15,6 @@ export default function ProductSidebar({
     attributes,
     productGroup,
 }: IProductSidebarProps) {
-    const {
-        h1_name,
-        body,
-        seo_title,
-        meta_description,
-        meta_keywords,
-        book,
-        ...productItem
-    } = product.data;
-
     const { height } = useHeaderSize();
 
     return (
@@ -33,34 +23,34 @@ export default function ProductSidebar({
             style={{ top: `${height + 20}px` }}>
             <div className="flex items-center justify-between">
                 <ProductSticker />
-                <WishlistButton product={productItem} />
+                <WishlistButton product={product} />
             </div>
 
             <h3 className="text-xl leading-140 font-semibold">
-                {product.data.name}
+                {product.name}
             </h3>
 
             <div className="flex items-center gap-2 justify-between">
                 <div className="flex flex-col gap-1">
                     <div className="font-bold sm:text-xl text-lg leading-130">
-                        {product.data.current_price_formatted}
+                        {product.current_price_formatted}
                     </div>
-                    {product.data.old_price_formatted && (
+                    {product.old_price_formatted && (
                         <div className="text-sm leading-130 line-through opacity-50">
-                            {product.data.old_price_formatted}
+                            {product.old_price_formatted}
                         </div>
                     )}
                 </div>
-                <ProductDiscount product={productItem} type="product" />
+                <ProductDiscount product={product} type="product" />
             </div>
-            {product.data.product_group_id && (
+            {product.product_group_id && (
                 <ProductGroups
                     attributes={attributes}
                     productGroup={productGroup}
                 />
             )}
 
-            <CartButton product={productItem} className="!py-4 w-full" />
+            <CartButton product={product} className="!py-4 w-full" />
 
             <ProductLinks setTabIndex={setTabIndex} />
         </div>

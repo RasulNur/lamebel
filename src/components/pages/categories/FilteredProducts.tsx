@@ -61,7 +61,7 @@ export default async function FilteredProducts({
 
             <SectionWrapper className="last-section-margin">
                 <ProductsSwiper
-                    products={swiperProducts}
+                    products={swiperProducts.data}
                     subtitle="ШИРОКИЙ АССОРТИМЕНТ"
                     title="Новинки"
                 />

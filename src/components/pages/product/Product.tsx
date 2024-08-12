@@ -14,6 +14,15 @@ export default function Product({
     productGroup,
 }: IProductProps) {
     const [tabIndex, setTabIndex] = useState<number>(0);
+    const {
+        h1_name,
+        body,
+        seo_title,
+        meta_description,
+        meta_keywords,
+        book,
+        ...productItem
+    } = product.data;
 
     return (
         <div className="flex flex-col md:gap-10 gap-5">
@@ -33,7 +42,7 @@ export default function Product({
                 </div>
 
                 <ProductSidebar
-                    product={product}
+                    product={productItem}
                     setTabIndex={setTabIndex}
                     attributes={productAttributes}
                     productGroup={productGroup}

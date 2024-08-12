@@ -8,7 +8,7 @@ import HomeAbout from "./homeAbout/HomeAbout";
 import MapSection from "../../ui/sections/MapSection";
 import NewsSwiper from "./newsSwiper/NewsSwiper";
 import ContactsSection from "@/components/ui/sections/ContactsSection";
-import ReviewsSwiper from "../../ui/swipers/reviewsSwiper/ReviewsSwiper";
+import ReviewsSwiper from "../../ui/swipers/ReviewsSwiper";
 import InstagramSwiper from "@/components/ui/swipers/InstagramSwiper";
 import SeoSection from "@/components/ui/sections/SeoSection";
 import { IHomeSectionWrapperProps } from "@/types/props.types";
@@ -31,7 +31,7 @@ export default function HomeSectionsWrapper({
 
             <SectionWrapper>
                 <ProductsSwiper
-                    products={newProducts}
+                    products={newProducts.data}
                     subtitle="ШИРОКИЙ АССОРТИМЕНТ"
                     title="Новинки"
                 />
@@ -43,7 +43,7 @@ export default function HomeSectionsWrapper({
 
             <SectionWrapper className="bg-main-light section-padding">
                 <ProductsSwiper
-                    products={bestsellerProducts}
+                    products={bestsellerProducts.data}
                     subtitle="ШИРОКИЙ АССОРТИМЕНТ"
                     title="Хиты интернет продаж"
                 />

@@ -33,7 +33,7 @@ export default function ProductsSwiper({
                     type: "bullets",
                     hiddenClass: "!hidden",
                 }}>
-                {products.data.map((product) => {
+                {products.map((product) => {
                     return (
                         <SwiperSlide key={product.id} className="h-auto">
                             <ProductCard product={product} />

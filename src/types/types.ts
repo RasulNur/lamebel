@@ -101,3 +101,9 @@ export interface IUseQuantityParams {
     product: IProduct;
     // setIsLoading: SetState<IQuantityChangerLoading>;
 }
+
+export interface ISetItemWithExpiryParams {
+    key: string;
+    value: string;
+    expireTime: number;
+}

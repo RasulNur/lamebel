@@ -337,7 +337,7 @@ export interface IPaginationProps {
 export interface IProductsSwiperProps {
     title: string;
     subtitle: string;
-    products: IProducts;
+    products: IProduct[];
 }
 export interface ISectionHeaderProps {
     title: string;
@@ -516,7 +516,7 @@ export interface IReviewsFormProps {
     lang: Lang;
 }
 export interface IProductSidebarProps {
-    product: ISingleProduct;
+    product: IProduct;
     setTabIndex: SetState<number>;
     attributes: IProductAttributes;
     productGroup: IProductGroup | "Not exist";
@@ -619,4 +619,18 @@ export interface IContactsSectionProps {
 }
 export interface INotFoundTextProps {
     lang: Lang;
+}
+
+export interface IViewedSwiperProps {
+    productId: number;
+}
+
+export interface IProductPageWrapperProps {
+    product: ISingleProduct;
+    productAttributes: IProductAttributes;
+    lang: Lang;
+    reviews: IReviews;
+    productGroup: IProductGroup | "Not exist";
+    bestsellerProducts: IProduct[];
+    similarProducts: IProduct[];
 }
