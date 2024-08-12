@@ -159,6 +159,7 @@ svg,
             & + label {
                 top: -9px;
                 font-size: 12px;
+                background-color: var(--white);
             }
         }
     }
@@ -180,6 +181,54 @@ svg,
                 background-color: var(--white-15);
             }
         }
+    }
+}
+
+.home-header-banner {
+    .swiper-slide {
+        // background: linear-gradient(
+        //     135deg,
+        //     rgba(255, 228, 145, 0.4) 0%,
+        //     rgba(249, 203, 182, 0.4) 100%
+        // );
+        background-size: 400% 400%;
+        -webkit-animation: gradient-animation 5s ease infinite;
+        -moz-animation: gradient-animation 5s ease infinite;
+        animation: gradient-animation 5s ease infinite;
+    }
+}
+
+@-webkit-keyframes gradient-animation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+@-moz-keyframes gradient-animation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+@keyframes gradient-animation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
     }
 }
 

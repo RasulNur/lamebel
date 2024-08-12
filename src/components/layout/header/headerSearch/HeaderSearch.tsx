@@ -11,14 +11,5 @@ export default function HeaderSearch() {
             } transition-all duration-500`}
             inputClassName="!rounded-[32px]"
         />
-        // <button
-        //     type="button"
-        //     className="2xl:flex hidden group sm:p-2 p-1"
-        //     onClick={() => setIsSearchOpen((prev) => !prev)}>
-        //     <Icon
-        //         name="loupe"
-        //         className="stroke-primary group-hover:stroke-main size-5"
-        //     />
-        // </button>
     );
 }
