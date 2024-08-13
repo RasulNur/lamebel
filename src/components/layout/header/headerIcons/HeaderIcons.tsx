@@ -7,12 +7,8 @@ import { useCart } from "@/context/cart.context";
 import { useEffect, useState } from "react";
 import { useCookies } from "next-client-cookies";
 import { IHeaderIconsProps } from "@/types/props.types";
-import HeaderSearch from "../headerSearch/HeaderSearch";
 
-export default function HeaderIcons({
-    lang,
-    setIsSearchOpen,
-}: IHeaderIconsProps) {
+export default function HeaderIcons({ lang }: IHeaderIconsProps) {
     const cookies = useCookies();
     const token = cookies.get("token");
     let svgClassnames =

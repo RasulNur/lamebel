@@ -99,7 +99,6 @@ export interface IUseQuantityParams {
     productQuantity: number;
     setQuantity?: SetState<number>;
     product: IProduct;
-    // setIsLoading: SetState<IQuantityChangerLoading>;
 }
 
 export interface ISetItemWithExpiryParams {

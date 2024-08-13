@@ -46,6 +46,7 @@ export default function Product({
                     setTabIndex={setTabIndex}
                     attributes={productAttributes}
                     productGroup={productGroup}
+                    lang={lang}
                 />
             </div>
             <div className="lg:hidden">

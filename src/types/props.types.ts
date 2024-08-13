@@ -524,6 +524,7 @@ export interface IProductSidebarProps {
     setTabIndex: SetState<number>;
     attributes: IProductAttributes;
     productGroup: IProductGroup | "Not exist";
+    lang: Lang;
 }
 export interface IProductLinksProps {
     setTabIndex: SetState<number>;
@@ -555,18 +556,19 @@ export interface IHeaderTopProps {
 export interface IHeaderMenuProps {
     menu?: ISingleMenu;
     categories: ICategoriesTree;
+    settings: ISettings;
 }
 export interface IHeaderMenuContentProps {
     closeModal: () => void;
     menu?: ISingleMenu;
     categories: ICategoriesTree;
+    settings: ISettings;
 }
 export interface IHeaderListProps {
     menu: ISingleMenu;
 }
 export interface IHeaderIconsProps {
     lang: Lang;
-    setIsSearchOpen: SetState<boolean>;
 }
 export interface IAuthMenuProps {
     lang: Lang;

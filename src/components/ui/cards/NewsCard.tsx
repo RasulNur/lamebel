@@ -5,13 +5,15 @@ import { INewsCardProps } from "@/types/props.types";
 export default function NewsCard({ singleNews }: INewsCardProps) {
     return (
         <div className="flex flex-col gap-4 h-full grow">
-            <Link href={`/news/${singleNews.id}-${singleNews.slug}`}>
+            <Link
+                href={`/news/${singleNews.id}-${singleNews.slug}`}
+                className="block ">
                 <Image
                     src={singleNews.img}
                     alt=""
-                    width={480}
-                    height={480}
-                    className="w-full 2xl:h-[480px] xl:h-[400px] sm:h-[300px] h-[250px] object-cover object-center"
+                    width={400}
+                    height={400}
+                    className="w-full xl:h-[400px] sm:h-[300px] h-[250px] object-center object-cover"
                 />
             </Link>
             <div className="flex flex-col gap-4 h-full">

@@ -31,6 +31,7 @@ export default function HomeBanner() {
     const { text } = useText();
     return (
         <Swiper
+            resistanceRatio={0.4}
             slidesPerView={1}
             speed={600}
             spaceBetween={20}
