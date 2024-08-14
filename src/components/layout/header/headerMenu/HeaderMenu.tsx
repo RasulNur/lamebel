@@ -4,7 +4,7 @@ import MenuWrapper from "@/components/ui/headless/MenuWrapper";
 import { useState } from "react";
 import Icon from "@/components/ui/Icon";
 import HeaderMenuContent from "./headerMenuContent/HeaderMenuContent";
-import { IHeaderMenuProps } from "@/types/props.types";
+import { IHeaderMenuProps } from "@/types/props/types";
 
 export default function HeaderMenu({
     menu,

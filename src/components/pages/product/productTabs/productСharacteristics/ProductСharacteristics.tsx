@@ -1,6 +1,6 @@
 import { useText } from "@/context/text.context";
 import useLimit from "@/hooks/useLimit";
-import { IProductСharacteristicsProps } from "@/types/props.types";
+import { IProductСharacteristicsProps } from "@/types/props/pages.types";
 
 export default function ProductСharacteristics({
     productAttributes,

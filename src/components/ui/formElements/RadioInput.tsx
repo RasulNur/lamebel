@@ -1,4 +1,4 @@
-import { IRadioInputProps } from "@/types/props.types";
+import { IRadioInputProps } from "@/types/props/ui.types";
 import { Field } from "formik";
 
 export default function RadioInput({ name, value, title }: IRadioInputProps) {

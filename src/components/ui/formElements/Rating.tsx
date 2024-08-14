@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { IRatingProps } from "@/types/props.types";
 import Icon from "../Icon";
 import classNames from "classnames";
 import { ErrorMessage } from "formik";
+import { IRatingProps } from "@/types/props/ui.types";
 
 export default function Rating({
     activeFillColor = "var(--main)",

@@ -1,4 +1,4 @@
-import { ISectionHeaderProps } from "@/types/props.types";
+import { ISectionHeaderProps } from "@/types/props/ui.types";
 
 export default function SectionHeader({
     title,

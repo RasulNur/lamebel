@@ -5,7 +5,7 @@ import Rating from "@/components/ui/formElements/Rating";
 import { useText } from "@/context/text.context";
 import useValidation from "@/hooks/useValidation";
 import { IReviewsForm } from "@/types/form.types";
-import { IReviewsFormProps } from "@/types/props.types";
+import { IReviewsFormProps } from "@/types/props/pages.types";
 import { ISubmitFormFuncParams } from "@/types/types";
 import { Form, Formik } from "formik";
 

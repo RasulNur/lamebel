@@ -5,8 +5,8 @@ import Icon from "../Icon";
 import { useCart } from "@/context/cart.context";
 import { useState } from "react";
 import OvalSpinner from "../OvalSpinner";
-import { ICartButtonProps } from "@/types/props.types";
 import { useText } from "@/context/text.context";
+import { ICartButtonProps } from "@/types/props/ui.types";
 
 export default function CartButton({
     className,
@@ -57,26 +57,6 @@ export default function CartButton({
                     )}
                 </>
             )}
-
-            {/* {isLoading ? (
-                <OvalSpinner size={16} type={"second"} />
-            ) : product.in_stock === 0 ? (
-                text("Нет в наличии")
-            ) : (
-                <>
-                    {checkCartExist(product.id) ? (
-                        <>
-                            <Icon
-                                name="check"
-                                className="stroke-white group-hover:stroke-main"
-                            />
-                            {text("В корзине")}
-                        </>
-                    ) : (
-                        text("В корзину")
-                    )}
-                </>
-            )} */}
         </button>
     );
 }

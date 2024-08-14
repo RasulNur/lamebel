@@ -1,5 +1,5 @@
 import { getTexts } from "@/api/textsApi";
-import { INotFoundTextProps } from "@/types/props.types";
+import { INotFoundTextProps } from "@/types/props/ui.types";
 import Link from "next/link";
 
 export default async function NotFoundText({ lang }: INotFoundTextProps) {

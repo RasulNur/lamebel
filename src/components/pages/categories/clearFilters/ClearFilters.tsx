@@ -1,7 +1,7 @@
 "use client";
 
+import { IClearFiltersProps } from "@/types/props/pages.types";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { IClearFiltersProps } from "@/types/props.types";
 
 export default function ClearFilters({ price }: IClearFiltersProps) {
     const { replace } = useRouter();

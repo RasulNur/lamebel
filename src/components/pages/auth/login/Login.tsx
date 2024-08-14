@@ -7,7 +7,7 @@ import { Formik } from "formik";
 import { useRouter } from "next/navigation";
 import LoginForm from "./loginForm/LoginForm";
 import { useText } from "@/context/text.context";
-import { ILoginProps } from "@/types/props.types";
+import { ILoginProps } from "@/types/props/pages.types";
 
 const initialValues: ILoginForm = {
     phone_number: "",

@@ -1,5 +1,5 @@
 import Icon from "@/components/ui/Icon";
-import { IParentCategory } from "@/types/props.types";
+import { IParentCategory } from "@/types/props/pages.types";
 import Link from "next/link";
 
 export default function ParentCategory({ parentCategory }: IParentCategory) {

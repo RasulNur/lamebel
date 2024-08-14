@@ -1,6 +1,6 @@
 "use client";
 
-import { IStaticMapProps } from "@/types/props.types";
+import { IStaticMapProps } from "@/types/props/ui.types";
 import { useEffect, useRef } from "react";
 
 export default function StaticMap({ iframe }: IStaticMapProps) {

@@ -2,7 +2,7 @@
 
 import Carousel from "@/components/ui/fancybox/Carousel";
 import Fancybox from "@/components/ui/fancybox/Fancybox";
-import { IGallerySwiperProps } from "@/types/props.types";
+import { IGallerySwiperProps } from "@/types/props/pages.types";
 import Image from "next/image";
 
 export default function GallerySwiper({ product }: IGallerySwiperProps) {

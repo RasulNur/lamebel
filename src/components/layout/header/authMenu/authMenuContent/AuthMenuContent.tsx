@@ -4,7 +4,7 @@ import Login from "@/components/pages/auth/login/Login";
 import Register from "@/components/pages/auth/register/Register";
 import ResetPassword from "@/components/pages/auth/resetPassword/ResetPassword";
 import Icon from "@/components/ui/Icon";
-import { IAuthMenuContentProps } from "@/types/props.types";
+import { IAuthMenuContentProps } from "@/types/props/types";
 import { AuthTab } from "@/types/types";
 import { useState } from "react";
 

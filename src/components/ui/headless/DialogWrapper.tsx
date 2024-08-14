@@ -2,7 +2,7 @@
 
 import { Dialog, DialogBackdrop, DialogPanel } from "@headlessui/react";
 import Icon from "../Icon";
-import { IDialogWrapperProps } from "@/types/props.types";
+import { IDialogWrapperProps } from "@/types/props/ui.types";
 
 export default function DialogWrapper({
     button,

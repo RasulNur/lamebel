@@ -13,7 +13,7 @@ import { IUpdatePhoneForm } from "@/types/form.types";
 import UpdatePhoneForm from "./updatePhoneForm/UpdatePhoneForm";
 import { useText } from "@/context/text.context";
 import useValidation from "@/hooks/useValidation";
-import { IUpdatePhoneProps } from "@/types/props.types";
+import { IUpdatePhoneProps } from "@/types/props/pages.types";
 
 export default function UpdatePhone({ profile, lang }: IUpdatePhoneProps) {
     const initialValues: IUpdatePhoneForm = {

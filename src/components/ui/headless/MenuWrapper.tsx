@@ -1,6 +1,6 @@
 "use client";
 
-import { IMenuWrapperProps } from "@/types/props.types";
+import { IMenuWrapperProps } from "@/types/props/ui.types";
 import { Dialog, DialogBackdrop, DialogPanel } from "@headlessui/react";
 
 export default function MenuWrapper({

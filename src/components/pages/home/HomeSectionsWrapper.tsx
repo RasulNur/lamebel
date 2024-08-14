@@ -11,7 +11,7 @@ import ContactsSection from "@/components/ui/sections/ContactsSection";
 import ReviewsSwiper from "../../ui/swipers/ReviewsSwiper";
 import InstagramSwiper from "@/components/ui/swipers/InstagramSwiper";
 import SeoSection from "@/components/ui/sections/SeoSection";
-import { IHomeSectionWrapperProps } from "@/types/props.types";
+import { IHomeSectionWrapperProps } from "@/types/props/pages.types";
 
 export default function HomeSectionsWrapper({
     settings,

@@ -5,7 +5,7 @@ import OvalSpinner from "@/components/ui/OvalSpinner";
 import ProductCard from "@/components/ui/cards/ProductCard";
 import { useText } from "@/context/text.context";
 import { useWishlist } from "@/context/wishlist.context";
-import { IWishlistProps } from "@/types/props.types";
+import { IWishlistProps } from "@/types/props/pages.types";
 import { useCookies } from "next-client-cookies";
 import { useState } from "react";
 

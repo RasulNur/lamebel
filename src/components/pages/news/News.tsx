@@ -1,7 +1,7 @@
 import Empty from "@/components/ui/Empty";
 import NewsCard from "@/components/ui/cards/NewsCard";
 import Pagination from "@/components/ui/pagination/Pagination";
-import { INewsProps } from "@/types/props.types";
+import { INewsProps } from "@/types/props/pages.types";
 
 export default function News({ news }: INewsProps) {
     return (

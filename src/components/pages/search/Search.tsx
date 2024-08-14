@@ -1,6 +1,6 @@
 import ProductsGrid from "@/components/ui/ProductsGrid";
 import SearchForm from "@/components/ui/SearchForm";
-import { ISearchProps } from "@/types/props.types";
+import { ISearchProps } from "@/types/props/pages.types";
 
 export default function Search({ products, keyword, lang }: ISearchProps) {
     return (

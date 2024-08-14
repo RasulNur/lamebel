@@ -10,7 +10,7 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import toast from "react-hot-toast";
 import ResetPasswordForm from "./resetPasswordForm/ResetPasswordForm";
-import { IResetPasswordProps } from "@/types/props.types";
+import { IResetPasswordProps } from "@/types/props/pages.types";
 
 const initialValues: IResetPasswordForm = {
     phone_number: "",

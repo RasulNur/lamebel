@@ -2,10 +2,10 @@
 
 import { useState } from "react";
 import Icon from "@/components/ui/Icon";
-import { IProductsFiltersMenuProps } from "@/types/props.types";
 import MenuWrapper from "../../../ui/headless/MenuWrapper";
 import ProductsFilters from "../productsFilters/ProductsFilters";
 import ProductFiltersMenuBtn from "./ProductFiltersMenuBtn";
+import { IProductsFiltersMenuProps } from "@/types/props/pages.types";
 
 export default function ProductsFiltersMenu({
     attributes,

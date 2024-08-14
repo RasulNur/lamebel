@@ -6,9 +6,9 @@ import { useState } from "react";
 import toast from "react-hot-toast";
 import { otpCheck } from "@/api/authApi";
 import OtpForm from "./OtpForm";
-import { IOtpModalProps } from "@/types/props.types";
 import { formatPhone } from "@/utils/formatPhone";
 import { useText } from "@/context/text.context";
+import { IOtpModalProps } from "@/types/props/ui.types";
 
 function OtpModal({
     isOpen,

@@ -1,7 +1,7 @@
 "use client";
 
 import Fancybox from "@/components/ui/fancybox/Fancybox";
-import { IGalleryGridProps } from "@/types/props.types";
+import { IGalleryGridProps } from "@/types/props/pages.types";
 import Image from "next/image";
 
 export default function GalleryGrid({ product }: IGalleryGridProps) {

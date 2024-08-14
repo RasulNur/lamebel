@@ -4,7 +4,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import SectionHeader from "../SectionHeader";
 import { Autoplay, Pagination } from "swiper/modules";
 import ProductCard from "../cards/ProductCard";
-import { IProductsSwiperProps } from "@/types/props.types";
+import { IProductsSwiperProps } from "@/types/props/ui.types";
 
 export default function ProductsSwiper({
     title,

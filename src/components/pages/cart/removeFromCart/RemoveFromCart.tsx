@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useCart } from "@/context/cart.context";
 import OvalSpinner from "@/components/ui/OvalSpinner";
 import Icon from "@/components/ui/Icon";
-import { IRemoveFromCartProps } from "@/types/props.types";
+import { IRemoveFromCartProps } from "@/types/props/ui.types";
 
 export default function RemoveFromCart({ product }: IRemoveFromCartProps) {
     const { removeProduct: removeFromCart } = useCart();

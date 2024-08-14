@@ -5,7 +5,7 @@ import { useText } from "@/context/text.context";
 import { useCookies } from "next-client-cookies";
 import CheckoutProducts from "../checkoutProducts/CheckoutProducts";
 import OvalSpinner from "@/components/ui/OvalSpinner";
-import { ICheckoutTotalProps } from "@/types/props.types";
+import { ICheckoutTotalProps } from "@/types/props/pages.types";
 
 export default function CheckoutTotal({ isSubmitting }: ICheckoutTotalProps) {
     const cookies = useCookies();

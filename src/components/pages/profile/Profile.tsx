@@ -4,7 +4,7 @@ import { getTexts } from "@/api/textsApi";
 import UpdateProfile from "./updateProfile/UpdateProfile";
 import UpdatePhone from "./updatePhone/UpdatePhone";
 import UpdatePassword from "./updatePassword/UpdatePassword";
-import { IProfileProps } from "@/types/props.types";
+import { IProfileProps } from "@/types/props/pages.types";
 
 export default async function Profile({ lang }: IProfileProps) {
     const cookies = getCookies();

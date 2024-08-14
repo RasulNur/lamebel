@@ -1,7 +1,7 @@
 "use client";
 
 import { useText } from "@/context/text.context";
-import { IErrorProps } from "@/types/props.types";
+import { IErrorProps } from "@/types/props/types";
 
 export default function Error({ reset }: IErrorProps) {
     const { text } = useText();

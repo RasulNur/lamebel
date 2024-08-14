@@ -5,7 +5,7 @@ import useLimit from "@/hooks/useLimit";
 import Link from "next/link";
 import { useState } from "react";
 import { useText } from "@/context/text.context";
-import { IFilterCategoriesProps } from "@/types/props.types";
+import { IFilterCategoriesProps } from "@/types/props/pages.types";
 
 export default function FilterCategories({
     categories,

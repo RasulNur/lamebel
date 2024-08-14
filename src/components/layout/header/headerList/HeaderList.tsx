@@ -1,4 +1,4 @@
-import { IHeaderListProps } from "@/types/props.types";
+import { IHeaderListProps } from "@/types/props/types";
 import Link from "next/link";
 
 export default function HeaderList({ menu }: IHeaderListProps) {

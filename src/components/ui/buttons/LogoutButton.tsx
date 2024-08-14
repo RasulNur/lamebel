@@ -7,7 +7,7 @@ import Icon from "../Icon";
 import { useText } from "@/context/text.context";
 import { useState } from "react";
 import OvalSpinner from "../OvalSpinner";
-import { ILogoutButtonProps } from "@/types/props.types";
+import { ILogoutButtonProps } from "@/types/props/ui.types";
 
 export default function LogoutButton({ lang }: ILogoutButtonProps) {
     const cookies = useCookies();

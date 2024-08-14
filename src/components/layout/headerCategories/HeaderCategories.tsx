@@ -2,10 +2,9 @@
 
 import Icon from "@/components/ui/Icon";
 import useHeaderScroll from "@/hooks/useHeaderScroll";
-import { IHeaderCategoriesProps } from "@/types/props.types";
+import { IHeaderCategoriesProps } from "@/types/props/types";
 import { numberWithSpaces } from "@/utils/numberWithSpaces";
 import Link from "next/link";
-import { useEffect, useState } from "react";
 
 const links = [
     { id: 0, title: "Диваны" },
@@ -67,7 +66,3 @@ export default function HeaderCategories({ settings }: IHeaderCategoriesProps) {
         </div>
     );
 }
-
-// ${
-//     isHidden ? "hidden" : "flex"
-// }

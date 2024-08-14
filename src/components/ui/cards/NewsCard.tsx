@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { INewsCardProps } from "@/types/props.types";
+import { INewsCardProps } from "@/types/props/ui.types";
 
 export default function NewsCard({ singleNews }: INewsCardProps) {
     return (

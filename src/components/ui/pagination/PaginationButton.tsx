@@ -1,6 +1,6 @@
 import { useText } from "@/context/text.context";
 import Icon from "../Icon";
-import { IPaginationButtonProps } from "@/types/props.types";
+import { IPaginationButtonProps } from "@/types/props/ui.types";
 
 export default function PaginationButton({
     handleClick,

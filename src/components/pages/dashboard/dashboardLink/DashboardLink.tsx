@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import Link from "next/link";
-import { IDashboardLinkProps } from "@/types/props.types";
 import Icon from "@/components/ui/Icon";
+import { IDashboardLinkProps } from "@/types/props/pages.types";
 
 export default function DashboardLink({
     tab,

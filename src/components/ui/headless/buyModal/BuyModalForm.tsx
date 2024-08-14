@@ -2,12 +2,12 @@ import { sendFeedback } from "@/api/contactsApi";
 import { useText } from "@/context/text.context";
 import useValidation from "@/hooks/useValidation";
 import { IBuyForm } from "@/types/form.types";
-import { IBuyModalFormProps } from "@/types/props.types";
 import { ISubmitFormFuncParams } from "@/types/types";
 import { formatPhone } from "@/utils/formatPhone";
 import { Form, Formik } from "formik";
 import OverlapInput from "../../OverlapInput";
 import OvalSpinner from "../../OvalSpinner";
+import { IBuyModalFormProps } from "@/types/props/ui.types";
 
 const initialValues: IBuyForm = {
     name: "",

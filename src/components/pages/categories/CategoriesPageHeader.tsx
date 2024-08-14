@@ -1,8 +1,7 @@
 import { getCategory, getParentCategory } from "@/api/categoriesApi";
 import { getTexts } from "@/api/textsApi";
 import PageHeader from "@/components/ui/PageHeader";
-import { ICategoriesPageHeaderProps } from "@/types/props.types";
-import React from "react";
+import { ICategoriesPageHeaderProps } from "@/types/props/pages.types";
 
 export default async function CategoriesPageHeader({
     categoryId,

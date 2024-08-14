@@ -4,7 +4,7 @@ import DialogWrapper from "@/components/ui/headless/DialogWrapper";
 import { useText } from "@/context/text.context";
 import { useState } from "react";
 import OrderModalContent from "./orderModalContent/OrderModalContent";
-import { IOrderModalProps } from "@/types/props.types";
+import { IOrderModalProps } from "@/types/props/pages.types";
 
 export default function OrderModal({ order }: IOrderModalProps) {
     const { text } = useText();

@@ -10,7 +10,7 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import toast from "react-hot-toast";
 import RegisterForm from "./registerForm/RegisterForm";
-import { IRegisterProps } from "@/types/props.types";
+import { IRegisterProps } from "@/types/props/pages.types";
 
 const initialValues: IRegisterForm = {
     name: "",

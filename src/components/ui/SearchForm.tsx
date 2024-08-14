@@ -2,7 +2,7 @@
 
 import Icon from "@/components/ui/Icon";
 import { useText } from "@/context/text.context";
-import { ISearchFormProps } from "@/types/props.types";
+import { ISearchFormProps } from "@/types/props/ui.types";
 import classNames from "classnames";
 import { useRouter } from "next/navigation";
 import { FormEventHandler, useState } from "react";

@@ -1,10 +1,10 @@
+import { IProductsFiltersProps } from "@/types/props/pages.types";
 import ClearFilters from "../clearFilters/ClearFilters";
 import FilterAttributes from "../filterAttributes/FilterAttributes";
 import FilterBrands from "../filterBrands/FilterBrands";
 import FilterCategories from "../filterCategories/FilterCategories";
 import FilterPrice from "../filterPrice/FilterPrice";
 import ParentCategory from "../parentCategory/ParentCategory";
-import { IProductsFiltersProps } from "@/types/props.types";
 
 export default function ProductsFilters({
     attributes,

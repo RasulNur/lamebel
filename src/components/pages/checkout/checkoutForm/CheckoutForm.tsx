@@ -1,11 +1,11 @@
 "use client";
 
 import OverlapInput from "@/components/ui/OverlapInput";
-import { ICheckoutFormProps } from "@/types/props.types";
 import CheckoutShipping from "./checkoutShipping/CheckoutShipping";
 import CheckoutPayment from "./checkoutPayment/CheckoutPayment";
 import CheckoutAddresses from "./checkoutAddresses/CheckoutAddresses";
 import { useText } from "@/context/text.context";
+import { ICheckoutFormProps } from "@/types/props/pages.types";
 
 export default function CheckoutForm({
     addresses,

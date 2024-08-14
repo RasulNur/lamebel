@@ -9,7 +9,7 @@ import { ISubmitFormFuncParams } from "@/types/types";
 import { sendFeedback } from "@/api/contactsApi";
 import { useText } from "@/context/text.context";
 import OvalSpinner from "../OvalSpinner";
-import { IContactsSectionProps } from "@/types/props.types";
+import { IContactsSectionProps } from "@/types/props/ui.types";
 
 const initialValues: IContactsForm = {
     name: "",

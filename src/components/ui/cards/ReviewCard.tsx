@@ -1,5 +1,5 @@
+import { IReviewCardProps } from "@/types/props/ui.types";
 import StaticRating from "../StaticRating";
-import { IReviewCardProps } from "@/types/props.types";
 
 export default function ReviewCard({ review }: IReviewCardProps) {
     return (

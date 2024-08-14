@@ -6,8 +6,8 @@ import { deleteAddress } from "@/api/addressesApi";
 import { useState } from "react";
 import OvalSpinner from "../OvalSpinner";
 import { useText } from "@/context/text.context";
-import { IAddressCardProps } from "@/types/props.types";
 import AddressModal from "../headless/AddressModal";
+import { IAddressCardProps } from "@/types/props/ui.types";
 
 export default function AddressCard({ address, lang }: IAddressCardProps) {
     const cookies = useCookies();

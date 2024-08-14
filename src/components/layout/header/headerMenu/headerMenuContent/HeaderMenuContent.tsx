@@ -1,8 +1,8 @@
 import Icon from "@/components/ui/Icon";
 import SearchForm from "../../../../ui/SearchForm";
 import Link from "next/link";
-import { IHeaderMenuContentProps } from "@/types/props.types";
 import { numberWithSpaces } from "@/utils/numberWithSpaces";
+import { IHeaderMenuContentProps } from "@/types/props/types";
 
 export default function HeaderMenuContent({
     closeModal,

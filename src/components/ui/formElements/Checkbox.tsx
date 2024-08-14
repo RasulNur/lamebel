@@ -1,4 +1,4 @@
-import { ICheckboxProps } from "@/types/props.types";
+import { ICheckboxProps } from "@/types/props/ui.types";
 
 export default function Checkbox({
     label,

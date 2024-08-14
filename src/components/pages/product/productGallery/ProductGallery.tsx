@@ -1,8 +1,8 @@
 "use client";
 
+import { IProductGalleryProps } from "@/types/props/pages.types";
 import GalleryGrid from "./galleryGrid/GalleryGrid";
 import GallerySwiper from "./gallerySwiper/GallerySwiper";
-import { IProductGalleryProps } from "@/types/props.types";
 
 export default function ProductGallery({ product }: IProductGalleryProps) {
     return (

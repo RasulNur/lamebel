@@ -1,6 +1,6 @@
 import Icon from "@/components/ui/Icon";
 import { useText } from "@/context/text.context";
-import { IProductFiltersMenuBtnProps } from "@/types/props.types";
+import { IProductFiltersMenuBtnProps } from "@/types/props/pages.types";
 
 export default function ProductFiltersMenuBtn({
     openModal,

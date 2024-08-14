@@ -3,7 +3,7 @@
 import ProductCard from "./cards/ProductCard";
 import Pagination from "./pagination/Pagination";
 import Empty from "./Empty";
-import { IProductsGridProps } from "@/types/props.types";
+import { IProductsGridProps } from "@/types/props/ui.types";
 
 export default function ProductsGrid({ products, lang }: IProductsGridProps) {
     return (

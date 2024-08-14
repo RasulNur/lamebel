@@ -4,8 +4,8 @@ import { useText } from "@/context/text.context";
 import { useState } from "react";
 import DialogWrapper from "../DialogWrapper";
 import BuyModalForm from "./BuyModalForm";
-import { IBuyModalProps } from "@/types/props.types";
 import classNames from "classnames";
+import { IBuyModalProps } from "@/types/props/ui.types";
 
 export default function BuyModal({ product, lang, className }: IBuyModalProps) {
     const [isOpen, setIsOpen] = useState<boolean>(false);

@@ -11,7 +11,7 @@ import OvalSpinner from "@/components/ui/OvalSpinner";
 import { IUpdateProfileForm } from "@/types/form.types";
 import { useText } from "@/context/text.context";
 import useValidation from "@/hooks/useValidation";
-import { IUpdateProfileProps } from "@/types/props.types";
+import { IUpdateProfileProps } from "@/types/props/pages.types";
 
 export default function UpdateProfile({ profile, lang }: IUpdateProfileProps) {
     const { refresh } = useRouter();

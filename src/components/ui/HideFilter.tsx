@@ -1,7 +1,7 @@
 "use client";
 
+import { IHideFilterProps } from "@/types/props/ui.types";
 import Icon from "./Icon";
-import { IHideFilterProps } from "@/types/props.types";
 
 export default function HideFilter({
     setIsOpen,

@@ -5,7 +5,7 @@ import { useText } from "@/context/text.context";
 import { numberWithSpaces } from "@/utils/numberWithSpaces";
 import OrderModal from "./orderModal/OrderModal";
 import classNames from "classnames";
-import { IOrdersProps } from "@/types/props.types";
+import { IOrdersProps } from "@/types/props/pages.types";
 
 export default function Orders({ orders }: IOrdersProps) {
     const tdClassname = "p-4 border border-gray3 leading-150";

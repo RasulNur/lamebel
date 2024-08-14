@@ -6,10 +6,10 @@ import { numberWithSpaces } from "@/utils/numberWithSpaces";
 import HeaderMenu from "../headerMenu/HeaderMenu";
 import HeaderList from "../headerList/HeaderList";
 import HeaderIcons from "../headerIcons/HeaderIcons";
-import { IHeaderTopProps } from "@/types/props.types";
 import useHeaderScroll from "@/hooks/useHeaderScroll";
 import LangDropdown from "../langDropdown/LangDropdown";
 import HeaderSearch from "../headerSearch/HeaderSearch";
+import { IHeaderTopProps } from "@/types/props/types";
 
 export default function HeaderTop({
     lang,

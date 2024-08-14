@@ -4,7 +4,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import SectionHeader from "../SectionHeader";
 import { Autoplay, Pagination } from "swiper/modules";
 import CategoryCard from "@/components/ui/cards/CategoryCard";
-import { ICategoriesSwiperProps } from "@/types/props.types";
+import { ICategoriesSwiperProps } from "@/types/props/ui.types";
 
 export default function CategoriesSwiper({
     categories,

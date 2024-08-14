@@ -7,7 +7,7 @@ import { Form, Formik } from "formik";
 import { useCookies } from "next-client-cookies";
 import OverlapInput from "@/components/ui/OverlapInput";
 import { useRouter } from "next/navigation";
-import { ICreateAddressProps } from "@/types/props.types";
+import { ICreateAddressProps } from "@/types/props/pages.types";
 
 export default function CreateAddress({
     lang,

@@ -1,5 +1,5 @@
+import { IFilterAttributesProps } from "@/types/props/pages.types";
 import Attribute from "./attribute/Attribute";
-import { IFilterAttributesProps } from "@/types/props.types";
 
 export default function FilterAttributes({
     attributes,

@@ -1,4 +1,4 @@
-import { IOvalSpinnerProps } from "@/types/props.types";
+import { IOvalSpinnerProps } from "@/types/props/ui.types";
 import { Oval } from "react-loader-spinner";
 
 export default function OvalSpinner({

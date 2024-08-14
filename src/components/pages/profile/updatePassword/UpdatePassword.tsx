@@ -6,9 +6,10 @@ import { useRouter } from "next/navigation";
 import { updatePassword } from "@/api/profileApi";
 import { useCookies } from "next-client-cookies";
 import toast from "react-hot-toast";
-import { IUpdatePasswordForm, IUpdatePasswordProps } from "@/types/props.types";
 import UpdatePasswordForm from "./updatePasswordForm/UpdatePasswordForm";
 import useValidation from "@/hooks/useValidation";
+import { IUpdatePasswordProps } from "@/types/props/pages.types";
+import { IUpdatePasswordForm } from "@/types/form.types";
 
 const initialValues: IUpdatePasswordForm = {
     password: "",

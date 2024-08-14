@@ -1,8 +1,8 @@
 import { sendOtp } from "@/api/authApi";
 import VerificationInput from "react-verification-input";
-import { IOtpFormProps } from "@/types/props.types";
 import { formatPhone } from "@/utils/formatPhone";
 import { useText } from "@/context/text.context";
+import { IOtpFormProps } from "@/types/props/ui.types";
 
 export default function OtpForm({
     handleSubmit,
