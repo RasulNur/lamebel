@@ -12,7 +12,7 @@ import { formatPhone } from "@/utils/formatPhone";
 import { IUpdatePhoneForm } from "@/types/form.types";
 import UpdatePhoneForm from "./updatePhoneForm/UpdatePhoneForm";
 import { useText } from "@/context/text.context";
-import useValidation from "@/hooks/useValidation";
+import useFormValidation from "@/hooks/useFormValidation";
 import { IUpdatePhoneProps } from "@/types/props/pages.types";
 
 export default function UpdatePhone({ profile, lang }: IUpdatePhoneProps) {
@@ -26,7 +26,7 @@ export default function UpdatePhone({ profile, lang }: IUpdatePhoneProps) {
 
     const [isOtpModalOpen, setIsOtpModalOpen] = useState<boolean>(false);
     const { text } = useText();
-    const { updatePhoneValidationSchema } = useValidation();
+    const { updatePhoneValidationSchema } = useFormValidation();
     const handleSubmit = ({
         values,
         resetForm,

@@ -1,7 +1,7 @@
 import { loginCheck, resetPassword, sendOtp } from "@/api/authApi";
 import OtpModal from "@/components/ui/headless/otpModal/OtpModal";
 import { useText } from "@/context/text.context";
-import useValidation from "@/hooks/useValidation";
+import useFormValidation from "@/hooks/useFormValidation";
 import { IResetPasswordForm } from "@/types/form.types";
 import { ISubmitFormFuncParams } from "@/types/types";
 import { formatPhone } from "@/utils/formatPhone";
@@ -22,7 +22,7 @@ export default function ResetPassword({
     setAuthTab,
     lang,
 }: IResetPasswordProps) {
-    const { resetPasswordValidationSchema } = useValidation();
+    const { resetPasswordValidationSchema } = useFormValidation();
     const [isOtpModalOpen, setIsOtpModalOpen] = useState<boolean>(false);
     const [otpData, setOtpData] = useState<IResetPasswordForm>();
     const { push, refresh } = useRouter();

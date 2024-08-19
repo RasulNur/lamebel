@@ -1,6 +1,6 @@
 import { sendFeedback } from "@/api/contactsApi";
 import { useText } from "@/context/text.context";
-import useValidation from "@/hooks/useValidation";
+import useFormValidation from "@/hooks/useFormValidation";
 import { IBuyForm } from "@/types/form.types";
 import { ISubmitFormFuncParams } from "@/types/types";
 import { formatPhone } from "@/utils/formatPhone";
@@ -16,7 +16,7 @@ const initialValues: IBuyForm = {
 };
 
 export default function BuyModalForm({ product, lang }: IBuyModalFormProps) {
-    const { contactsValidationSchema } = useValidation();
+    const { contactsValidationSchema } = useFormValidation();
     const { text } = useText();
 
     const handleSubmit = ({

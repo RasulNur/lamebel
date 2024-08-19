@@ -1,5 +1,5 @@
 import { login } from "@/api/authApi";
-import useValidation from "@/hooks/useValidation";
+import useFormValidation from "@/hooks/useFormValidation";
 import { ILoginForm } from "@/types/form.types";
 import { ISubmitFormFuncParams } from "@/types/types";
 import { formatPhone } from "@/utils/formatPhone";
@@ -16,7 +16,7 @@ const initialValues: ILoginForm = {
 
 export default function Login({ setAuthTab, lang, closeModal }: ILoginProps) {
     const { push, refresh } = useRouter();
-    const { loginValidationSchema } = useValidation();
+    const { loginValidationSchema } = useFormValidation();
     const { text } = useText();
     const handleSubmit = ({
         values,

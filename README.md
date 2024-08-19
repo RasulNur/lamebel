@@ -1,103 +1,84 @@
 # Lamebel
 
-## Getting started
+## Введение
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+Интернет-магазин, разработанный с использованием Next.js (App Router), TypeScript, Tailwind и SCSS. Включает такие функции как каталог товаров, корзина покупок, список любисых товаров, оформление заказа без встроенной покупки, профиль(заказы, адреса, изменение данных профиля).
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+## Технологический стек
 
-## Add your files
+Next.js v.14.2.5 (https://nextjs.org/): App Router
 
--   [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
--   [ ] [Add files using the command line](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
+TypeScript: для типизации
 
-```
-cd existing_repo
-git remote add origin https://gitlab.com/inweb-front/lamebel-front.git
-git branch -M main
-git push -uf origin main
-```
+Formik(https://formik.org/) и Yup(https://github.com/jquense/yup): для управления состояниеми форм, валидация форм, отправки форм
 
-## Integrate with your tools
+Swiper(https://swiperjs.com/): для свайперов
 
--   [ ] [Set up project integrations](https://gitlab.com/inweb-front/lamebel-front/-/settings/integrations)
+React hot toast(https://react-hot-toast.com/): для всплывающих уведомлений
 
-## Collaborate with your team
+@headlessui/react v.2.1 (https://headlessui.com/): для модальных окон
 
--   [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
--   [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
--   [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
--   [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
--   [ ] [Set auto-merge](https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
+@fancyapps/ui: для галереи продукта
 
-## Test and Deploy
+SCSS: для удобства написания стилей
 
-Use the built-in continuous integration in GitLab.
+## Начало работы
 
--   [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/index.html)
--   [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing (SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
--   [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
--   [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
--   [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
+### Установка
 
----
+#### Клонирование репозитория:
 
-# Editing this README
+git clone https://github.com/yourusername/your-repo-name.git .
 
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thanks to [makeareadme.com](https://www.makeareadme.com/) for this template.
+#### Установка зависимостей:
 
-## Suggestions for a good README
+npm install
 
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
+#### Настройка переменных окружения:
 
-## Name
+Скопируйте файл .env.example и замените значчения переменных на необходимые:
+PATTERN=
+API_URL=https://$PATTERN/api/v2/
 
-Choose a self-explaining name for your project.
+#### Запуск в режиме разработки:
 
-## Description
+npm run dev
+Проект будет доступен по адресу http://localhost:8080
 
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
+#### Сборка и запуск в продакшн режиме:
 
-## Badges
+npm run build
+npm start
 
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
+### Структура проекта
 
-## Visuals
+в /public находятся все статичные картинки и svg спрайты
 
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
+в /src/api прописаны все запросы к api, fetch.ts - кастомные fetch функиции для get и mutate запросов
 
-## Installation
+в /src/app расположены все страницы, global.scss - все стили которые удобнее или лучше было написать в scss файле, var.scss - переменные scss
 
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
+в /src/components/layout расположены компоненты для header, footer и обертки
+в /src/components/pages расположены компоненты для каждой страницы которые используются только на этой странице
+в /src/components/ui расположены компоненты которые используются на разных страницах
 
-## Usage
+в /src/context находятся React contexts
 
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
+в /src/hooks находятся кастомные хуки
 
-## Support
+в /src/types/api находятся типы и интерфейсы для функций которые находятся /src/api
+в /src/types/context находятся типы и интерфейсы для React context которые находятся /src/context
+в /src/types/props/pages.types.ts находятся типы и интерфейсы для компонентов которые находятся в /src/components/pages
+в /src/types/props/ui.types.ts находятся типы и интерфейсы для компонентов которые находятся в /src/components/ui
+в /src/types/props/types.ts находятся типы и интерфейсы для остальных комопнентов которые не находятся ни в /src/components/ui, ни в /src/components/ui
+в /src/types/form.types.ts находятся типы и интерфейсы для форм
+в /src/types/pageParams.types.ts находятся типы и интерфейсы для параметров страниц
+в /src/types/types.ts находятся все остальные типы и интерфейсы которые не подходят для остальных файлов
 
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
+в /src/utils находятся вспомогающие функции
 
-## Roadmap
+в /i18nConfig.js можно прописать языки сайта и выбрать значение по умолчанию
 
-If you have ideas for releases in the future, it is a good idea to list them in the README.
+в /next.config.mjs можно прописать hostname для картинок, добавить env переменные и прописать статичные редиректы
 
-## Contributing
-
-State if you are open to contributions and what your requirements are for accepting them.
-
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
-
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
-
-## Authors and acknowledgment
-
-Show your appreciation to those who have contributed to the project.
-
-## License
-
-For open source projects, say how it is licensed.
-
-## Project status
-
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+в /tailwind.config прописаны кастомные цвета которые ссылаются на /src/app/[lang]/var.scss и остальные кастомные стили

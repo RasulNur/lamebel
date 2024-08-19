@@ -8,7 +8,7 @@ import { useCart } from "@/context/cart.context";
 import { useCookies } from "next-client-cookies";
 import { useRouter } from "next/navigation";
 import { useText } from "@/context/text.context";
-import useValidation from "@/hooks/useValidation";
+import useFormValidation from "@/hooks/useFormValidation";
 import { ISubmitFormFuncParams } from "@/types/types";
 import { formatPhone } from "@/utils/formatPhone";
 import toast from "react-hot-toast";
@@ -42,7 +42,7 @@ export default function Checkout({
     const token = cookies.get("token");
     const { replace } = useRouter();
     const { text } = useText();
-    const { checkoutValidationSchema } = useValidation();
+    const { checkoutValidationSchema } = useFormValidation();
 
     const handleSubmit = ({
         values,

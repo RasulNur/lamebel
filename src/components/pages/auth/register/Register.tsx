@@ -1,7 +1,7 @@
 import { loginCheck, register, sendOtp } from "@/api/authApi";
 import OtpModal from "@/components/ui/headless/otpModal/OtpModal";
 import { useText } from "@/context/text.context";
-import useValidation from "@/hooks/useValidation";
+import useFormValidation from "@/hooks/useFormValidation";
 import { IRegisterForm } from "@/types/form.types";
 import { ISubmitFormFuncParams } from "@/types/types";
 import { formatPhone } from "@/utils/formatPhone";
@@ -23,7 +23,7 @@ export default function Register({
     lang,
     closeModal,
 }: IRegisterProps) {
-    const { registerValidationSchema } = useValidation();
+    const { registerValidationSchema } = useFormValidation();
     const [isOtpModalOpen, setIsOtpModalOpen] = useState<boolean>(false);
     const [otpData, setOtpData] = useState<IRegisterForm>();
     const { push, refresh } = useRouter();

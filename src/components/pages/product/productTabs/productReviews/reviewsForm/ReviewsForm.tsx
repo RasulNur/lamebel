@@ -3,14 +3,14 @@ import OvalSpinner from "@/components/ui/OvalSpinner";
 import OverlapInput from "@/components/ui/OverlapInput";
 import Rating from "@/components/ui/formElements/Rating";
 import { useText } from "@/context/text.context";
-import useValidation from "@/hooks/useValidation";
+import useFormValidation from "@/hooks/useFormValidation";
 import { IReviewsForm } from "@/types/form.types";
 import { IReviewsFormProps } from "@/types/props/pages.types";
 import { ISubmitFormFuncParams } from "@/types/types";
 import { Form, Formik } from "formik";
 
 export default function ReviewsForm({ product, lang }: IReviewsFormProps) {
-    const { reviewsValidationSchema } = useValidation();
+    const { reviewsValidationSchema } = useFormValidation();
     const { text } = useText();
 
     const initialValues: IReviewsForm = {

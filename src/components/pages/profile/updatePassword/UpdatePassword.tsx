@@ -7,7 +7,7 @@ import { updatePassword } from "@/api/profileApi";
 import { useCookies } from "next-client-cookies";
 import toast from "react-hot-toast";
 import UpdatePasswordForm from "./updatePasswordForm/UpdatePasswordForm";
-import useValidation from "@/hooks/useValidation";
+import useFormValidation from "@/hooks/useFormValidation";
 import { IUpdatePasswordProps } from "@/types/props/pages.types";
 import { IUpdatePasswordForm } from "@/types/form.types";
 
@@ -21,7 +21,7 @@ export default function UpdatePassword({ lang }: IUpdatePasswordProps) {
     const { refresh } = useRouter();
     const cookies = useCookies();
     const token = cookies.get("token");
-    const { updatePasswordValidationSchema } = useValidation();
+    const { updatePasswordValidationSchema } = useFormValidation();
     const handleSubmit = ({
         values,
         resetForm,
