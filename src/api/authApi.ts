@@ -95,21 +95,17 @@ export const otpCheck = async ({ body, lang }: IOtpCheckParams) => {
 };
 
 export const logout = async ({ token, lang }: ILogoutParams) => {
-    if (token) {
-        return await fetchMutate({
-            url: "logout",
-            method: "POST",
-            tag: "Auth",
-            token: token,
-            lang,
-        }).then((data: { message: string }) => {
-            data && data.message && toast.success(data.message);
-            deleteCookie("token");
-            return data;
-        });
-    } else {
-        return "Unauthorized";
-    }
+    return await fetchMutate({
+        url: "logout",
+        method: "POST",
+        tag: "Auth",
+        token: token,
+        lang,
+    }).then((data: { message: string }) => {
+        data && data.message && toast.success(data.message);
+        deleteCookie("token");
+        return data;
+    });
 };
 
 export const resetPassword = async ({ body, lang }: IResetPasswordParams) => {

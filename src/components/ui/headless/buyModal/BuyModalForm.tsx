@@ -27,15 +27,6 @@ export default function BuyModalForm({ product, lang }: IBuyModalFormProps) {
         try {
             const formattedPhone = formatPhone(phone_number);
             if (product.id) {
-                console.log({
-                    lang,
-                    body: {
-                        message,
-                        name,
-                        phone: formattedPhone,
-                        product_id: product.id,
-                    },
-                });
                 sendFeedback({
                     lang,
                     body: {

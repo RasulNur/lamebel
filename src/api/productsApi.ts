@@ -28,30 +28,41 @@ export const getProducts = async ({
     search,
     lang,
 }: IGetProductsParams) => {
-    const params = `products?page=${page}&quantity=${quantity}&order_by=${order_by}${
-        category_id ? `&category_id=${category_id}` : ""
-    }&order_direction=${order_direction}${
-        price_from ? `&price_from=${price_from}` : ""
-    }${price_to ? `&price_to=${price_to}` : ""}${
-        search ? `&search=${search}` : ""
-    }${is_bestseller ? `&is_bestseller=${is_bestseller}` : ""}${
-        is_discounted ? `&is_discounted=${is_discounted}` : ""
-    }${is_new ? `&is_new=${is_new}` : ""}${
-        is_popular ? `&is_popular=${is_popular}` : ""
-    }${is_promotion ? `&is_promotion=${is_promotion}` : ""}${
-        is_special ? `&is_special=${is_special}` : ""
-    }${brands ? brands.map((brand) => `&brands[]=${brand}`).join("") : ""}${
-        attributes
-            ? attributes
-                  .map(
-                      (attr) =>
-                          `&attributes[${attr.attrId}][]=${attr.attrValId}`,
-                  )
-                  .join("")
-            : ""
+    const attrParams = attributes
+        ? attributes
+              .map((attr) => `&attributes[${attr.attrId}][]=${attr.attrValId}`)
+              .join("")
+        : "";
+
+    const brandsParams = brands
+        ? brands.map((brand) => `&brands[]=${brand}`).join("")
+        : "";
+
+    const isParams = `${
+        is_bestseller ? `&is_bestseller=${is_bestseller}` : ""
+    }${is_discounted ? `&is_discounted=${is_discounted}` : ""}${
+        is_new ? `&is_new=${is_new}` : ""
+    }${is_popular ? `&is_popular=${is_popular}` : ""}${
+        is_promotion ? `&is_promotion=${is_promotion}` : ""
+    }${is_special ? `&is_special=${is_special}` : ""}`;
+
+    const priceParams = `${price_from ? `&price_from=${price_from}` : ""}${
+        price_to ? `&price_to=${price_to}` : ""
     }`;
 
-    return await fetchGET({ url: params, tag: "Products", lang }).then(
+    const orderDirParams = order_direction
+        ? `&order_direction=${order_direction}`
+        : "";
+
+    const orderByParams = order_by ? `&order_by=${order_by}` : "";
+
+    const searchParams = search ? `&search=${search}` : "";
+
+    const categoryParams = category_id ? `&category_id=${category_id}` : "";
+
+    const url = `products?page=${page}&quantity=${quantity}${orderByParams}${categoryParams}${orderDirParams}${priceParams}${searchParams}${isParams}${brandsParams}${attrParams}`;
+
+    return await fetchGET({ url: url, tag: "Products", lang }).then(
         (data: IProducts) => {
             return data;
         },

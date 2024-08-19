@@ -66,20 +66,16 @@ export const updateAddress = async ({
     addressId,
     lang,
 }: IUpdateAddressParams) => {
-    if (token) {
-        return await fetchMutate({
-            url: `addresses/${addressId}`,
-            method: "PUT",
-            body,
-            tag: "Addresses",
-            token: token,
-            lang,
-        }).then((data: { message: string }) => {
-            toast.success(data.message);
-        });
-    } else {
-        return "Unauthorized";
-    }
+    return await fetchMutate({
+        url: `addresses/${addressId}`,
+        method: "PUT",
+        body,
+        tag: "Addresses",
+        token: token,
+        lang,
+    }).then((data: { message: string }) => {
+        toast.success(data.message);
+    });
 };
 
 export const setDefaultAddress = async ({
@@ -87,19 +83,15 @@ export const setDefaultAddress = async ({
     addressId,
     lang,
 }: ISetDefaultAddressParams) => {
-    if (token) {
-        return await fetchMutate({
-            url: `addresses/${addressId}/set-default`,
-            method: "POST",
-            tag: "Addresses",
-            token: token,
-            lang,
-        }).then((data: { message: string }) => {
-            toast.success(data.message);
-        });
-    } else {
-        return "Unauthorized";
-    }
+    return await fetchMutate({
+        url: `addresses/${addressId}/set-default`,
+        method: "POST",
+        tag: "Addresses",
+        token: token,
+        lang,
+    }).then((data: { message: string }) => {
+        toast.success(data.message);
+    });
 };
 
 export const deleteAddress = async ({
