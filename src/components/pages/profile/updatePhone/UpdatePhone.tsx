@@ -49,7 +49,10 @@ export default function UpdatePhone({ profile, lang }: IUpdatePhoneProps) {
                     } else {
                         sendOtp({
                             lang,
-                            body: { phone_number: formattedPhone },
+                            body: {
+                                phone_number: formattedPhone,
+                                target: "verification",
+                            },
                         }).then(() => {
                             setIsOtpModalOpen(true);
                             setOtpData(values);
@@ -96,13 +99,18 @@ export default function UpdatePhone({ profile, lang }: IUpdatePhoneProps) {
             onSubmit={(values, { resetForm, setSubmitting }) =>
                 handleSubmit({ values, resetForm, setSubmitting })
             }>
-            {({ values, isSubmitting }: FormikProps<IUpdatePhoneForm>) => (
+            {({
+                values,
+                isSubmitting,
+                resetForm,
+            }: FormikProps<IUpdatePhoneForm>) => (
                 <UpdatePhoneForm
                     lang={lang}
                     fulfillAfterOtp={fulfillAfterOtp}
                     isOtpModalOpen={isOtpModalOpen}
                     setIsOtpModalOpen={setIsOtpModalOpen}
                     values={values}
+                    resetForm={resetForm}
                     isSubmitting={isSubmitting}
                 />
             )}

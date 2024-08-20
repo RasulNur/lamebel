@@ -51,6 +51,7 @@ export default function Register({
                     sendOtp({
                         body: {
                             phone_number: formattedPhone,
+                            target: "registration",
                         },
                         lang,
                     }).then(() => {
@@ -96,19 +97,21 @@ export default function Register({
                 onSubmit={(values, { resetForm }) => {
                     handleSubmit({ values, resetForm });
                 }}>
-                {({ isSubmitting, values }) => {
+                {({ isSubmitting, values, resetForm }) => {
                     return (
                         <>
                             <RegisterForm
                                 isSubmitting={isSubmitting}
                                 setAuthTab={setAuthTab}
                             />
-                            <OtpModal
+                            <OtpModal<IRegisterForm>
                                 lang={lang}
                                 setIsOpen={setIsOtpModalOpen}
                                 isOpen={isOtpModalOpen}
                                 formPhone={values.phone_number}
                                 fulfillAfterOtp={fulfillAfterOtp}
+                                otpTarget="registration"
+                                resetForm={resetForm}
                             />
                         </>
                     );

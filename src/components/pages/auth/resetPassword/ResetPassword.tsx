@@ -46,6 +46,7 @@ export default function ResetPassword({
                             lang,
                             body: {
                                 phone_number: formattedPhone,
+                                target: "reset_password",
                             },
                         }).then(() => {
                             setIsOtpModalOpen(true);
@@ -91,19 +92,21 @@ export default function ResetPassword({
                 onSubmit={(values, { resetForm }) =>
                     handleSubmit({ values, resetForm })
                 }>
-                {({ isSubmitting, values }) => (
+                {({ isSubmitting, values, resetForm }) => (
                     <>
                         <ResetPasswordForm
                             isSubmitting={isSubmitting}
                             setAuthTab={setAuthTab}
                         />
 
-                        <OtpModal
+                        <OtpModal<IResetPasswordForm>
                             lang={lang}
                             isOpen={isOtpModalOpen}
                             setIsOpen={setIsOtpModalOpen}
                             formPhone={values.phone_number}
                             fulfillAfterOtp={fulfillAfterOtp}
+                            otpTarget="reset_password"
+                            resetForm={resetForm}
                         />
                     </>
                 )}

@@ -9,16 +9,20 @@ import OtpForm from "./OtpForm";
 import { formatPhone } from "@/utils/formatPhone";
 import { useText } from "@/context/text.context";
 import { IOtpModalProps } from "@/types/props/ui.types";
+import { useRouter } from "next/navigation";
 
-function OtpModal({
+function OtpModal<T>({
     isOpen,
     formPhone,
     fulfillAfterOtp,
     setIsOpen,
     lang,
-}: IOtpModalProps) {
+    otpTarget,
+    resetForm,
+}: IOtpModalProps<T>) {
     const [otp, setOtp] = useState<string>("");
     const { text } = useText();
+    const { refresh } = useRouter();
     const handleSubmit: FormEventHandler<HTMLFormElement> = (e) => {
         const formattedPhone = formatPhone(formPhone);
         try {
@@ -34,6 +38,7 @@ function OtpModal({
                 body: {
                     otp: Number(otp),
                     phone_number: formattedPhone,
+                    target: otpTarget,
                 },
             }).then(() => {
                 fulfillAfterOtp({ otp });
@@ -47,7 +52,10 @@ function OtpModal({
         <Dialog
             open={isOpen}
             className="fixed inset-0 flex-center w-screen z-[99]"
-            onClose={() => setIsOpen(false)}>
+            onClose={() => {
+                resetForm();
+                setIsOpen(false);
+            }}>
             <DialogBackdrop className="fixed inset-0 bg-black" />
 
             <DialogPanel
@@ -66,6 +74,7 @@ function OtpModal({
                     formPhone={formPhone}
                     otp={otp}
                     setOtp={setOtp}
+                    otpTarget={otpTarget}
                 />
             </DialogPanel>
         </Dialog>

@@ -8,12 +8,13 @@ import {
 import { IMeta, Lang } from "../api/api.types";
 import { IProduct, IProducts } from "../api/products.types";
 import { IAddress } from "../api/address.types";
-import { FormikErrors } from "formik";
+import { FormikErrors, FormikState } from "formik";
 import { ICheckoutForm, IReviewsForm } from "../form.types";
 import { ICategoriesTree, ICategoryTree } from "../api/categories.types";
 import { ISettings } from "../api/settings.types";
 import { IPublicationsPublication } from "../api/publications.types";
 import { IReview } from "../api/reviews.types";
+import { OtpTarget } from "../api/auth.types";
 
 export interface IIconProps
     extends Omit<SVGProps<SVGSVGElement>, "name" | "type"> {
@@ -71,12 +72,14 @@ export interface IMenuWrapperProps {
     isOpen: boolean;
     closeModal: () => void;
 }
-export interface IOtpModalProps {
+export interface IOtpModalProps<T> {
     isOpen: boolean;
     formPhone: string;
     fulfillAfterOtp: FulfillAfterOtpType;
     setIsOpen: SetState<boolean>;
     lang: Lang;
+    otpTarget: OtpTarget;
+    resetForm: (nextState?: Partial<FormikState<T>> | undefined) => void;
 }
 export interface IOtpFormProps {
     handleSubmit: FormEventHandler<HTMLFormElement>;
@@ -84,6 +87,7 @@ export interface IOtpFormProps {
     setOtp: SetState<string>;
     formPhone: string;
     lang: Lang;
+    otpTarget: OtpTarget;
 }
 export interface IWishlistButtonProps {
     product: IProduct;

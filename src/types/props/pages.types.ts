@@ -1,4 +1,4 @@
-import { FormikErrors } from "formik";
+import { FormikErrors, FormikState } from "formik";
 import { IAddress, IAddresses } from "../api/address.types";
 import { Lang } from "../api/api.types";
 import {
@@ -91,6 +91,9 @@ export interface IUpdatePhoneFormProps {
     fulfillAfterOtp: ({ otp }: { otp: string }) => void;
     lang: Lang;
     isSubmitting: boolean;
+    resetForm: (
+        nextState?: Partial<FormikState<IUpdatePhoneForm>> | undefined,
+    ) => void;
 }
 
 export interface ICheckoutProps {
