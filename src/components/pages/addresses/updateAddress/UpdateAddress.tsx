@@ -1,13 +1,13 @@
 import { updateAddress } from "@/api/addressesApi";
 import { useText } from "@/context/text.context";
-import useValidation from "@/hooks/useValidation";
+import useFormValidation from "@/hooks/useFormValidation";
 import { IAddressForm } from "@/types/form.types";
 import { ISubmitFormFuncParams } from "@/types/types";
 import { Form, Formik } from "formik";
 import { useCookies } from "next-client-cookies";
 import OverlapInput from "@/components/ui/OverlapInput";
 import { useRouter } from "next/navigation";
-import { IUpdateAddressProps } from "@/types/props.types";
+import { IUpdateAddressProps } from "@/types/props/pages.types";
 
 export default function UpdateAddress({
     lang,
@@ -21,7 +21,7 @@ export default function UpdateAddress({
     const token = cookies.get("token");
     const { text } = useText();
     const { refresh } = useRouter();
-    const { addressValidationSchema } = useValidation();
+    const { addressValidationSchema } = useFormValidation();
 
     const handleSubmit = ({ values }: ISubmitFormFuncParams<IAddressForm>) => {
         const { address } = values;

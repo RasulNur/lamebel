@@ -1,4 +1,4 @@
-import { IStaticRatingProps } from "@/types/props.types";
+import { IStaticRatingProps } from "@/types/props/ui.types";
 import Icon from "./Icon";
 
 export default function StaticRating({ rating }: IStaticRatingProps) {

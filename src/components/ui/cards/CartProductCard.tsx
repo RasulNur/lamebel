@@ -3,7 +3,7 @@ import Link from "next/link";
 import Quantity from "../formElements/Quantity";
 import WishlistButton from "../buttons/WishlistButton";
 import RemoveFromCart from "../../pages/cart/removeFromCart/RemoveFromCart";
-import { ICartProductCardProps } from "@/types/props.types";
+import { ICartProductCardProps } from "@/types/props/ui.types";
 
 const colors = [
     { id: 0, color: "#FF53E8" },

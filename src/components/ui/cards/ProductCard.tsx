@@ -3,8 +3,8 @@ import Image from "next/image";
 import WishlistButton from "../buttons/WishlistButton";
 import CartButton from "../buttons/CartButton";
 import ProductDiscount from "../ProductDiscount";
-import { IProductCardProps } from "@/types/props.types";
 import BuyModal from "../headless/buyModal/BuyModal";
+import { IProductCardProps } from "@/types/props/ui.types";
 
 const colors = [
     { id: 0, color: "#FF53E8" },

@@ -1,6 +1,6 @@
 "use client";
 
-import { IProductLinksProps } from "@/types/props.types";
+import { IProductLinksProps } from "@/types/props/pages.types";
 
 const links = [
     { id: 0, title: "Xарактеристики" },

@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-
 import Checkbox from "@/components/ui/formElements/Checkbox";
-import { IAttributeCheckboxProps } from "@/types/props.types";
+import { IAttributeCheckboxProps } from "@/types/props/pages.types";
 
 export default function AttributeCheckbox({
     label,

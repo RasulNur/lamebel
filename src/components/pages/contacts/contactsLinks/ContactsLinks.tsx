@@ -1,5 +1,5 @@
 import Icon from "@/components/ui/Icon";
-import { IContactsLinksProps } from "@/types/props.types";
+import { IContactsLinksProps } from "@/types/props/pages.types";
 import { numberWithSpaces } from "@/utils/numberWithSpaces";
 import Link from "next/link";
 

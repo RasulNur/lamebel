@@ -1,5 +1,5 @@
 import Checkbox from "@/components/ui/formElements/Checkbox";
-import { IBrandCheckboxProps } from "@/types/props.types";
+import { IBrandCheckboxProps } from "@/types/props/pages.types";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 

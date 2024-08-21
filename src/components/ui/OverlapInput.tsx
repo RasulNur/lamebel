@@ -5,7 +5,7 @@ import { useState } from "react";
 import InputMask from "react-input-mask";
 import Icon from "./Icon";
 import classNames from "classnames";
-import { IOverlapInputProps } from "@/types/props.types";
+import { IOverlapInputProps } from "@/types/props/ui.types";
 
 export default function OverlapInput({
     id,

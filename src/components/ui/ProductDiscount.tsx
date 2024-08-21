@@ -1,6 +1,5 @@
-import React from "react";
 import Icon from "@/components/ui/Icon";
-import { IProductDiscountProps } from "@/types/props.types";
+import { IProductDiscountProps } from "@/types/props/ui.types";
 
 export default function ProductDiscount({
     product,

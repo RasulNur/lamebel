@@ -1,6 +1,6 @@
 import ContactsLinks from "./contactsLinks/ContactsLinks";
 import ContactsForm from "./contactsForm/ContactsForm";
-import { IContactsProps } from "@/types/props.types";
+import { IContactsProps } from "@/types/props/pages.types";
 
 export default function Contacts({ settings, lang }: IContactsProps) {
     return (

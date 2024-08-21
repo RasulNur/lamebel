@@ -1,6 +1,6 @@
 "use client";
 
-import { IPaginationProps } from "@/types/props.types";
+import { IPaginationProps } from "@/types/props/ui.types";
 import PaginationButton from "./PaginationButton";
 import PaginationNumbers from "./PaginationNumbers";
 import usePagination from "@/hooks/usePagination";

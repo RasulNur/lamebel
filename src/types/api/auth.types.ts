@@ -13,6 +13,7 @@ export interface ILoginBody {
 export interface IOtpCheckBody {
     phone_number: string;
     otp: number;
+    target: OtpTarget;
 }
 export interface IResetPasswordBody {
     phone_number: string;
@@ -34,9 +35,11 @@ export interface ILoginCheckParams {
 }
 
 export interface ISendOtpParams {
-    body: { phone_number: string };
+    body: { phone_number: string; target: OtpTarget };
     lang: Lang;
 }
+
+export type OtpTarget = "registration" | "reset_password" | "verification";
 
 export interface IOtpCheckParams {
     body: IOtpCheckBody;

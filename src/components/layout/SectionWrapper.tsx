@@ -1,6 +1,6 @@
 "use client";
 
-import { ISectionWrapperProps } from "@/types/props.types";
+import { ISectionWrapperProps } from "@/types/props/ui.types";
 import classNames from "classnames";
 
 export default function SectionWrapper({

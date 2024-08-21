@@ -4,7 +4,8 @@ import OvalSpinner from "@/components/ui/OvalSpinner";
 import OverlapInput from "@/components/ui/OverlapInput";
 import OtpModal from "@/components/ui/headless/otpModal/OtpModal";
 import { useText } from "@/context/text.context";
-import { IUpdatePhoneFormProps } from "@/types/props.types";
+import { IUpdatePhoneForm } from "@/types/form.types";
+import { IUpdatePhoneFormProps } from "@/types/props/pages.types";
 import { Form } from "formik";
 
 export default function UpdatePhoneForm({
@@ -14,6 +15,7 @@ export default function UpdatePhoneForm({
     values,
     lang,
     isSubmitting,
+    resetForm,
 }: IUpdatePhoneFormProps) {
     const { text } = useText();
     return (
@@ -36,12 +38,14 @@ export default function UpdatePhoneForm({
                     {text("Изменить")}
                 </button>
             </Form>
-            <OtpModal
+            <OtpModal<IUpdatePhoneForm>
                 lang={lang}
                 setIsOpen={setIsOtpModalOpen}
                 isOpen={isOtpModalOpen}
                 formPhone={values.phone_number}
                 fulfillAfterOtp={fulfillAfterOtp}
+                otpTarget="verification"
+                resetForm={resetForm}
             />
         </>
     );

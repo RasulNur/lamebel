@@ -1,4 +1,4 @@
-import { IIconProps } from "@/types/props.types";
+import { IIconProps } from "@/types/props/ui.types";
 
 export default function Icon({
     name,

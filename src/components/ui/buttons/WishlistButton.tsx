@@ -5,7 +5,7 @@ import Icon from "../Icon";
 import { useState } from "react";
 import classNames from "classnames";
 import OvalSpinner from "../OvalSpinner";
-import { IWishlistButtonProps } from "@/types/props.types";
+import { IWishlistButtonProps } from "@/types/props/ui.types";
 
 export default function WishlistButton({
     product,

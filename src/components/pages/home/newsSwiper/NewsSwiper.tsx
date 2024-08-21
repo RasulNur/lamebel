@@ -3,9 +3,9 @@
 import Icon from "@/components/ui/Icon";
 import NewsCard from "@/components/ui/cards/NewsCard";
 import SectionHeader from "@/components/ui/SectionHeader";
-import { INewsSwiperProps } from "@/types/props.types";
 import { Autoplay, Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { INewsSwiperProps } from "@/types/props/pages.types";
 
 export default function NewsSwiper({ news }: INewsSwiperProps) {
     return (

@@ -1,4 +1,4 @@
-import { IProductGroupsProps } from "@/types/props.types";
+import { IProductGroupsProps } from "@/types/props/pages.types";
 import ProductGroupsButton from "./productGroupsButton/ProductGroupsButton";
 
 export default function ProductGroups({

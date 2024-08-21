@@ -3,7 +3,7 @@
 import SectionWrapper from "@/components/layout/SectionWrapper";
 import { useViewed } from "@/context/viewed.context";
 import ProductsSwiper from "./ProductsSwiper";
-import { IViewedSwiperProps } from "@/types/props.types";
+import { IViewedSwiperProps } from "@/types/props/ui.types";
 
 export default function ViewedSwiper({ productId, lang }: IViewedSwiperProps) {
     const { viewed } = useViewed();

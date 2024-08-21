@@ -4,7 +4,7 @@ import ProductSidebar from "./productSidebar/ProductSidebar";
 import ProductGallery from "./productGallery/ProductGallery";
 import ProductTabs from "./productTabs/ProductTabs";
 import { useState } from "react";
-import { IProductProps } from "@/types/props.types";
+import { IProductProps } from "@/types/props/pages.types";
 
 export default function Product({
     product,
@@ -46,6 +46,7 @@ export default function Product({
                     setTabIndex={setTabIndex}
                     attributes={productAttributes}
                     productGroup={productGroup}
+                    lang={lang}
                 />
             </div>
             <div className="lg:hidden">

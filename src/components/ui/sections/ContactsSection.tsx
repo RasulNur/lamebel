@@ -3,13 +3,13 @@
 import { Form, Formik } from "formik";
 import OverlapInput from "../OverlapInput";
 import { IContactsForm } from "@/types/form.types";
-import useValidation from "@/hooks/useValidation";
+import useFormValidation from "@/hooks/useFormValidation";
 import { formatPhone } from "@/utils/formatPhone";
 import { ISubmitFormFuncParams } from "@/types/types";
 import { sendFeedback } from "@/api/contactsApi";
 import { useText } from "@/context/text.context";
 import OvalSpinner from "../OvalSpinner";
-import { IContactsSectionProps } from "@/types/props.types";
+import { IContactsSectionProps } from "@/types/props/ui.types";
 
 const initialValues: IContactsForm = {
     name: "",
@@ -18,7 +18,7 @@ const initialValues: IContactsForm = {
 };
 
 export default function ContactsSection({ lang }: IContactsSectionProps) {
-    const { contactsValidationSchema } = useValidation();
+    const { contactsValidationSchema } = useFormValidation();
     const { text } = useText();
 
     const handleSubmit = ({

@@ -1,6 +1,5 @@
-import React from "react";
 import Breadcrumbs from "./Breadcrumbs";
-import { IPageHeaderProps } from "@/types/props.types";
+import { IPageHeaderProps } from "@/types/props/ui.types";
 
 export default function PageHeader({ title, breadcrumbs }: IPageHeaderProps) {
     return (

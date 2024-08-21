@@ -1,6 +1,6 @@
+import { IProductReviewsProps } from "@/types/props/pages.types";
 import ReviewsForm from "./reviewsForm/ReviewsForm";
 import ReviewsList from "./reviewsList/ReviewsList";
-import { IProductReviewsProps } from "@/types/props.types";
 
 export default function ProductReviews({
     product,

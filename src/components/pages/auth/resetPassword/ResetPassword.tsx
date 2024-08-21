@@ -1,7 +1,7 @@
 import { loginCheck, resetPassword, sendOtp } from "@/api/authApi";
 import OtpModal from "@/components/ui/headless/otpModal/OtpModal";
 import { useText } from "@/context/text.context";
-import useValidation from "@/hooks/useValidation";
+import useFormValidation from "@/hooks/useFormValidation";
 import { IResetPasswordForm } from "@/types/form.types";
 import { ISubmitFormFuncParams } from "@/types/types";
 import { formatPhone } from "@/utils/formatPhone";
@@ -10,7 +10,7 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import toast from "react-hot-toast";
 import ResetPasswordForm from "./resetPasswordForm/ResetPasswordForm";
-import { IResetPasswordProps } from "@/types/props.types";
+import { IResetPasswordProps } from "@/types/props/pages.types";
 
 const initialValues: IResetPasswordForm = {
     phone_number: "",
@@ -22,7 +22,7 @@ export default function ResetPassword({
     setAuthTab,
     lang,
 }: IResetPasswordProps) {
-    const { resetPasswordValidationSchema } = useValidation();
+    const { resetPasswordValidationSchema } = useFormValidation();
     const [isOtpModalOpen, setIsOtpModalOpen] = useState<boolean>(false);
     const [otpData, setOtpData] = useState<IResetPasswordForm>();
     const { push, refresh } = useRouter();
@@ -46,6 +46,7 @@ export default function ResetPassword({
                             lang,
                             body: {
                                 phone_number: formattedPhone,
+                                target: "reset_password",
                             },
                         }).then(() => {
                             setIsOtpModalOpen(true);
@@ -91,19 +92,21 @@ export default function ResetPassword({
                 onSubmit={(values, { resetForm }) =>
                     handleSubmit({ values, resetForm })
                 }>
-                {({ isSubmitting, values }) => (
+                {({ isSubmitting, values, resetForm }) => (
                     <>
                         <ResetPasswordForm
                             isSubmitting={isSubmitting}
                             setAuthTab={setAuthTab}
                         />
 
-                        <OtpModal
+                        <OtpModal<IResetPasswordForm>
                             lang={lang}
                             isOpen={isOtpModalOpen}
                             setIsOpen={setIsOtpModalOpen}
                             formPhone={values.phone_number}
                             fulfillAfterOtp={fulfillAfterOtp}
+                            otpTarget="reset_password"
+                            resetForm={resetForm}
                         />
                     </>
                 )}

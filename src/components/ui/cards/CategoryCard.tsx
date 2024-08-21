@@ -1,6 +1,6 @@
+import { ICategoryCardProps } from "@/types/props/ui.types";
 import Image from "next/image";
 import Link from "next/link";
-import { ICategoryCardProps } from "@/types/props.types";
 
 export default function CategoryCard({ category }: ICategoryCardProps) {
     return (

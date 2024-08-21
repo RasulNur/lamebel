@@ -1,7 +1,7 @@
 "use client";
 
 import useHeaderSize from "@/hooks/useHeaderSize";
-import { IBlockForScrollProps } from "@/types/props.types";
+import { IBlockForScrollProps } from "@/types/props/ui.types";
 
 export default function BlockForScroll({ id }: IBlockForScrollProps) {
     const { height } = useHeaderSize();

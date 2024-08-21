@@ -4,9 +4,9 @@ import { sendFeedback } from "@/api/contactsApi";
 import OvalSpinner from "@/components/ui/OvalSpinner";
 import OverlapInput from "@/components/ui/OverlapInput";
 import { useText } from "@/context/text.context";
-import useValidation from "@/hooks/useValidation";
+import useFormValidation from "@/hooks/useFormValidation";
 import { IContactsForm } from "@/types/form.types";
-import { IContactsFormProps } from "@/types/props.types";
+import { IContactsFormProps } from "@/types/props/pages.types";
 import { ISubmitFormFuncParams } from "@/types/types";
 import { formatPhone } from "@/utils/formatPhone";
 import { Form, Formik } from "formik";
@@ -18,7 +18,7 @@ const initialValues: IContactsForm = {
 };
 
 export default function ContactsForm({ lang }: IContactsFormProps) {
-    const { contactsValidationSchema } = useValidation();
+    const { contactsValidationSchema } = useFormValidation();
     const { text } = useText();
 
     const handleSubmit = ({

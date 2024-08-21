@@ -1,7 +1,7 @@
 import { loginCheck, register, sendOtp } from "@/api/authApi";
 import OtpModal from "@/components/ui/headless/otpModal/OtpModal";
 import { useText } from "@/context/text.context";
-import useValidation from "@/hooks/useValidation";
+import useFormValidation from "@/hooks/useFormValidation";
 import { IRegisterForm } from "@/types/form.types";
 import { ISubmitFormFuncParams } from "@/types/types";
 import { formatPhone } from "@/utils/formatPhone";
@@ -10,7 +10,7 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import toast from "react-hot-toast";
 import RegisterForm from "./registerForm/RegisterForm";
-import { IRegisterProps } from "@/types/props.types";
+import { IRegisterProps } from "@/types/props/pages.types";
 
 const initialValues: IRegisterForm = {
     name: "",
@@ -23,7 +23,7 @@ export default function Register({
     lang,
     closeModal,
 }: IRegisterProps) {
-    const { registerValidationSchema } = useValidation();
+    const { registerValidationSchema } = useFormValidation();
     const [isOtpModalOpen, setIsOtpModalOpen] = useState<boolean>(false);
     const [otpData, setOtpData] = useState<IRegisterForm>();
     const { push, refresh } = useRouter();
@@ -51,6 +51,7 @@ export default function Register({
                     sendOtp({
                         body: {
                             phone_number: formattedPhone,
+                            target: "registration",
                         },
                         lang,
                     }).then(() => {
@@ -96,19 +97,21 @@ export default function Register({
                 onSubmit={(values, { resetForm }) => {
                     handleSubmit({ values, resetForm });
                 }}>
-                {({ isSubmitting, values }) => {
+                {({ isSubmitting, values, resetForm }) => {
                     return (
                         <>
                             <RegisterForm
                                 isSubmitting={isSubmitting}
                                 setAuthTab={setAuthTab}
                             />
-                            <OtpModal
+                            <OtpModal<IRegisterForm>
                                 lang={lang}
                                 setIsOpen={setIsOtpModalOpen}
                                 isOpen={isOtpModalOpen}
                                 formPhone={values.phone_number}
                                 fulfillAfterOtp={fulfillAfterOtp}
+                                otpTarget="registration"
+                                resetForm={resetForm}
                             />
                         </>
                     );

@@ -1,5 +1,5 @@
 import { useText } from "@/context/text.context";
-import { IOrderModalInfoProps } from "@/types/props.types";
+import { IOrderModalInfoProps } from "@/types/props/pages.types";
 import { numberWithSpaces } from "@/utils/numberWithSpaces";
 
 export default function OrderModalInfo({ order }: IOrderModalInfoProps) {

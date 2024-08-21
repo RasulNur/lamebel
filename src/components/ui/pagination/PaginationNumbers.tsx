@@ -1,4 +1,4 @@
-import { IPaginationNumbersProps } from "@/types/props.types";
+import { IPaginationNumbersProps } from "@/types/props/ui.types";
 import classNames from "classnames";
 
 export default function PaginationNumbers({

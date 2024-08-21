@@ -3,10 +3,10 @@ import { getTexts } from "@/api/textsApi";
 import AddressCard from "@/components/ui/cards/AddressCard";
 import AddressModal from "@/components/ui/headless/AddressModal";
 import Empty from "@/components/ui/Empty";
-import { Lang } from "@/types/api/api.types";
 import { getCookies } from "next-client-cookies/server";
+import { IAddressesProps } from "@/types/props/pages.types";
 
-export default async function Addresses({ lang }: { lang: Lang }) {
+export default async function Addresses({ lang }: IAddressesProps) {
     const cookies = getCookies();
     let addresses = await getAddresses({ token: cookies.get("token"), lang });
     const { text } = await getTexts({ lang });

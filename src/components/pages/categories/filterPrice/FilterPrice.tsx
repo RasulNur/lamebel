@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import Slider from "rc-slider";
 import "rc-slider/assets/index.css";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { IFilterPriceProps } from "@/types/props.types";
+import { IFilterPriceProps } from "@/types/props/pages.types";
 
 export default function FilterPrice({ price }: IFilterPriceProps) {
     const MIN = price.min;

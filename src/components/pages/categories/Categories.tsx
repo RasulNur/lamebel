@@ -6,10 +6,9 @@ import {
     getSubCategories,
 } from "@/api/categoriesApi";
 import ProductsGrid from "@/components/ui/ProductsGrid";
-
-import { ICategoriesProps } from "@/types/props.types";
 import ProductsFiltersMenu from "./productsFiltersMenu/ProductsFiltersMenu";
 import ProductsFilters from "./productsFilters/ProductsFilters";
+import { ICategoriesProps } from "@/types/props/pages.types";
 
 export default async function Categories({
     products,

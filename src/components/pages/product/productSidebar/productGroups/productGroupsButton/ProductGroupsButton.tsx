@@ -1,6 +1,6 @@
 "use client";
 
-import { IProductGroupsButtonProps } from "@/types/props.types";
+import { IProductGroupsButtonProps } from "@/types/props/pages.types";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";

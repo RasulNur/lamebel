@@ -5,7 +5,7 @@ import AttributeCheckbox from "./attributeCheckbox/AttributeCheckbox";
 import { useState } from "react";
 import useLimit from "@/hooks/useLimit";
 import { useText } from "@/context/text.context";
-import { IAttributeProps } from "@/types/props.types";
+import { IAttributeProps } from "@/types/props/pages.types";
 
 export default function Attribute({ attribute }: IAttributeProps) {
     const { handleLimit, isShow, limit } = useLimit({

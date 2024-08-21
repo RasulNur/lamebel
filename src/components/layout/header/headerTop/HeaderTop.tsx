@@ -6,12 +6,10 @@ import { numberWithSpaces } from "@/utils/numberWithSpaces";
 import HeaderMenu from "../headerMenu/HeaderMenu";
 import HeaderList from "../headerList/HeaderList";
 import HeaderIcons from "../headerIcons/HeaderIcons";
-import { useEffect, useState } from "react";
-import SearchForm from "@/components/ui/SearchForm";
-import { IHeaderTopProps } from "@/types/props.types";
 import useHeaderScroll from "@/hooks/useHeaderScroll";
 import LangDropdown from "../langDropdown/LangDropdown";
 import HeaderSearch from "../headerSearch/HeaderSearch";
+import { IHeaderTopProps } from "@/types/props/types";
 
 export default function HeaderTop({
     lang,
@@ -19,7 +17,6 @@ export default function HeaderTop({
     menu,
     categories,
 }: IHeaderTopProps) {
-    const [isSearchOpen, setIsSearchOpen] = useState<boolean>(false);
     const { isHidden } = useHeaderScroll();
 
     return (
@@ -40,7 +37,10 @@ export default function HeaderTop({
                         />
                     </Link>
                     <div className="2xl:block hidden">
-                        <HeaderMenu categories={categories} />
+                        <HeaderMenu
+                            categories={categories}
+                            settings={settings}
+                        />
                     </div>
 
                     <HeaderList menu={menu} />
@@ -61,13 +61,14 @@ export default function HeaderTop({
 
                     <LangDropdown />
 
-                    <HeaderIcons
-                        lang={lang}
-                        setIsSearchOpen={setIsSearchOpen}
-                    />
+                    <HeaderIcons lang={lang} />
 
                     <div className="2xl:hidden">
-                        <HeaderMenu menu={menu} categories={categories} />
+                        <HeaderMenu
+                            menu={menu}
+                            categories={categories}
+                            settings={settings}
+                        />
                     </div>
                 </div>
             </div>

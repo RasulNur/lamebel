@@ -1,5 +1,5 @@
 import { useText } from "@/context/text.context";
-import { IOrderModalProductsProps } from "@/types/props.types";
+import { IOrderModalProductsProps } from "@/types/props/pages.types";
 import Image from "next/image";
 import Link from "next/link";
 

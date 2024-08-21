@@ -1,5 +1,5 @@
 import ReviewCard from "@/components/ui/cards/ReviewCard";
-import { IReviewsListProps } from "@/types/props.types";
+import { IReviewsListProps } from "@/types/props/pages.types";
 
 export default function ReviewsList({ reviews }: IReviewsListProps) {
     return (

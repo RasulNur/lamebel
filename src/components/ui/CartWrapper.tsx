@@ -1,6 +1,6 @@
 "use client";
 
-import { ICartWrapperProps } from "@/types/props.types";
+import { ICartWrapperProps } from "@/types/props/ui.types";
 
 export default function CartWrapper({ content, sidebar }: ICartWrapperProps) {
     return (

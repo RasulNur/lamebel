@@ -1,4 +1,4 @@
-import { IProductDescriptionProps } from "@/types/props.types";
+import { IProductDescriptionProps } from "@/types/props/pages.types";
 
 export default function ProductDescription({
     product,

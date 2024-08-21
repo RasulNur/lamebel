@@ -1,6 +1,6 @@
 import RadioInput from "@/components/ui/formElements/RadioInput";
 import { useText } from "@/context/text.context";
-import { ICheckoutPaymentProps } from "@/types/props.types";
+import { ICheckoutPaymentProps } from "@/types/props/pages.types";
 import { ErrorMessage } from "formik";
 
 export default function CheckoutPayment({

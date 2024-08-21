@@ -1,7 +1,7 @@
 import OvalSpinner from "@/components/ui/OvalSpinner";
 import OverlapInput from "@/components/ui/OverlapInput";
 import { useText } from "@/context/text.context";
-import { IResetPasswordFormProps } from "@/types/props.types";
+import { IResetPasswordFormProps } from "@/types/props/pages.types";
 import { Form } from "formik";
 
 export default function ResetPasswordForm({

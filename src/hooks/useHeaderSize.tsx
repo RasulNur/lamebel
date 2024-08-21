@@ -9,9 +9,6 @@ export default function useHeaderSize() {
         setHeight(headerHeight);
     };
     useEffect(() => {
-        console.log({ height });
-    }, [height]);
-    useEffect(() => {
         const header = document.querySelector("header.header");
         if (header) {
             window.addEventListener("scroll", () =>

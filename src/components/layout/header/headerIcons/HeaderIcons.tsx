@@ -1,18 +1,13 @@
 import Link from "next/link";
 import Icon from "../../../ui/Icon";
-import LangDropdown from "../langDropdown/LangDropdown";
 import AuthMenu from "../authMenu/AuthMenu";
 import { useWishlist } from "@/context/wishlist.context";
 import { useCart } from "@/context/cart.context";
 import { useEffect, useState } from "react";
 import { useCookies } from "next-client-cookies";
-import { IHeaderIconsProps } from "@/types/props.types";
-import HeaderSearch from "../headerSearch/HeaderSearch";
+import { IHeaderIconsProps } from "@/types/props/types";
 
-export default function HeaderIcons({
-    lang,
-    setIsSearchOpen,
-}: IHeaderIconsProps) {
+export default function HeaderIcons({ lang }: IHeaderIconsProps) {
     const cookies = useCookies();
     const token = cookies.get("token");
     let svgClassnames =

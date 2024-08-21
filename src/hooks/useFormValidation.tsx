@@ -2,7 +2,7 @@ import { useText } from "@/context/text.context";
 import { formatPhone } from "@/utils/formatPhone";
 import * as Yup from "yup";
 
-export default function useValidation() {
+export default function useFormValidation() {
     const MIN_LENGTH = 3;
     const MAX_LENGTH = 25;
 

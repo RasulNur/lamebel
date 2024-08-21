@@ -1,8 +1,8 @@
 "use client";
 
+import { IQuantityProps } from "@/types/props/ui.types";
 import Icon from "../Icon";
 import OvalSpinner from "../OvalSpinner";
-import { IQuantityProps } from "@/types/props.types";
 import useQuantity from "@/hooks/useQuantity";
 
 export default function Quantity({

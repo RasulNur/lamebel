@@ -1,4 +1,4 @@
-import { ISingleNewsProps } from "@/types/props.types";
+import { ISingleNewsProps } from "@/types/props/pages.types";
 
 export default function SingleNews({ publication }: ISingleNewsProps) {
     return (

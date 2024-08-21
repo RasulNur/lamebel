@@ -4,7 +4,7 @@ import Link from "next/link";
 import { getSettings } from "@/api/settingsApi";
 import { numberWithSpaces } from "@/utils/numberWithSpaces";
 import { getTexts } from "@/api/textsApi";
-import { IFooterMenusProps } from "@/types/props.types";
+import { IFooterMenusProps } from "@/types/props/types";
 
 export default async function FooterMenus({ lang }: IFooterMenusProps) {
     const menu5 = await getMenu({ menuId: 5, lang });

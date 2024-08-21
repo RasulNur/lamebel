@@ -4,8 +4,8 @@ import { useText } from "@/context/text.context";
 import { useState } from "react";
 import DialogWrapper from "../DialogWrapper";
 import BuyModalForm from "./BuyModalForm";
-import { IBuyModalProps } from "@/types/props.types";
 import classNames from "classnames";
+import { IBuyModalProps } from "@/types/props/ui.types";
 
 export default function BuyModal({ product, lang, className }: IBuyModalProps) {
     const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -23,7 +23,7 @@ export default function BuyModal({ product, lang, className }: IBuyModalProps) {
                         type="button"
                         onClick={() => setIsOpen(true)}
                         className={classNames(
-                            "main-btn py-[10px] group flex items-center gap-2",
+                            "main-btn min-[460px]:py-[10px] py-2 lg:px-6 min-[460px]:px-4 px-2 group flex items-center gap-2 min-w-0",
                             `${
                                 product.in_stock === 0
                                     ? "bg-placeholder2 border-placeholder2 hover:bg-placeholder2 pointer-events-none hover:text-main"

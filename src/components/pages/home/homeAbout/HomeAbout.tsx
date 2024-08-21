@@ -1,5 +1,5 @@
 import { getTexts } from "@/api/textsApi";
-import { IHomeAboutProps } from "@/types/props.types";
+import { IHomeAboutProps } from "@/types/props/pages.types";
 
 export default async function HomeAbout({ lang }: IHomeAboutProps) {
     const { text } = await getTexts({ lang });

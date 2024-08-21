@@ -6,7 +6,7 @@ import ProductDescription from "./productDescription/ProductDescription";
 import ProductReviews from "./productReviews/ProductReviews";
 import ProductСharacteristics from "./productСharacteristics/ProductСharacteristics";
 import BlockForScroll from "../../../ui/BlockForScroll";
-import { IProductTabsProps } from "@/types/props.types";
+import { IProductTabsProps } from "@/types/props/pages.types";
 
 const tabs = [
     { id: 0, title: "Xарактеристики" },

@@ -50,3 +50,9 @@ export interface IReviewsForm {
     message: string;
     rating: number;
 }
+
+export interface IUpdatePasswordForm {
+    password: string;
+    new_password: string;
+    confrim_password: string;
+}

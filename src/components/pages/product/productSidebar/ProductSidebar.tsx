@@ -5,15 +5,17 @@ import WishlistButton from "@/components/ui/buttons/WishlistButton";
 import ProductLinks from "./productLinks/ProductLinks";
 import ProductDiscount from "@/components/ui/ProductDiscount";
 import ProductGroups from "./productGroups/ProductGroups";
-import { IProductSidebarProps } from "@/types/props.types";
 import useHeaderSize from "@/hooks/useHeaderSize";
 import ProductSticker from "@/components/ui/ProductSticker";
+import BuyModal from "@/components/ui/headless/buyModal/BuyModal";
+import { IProductSidebarProps } from "@/types/props/pages.types";
 
 export default function ProductSidebar({
     product,
     setTabIndex,
     attributes,
     productGroup,
+    lang,
 }: IProductSidebarProps) {
     const { height } = useHeaderSize();
 
@@ -49,9 +51,19 @@ export default function ProductSidebar({
                     productGroup={productGroup}
                 />
             )}
+            <div className="flex items-center flex-wrap gap-4">
+                <CartButton
+                    product={product}
+                    className="!py-4 !px-4"
+                    type="icon"
+                />
 
-            <CartButton product={product} className="!py-4 w-full" />
-
+                <BuyModal
+                    lang={lang}
+                    product={product}
+                    className="!py-4 grow"
+                />
+            </div>
             <ProductLinks setTabIndex={setTabIndex} />
         </div>
     );

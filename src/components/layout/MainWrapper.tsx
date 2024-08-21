@@ -1,7 +1,7 @@
 "use client";
 
 import useHeaderSize from "@/hooks/useHeaderSize";
-import { IMainWrapperProps } from "@/types/props.types";
+import { IMainWrapperProps } from "@/types/props/types";
 
 export default function MainWrapper({ children }: IMainWrapperProps) {
     const { height } = useHeaderSize();

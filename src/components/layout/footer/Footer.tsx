@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import FooterMenus from "./footerMenus/FooterMenus";
 import FooterBottom from "./footerBottom/FooterBottom";
-import { IFooterProps } from "@/types/props.types";
+import { IFooterProps } from "@/types/props/types";
 
 export default async function Footer({ lang }: IFooterProps) {
     return (

@@ -5,7 +5,7 @@ import { useText } from "@/context/text.context";
 import { IDashboardTab } from "@/types/types";
 import { useCookies } from "next-client-cookies";
 import DashboardLink from "./dashboardLink/DashboardLink";
-import { IDashboardTabsProps } from "@/types/props.types";
+import { IDashboardTabsProps } from "@/types/props/pages.types";
 
 export default function DashboardTabs({
     children,

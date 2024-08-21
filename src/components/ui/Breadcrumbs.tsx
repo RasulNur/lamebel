@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Icon from "./Icon";
-import { IBreadcrumbsProps } from "@/types/props.types";
+import { IBreadcrumbsProps } from "@/types/props/ui.types";
 
 export default function Breadcrumbs({ breadcrumbs }: IBreadcrumbsProps) {
     return (

@@ -10,15 +10,15 @@ import { ISubmitFormFuncParams } from "@/types/types";
 import OvalSpinner from "@/components/ui/OvalSpinner";
 import { IUpdateProfileForm } from "@/types/form.types";
 import { useText } from "@/context/text.context";
-import useValidation from "@/hooks/useValidation";
-import { IUpdateProfileProps } from "@/types/props.types";
+import useFormValidation from "@/hooks/useFormValidation";
+import { IUpdateProfileProps } from "@/types/props/pages.types";
 
 export default function UpdateProfile({ profile, lang }: IUpdateProfileProps) {
     const { refresh } = useRouter();
     const cookies = useCookies();
     const token = cookies.get("token");
     const { text } = useText();
-    const { updateProfileValidationSchema } = useValidation();
+    const { updateProfileValidationSchema } = useFormValidation();
     const initialValues: IUpdateProfileForm = {
         name: profile.data.name,
     };

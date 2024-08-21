@@ -1,7 +1,7 @@
 "use client";
 
 import { useText } from "@/context/text.context";
-import { ICheckoutProductCardProps } from "@/types/props.types";
+import { ICheckoutProductCardProps } from "@/types/props/ui.types";
 import Link from "next/link";
 
 export default function CheckoutProductCard({

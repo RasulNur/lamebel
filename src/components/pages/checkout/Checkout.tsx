@@ -4,15 +4,15 @@ import CheckoutTotal from "./checkoutTotal/CheckoutTotal";
 import CheckoutForm from "./checkoutForm/CheckoutForm";
 import { Form, Formik } from "formik";
 import { ICheckoutForm } from "@/types/form.types";
-import { ICheckoutProps } from "@/types/props.types";
 import { useCart } from "@/context/cart.context";
 import { useCookies } from "next-client-cookies";
 import { useRouter } from "next/navigation";
 import { useText } from "@/context/text.context";
-import useValidation from "@/hooks/useValidation";
+import useFormValidation from "@/hooks/useFormValidation";
 import { ISubmitFormFuncParams } from "@/types/types";
 import { formatPhone } from "@/utils/formatPhone";
 import toast from "react-hot-toast";
+import { ICheckoutProps } from "@/types/props/pages.types";
 
 export default function Checkout({
     paymentMethods,
@@ -42,7 +42,7 @@ export default function Checkout({
     const token = cookies.get("token");
     const { replace } = useRouter();
     const { text } = useText();
-    const { checkoutValidationSchema } = useValidation();
+    const { checkoutValidationSchema } = useFormValidation();
 
     const handleSubmit = ({
         values,

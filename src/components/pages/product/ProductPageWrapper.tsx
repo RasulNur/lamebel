@@ -10,7 +10,7 @@ import ReviewsSwiper from "@/components/ui/swipers/ReviewsSwiper";
 import ProductAdvantages from "./productAdvantages/ProductAdvantages";
 import ViewedSwiper from "@/components/ui/swipers/ViewedSwiper";
 import { useEffect } from "react";
-import { IProductPageWrapperProps } from "@/types/props.types";
+import { IProductPageWrapperProps } from "@/types/props/pages.types";
 
 export default function ProductPageWrapper({
     product,

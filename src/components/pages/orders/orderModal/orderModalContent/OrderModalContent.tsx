@@ -3,7 +3,7 @@
 import { useText } from "@/context/text.context";
 import OrderModalProducts from "./orderModalProducts/OrderModalProducts";
 import OrderModalInfo from "./orderModalInfo/OrderModalInfo";
-import { IOrderModalContentProps } from "@/types/props.types";
+import { IOrderModalContentProps } from "@/types/props/pages.types";
 
 export default function OrderModalContent({ order }: IOrderModalContentProps) {
     const { text } = useText();

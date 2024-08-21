@@ -4,14 +4,14 @@ import SectionWrapper from "@/components/layout/SectionWrapper";
 import ProductCard from "@/components/ui/cards/ProductCard";
 import ProductsSwiper from "@/components/ui/swipers/ProductsSwiper";
 import Pagination from "@/components/ui/pagination/Pagination";
-import { ICategoriesPagesProductsProps } from "@/types/props.types";
+import { IFilteredProductsProps } from "@/types/props/pages.types";
 
 export default async function FilteredProducts({
     filterName,
     swiperName,
     page,
     lang,
-}: ICategoriesPagesProductsProps) {
+}: IFilteredProductsProps) {
     const products = await getProducts({
         [filterName]: 1,
         quantity: 20,
