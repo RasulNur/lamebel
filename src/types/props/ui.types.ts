@@ -9,7 +9,7 @@ import { IMeta, Lang } from "../api/api.types";
 import { IProduct, IProducts } from "../api/products.types";
 import { IAddress } from "../api/address.types";
 import { FormikErrors, FormikState } from "formik";
-import { ICheckoutForm, IReviewsForm } from "../form.types";
+import { IAddressForm, ICheckoutForm, IReviewsForm } from "../form.types";
 import { ICategoriesTree, ICategoryTree } from "../api/categories.types";
 import { ISettings } from "../api/settings.types";
 import { IPublicationsPublication } from "../api/publications.types";
@@ -190,7 +190,7 @@ export interface IAddressModalProps {
         field: string,
         value: any,
         shouldValidate?: boolean | undefined,
-    ) => Promise<void | FormikErrors<ICheckoutForm>>;
+    ) => Promise<void | FormikErrors<IAddressForm>>;
 }
 export interface IDialogWrapperProps {
     button: React.ReactNode;

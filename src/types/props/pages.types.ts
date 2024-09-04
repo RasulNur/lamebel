@@ -23,7 +23,7 @@ import {
     ProductsFilter,
 } from "../api/products.types";
 import { IProfile } from "../api/profile.types";
-import { ICheckoutForm, IUpdatePhoneForm } from "../form.types";
+import { IAddressForm, ICheckoutForm, IUpdatePhoneForm } from "../form.types";
 import {
     AuthTab,
     DashboardRoutes,
@@ -197,7 +197,7 @@ export interface ICreateAddressProps {
         field: string,
         value: any,
         shouldValidate?: boolean | undefined,
-    ) => Promise<void | FormikErrors<ICheckoutForm>>;
+    ) => Promise<void | FormikErrors<IAddressForm>>;
 }
 export interface IUpdateAddressProps {
     lang: Lang;

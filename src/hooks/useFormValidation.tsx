@@ -13,7 +13,7 @@ export default function useFormValidation() {
     const isPhoneText = text("Неправильный формат номера телефона");
     const passwordMatchText = text("Пароли должны совпадать друг с другом");
     const maxLength255Text = text("Нужно ввести не более 255 символов");
-    const maxLength50000Text = "Нужно ввести не более 5000 символов";
+    const maxLength50000Text = "Нужно ввести не более 50000 символов";
     const maxLength25Text = "Нужно ввести не более 25 символов";
     const minLengthText = "Нужно ввести минимум 3 символа";
 
