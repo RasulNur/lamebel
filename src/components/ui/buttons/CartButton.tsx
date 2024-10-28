@@ -3,7 +3,7 @@
 import classNames from "classnames";
 import Icon from "../Icon";
 import { useCart } from "@/context/cart.context";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import OvalSpinner from "../OvalSpinner";
 import { useText } from "@/context/text.context";
 import { ICartButtonProps } from "@/types/props/ui.types";
@@ -17,6 +17,12 @@ export default function CartButton({
     const { checkExist: checkCartExist, toggleCart } = useCart();
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const { text } = useText();
+
+    const [isExist, setIsExist] = useState<boolean>(false);
+
+    useEffect(() => {
+        setIsExist(checkCartExist(product.id));
+    }, [checkCartExist]);
     return (
         <button
             disabled={isLoading || product.in_stock === 0}
@@ -36,7 +42,7 @@ export default function CartButton({
             {isLoading ? (
                 <OvalSpinner size={16} type={"second"} />
             ) : type === "icon" ? (
-                checkCartExist(product.id) ? (
+                isExist ? (
                     <Icon
                         name="check"
                         className="stroke-white min-w-4 min-h-4 group-hover:stroke-main"
@@ -51,7 +57,7 @@ export default function CartButton({
                 text("Нет в наличии")
             ) : (
                 <>
-                    {checkCartExist(product.id) ? (
+                    {isExist ? (
                         <>
                             <Icon
                                 name="check"
