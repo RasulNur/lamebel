@@ -7,13 +7,13 @@ import CreateAddress from "../../pages/addresses/createAddress/CreateAddress";
 import UpdateAddress from "../../pages/addresses/updateAddress/UpdateAddress";
 import { IAddressModalProps } from "@/types/props/ui.types";
 
-export default function AddressModal({
+export default function AddressModal<Form>({
     type,
     lang,
     btnClassname = "main-btn",
     currentAddress,
     setFieldValue,
-}: IAddressModalProps) {
+}: IAddressModalProps<Form>) {
     const [isOpen, setIsOpen] = useState<boolean>(false);
     const { text } = useText();
 

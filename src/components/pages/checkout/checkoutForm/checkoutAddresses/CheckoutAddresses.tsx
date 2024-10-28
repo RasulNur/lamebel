@@ -3,6 +3,7 @@ import { useText } from "@/context/text.context";
 import { ErrorMessage } from "formik";
 import AddressModal from "../../../../ui/headless/AddressModal";
 import { ICheckoutAddressesProps } from "@/types/props/pages.types";
+import { ICheckoutForm } from "@/types/form.types";
 
 export default function CheckoutAddresses({
     addresses,
@@ -38,7 +39,7 @@ export default function CheckoutAddresses({
                 </ErrorMessage>
             </fieldset>
 
-            <AddressModal
+            <AddressModal<ICheckoutForm>
                 type="create"
                 lang={lang}
                 setFieldValue={setFieldValue}
