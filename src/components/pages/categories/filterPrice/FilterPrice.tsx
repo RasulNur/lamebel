@@ -16,6 +16,20 @@ export default function FilterPrice({ price }: IFilterPriceProps) {
     const pathname = usePathname();
     const { replace } = useRouter();
     const priceParams = searchParams.get("price");
+    const [isLoading, setIsLoading] = useState<boolean>(false);
+
+    useEffect(() => {
+        const params = new URLSearchParams(searchParams);
+        const prices = params.get("price")?.split("-");
+        if (prices) {
+            if (
+                Number(prices[0]) == value[0] &&
+                Number(prices[1]) == value[1]
+            ) {
+                setIsLoading(false);
+            }
+        }
+    }, [value]);
 
     useEffect(() => {
         const params = new URLSearchParams(searchParams);
@@ -43,6 +57,9 @@ export default function FilterPrice({ price }: IFilterPriceProps) {
                     value={value}
                     min={MIN}
                     max={MAX}
+                    onChangeComplete={() => {
+                        setIsLoading(true);
+                    }}
                     onChange={(value) =>
                         Array.isArray(value) && setValue(value)
                     }

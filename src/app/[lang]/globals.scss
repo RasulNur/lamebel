@@ -267,6 +267,18 @@ svg,
     .rc-slider-track {
         background-color: var(--main);
     }
+    &.rc-slider-disabled {
+        background-color: transparent;
+    }
+    &:not(.rc-slider-disabled) {
+        .rc-slider-handle {
+            &.rc-slider-handle-dragging,
+            &:hover {
+                border-color: var(--main) !important;
+                background-color: var(--main);
+            }
+        }
+    }
     .rc-slider-handle {
         border-color: var(--main);
         background-color: var(--white);
@@ -278,11 +290,7 @@ svg,
         opacity: 1;
         transition: border 0.3s, box-shadow 0.3s, background-color 0.3s;
         cursor: pointer;
-        &.rc-slider-handle-dragging,
-        &:hover {
-            border-color: var(--main) !important;
-            background-color: var(--main);
-        }
+
         &.rc-slider-handle-dragging {
             box-shadow: none !important;
         }
