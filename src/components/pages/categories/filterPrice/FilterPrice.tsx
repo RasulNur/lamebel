@@ -7,7 +7,11 @@ import "rc-slider/assets/index.css";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { IFilterPriceProps } from "@/types/props/pages.types";
 
-export default function FilterPrice({ price }: IFilterPriceProps) {
+export default function FilterPrice({
+    price,
+    isDisabled,
+    setIsDisabled,
+}: IFilterPriceProps) {
     const MIN = price.min;
     const MAX = price.max;
     const [value, setValue] = useState<number[]>([MIN, MAX]);
@@ -16,6 +20,19 @@ export default function FilterPrice({ price }: IFilterPriceProps) {
     const pathname = usePathname();
     const { replace } = useRouter();
     const priceParams = searchParams.get("price");
+
+    useEffect(() => {
+        const params = new URLSearchParams(searchParams);
+        const prices = params.get("price")?.split("-");
+        if (prices) {
+            if (
+                Number(prices[0]) == value[0] &&
+                Number(prices[1]) == value[1]
+            ) {
+                setIsDisabled(false);
+            }
+        }
+    }, [value]);
 
     useEffect(() => {
         const params = new URLSearchParams(searchParams);
@@ -43,9 +60,13 @@ export default function FilterPrice({ price }: IFilterPriceProps) {
                     value={value}
                     min={MIN}
                     max={MAX}
+                    onChangeComplete={() => {
+                        setIsDisabled(true);
+                    }}
                     onChange={(value) =>
                         Array.isArray(value) && setValue(value)
                     }
+                    disabled={isDisabled}
                 />
                 <div className="flex items-center justify-between gap-4 leading-[40px] text-sm lowercase">
                     <p>

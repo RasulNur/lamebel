@@ -64,6 +64,7 @@ export interface ICheckboxProps {
     label: string;
     isChecked: boolean;
     handleChecked: () => void;
+    isDisabled?: boolean;
 }
 
 export interface IMenuWrapperProps {
@@ -181,7 +182,7 @@ export interface ICheckoutProductCardProps {
     product: IProduct;
     quantity?: number;
 }
-export interface IAddressModalProps {
+export interface IAddressModalProps<Form> {
     type: "create" | "update";
     lang: Lang;
     btnClassname?: string;
@@ -190,7 +191,7 @@ export interface IAddressModalProps {
         field: string,
         value: any,
         shouldValidate?: boolean | undefined,
-    ) => Promise<void | FormikErrors<IAddressForm>>;
+    ) => Promise<void | FormikErrors<Form>>;
 }
 export interface IDialogWrapperProps {
     button: React.ReactNode;
