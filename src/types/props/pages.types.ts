@@ -63,6 +63,8 @@ export interface IAttributeCheckboxProps {
     attrValId: number;
     attrSlug: string;
     attrValSlug: string;
+    isDisabled: boolean;
+    setIsDisabled: SetState<boolean>;
 }
 
 export interface IProductsFiltersMenuProps {
@@ -147,20 +149,35 @@ export interface IParentCategory {
 export interface IFilterCategoriesProps {
     categories: ICategories;
 }
+export interface IFilterBrandsProps {
+    brands: ICategoryBrands;
+    isDisabled: boolean;
+    setIsDisabled: SetState<boolean>;
+}
 export interface IBrandCheckboxProps {
     brand: ICategoryBrand;
+    isDisabled: boolean;
+    setIsDisabled: SetState<boolean>;
 }
 export interface IFilterAttributesProps {
     attributes: ICategoryAttributes;
+    isDisabled: boolean;
+    setIsDisabled: SetState<boolean>;
 }
 export interface IAttributeProps {
     attribute: ICategoryAttribute;
+    isDisabled: boolean;
+    setIsDisabled: SetState<boolean>;
 }
 export interface IFilterPriceProps {
     price: IPrices;
+    isDisabled: boolean;
+    setIsDisabled: SetState<boolean>;
 }
 export interface IClearFiltersProps {
     price: IPrices;
+    isDisabled: boolean;
+    setIsDisabled: SetState<boolean>;
 }
 export interface IProductFiltersMenuBtnProps {
     openModal: () => void;

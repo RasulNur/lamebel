@@ -2,12 +2,16 @@
 
 import HideFilter from "@/components/ui/HideFilter";
 import { useState } from "react";
-import { ICategoryBrands } from "@/types/api/categories.types";
 import BrandCheckbox from "./brandCheckbox/BrandCheckbox";
 import useLimit from "@/hooks/useLimit";
 import { useText } from "@/context/text.context";
+import { IFilterBrandsProps } from "@/types/props/pages.types";
 
-export default function FilterBrands({ brands }: { brands: ICategoryBrands }) {
+export default function FilterBrands({
+    brands,
+    isDisabled,
+    setIsDisabled,
+}: IFilterBrandsProps) {
     const { handleLimit, isShow, limit } = useLimit({
         data: brands.data,
         limitNumber: 5,
@@ -25,7 +29,14 @@ export default function FilterBrands({ brands }: { brands: ICategoryBrands }) {
             <div className={`${isOpen ? "flex" : "hidden"} flex-col gap-3`}>
                 <div className="flex flex-col gap-2">
                     {brands.data.slice(0, limit).map((brand) => {
-                        return <BrandCheckbox key={brand.id} brand={brand} />;
+                        return (
+                            <BrandCheckbox
+                                key={brand.id}
+                                brand={brand}
+                                isDisabled={isDisabled}
+                                setIsDisabled={setIsDisabled}
+                            />
+                        );
                     })}
                 </div>
                 {brands.data.length > 5 && (

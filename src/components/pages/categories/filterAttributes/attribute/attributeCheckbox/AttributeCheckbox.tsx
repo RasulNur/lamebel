@@ -9,6 +9,8 @@ export default function AttributeCheckbox({
     attrValId,
     attrSlug,
     attrValSlug,
+    isDisabled,
+    setIsDisabled,
 }: IAttributeCheckboxProps) {
     const [isChecked, setIsChecked] = useState<boolean>(false);
     const searchParams = useSearchParams();
@@ -20,6 +22,7 @@ export default function AttributeCheckbox({
     const attrParams = params.get(attrParamString);
 
     const handleChecked = () => {
+        setIsDisabled(true);
         if (attrParams) {
             const attrIds = attrParams.split(",");
 
@@ -41,8 +44,10 @@ export default function AttributeCheckbox({
     useEffect(() => {
         if (attrParams) {
             const attrIds = attrParams.split(",");
-            if (attrIds.includes(attrValParamString)) setIsChecked(true);
-            else setIsChecked(false);
+            if (attrIds.includes(attrValParamString)) {
+                setIsDisabled(false);
+                setIsChecked(true);
+            } else setIsChecked(false);
         } else setIsChecked(false);
     }, [attrParams]);
 
@@ -56,6 +61,7 @@ export default function AttributeCheckbox({
             handleChecked={handleChecked}
             isChecked={isChecked}
             label={label}
+            isDisabled={isDisabled}
         />
     );
 }

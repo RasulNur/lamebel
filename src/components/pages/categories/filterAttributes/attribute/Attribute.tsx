@@ -7,7 +7,11 @@ import useLimit from "@/hooks/useLimit";
 import { useText } from "@/context/text.context";
 import { IAttributeProps } from "@/types/props/pages.types";
 
-export default function Attribute({ attribute }: IAttributeProps) {
+export default function Attribute({
+    attribute,
+    isDisabled,
+    setIsDisabled,
+}: IAttributeProps) {
     const { handleLimit, isShow, limit } = useLimit({
         data: attribute.attribute_values,
         limitNumber: 5,
@@ -35,6 +39,8 @@ export default function Attribute({ attribute }: IAttributeProps) {
                                     attrValSlug={attrVal.slug}
                                     label={attrVal.name}
                                     key={attrVal.id}
+                                    isDisabled={isDisabled}
+                                    setIsDisabled={setIsDisabled}
                                 />
                             );
                         })}

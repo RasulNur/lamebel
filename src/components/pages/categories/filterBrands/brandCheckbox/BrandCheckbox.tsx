@@ -3,7 +3,11 @@ import { IBrandCheckboxProps } from "@/types/props/pages.types";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
-export default function BrandCheckbox({ brand }: IBrandCheckboxProps) {
+export default function BrandCheckbox({
+    brand,
+    isDisabled,
+    setIsDisabled,
+}: IBrandCheckboxProps) {
     const [isChecked, setIsChecked] = useState<boolean>(false);
     const searchParams = useSearchParams();
     const pathname = usePathname();
@@ -14,6 +18,7 @@ export default function BrandCheckbox({ brand }: IBrandCheckboxProps) {
     const brandParamString = `${brand.id}-${brand.slug}`;
 
     const handleChecked = () => {
+        setIsDisabled(true);
         if (brandsParams) {
             const brandsIds = brandsParams.split(",");
 
@@ -35,8 +40,10 @@ export default function BrandCheckbox({ brand }: IBrandCheckboxProps) {
     useEffect(() => {
         if (brandsParams) {
             const brandsIds = brandsParams.split(",");
-            if (brandsIds.includes(brandParamString)) setIsChecked(true);
-            else setIsChecked(false);
+            if (brandsIds.includes(brandParamString)) {
+                setIsChecked(true);
+                setIsDisabled(false);
+            } else setIsChecked(false);
         } else setIsChecked(false);
     }, [brandsParams]);
 
@@ -50,6 +57,7 @@ export default function BrandCheckbox({ brand }: IBrandCheckboxProps) {
             handleChecked={handleChecked}
             isChecked={isChecked}
             label={brand.name}
+            isDisabled={isDisabled}
         />
     );
 }

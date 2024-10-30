@@ -64,6 +64,7 @@ export interface ICheckboxProps {
     label: string;
     isChecked: boolean;
     handleChecked: () => void;
+    isDisabled?: boolean;
 }
 
 export interface IMenuWrapperProps {
