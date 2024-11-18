@@ -47,8 +47,7 @@ export default function ProductsFilters({
                 />
             )}
 
-            {(subCategories.data.length > 0 ||
-                categoryBrands.data.length > 0 ||
+            {(categoryBrands.data.length > 0 ||
                 price.max > 0 ||
                 attributes.data.length > 0) && (
                 <ClearFilters

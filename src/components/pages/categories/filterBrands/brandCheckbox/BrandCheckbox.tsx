@@ -42,9 +42,9 @@ export default function BrandCheckbox({
             const brandsIds = brandsParams.split(",");
             if (brandsIds.includes(brandParamString)) {
                 setIsChecked(true);
-                setIsDisabled(false);
             } else setIsChecked(false);
         } else setIsChecked(false);
+        setIsDisabled(false);
     }, [brandsParams]);
 
     useEffect(() => {
