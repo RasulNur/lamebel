@@ -45,10 +45,10 @@ export default function AttributeCheckbox({
         if (attrParams) {
             const attrIds = attrParams.split(",");
             if (attrIds.includes(attrValParamString)) {
-                setIsDisabled(false);
                 setIsChecked(true);
             } else setIsChecked(false);
         } else setIsChecked(false);
+        setIsDisabled(false);
     }, [attrParams]);
 
     useEffect(() => {
