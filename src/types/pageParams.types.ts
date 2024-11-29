@@ -34,6 +34,9 @@ export interface ISearchPageSearchParams {
 export interface INewsPageSearchParams {
     page?: string;
 }
+export interface IBrandsPageSearchParams {
+    page?: string;
+}
 
 export type CategoriesPagesParams = IExtendedPageParams<{
     page?: string;

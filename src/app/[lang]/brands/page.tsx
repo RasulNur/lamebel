@@ -4,15 +4,15 @@ import Brands from "@/components/pages/brands/Brands";
 import PageHeader from "@/components/ui/PageHeader";
 import { Lang } from "@/types/api/api.types";
 import {
+    IBrandsPageSearchParams,
     IExtendedPageParams,
-    INewsPageSearchParams,
 } from "@/types/pageParams.types";
 import { Metadata } from "next";
 
 export default async function BrandsPage({
     params: { lang },
     searchParams,
-}: IExtendedPageParams<INewsPageSearchParams>) {
+}: IExtendedPageParams<IBrandsPageSearchParams>) {
     const page = await getPage({ pageId: 14, lang });
     const { text } = await getTexts({ lang });
 
