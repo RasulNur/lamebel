@@ -19,7 +19,7 @@ export default async function NewsPage({
     const news = await getPublications({
         type: 2,
         quantity: 12,
-        page: Number(page),
+        page: Number(searchParams.page),
         lang,
     });
 
