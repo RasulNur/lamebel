@@ -2,10 +2,10 @@
 
 import { Field, ErrorMessage, FieldProps } from "formik";
 import { useState } from "react";
-import InputMask from "react-input-mask";
 import Icon from "./Icon";
 import classNames from "classnames";
 import { IOverlapInputProps } from "@/types/props/ui.types";
+import MaskedInput from "react-text-mask";
 
 export default function OverlapInput({
     id,
@@ -19,60 +19,129 @@ export default function OverlapInput({
     const [passwordType, setPasswordType] = useState<"password" | "text">(
         "password",
     );
+    const [isFocused, setIsFocused] = useState<boolean>(false);
+    const phoneMask = [
+        "+",
+        "9",
+        "9",
+        "8",
+        "(",
+        /\d/,
+        /\d/,
+        ")",
+        /\d/,
+        /\d/,
+        /\d/,
+        "-",
+        /\d/,
+        /\d/,
+        "-",
+        /\d/,
+        /\d/,
+    ];
+    const pinMask = [
+        /\d/,
+        /\d/,
+        /\d/,
+        /\d/,
+        " ",
+        /\d/,
+        /\d/,
+        /\d/,
+        /\d/,
+        " ",
+        /\d/,
+        /\d/,
+        /\d/,
+        /\d/,
+        " ",
+        /\d/,
+        /\d/,
+        /\d/,
+        /\d/,
+    ];
+    const expiryMask = [/\d/, /\d/, "/", /\d/, /\d/];
 
     return (
         <div className="overlap-input">
             {name === "phone_number" ? (
                 <Field name={name}>
                     {({ field }: FieldProps) => (
-                        <InputMask
+                        <MaskedInput
+                            mask={phoneMask}
                             {...field}
                             id={`overlap-input-${id}`}
                             type="text"
-                            mask="+\9\98(99)999-99-99"
                             placeholder=""
                             disabled={disabled}
                             value={field.value}
                             onChange={(e) => field.onChange(e)}
-                            onBlur={field.onBlur}
-                            className="form-control"
+                            className={inputClass}
                             autoComplete="on"
+                            showMask={isFocused}
+                            onFocus={() => {
+                                setTimeout(() => {
+                                    setIsFocused(true);
+                                }, 100);
+                            }}
+                            onBlur={(e) => {
+                                field.onBlur(e);
+                                setIsFocused(false);
+                            }}
                         />
                     )}
                 </Field>
             ) : name === "pin" ? (
                 <Field name={name}>
                     {({ field }: FieldProps) => (
-                        <InputMask
+                        <MaskedInput
+                            mask={pinMask}
                             {...field}
                             id={`overlap-input-${id}`}
                             type="text"
-                            mask="9999 9999 9999 9999"
                             placeholder=""
                             disabled={disabled}
                             value={field.value}
                             onChange={(e) => field.onChange(e)}
-                            onBlur={field.onBlur}
-                            className="form-control"
+                            className={inputClass}
                             autoComplete="on"
+                            showMask={isFocused}
+                            onFocus={() => {
+                                setTimeout(() => {
+                                    setIsFocused(true);
+                                }, 100);
+                            }}
+                            onBlur={(e) => {
+                                field.onBlur(e);
+                                setIsFocused(false);
+                            }}
                         />
                     )}
                 </Field>
             ) : name === "expiry" ? (
                 <Field name={name}>
                     {({ field }: FieldProps) => (
-                        <InputMask
+                        <MaskedInput
+                            mask={expiryMask}
                             {...field}
                             id={`overlap-input-${id}`}
                             type="text"
-                            mask="99/99"
                             placeholder=""
                             disabled={disabled}
                             value={field.value}
                             onChange={(e) => field.onChange(e)}
-                            onBlur={field.onBlur}
-                            className="form-control"
+                            className={inputClass}
                             autoComplete="on"
+                            showMask={isFocused}
+                            onFocus={() => {
+                                setTimeout(() => {
+                                    setIsFocused(true);
+                                }, 100);
+                            }}
+                            onBlur={(e) => {
+                                field.onBlur(e);
+                                setIsFocused(false);
+                            }}
                         />
                     )}
                 </Field>
