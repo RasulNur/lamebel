@@ -15,6 +15,7 @@ import { ISettings } from "../api/settings.types";
 import { IPublicationsPublication } from "../api/publications.types";
 import { IReview } from "../api/reviews.types";
 import { OtpTarget } from "../api/auth.types";
+import { SingleBrand } from "../api/brand.types";
 
 export interface IIconProps
     extends Omit<SVGProps<SVGSVGElement>, "name" | "type"> {
@@ -251,4 +252,7 @@ export interface ISearchFormProps {
 export interface IViewedSwiperProps {
     productId: number;
     lang: Lang;
+}
+export interface IBrandCardProps {
+    brand: SingleBrand;
 }

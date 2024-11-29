@@ -145,6 +145,10 @@ module.exports = {
                     "@apply lg:grid flex flex-col grid-cols-[300px,1fr] gap-5":
                         {},
                 },
+                ".brands-grid": {
+                    "@apply grid lg:grid-cols-4 min-[500px]:grid-cols-2 md:gap-5 gap-3":
+                        {},
+                },
             });
         }),
     ],

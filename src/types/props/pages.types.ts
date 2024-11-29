@@ -375,3 +375,16 @@ export interface IWishlistProps {
 export interface IAddressesProps {
     lang: Lang;
 }
+export interface IBrandsProps {
+    page?: string;
+    lang: Lang;
+}
+export interface IBrandProps {
+    brandId: number;
+    page?: string;
+    lang: Lang;
+}
+export interface IBrandCategoriesProps {
+    brandId: number;
+    lang: Lang;
+}

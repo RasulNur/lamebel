@@ -50,3 +50,7 @@ export interface IPageParams {
 export interface IPageParamsWithId {
     params: { id: string; lang: Lang };
 }
+export interface IBrandPageParams {
+    params: { id: string; lang: Lang };
+    searchParams: { page?: string };
+}
