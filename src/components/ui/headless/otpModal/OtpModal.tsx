@@ -9,14 +9,14 @@ import OtpForm from "./OtpForm";
 import { formatPhone } from "@/utils/formatPhone";
 import { useText } from "@/context/text.context";
 import { IOtpModalProps } from "@/types/props/ui.types";
-import { useRouter } from "next/navigation";
+import { useRouter } from "@/i18n/routing";
 
 function OtpModal<T>({
     isOpen,
     formPhone,
     fulfillAfterOtp,
     setIsOpen,
-    lang,
+    locale,
     otpTarget,
     resetForm,
 }: IOtpModalProps<T>) {
@@ -34,7 +34,7 @@ function OtpModal<T>({
             if (!isOpen) return;
 
             otpCheck({
-                lang,
+                locale,
                 body: {
                     otp: Number(otp),
                     phone_number: formattedPhone,
@@ -69,7 +69,7 @@ function OtpModal<T>({
                     <span className="text-main">{formPhone}</span>
                 </h3>
                 <OtpForm
-                    lang={lang}
+                    locale={locale}
                     handleSubmit={handleSubmit}
                     formPhone={formPhone}
                     otp={otp}

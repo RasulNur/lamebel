@@ -4,13 +4,13 @@ import ReviewsList from "./reviewsList/ReviewsList";
 
 export default function ProductReviews({
     product,
-    lang,
+    locale,
     reviews,
 }: IProductReviewsProps) {
     return (
         <div className="flex flex-col gap-10">
             <ReviewsList reviews={reviews} />
-            <ReviewsForm product={product} lang={lang} />
+            <ReviewsForm product={product} locale={locale} />
         </div>
     );
 }

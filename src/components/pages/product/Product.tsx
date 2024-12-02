@@ -9,7 +9,7 @@ import { IProductProps } from "@/types/props/pages.types";
 export default function Product({
     product,
     productAttributes,
-    lang,
+    locale,
     reviews,
     productGroup,
 }: IProductProps) {
@@ -35,7 +35,7 @@ export default function Product({
                             setTabIndex={setTabIndex}
                             productAttributes={productAttributes}
                             product={product}
-                            lang={lang}
+                            locale={locale}
                             reviews={reviews}
                         />
                     </div>
@@ -46,7 +46,7 @@ export default function Product({
                     setTabIndex={setTabIndex}
                     attributes={productAttributes}
                     productGroup={productGroup}
-                    lang={lang}
+                    locale={locale}
                 />
             </div>
             <div className="lg:hidden">
@@ -55,7 +55,7 @@ export default function Product({
                     setTabIndex={setTabIndex}
                     productAttributes={productAttributes}
                     product={product}
-                    lang={lang}
+                    locale={locale}
                     reviews={reviews}
                 />
             </div>

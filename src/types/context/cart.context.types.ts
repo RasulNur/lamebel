@@ -1,6 +1,6 @@
 // import { UseFormReset } from "react-hook-form";
 import { ReactNode } from "react";
-import { Lang } from "../api/api.types";
+import { Locale } from "../api/api.types";
 import { ICart } from "../api/cart.types";
 import { ICreateOrderBody } from "../api/orders.types";
 import { IProduct } from "../api/products.types";
@@ -80,5 +80,5 @@ export interface ICartCheckout {
 
 export interface ICardProvideProps {
     children: ReactNode;
-    lang: Lang;
+    locale: Locale;
 }

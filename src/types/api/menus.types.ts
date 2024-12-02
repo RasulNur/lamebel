@@ -1,4 +1,4 @@
-import { Lang } from "./api.types";
+import { Locale } from "./api.types";
 
 export interface IMenus {
     data: IMenu[];
@@ -21,5 +21,5 @@ export interface ISingleMenu {
 }
 export interface IGetMenuParams {
     menuId: number;
-    lang: Lang;
+    locale: Locale;
 }

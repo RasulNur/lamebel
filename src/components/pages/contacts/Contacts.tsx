@@ -2,7 +2,7 @@ import ContactsLinks from "./contactsLinks/ContactsLinks";
 import ContactsForm from "./contactsForm/ContactsForm";
 import { IContactsProps } from "@/types/props/pages.types";
 
-export default function Contacts({ settings, lang }: IContactsProps) {
+export default function Contacts({ settings, locale }: IContactsProps) {
     return (
         <div className="flex flex-col gap-10">
             <p className="leading-150 max-w-[900px]">
@@ -13,7 +13,7 @@ export default function Contacts({ settings, lang }: IContactsProps) {
             <div className="grid lg:grid-cols-[1fr,1.4fr] xl:gap-20 gap-10">
                 <ContactsLinks settings={settings} />
 
-                <ContactsForm lang={lang} />
+                <ContactsForm locale={locale} />
             </div>
         </div>
     );

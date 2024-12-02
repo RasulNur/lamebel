@@ -13,7 +13,7 @@ export default function UpdatePhoneForm({
     isOtpModalOpen,
     setIsOtpModalOpen,
     values,
-    lang,
+    locale,
     isSubmitting,
     resetForm,
 }: IUpdatePhoneFormProps) {
@@ -39,7 +39,7 @@ export default function UpdatePhoneForm({
                 </button>
             </Form>
             <OtpModal<IUpdatePhoneForm>
-                lang={lang}
+                locale={locale}
                 setIsOpen={setIsOtpModalOpen}
                 isOpen={isOtpModalOpen}
                 formPhone={values.phone_number}

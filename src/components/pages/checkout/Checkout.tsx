@@ -6,7 +6,7 @@ import { Form, Formik } from "formik";
 import { ICheckoutForm } from "@/types/form.types";
 import { useCart } from "@/context/cart.context";
 import { useCookies } from "next-client-cookies";
-import { useRouter } from "next/navigation";
+import { useRouter } from "@/i18n/routing";
 import { useText } from "@/context/text.context";
 import useFormValidation from "@/hooks/useFormValidation";
 import { ISubmitFormFuncParams } from "@/types/types";
@@ -18,7 +18,7 @@ export default function Checkout({
     paymentMethods,
     shippingMethods,
     addresses,
-    lang,
+    locale,
 }: ICheckoutProps) {
     const initialValues: ICheckoutForm = {
         name: "",
@@ -102,7 +102,7 @@ export default function Checkout({
             {({ isSubmitting, setFieldValue }) => (
                 <Form className="grid lg:grid-cols-[1fr,400px] gap-10">
                     <CheckoutForm
-                        lang={lang}
+                        locale={locale}
                         addresses={addresses}
                         paymentMethods={paymentMethods}
                         shippingMethods={shippingMethods}

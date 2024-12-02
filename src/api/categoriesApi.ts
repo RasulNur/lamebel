@@ -14,38 +14,41 @@ import {
 } from "@/types/api/categories.types";
 
 import { fetchGET } from "./fetch";
-import { Lang } from "@/types/api/api.types";
+import { Locale } from "@/types/api/api.types";
 
-export const getCategoriesTree = async ({ lang }: { lang: Lang }) => {
+export const getCategoriesTree = async ({ locale }: { locale: Locale }) => {
     return await fetchGET({
         url: "categories/tree",
         tag: "Categories",
-        lang,
+        locale,
     }).then((data: ICategoriesTree) => data);
 };
 
-export const getCategory = async ({ categoryId, lang }: IGetCategoryParams) => {
+export const getCategory = async ({
+    categoryId,
+    locale,
+}: IGetCategoryParams) => {
     return await fetchGET({
         url: `categories/${categoryId}`,
         tag: "Categories",
-        lang,
+        locale,
     }).then((data: ISingleCategory) => data);
 };
 
 export const getParentCategory = async ({
     categoryId,
-    lang,
+    locale,
 }: IGetParentCategoryParams) => {
     return await fetchGET({
         url: `categories/${categoryId}`,
         tag: "Categories",
-        lang,
+        locale,
     }).then(async (data: ISingleCategory) => {
         if (data.data.parent_id) {
             return await fetchGET({
                 url: `categories/${data.data.parent_id}`,
                 tag: "Categories",
-                lang,
+                locale,
             }).then((data: ISingleCategory) => {
                 return data;
             });
@@ -57,44 +60,44 @@ export const getParentCategory = async ({
 
 export const getSubCategories = async ({
     categoryId,
-    lang,
+    locale,
 }: IGetSubCategoriesParams) => {
     return await fetchGET({
         url: `categories/${categoryId}/subcategories`,
         tag: "Categories",
-        lang,
+        locale,
     }).then((data: ICategories) => data);
 };
 
 export const getCategoryBrands = async ({
     categoryId,
-    lang,
+    locale,
 }: IGetCategoryBrandsParams) => {
     return await fetchGET({
         url: `categories/${categoryId}/brands`,
         tag: "Categories",
-        lang,
+        locale,
     }).then((data: ICategoryBrands) => data);
 };
 
 export const getCategoryAttributes = async ({
     categoryId,
-    lang,
+    locale,
 }: IGetCategoryAttributesParams) => {
     return await fetchGET({
         url: `categories/${categoryId}/attributes`,
         tag: "Categories",
-        lang,
+        locale,
     }).then((data: ICategoryAttributes) => data);
 };
 
 export const getCategoryPrices = async ({
     categoryId,
-    lang,
+    locale,
 }: IGetCategoryPricesParams) => {
     return await fetchGET({
         url: `categories/${categoryId}/prices`,
         tag: "Categories",
-        lang,
+        locale,
     }).then((data: IPrices) => data);
 };

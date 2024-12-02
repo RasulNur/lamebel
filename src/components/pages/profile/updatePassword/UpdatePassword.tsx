@@ -2,7 +2,7 @@
 
 import { Formik } from "formik";
 import { ISubmitFormFuncParams } from "@/types/types";
-import { useRouter } from "next/navigation";
+import { useRouter } from "@/i18n/routing";
 import { updatePassword } from "@/api/profileApi";
 import { useCookies } from "next-client-cookies";
 import toast from "react-hot-toast";
@@ -17,7 +17,7 @@ const initialValues: IUpdatePasswordForm = {
     confrim_password: "",
 };
 
-export default function UpdatePassword({ lang }: IUpdatePasswordProps) {
+export default function UpdatePassword({ locale }: IUpdatePasswordProps) {
     const { refresh } = useRouter();
     const cookies = useCookies();
     const token = cookies.get("token");
@@ -34,7 +34,7 @@ export default function UpdatePassword({ lang }: IUpdatePasswordProps) {
                     new_password,
                 },
                 token: token,
-                lang,
+                locale,
             }).then(() => {
                 toast.success("Пароль успешно изменен");
                 refresh();

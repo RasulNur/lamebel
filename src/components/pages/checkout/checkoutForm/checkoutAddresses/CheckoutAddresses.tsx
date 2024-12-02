@@ -7,7 +7,7 @@ import { ICheckoutForm } from "@/types/form.types";
 
 export default function CheckoutAddresses({
     addresses,
-    lang,
+    locale,
     setFieldValue,
 }: ICheckoutAddressesProps) {
     const { text } = useText();
@@ -41,7 +41,7 @@ export default function CheckoutAddresses({
 
             <AddressModal<ICheckoutForm>
                 type="create"
-                lang={lang}
+                locale={locale}
                 setFieldValue={setFieldValue}
             />
         </div>

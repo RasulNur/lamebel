@@ -5,14 +5,17 @@ import { useViewed } from "@/context/viewed.context";
 import ProductsSwiper from "./ProductsSwiper";
 import { IViewedSwiperProps } from "@/types/props/ui.types";
 
-export default function ViewedSwiper({ productId, lang }: IViewedSwiperProps) {
+export default function ViewedSwiper({
+    productId,
+    locale,
+}: IViewedSwiperProps) {
     const { viewed } = useViewed();
     return (
         <>
             {viewed.length > 0 && (
                 <SectionWrapper>
                     <ProductsSwiper
-                        lang={lang}
+                        locale={locale}
                         products={viewed.filter((el) => {
                             if (el.id !== productId) {
                                 return el;

@@ -1,5 +1,5 @@
 import { IHeaderListProps } from "@/types/props/types";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 
 export default function HeaderList({ menu }: IHeaderListProps) {
     return (

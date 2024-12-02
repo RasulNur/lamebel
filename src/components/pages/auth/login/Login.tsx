@@ -4,7 +4,7 @@ import { ILoginForm } from "@/types/form.types";
 import { ISubmitFormFuncParams } from "@/types/types";
 import { formatPhone } from "@/utils/formatPhone";
 import { Formik } from "formik";
-import { useRouter } from "next/navigation";
+import { useRouter } from "@/i18n/routing";
 import LoginForm from "./loginForm/LoginForm";
 import { useText } from "@/context/text.context";
 import { ILoginProps } from "@/types/props/pages.types";
@@ -14,7 +14,7 @@ const initialValues: ILoginForm = {
     password: "",
 };
 
-export default function Login({ setAuthTab, lang, closeModal }: ILoginProps) {
+export default function Login({ setAuthTab, locale, closeModal }: ILoginProps) {
     const { push, refresh } = useRouter();
     const { loginValidationSchema } = useFormValidation();
     const { text } = useText();
@@ -28,7 +28,7 @@ export default function Login({ setAuthTab, lang, closeModal }: ILoginProps) {
         try {
             login({
                 body: { password, phone_number: formattedPhone },
-                lang,
+                locale,
             }).then((data) => {
                 if (data) {
                     push("/");

@@ -1,9 +1,9 @@
 import { getTexts } from "@/api/textsApi";
 import { INotFoundTextProps } from "@/types/props/ui.types";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 
-export default async function NotFoundText({ lang }: INotFoundTextProps) {
-    const { text } = await getTexts({ lang });
+export default async function NotFoundText({ locale }: INotFoundTextProps) {
+    const { text } = await getTexts({ locale });
     return (
         <div className="max-w-[476px] mx-auto text-center flex flex-col items-center py-[80px]">
             <h1 className="md:text-2xl leading-120 mb-3">

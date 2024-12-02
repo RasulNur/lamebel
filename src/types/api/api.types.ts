@@ -40,7 +40,7 @@ export interface IFetchMutateParams {
     url: string;
     body?: any;
     tag: Tag;
-    lang: Lang;
+    locale: Locale;
     method: Method;
     token?: string;
     contentType?: "multipart/form-data" | "application/json";
@@ -48,7 +48,7 @@ export interface IFetchMutateParams {
 export interface IFetchGetParams {
     url: string;
     tag: Tag;
-    lang: Lang;
+    locale: Locale;
     token?: string;
 }
 export interface IMeta {
@@ -68,7 +68,7 @@ interface IMetaLink {
     active: boolean;
 }
 
-export type Lang = "ru" | "uz" | "en";
+export type Locale = "ru" | "uz" | "en";
 
 export type Tag =
     | "Auth"

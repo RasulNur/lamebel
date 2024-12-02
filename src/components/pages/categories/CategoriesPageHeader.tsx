@@ -5,11 +5,11 @@ import { ICategoriesPageHeaderProps } from "@/types/props/pages.types";
 
 export default async function CategoriesPageHeader({
     categoryId,
-    lang,
+    locale,
 }: ICategoriesPageHeaderProps) {
-    const { text } = await getTexts({ lang });
-    const category = await getCategory({ categoryId, lang });
-    const parentCategory = await getParentCategory({ categoryId, lang });
+    const { text } = await getTexts({ locale });
+    const category = await getCategory({ categoryId, locale });
+    const parentCategory = await getParentCategory({ categoryId, locale });
     const breadcrumbs =
         typeof parentCategory !== "string"
             ? {

@@ -1,4 +1,4 @@
-import { Lang } from "./api.types";
+import { Locale } from "./api.types";
 
 export interface IRegisterBody {
     name: string;
@@ -23,35 +23,35 @@ export interface IResetPasswordBody {
 
 export interface IRegisterParams {
     body: IRegisterBody;
-    lang: Lang;
+    locale: Locale;
 }
 export interface ILogingParams {
     body: ILoginBody;
-    lang: Lang;
+    locale: Locale;
 }
 export interface ILoginCheckParams {
     body: { phone_number: string };
-    lang: Lang;
+    locale: Locale;
 }
 
 export interface ISendOtpParams {
     body: { phone_number: string; target: OtpTarget };
-    lang: Lang;
+    locale: Locale;
 }
 
 export type OtpTarget = "registration" | "reset_password" | "verification";
 
 export interface IOtpCheckParams {
     body: IOtpCheckBody;
-    lang: Lang;
+    locale: Locale;
 }
 
 export interface ILogoutParams {
     token: string;
-    lang: Lang;
+    locale: Locale;
 }
 
 export interface IResetPasswordParams {
     body: IResetPasswordBody;
-    lang: Lang;
+    locale: Locale;
 }

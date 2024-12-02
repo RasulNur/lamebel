@@ -6,10 +6,10 @@ import Empty from "@/components/ui/Empty";
 import { getCookies } from "next-client-cookies/server";
 import { IAddressesProps } from "@/types/props/pages.types";
 
-export default async function Addresses({ lang }: IAddressesProps) {
+export default async function Addresses({ locale }: IAddressesProps) {
     const cookies = getCookies();
-    let addresses = await getAddresses({ token: cookies.get("token"), lang });
-    const { text } = await getTexts({ lang });
+    let addresses = await getAddresses({ token: cookies.get("token"), locale });
+    const { text } = await getTexts({ locale });
     return (
         <>
             {typeof addresses !== "string" && (
@@ -23,7 +23,7 @@ export default async function Addresses({ lang }: IAddressesProps) {
                             {addresses.data.map((address) => {
                                 return (
                                     <AddressCard
-                                        lang={lang}
+                                        locale={locale}
                                         key={address.id}
                                         address={address}
                                     />
@@ -32,7 +32,7 @@ export default async function Addresses({ lang }: IAddressesProps) {
                         </div>
                     )}
 
-                    <AddressModal type="create" lang={lang} />
+                    <AddressModal type="create" locale={locale} />
                 </div>
             )}
         </>

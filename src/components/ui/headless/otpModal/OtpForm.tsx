@@ -9,7 +9,7 @@ export default function OtpForm({
     otp,
     setOtp,
     formPhone,
-    lang,
+    locale,
     otpTarget,
 }: IOtpFormProps) {
     const { text } = useText();
@@ -34,7 +34,7 @@ export default function OtpForm({
                 <button
                     onClick={() => {
                         sendOtp({
-                            lang,
+                            locale,
                             body: {
                                 phone_number: formatPhone(formPhone),
                                 target: otpTarget,

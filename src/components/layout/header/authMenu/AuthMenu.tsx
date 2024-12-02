@@ -5,10 +5,10 @@ import MenuWrapper from "../../../ui/headless/MenuWrapper";
 import { useState } from "react";
 import AuthMenuContent from "./authMenuContent/AuthMenuContent";
 import { useCookies } from "next-client-cookies";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 import { IAuthMenuProps } from "@/types/props/types";
 
-export default function AuthMenu({ lang }: IAuthMenuProps) {
+export default function AuthMenu({ locale }: IAuthMenuProps) {
     let [isOpen, setIsOpen] = useState(false);
     const cookies = useCookies();
     const token = cookies.get("token");
@@ -43,7 +43,10 @@ export default function AuthMenu({ lang }: IAuthMenuProps) {
                     }
                     isOpen={isOpen}
                     menuContent={
-                        <AuthMenuContent lang={lang} closeModal={closeModal} />
+                        <AuthMenuContent
+                            locale={locale}
+                            closeModal={closeModal}
+                        />
                     }
                 />
             )}

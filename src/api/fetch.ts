@@ -7,7 +7,7 @@ export const fetchMutate = async ({
     body,
     url,
     tag,
-    lang,
+    locale,
     method,
     token,
     contentType = "application/json",
@@ -22,12 +22,12 @@ export const fetchMutate = async ({
                   Authorization: `Bearer ${token}`,
                   "Content-Type": contentType,
                   Accept: "application/json",
-                  "Accept-Language": lang,
+                  "Accept-Language": locale,
               }
             : {
                   "Content-Type": contentType,
                   Accept: "application/json",
-                  "Accept-Language": lang,
+                  "Accept-Language": locale,
               },
     })
         .then((response) => {
@@ -43,7 +43,12 @@ export const fetchMutate = async ({
         });
 };
 
-export const fetchGET = async ({ url, lang, tag, token }: IFetchGetParams) => {
+export const fetchGET = async ({
+    url,
+    locale,
+    tag,
+    token,
+}: IFetchGetParams) => {
     return await fetch(`${API_URL}${url}`, {
         next: { tags: [tag] },
         cache: "no-cache",
@@ -52,12 +57,12 @@ export const fetchGET = async ({ url, lang, tag, token }: IFetchGetParams) => {
                   Authorization: `Bearer ${token}`,
                   "Content-Type": "application/json",
                   Accept: "application/json",
-                  "Accept-Language": lang,
+                  "Accept-Language": locale,
               }
             : {
                   "Content-Type": "application/json",
                   Accept: "application/json",
-                  "Accept-Language": lang,
+                  "Accept-Language": locale,
               },
     })
         .then((response) => {

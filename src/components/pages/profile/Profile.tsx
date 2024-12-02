@@ -6,10 +6,10 @@ import UpdatePhone from "./updatePhone/UpdatePhone";
 import UpdatePassword from "./updatePassword/UpdatePassword";
 import { IProfileProps } from "@/types/props/pages.types";
 
-export default async function Profile({ lang }: IProfileProps) {
+export default async function Profile({ locale }: IProfileProps) {
     const cookies = getCookies();
-    const profile = await getProfile({ token: cookies.get("token"), lang });
-    const { text } = await getTexts({ lang });
+    const profile = await getProfile({ token: cookies.get("token"), locale });
+    const { text } = await getTexts({ locale });
 
     return (
         <div className="flex flex-col gap-16">
@@ -19,17 +19,17 @@ export default async function Profile({ lang }: IProfileProps) {
                 </h3>
                 {typeof profile !== "string" && (
                     <>
-                        <UpdateProfile profile={profile} lang={lang} />
+                        <UpdateProfile profile={profile} locale={locale} />
                     </>
                 )}
             </div>
             {typeof profile !== "string" && (
                 <>
-                    <UpdatePhone profile={profile} lang={lang} />
+                    <UpdatePhone profile={profile} locale={locale} />
                 </>
             )}
 
-            <UpdatePassword lang={lang} />
+            <UpdatePassword locale={locale} />
         </div>
     );
 }

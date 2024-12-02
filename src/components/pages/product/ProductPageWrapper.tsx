@@ -14,7 +14,7 @@ import { IProductPageWrapperProps } from "@/types/props/pages.types";
 
 export default function ProductPageWrapper({
     product,
-    lang,
+    locale,
     productAttributes,
     reviews,
     productGroup,
@@ -60,7 +60,7 @@ export default function ProductPageWrapper({
                     <Product
                         product={product}
                         productAttributes={productAttributes}
-                        lang={lang}
+                        locale={locale}
                         reviews={reviews}
                         productGroup={productGroup}
                     />
@@ -68,7 +68,7 @@ export default function ProductPageWrapper({
             </section>
             <SectionWrapper className="bg-main-light section-padding">
                 <ProductsSwiper
-                    lang={lang}
+                    locale={locale}
                     products={bestsellerProducts}
                     subtitle="ШИРОКИЙ АССОРТИМЕНТ"
                     title="Хиты интернет продаж"
@@ -76,7 +76,7 @@ export default function ProductPageWrapper({
             </SectionWrapper>
             <SectionWrapper>
                 <ProductsSwiper
-                    lang={lang}
+                    locale={locale}
                     products={similarProducts}
                     subtitle="ШИРОКИЙ АССОРТИМЕНТ"
                     title="Похожие товары"
@@ -91,7 +91,7 @@ export default function ProductPageWrapper({
                 <ProductAdvantages />
             </SectionWrapper>
 
-            <ViewedSwiper productId={product.data.id} lang={lang} />
+            <ViewedSwiper productId={product.data.id} locale={locale} />
         </>
     );
 }

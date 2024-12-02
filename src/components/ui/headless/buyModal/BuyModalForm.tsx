@@ -15,7 +15,7 @@ const initialValues: IBuyForm = {
     message: "",
 };
 
-export default function BuyModalForm({ product, lang }: IBuyModalFormProps) {
+export default function BuyModalForm({ product, locale }: IBuyModalFormProps) {
     const { contactsValidationSchema } = useFormValidation();
     const { text } = useText();
 
@@ -28,7 +28,7 @@ export default function BuyModalForm({ product, lang }: IBuyModalFormProps) {
             const formattedPhone = formatPhone(phone_number);
             if (product.id) {
                 sendFeedback({
-                    lang,
+                    locale,
                     body: {
                         message,
                         name,

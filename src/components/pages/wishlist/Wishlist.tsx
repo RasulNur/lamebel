@@ -9,7 +9,7 @@ import { IWishlistProps } from "@/types/props/pages.types";
 import { useCookies } from "next-client-cookies";
 import { useState } from "react";
 
-export default function Wishlist({ lang }: IWishlistProps) {
+export default function Wishlist({ locale }: IWishlistProps) {
     const { apiWishlist, wishlist, clearWishlist } = useWishlist();
     const cookies = useCookies();
     const token = cookies.get("token");
@@ -40,7 +40,7 @@ export default function Wishlist({ lang }: IWishlistProps) {
                               apiWishlist.items.map((item) => {
                                   return (
                                       <ProductCard
-                                          lang={lang}
+                                          locale={locale}
                                           key={item.id}
                                           product={item.product}
                                       />
@@ -49,7 +49,7 @@ export default function Wishlist({ lang }: IWishlistProps) {
                             : wishlist.map((item) => {
                                   return (
                                       <ProductCard
-                                          lang={lang}
+                                          locale={locale}
                                           key={item.id}
                                           product={item}
                                       />

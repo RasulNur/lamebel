@@ -6,13 +6,13 @@ export const getPromotions = async ({
     page = 1,
     quantity = 10,
     type,
-    lang,
+    locale,
 }: IGetPromotionsParams) => {
     return await fetchGET({
         url: `promotions?page=${page}&quantity=${quantity}${
             type ? `&type=${type}` : null
         }`,
         tag: "Promotions",
-        lang,
+        locale,
     }).then((data: IPromotions) => data);
 };

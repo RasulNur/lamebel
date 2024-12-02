@@ -6,11 +6,11 @@ import { ISubmitFormFuncParams } from "@/types/types";
 import { Form, Formik } from "formik";
 import { useCookies } from "next-client-cookies";
 import OverlapInput from "@/components/ui/OverlapInput";
-import { useRouter } from "next/navigation";
 import { IUpdateAddressProps } from "@/types/props/pages.types";
+import { useRouter } from "@/i18n/routing";
 
 export default function UpdateAddress({
-    lang,
+    locale,
     setIsOpen,
     currentAddress,
 }: IUpdateAddressProps) {
@@ -33,7 +33,7 @@ export default function UpdateAddress({
                 body: {
                     address_line_1: address,
                 },
-                lang,
+                locale,
             }).then(() => {
                 refresh();
                 setIsOpen(false);

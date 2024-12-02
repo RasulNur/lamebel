@@ -1,4 +1,4 @@
-import { IGallery, ILinks, ILocalization, IMeta, Lang } from "./api.types";
+import { IGallery, ILinks, ILocalization, IMeta, Locale } from "./api.types";
 
 export interface IProducts {
     data: IProduct[];
@@ -112,7 +112,7 @@ export interface IGetProductsParams {
               attrValId: number;
           }[]
         | null;
-    lang: Lang;
+    locale: Locale;
 }
 
 export interface ISingleProduct {
@@ -147,9 +147,9 @@ export interface IProdcutAttributeValue {
 
 export interface IGetProductParams {
     productId: number;
-    lang: Lang;
+    locale: Locale;
 }
 export interface IGetProductAttributesParams {
     productId: number;
-    lang: Lang;
+    locale: Locale;
 }

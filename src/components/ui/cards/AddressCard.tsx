@@ -1,6 +1,6 @@
 "use client";
 
-import { useRouter } from "next/navigation";
+import { useRouter } from "@/i18n/routing";
 import { useCookies } from "next-client-cookies";
 import { deleteAddress } from "@/api/addressesApi";
 import { useState } from "react";
@@ -9,7 +9,7 @@ import { useText } from "@/context/text.context";
 import AddressModal from "../headless/AddressModal";
 import { IAddressCardProps } from "@/types/props/ui.types";
 
-export default function AddressCard({ address, lang }: IAddressCardProps) {
+export default function AddressCard({ address, locale }: IAddressCardProps) {
     const cookies = useCookies();
     const token = cookies.get("token");
     const { refresh } = useRouter();
@@ -23,7 +23,7 @@ export default function AddressCard({ address, lang }: IAddressCardProps) {
                 deleteAddress({
                     addressId: address.id,
                     token,
-                    lang,
+                    locale,
                 })
                     .then(() => {
                         refresh();
@@ -51,7 +51,7 @@ export default function AddressCard({ address, lang }: IAddressCardProps) {
                 <div className="flex items-center gap-6">
                     <AddressModal
                         currentAddress={address}
-                        lang={lang}
+                        locale={locale}
                         type="update"
                         btnClassname="text-sm leading-110 hover:text-main py-2"
                     />

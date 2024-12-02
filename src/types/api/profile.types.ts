@@ -1,4 +1,4 @@
-import { Lang } from "./api.types";
+import { Locale } from "./api.types";
 
 export interface IProfile {
     data: {
@@ -20,17 +20,17 @@ export interface IProfile {
 export interface IUpdateProfileParams {
     token?: string;
     body: { name: string; email?: string };
-    lang: Lang;
+    locale: Locale;
 }
 
 export interface IUpdatePasswordParams {
     token?: string;
     body: { current_password: string; new_password: string };
-    lang: Lang;
+    locale: Locale;
 }
 
 export interface IUpdatePhoneParams {
     token?: string;
     body: { phone_number: string; otp: number };
-    lang: Lang;
+    locale: Locale;
 }

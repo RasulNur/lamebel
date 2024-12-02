@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 import Image from "next/image";
 import WishlistButton from "../buttons/WishlistButton";
 import CartButton from "../buttons/CartButton";
@@ -12,7 +12,7 @@ const colors = [
     { id: 2, color: "#FFDD1F" },
 ];
 
-export default function ProductCard({ product, lang }: IProductCardProps) {
+export default function ProductCard({ product, locale }: IProductCardProps) {
     return (
         <div className="flex flex-col gap-3 h-full relative max-w-[358px]">
             <Link
@@ -66,7 +66,7 @@ export default function ProductCard({ product, lang }: IProductCardProps) {
                 <CartButton product={product} type="icon" />
                 <BuyModal
                     product={product}
-                    lang={lang}
+                    locale={locale}
                     className="w-full grow"
                 />
             </div>

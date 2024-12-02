@@ -2,7 +2,7 @@
 
 import OverlapInput from "@/components/ui/OverlapInput";
 import { Form, Formik } from "formik";
-import { useRouter } from "next/navigation";
+import { useRouter } from "@/i18n/routing";
 import { updateProfile } from "@/api/profileApi";
 import { useCookies } from "next-client-cookies";
 import toast from "react-hot-toast";
@@ -13,7 +13,10 @@ import { useText } from "@/context/text.context";
 import useFormValidation from "@/hooks/useFormValidation";
 import { IUpdateProfileProps } from "@/types/props/pages.types";
 
-export default function UpdateProfile({ profile, lang }: IUpdateProfileProps) {
+export default function UpdateProfile({
+    profile,
+    locale,
+}: IUpdateProfileProps) {
     const { refresh } = useRouter();
     const cookies = useCookies();
     const token = cookies.get("token");
@@ -32,7 +35,7 @@ export default function UpdateProfile({ profile, lang }: IUpdateProfileProps) {
             updateProfile({
                 body: { name },
                 token: token,
-                lang,
+                locale,
             }).then(() => {
                 toast.success("Информация профиля изменена!");
                 refresh();

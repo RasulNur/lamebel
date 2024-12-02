@@ -13,13 +13,13 @@ import {
 
 import { fetchGET, fetchMutate } from "./fetch";
 
-export const getAddresses = async ({ token, lang }: IGetAddressesParams) => {
+export const getAddresses = async ({ token, locale }: IGetAddressesParams) => {
     if (token) {
         return await fetchGET({
             url: "addresses",
             tag: "Addresses",
             token: token,
-            lang,
+            locale,
         }).then((data: IAddresses) => data);
     } else {
         return "Unauthorized";
@@ -29,14 +29,14 @@ export const getAddresses = async ({ token, lang }: IGetAddressesParams) => {
 export const getAddress = async ({
     token,
     addressId,
-    lang,
+    locale,
 }: IGetAddressParams) => {
     if (token) {
         return await fetchGET({
             url: `addresses/${addressId}`,
             tag: "Addresses",
             token: token,
-            lang,
+            locale,
         }).then((data: ISingleAddress) => data);
     } else {
         return "Unauthorized";
@@ -46,7 +46,7 @@ export const getAddress = async ({
 export const createAddress = async ({
     token,
     body,
-    lang,
+    locale,
 }: ICreateAddressParams) => {
     return await fetchMutate({
         url: "addresses",
@@ -54,7 +54,7 @@ export const createAddress = async ({
         body,
         tag: "Addresses",
         token: token,
-        lang,
+        locale,
     }).then((data: ISingleAddress) => {
         return data;
     });
@@ -64,7 +64,7 @@ export const updateAddress = async ({
     token,
     body,
     addressId,
-    lang,
+    locale,
 }: IUpdateAddressParams) => {
     return await fetchMutate({
         url: `addresses/${addressId}`,
@@ -72,7 +72,7 @@ export const updateAddress = async ({
         body,
         tag: "Addresses",
         token: token,
-        lang,
+        locale,
     }).then((data: { message: string }) => {
         toast.success(data.message);
     });
@@ -81,14 +81,14 @@ export const updateAddress = async ({
 export const setDefaultAddress = async ({
     token,
     addressId,
-    lang,
+    locale,
 }: ISetDefaultAddressParams) => {
     return await fetchMutate({
         url: `addresses/${addressId}/set-default`,
         method: "POST",
         tag: "Addresses",
         token: token,
-        lang,
+        locale,
     }).then((data: { message: string }) => {
         toast.success(data.message);
     });
@@ -97,14 +97,14 @@ export const setDefaultAddress = async ({
 export const deleteAddress = async ({
     token,
     addressId,
-    lang,
+    locale,
 }: IDeleteAddressParams) => {
     return await fetchMutate({
         url: `addresses/${addressId}`,
         method: "DELETE",
         tag: "Addresses",
         token: token,
-        lang,
+        locale,
     }).then((data: { message: string }) => {
         toast.success(data.message);
     });

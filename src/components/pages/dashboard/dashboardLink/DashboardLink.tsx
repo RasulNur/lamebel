@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 import Icon from "@/components/ui/Icon";
 import { IDashboardLinkProps } from "@/types/props/pages.types";
 

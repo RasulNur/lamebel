@@ -5,14 +5,14 @@ import { getMenu } from "@/api/menusApi";
 import { getCategoriesTree } from "@/api/categoriesApi";
 import { IHeaderProps } from "@/types/props/types";
 
-export default async function Header({ lang }: IHeaderProps) {
-    const settings = await getSettings({ lang });
-    const menu = await getMenu({ menuId: 2, lang });
-    const categories = await getCategoriesTree({ lang });
+export default async function Header({ locale }: IHeaderProps) {
+    const settings = await getSettings({ locale });
+    const menu = await getMenu({ menuId: 2, locale });
+    const categories = await getCategoriesTree({ locale });
     return (
         <header className="fixed w-full top-0 z-[90] header">
             <HeaderTop
-                lang={lang}
+                locale={locale}
                 settings={settings}
                 menu={menu}
                 categories={categories}

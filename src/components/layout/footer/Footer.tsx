@@ -1,10 +1,10 @@
-import Link from "next/link";
 import Image from "next/image";
 import FooterMenus from "./footerMenus/FooterMenus";
 import FooterBottom from "./footerBottom/FooterBottom";
 import { IFooterProps } from "@/types/props/types";
+import { Link } from "@/i18n/routing";
 
-export default async function Footer({ lang }: IFooterProps) {
+export default async function Footer({ locale }: IFooterProps) {
     return (
         <footer className="bg-main-light">
             <div className="container">
@@ -20,7 +20,7 @@ export default async function Footer({ lang }: IFooterProps) {
                         />
                     </Link>
 
-                    <FooterMenus lang={lang} />
+                    <FooterMenus locale={locale} />
                 </div>
 
                 <FooterBottom />

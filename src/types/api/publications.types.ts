@@ -1,4 +1,4 @@
-import { ILinks, ILocalization, IMeta, Lang } from "./api.types";
+import { ILinks, ILocalization, IMeta, Locale } from "./api.types";
 
 export interface IPublications {
     data: IPublicationsPublication[];
@@ -39,9 +39,9 @@ export interface IGetPublicationsParams {
     type: PublicationType;
     page?: number;
     quantity?: number;
-    lang: Lang;
+    locale: Locale;
 }
 export interface IGetPublicationParams {
     id: number;
-    lang: Lang;
+    locale: Locale;
 }

@@ -1,4 +1,4 @@
-import { Lang } from "./api.types";
+import { Locale } from "./api.types";
 
 export interface IBanners {
     data: IBanner[];
@@ -21,5 +21,5 @@ export type BannerType =
 
 export interface IGetBannersParams {
     type: BannerType;
-    lang: Lang;
+    locale: Locale;
 }

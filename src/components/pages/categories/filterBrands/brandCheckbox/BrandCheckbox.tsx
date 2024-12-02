@@ -1,6 +1,7 @@
 import Checkbox from "@/components/ui/formElements/Checkbox";
+import { usePathname, useRouter } from "@/i18n/routing";
 import { IBrandCheckboxProps } from "@/types/props/pages.types";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
 export default function BrandCheckbox({

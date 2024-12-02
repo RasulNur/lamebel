@@ -1,13 +1,13 @@
 import { getBrand, getBrandCategories } from "@/api/brandsApi";
 import { IBrandCategoriesProps } from "@/types/props/pages.types";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 
 export default async function BrandCategories({
     brandId,
-    lang,
+    locale,
 }: IBrandCategoriesProps) {
-    const brandCategoriesTree = await getBrandCategories({ brandId, lang });
-    const brand = await getBrand({ brandId, lang });
+    const brandCategoriesTree = await getBrandCategories({ brandId, locale });
+    const brand = await getBrand({ brandId, locale });
 
     return (
         <div className="flex flex-col gap-1">

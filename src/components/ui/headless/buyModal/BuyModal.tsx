@@ -7,7 +7,11 @@ import BuyModalForm from "./BuyModalForm";
 import classNames from "classnames";
 import { IBuyModalProps } from "@/types/props/ui.types";
 
-export default function BuyModal({ product, lang, className }: IBuyModalProps) {
+export default function BuyModal({
+    product,
+    locale,
+    className,
+}: IBuyModalProps) {
     const [isOpen, setIsOpen] = useState<boolean>(false);
     const { text } = useText();
 
@@ -36,7 +40,7 @@ export default function BuyModal({ product, lang, className }: IBuyModalProps) {
                             : text("Купить сразу")}
                     </button>
                 }
-                content={<BuyModalForm product={product} lang={lang} />}
+                content={<BuyModalForm product={product} locale={locale} />}
             />
         </>
     );

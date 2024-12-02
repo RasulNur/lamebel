@@ -6,7 +6,7 @@ import {
     useState,
 } from "react";
 import toast from "react-hot-toast";
-import { useRouter } from "next/navigation";
+import { useRouter } from "@/i18n/routing";
 import { useCookies } from "next-client-cookies";
 
 import {
@@ -54,7 +54,7 @@ const CartContext = createContext<ICartContextProps>({
     checkout: () => null,
 });
 
-export const CartProvider = ({ children, lang }: ICardProvideProps) => {
+export const CartProvider = ({ children, locale }: ICardProvideProps) => {
     const cartLocal =
         typeof window !== "undefined" && localStorage.getItem("cart");
     const parsedCart = cartLocal ? JSON.parse(cartLocal) : [];
@@ -99,7 +99,7 @@ export const CartProvider = ({ children, lang }: ICardProvideProps) => {
 
     useEffect(() => {
         if (token) {
-            getCart({ token, lang }).then((data) => {
+            getCart({ token, locale }).then((data) => {
                 if (typeof data !== "string") {
                     if (data.quantity === 0 && cart.length > 0) {
                         const products = cart.map((el) => {
@@ -108,7 +108,7 @@ export const CartProvider = ({ children, lang }: ICardProvideProps) => {
                         cartCreate({
                             token,
                             body: { products: products },
-                            lang,
+                            locale,
                         }).then((updatedData) => {
                             setCart([]);
                             typeof updatedData !== "string" &&
@@ -130,7 +130,7 @@ export const CartProvider = ({ children, lang }: ICardProvideProps) => {
                         cartCreate({
                             token,
                             body: { products: products },
-                            lang,
+                            locale,
                         }).then((updatedData) => {
                             setCart([]);
                             typeof updatedData !== "string" &&
@@ -151,7 +151,11 @@ export const CartProvider = ({ children, lang }: ICardProvideProps) => {
         !token && setCart([...cart, { item: product, quantity: quantity }]);
         if (token) {
             setIsLoading(true);
-            cartAdd({ token, body: { product_id: product.id, quantity }, lang })
+            cartAdd({
+                token,
+                body: { product_id: product.id, quantity },
+                locale,
+            })
                 .then((data) => typeof data !== "string" && setApiCart(data))
                 .finally(() => setIsLoading(false));
         }
@@ -161,7 +165,7 @@ export const CartProvider = ({ children, lang }: ICardProvideProps) => {
         !token && setCart(cart.filter((el) => productId !== el.item.id));
         if (token) {
             setIsLoading(true);
-            cartRemove({ token, body: { product_id: productId }, lang })
+            cartRemove({ token, body: { product_id: productId }, locale })
                 .then((data) => typeof data !== "string" && setApiCart(data))
                 .finally(() => setIsLoading(false));
         }
@@ -194,7 +198,7 @@ export const CartProvider = ({ children, lang }: ICardProvideProps) => {
             cartUpdate({
                 token,
                 body: { product_id: product.id, quantity },
-                lang,
+                locale,
             })
                 .then((data) => typeof data !== "string" && setApiCart(data))
                 .finally(() => setIsLoading({ minus: false, plus: false }));
@@ -246,7 +250,7 @@ export const CartProvider = ({ children, lang }: ICardProvideProps) => {
             replace("/");
         } else if (token) {
             setIsLoading(true);
-            cartClear({ token, lang })
+            cartClear({ token, locale })
                 .then((data) => {
                     setApiCart({
                         installment: [],
@@ -284,9 +288,9 @@ export const CartProvider = ({ children, lang }: ICardProvideProps) => {
                     shipping_method_id,
                     message,
                 },
-                lang,
+                locale,
             }).then(() => {
-                getCart({ token, lang }).then((data) => {
+                getCart({ token, locale }).then((data) => {
                     if (typeof data !== "string") {
                         setApiCart(data);
                     }

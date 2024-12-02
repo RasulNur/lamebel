@@ -2,7 +2,7 @@ import { IProduct } from "../api/products.types";
 import { SetState } from "../types";
 import { IWishlist } from "../api/wishlist.types";
 import { ReactNode } from "react";
-import { Lang } from "../api/api.types";
+import { Locale } from "../api/api.types";
 
 export interface IWishlistContextProps {
     wishlist: IProduct[];
@@ -36,5 +36,5 @@ export interface IWishlistRemove {
 
 export interface IWishlistProviderParams {
     children: ReactNode;
-    lang: Lang;
+    locale: Locale;
 }

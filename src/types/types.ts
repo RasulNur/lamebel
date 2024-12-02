@@ -1,6 +1,6 @@
 import { FormikErrors, FormikState } from "formik";
 import { Dispatch, SetStateAction } from "react";
-import { IMeta, Lang } from "./api/api.types";
+import { IMeta, Locale } from "./api/api.types";
 import { IProduct } from "./api/products.types";
 
 export type SpritesName =
@@ -68,7 +68,7 @@ export interface IUsePaginationParams {
 
 export interface ILangOption {
     id: number;
-    lang: Lang;
+    locale: Locale;
     label: string;
 }
 

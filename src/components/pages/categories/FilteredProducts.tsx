@@ -10,22 +10,22 @@ export default async function FilteredProducts({
     filterName,
     swiperName,
     page,
-    lang,
+    locale,
 }: IFilteredProductsProps) {
     const products = await getProducts({
         [filterName]: 1,
         quantity: 20,
         page: Number(page),
-        lang,
+        locale,
     });
 
     const swiperProducts = await getProducts({
         page: 1,
         quantity: 10,
         [swiperName]: 1,
-        lang,
+        locale,
     });
-    const { text } = await getTexts({ lang });
+    const { text } = await getTexts({ locale });
 
     return (
         <>
@@ -45,7 +45,7 @@ export default async function FilteredProducts({
                                 {products.data.map((product) => {
                                     return (
                                         <ProductCard
-                                            lang={lang}
+                                            locale={locale}
                                             key={product.id}
                                             product={product}
                                         />
@@ -62,7 +62,7 @@ export default async function FilteredProducts({
 
             <SectionWrapper className="last-section-margin">
                 <ProductsSwiper
-                    lang={lang}
+                    locale={locale}
                     products={swiperProducts.data}
                     subtitle="ШИРОКИЙ АССОРТИМЕНТ"
                     title="Новинки"

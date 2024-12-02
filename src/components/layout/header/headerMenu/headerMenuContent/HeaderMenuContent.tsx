@@ -1,6 +1,6 @@
 import Icon from "@/components/ui/Icon";
 import SearchForm from "../../../../ui/SearchForm";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 import { numberWithSpaces } from "@/utils/numberWithSpaces";
 import { IHeaderMenuContentProps } from "@/types/props/types";
 

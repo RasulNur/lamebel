@@ -9,7 +9,7 @@ import { IAddressModalProps } from "@/types/props/ui.types";
 
 export default function AddressModal<Form>({
     type,
-    lang,
+    locale,
     btnClassname = "main-btn",
     currentAddress,
     setFieldValue,
@@ -34,13 +34,13 @@ export default function AddressModal<Form>({
                 content={
                     type === "create" ? (
                         <CreateAddress
-                            lang={lang}
+                            locale={locale}
                             setIsOpen={setIsOpen}
                             setFieldValue={setFieldValue}
                         />
                     ) : (
                         <UpdateAddress
-                            lang={lang}
+                            locale={locale}
                             setIsOpen={setIsOpen}
                             currentAddress={currentAddress}
                         />

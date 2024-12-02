@@ -12,14 +12,14 @@ export const getOrders = async ({
     token,
     page = 1,
     quantity = 20,
-    lang,
+    locale,
 }: IGetOrdersParams) => {
     if (token) {
         return await fetchGET({
             url: `orders?page=${page}&quantity=${quantity}`,
             tag: "Orders",
             token,
-            lang,
+            locale,
         }).then((data: IOrders) => data);
     } else {
         return "Unauthorized";
@@ -29,7 +29,7 @@ export const getOrders = async ({
 export const createOrder = async ({
     token,
     body,
-    lang,
+    locale,
 }: ICreateOrderParams) => {
     return await fetchMutate({
         url: "orders",
@@ -37,19 +37,19 @@ export const createOrder = async ({
         body,
         tag: "Orders",
         token,
-        lang,
+        locale,
     }).then((data: ICreateOrderRes) => {
         return data;
     });
 };
 
-export const getOrder = async ({ token, orderId, lang }: IGetOrderParams) => {
+export const getOrder = async ({ token, orderId, locale }: IGetOrderParams) => {
     if (token) {
         return await fetchGET({
             url: `orders/${orderId}`,
             tag: "Orders",
             token: token,
-            lang,
+            locale,
         }).then((data: ISingleOrder) => data);
     } else {
         return "Unauthorized";

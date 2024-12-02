@@ -1,5 +1,5 @@
 import { IFooterListProps } from "@/types/props/types";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 
 export default function FooterList({ menu }: IFooterListProps) {
     return (

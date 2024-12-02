@@ -2,7 +2,7 @@
 
 import HideFilter from "@/components/ui/HideFilter";
 import useLimit from "@/hooks/useLimit";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 import { useState } from "react";
 import { useText } from "@/context/text.context";
 import { IFilterCategoriesProps } from "@/types/props/pages.types";

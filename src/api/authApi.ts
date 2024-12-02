@@ -13,14 +13,14 @@ import {
     ISendOtpParams,
 } from "@/types/api/auth.types";
 
-export const register = async ({ body, lang }: IRegisterParams) => {
-    const { text } = await getTexts({ lang });
+export const register = async ({ body, locale }: IRegisterParams) => {
+    const { text } = await getTexts({ locale });
     return await fetchMutate({
         url: "register",
         body,
         method: "POST",
         tag: "Auth",
-        lang,
+        locale,
     }).then((data: { token: string }) => {
         setCookie("token", data.token, {
             maxAge: 30 * 24 * 60 * 60,
@@ -29,13 +29,13 @@ export const register = async ({ body, lang }: IRegisterParams) => {
     });
 };
 
-export const login = async ({ body, lang }: ILogingParams) => {
+export const login = async ({ body, locale }: ILogingParams) => {
     return await fetchMutate({
         url: "login",
         body,
         method: "POST",
         tag: "Auth",
-        lang,
+        locale,
     }).then((data: { message?: string; token?: string }) => {
         if (data.message) {
             toast.error(data.message);
@@ -50,38 +50,38 @@ export const login = async ({ body, lang }: ILogingParams) => {
     });
 };
 
-export const loginCheck = async ({ body, lang }: ILoginCheckParams) => {
+export const loginCheck = async ({ body, locale }: ILoginCheckParams) => {
     return await fetchMutate({
         url: "login/check",
         body,
         method: "POST",
         tag: "Auth",
-        lang,
+        locale,
     }).then((data: { user_exists: boolean }) => {
         return data;
     });
 };
 
-export const sendOtp = async ({ body, lang }: ISendOtpParams) => {
+export const sendOtp = async ({ body, locale }: ISendOtpParams) => {
     return await fetchMutate({
         url: "otp",
         body,
         method: "POST",
         tag: "Auth",
-        lang,
+        locale,
     }).then((data: { message: string }) => {
         console.log({ sendOtp: data });
         toast.success(data.message);
     });
 };
 
-export const otpCheck = async ({ body, lang }: IOtpCheckParams) => {
+export const otpCheck = async ({ body, locale }: IOtpCheckParams) => {
     return await fetchMutate({
         url: "otp/check",
         body,
         method: "POST",
         tag: "Auth",
-        lang,
+        locale,
     }).then(
         (data: {
             message?: string;
@@ -96,13 +96,13 @@ export const otpCheck = async ({ body, lang }: IOtpCheckParams) => {
     );
 };
 
-export const logout = async ({ token, lang }: ILogoutParams) => {
+export const logout = async ({ token, locale }: ILogoutParams) => {
     return await fetchMutate({
         url: "logout",
         method: "POST",
         tag: "Auth",
         token: token,
-        lang,
+        locale,
     }).then((data: { message: string }) => {
         data && data.message && toast.success(data.message);
         deleteCookie("token");
@@ -110,13 +110,13 @@ export const logout = async ({ token, lang }: ILogoutParams) => {
     });
 };
 
-export const resetPassword = async ({ body, lang }: IResetPasswordParams) => {
+export const resetPassword = async ({ body, locale }: IResetPasswordParams) => {
     return await fetchMutate({
         url: "reset-password",
         body,
         method: "POST",
         tag: "Auth",
-        lang,
+        locale,
     }).then((data: { message: string }) => {
         toast.success(data.message);
     });

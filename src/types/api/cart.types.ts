@@ -1,4 +1,4 @@
-import { Lang } from "./api.types";
+import { Locale } from "./api.types";
 import { IProduct } from "./products.types";
 
 export interface ICart {
@@ -36,21 +36,21 @@ export type CartProduct = IProduct;
 export interface ICartAddParams {
     token: string;
     body: { product_id: number; quantity: number };
-    lang: Lang;
+    locale: Locale;
 }
 export interface ICartUpdateParams {
     token: string;
     body: { product_id: number; quantity: number };
-    lang: Lang;
+    locale: Locale;
 }
 export interface ICartRemoveParams {
     token: string;
     body: { product_id: number };
-    lang: Lang;
+    locale: Locale;
 }
 export interface ICartCreateParams {
     token: string;
-    lang: Lang;
+    locale: Locale;
     body: {
         products: {
             id: number;
@@ -61,10 +61,10 @@ export interface ICartCreateParams {
 
 export interface IGetCardParams {
     token?: string;
-    lang: Lang;
+    locale: Locale;
 }
 
 export interface ICartClearParams {
     token: string;
-    lang: Lang;
+    locale: Locale;
 }

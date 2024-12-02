@@ -1,4 +1,4 @@
-import { Lang } from "./api.types";
+import { Locale } from "./api.types";
 import { IProduct } from "./products.types";
 
 export interface IWishlist {
@@ -14,17 +14,17 @@ export interface IWishlist {
 export interface IWishlistAddParams {
     token: string;
     body: { product_id: number };
-    lang: Lang;
+    locale: Locale;
 }
 
 export interface IWishlistRemoveParams {
     token: string;
     body: { product_id: number };
-    lang: Lang;
+    locale: Locale;
 }
 export interface IWishlistCreateParams {
     token: string;
-    lang: Lang;
+    locale: Locale;
     body: {
         products: {
             id: number;
@@ -33,9 +33,9 @@ export interface IWishlistCreateParams {
 }
 export interface IGetWishlistParams {
     token?: string;
-    lang: Lang;
+    locale: Locale;
 }
 export interface IWishlistClearParams {
     token: string;
-    lang: Lang;
+    locale: Locale;
 }

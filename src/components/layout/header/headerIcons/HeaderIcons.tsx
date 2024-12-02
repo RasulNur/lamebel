@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 import Icon from "../../../ui/Icon";
 import AuthMenu from "../authMenu/AuthMenu";
 import { useWishlist } from "@/context/wishlist.context";
@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 import { useCookies } from "next-client-cookies";
 import { IHeaderIconsProps } from "@/types/props/types";
 
-export default function HeaderIcons({ lang }: IHeaderIconsProps) {
+export default function HeaderIcons({ locale }: IHeaderIconsProps) {
     const cookies = useCookies();
     const token = cookies.get("token");
     let svgClassnames =
@@ -48,7 +48,7 @@ export default function HeaderIcons({ lang }: IHeaderIconsProps) {
                 </span>
             </Link>
 
-            <AuthMenu lang={lang} />
+            <AuthMenu locale={locale} />
         </div>
     );
 }

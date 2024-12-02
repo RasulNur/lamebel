@@ -12,30 +12,30 @@ import { fetchGET } from "./fetch";
 export const getBrands = async ({
     page = 1,
     quantity = 20,
-    lang,
+    locale,
 }: IGetBrandsParams) => {
     return await fetchGET({
         url: `brands/?page=${page}&quantity=${quantity}`,
         tag: "Brands",
-        lang,
+        locale,
     }).then((data: IBrands) => data);
 };
 
-export const getBrand = async ({ brandId, lang }: IGetBrandParams) => {
+export const getBrand = async ({ brandId, locale }: IGetBrandParams) => {
     return await fetchGET({
         url: `brands/${brandId}`,
         tag: "Brands",
-        lang,
+        locale,
     }).then((data: ISingleBrand) => data);
 };
 
 export const getBrandCategories = async ({
-    lang,
+    locale,
     brandId,
 }: IGetBrandCategoriesParams) => {
     return await fetchGET({
         url: `brands/${brandId}/categories/tree`,
         tag: "Brands",
-        lang,
+        locale,
     }).then((data: IBrandCategories) => data);
 };
