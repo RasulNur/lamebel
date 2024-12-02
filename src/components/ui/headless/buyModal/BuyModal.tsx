@@ -36,7 +36,7 @@ export default function BuyModal({
                             className,
                         )}>
                         {product.in_stock === 0
-                            ? text("Нет в наличии")
+                            ? text("нет в наличии")
                             : text("Купить сразу")}
                     </button>
                 }
