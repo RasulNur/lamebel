@@ -1,4 +1,4 @@
-import { ILinks, ILocalization, IMeta, Lang } from "./api.types";
+import { ILinks, ILocalization, IMeta, Locale } from "./api.types";
 
 export interface ICategoriesTree {
     data: ICategoryTree[];
@@ -102,25 +102,25 @@ export interface IPrices {
 
 export interface IGetCategoryParams {
     categoryId: number;
-    lang: Lang;
+    locale: Locale;
 }
 export interface IGetParentCategoryParams {
     categoryId: number;
-    lang: Lang;
+    locale: Locale;
 }
 export interface IGetSubCategoriesParams {
     categoryId: number;
-    lang: Lang;
+    locale: Locale;
 }
 export interface IGetCategoryBrandsParams {
     categoryId: number;
-    lang: Lang;
+    locale: Locale;
 }
 export interface IGetCategoryAttributesParams {
     categoryId: number;
-    lang: Lang;
+    locale: Locale;
 }
 export interface IGetCategoryPricesParams {
     categoryId: number;
-    lang: Lang;
+    locale: Locale;
 }

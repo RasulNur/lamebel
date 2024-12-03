@@ -6,12 +6,14 @@ import { TextProvider } from "@/context/text.context";
 import { WishlistProvider } from "@/context/wishlist.context";
 import { IContextProvidersProps } from "@/types/props/types";
 
-export function ContextProviders({ children, lang }: IContextProvidersProps) {
+export function ContextProviders({ children, locale }: IContextProvidersProps) {
     return (
-        <TextProvider lang={lang}>
+        <TextProvider locale={locale}>
             <ViewedProvider>
-                <CartProvider lang={lang}>
-                    <WishlistProvider lang={lang}>{children}</WishlistProvider>
+                <CartProvider locale={locale}>
+                    <WishlistProvider locale={locale}>
+                        {children}
+                    </WishlistProvider>
                 </CartProvider>
             </ViewedProvider>
         </TextProvider>

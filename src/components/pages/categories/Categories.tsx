@@ -13,13 +13,13 @@ import { ICategoriesProps } from "@/types/props/pages.types";
 export default async function Categories({
     products,
     categoryId,
-    lang,
+    locale,
 }: ICategoriesProps) {
-    const subCategories = await getSubCategories({ categoryId, lang });
-    const categoryBrands = await getCategoryBrands({ categoryId, lang });
-    const price = await getCategoryPrices({ categoryId, lang });
-    const attributes = await getCategoryAttributes({ categoryId, lang });
-    const parentCategory = await getParentCategory({ categoryId, lang });
+    const subCategories = await getSubCategories({ categoryId, locale });
+    const categoryBrands = await getCategoryBrands({ categoryId, locale });
+    const price = await getCategoryPrices({ categoryId, locale });
+    const attributes = await getCategoryAttributes({ categoryId, locale });
+    const parentCategory = await getParentCategory({ categoryId, locale });
 
     return (
         <div className="products-grid-wrapper">
@@ -46,7 +46,7 @@ export default async function Categories({
                     </div>
                 </div>
 
-                <ProductsGrid products={products} lang={lang} />
+                <ProductsGrid products={products} locale={locale} />
             </div>
         </div>
     );

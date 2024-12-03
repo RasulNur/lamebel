@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import { Lang } from "../api/api.types";
+import { Locale } from "../api/api.types";
 import { IProduct } from "../api/products.types";
 
 export interface IViewedContextProps {

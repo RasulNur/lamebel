@@ -6,7 +6,7 @@ import { IRegisterForm } from "@/types/form.types";
 import { ISubmitFormFuncParams } from "@/types/types";
 import { formatPhone } from "@/utils/formatPhone";
 import { Formik } from "formik";
-import { useRouter } from "next/navigation";
+import { useRouter } from "@/i18n/routing";
 import { useState } from "react";
 import toast from "react-hot-toast";
 import RegisterForm from "./registerForm/RegisterForm";
@@ -20,7 +20,7 @@ const initialValues: IRegisterForm = {
 
 export default function Register({
     setAuthTab,
-    lang,
+    locale,
     closeModal,
 }: IRegisterProps) {
     const { registerValidationSchema } = useFormValidation();
@@ -36,7 +36,7 @@ export default function Register({
         const formattedPhone = formatPhone(phone_number);
 
         try {
-            loginCheck({ body: { phone_number: formattedPhone }, lang }).then(
+            loginCheck({ body: { phone_number: formattedPhone }, locale }).then(
                 (res) => {
                     if (res.user_exists) {
                         resetForm();
@@ -53,7 +53,7 @@ export default function Register({
                             phone_number: formattedPhone,
                             target: "registration",
                         },
-                        lang,
+                        locale,
                     }).then(() => {
                         setIsOtpModalOpen(true);
                         setOtpData(values);
@@ -70,7 +70,7 @@ export default function Register({
             try {
                 const { name, password, phone_number } = otpData;
                 register({
-                    lang,
+                    locale,
                     body: {
                         name,
                         otp: Number(otp),
@@ -105,7 +105,7 @@ export default function Register({
                                 setAuthTab={setAuthTab}
                             />
                             <OtpModal<IRegisterForm>
-                                lang={lang}
+                                locale={locale}
                                 setIsOpen={setIsOtpModalOpen}
                                 isOpen={isOtpModalOpen}
                                 formPhone={values.phone_number}

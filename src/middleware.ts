@@ -1,11 +1,11 @@
-import { i18nRouter } from "next-i18n-router";
-import i18nConfig from "../i18nConfig";
 import {
     NextFetchEvent,
     NextMiddleware,
     NextRequest,
     NextResponse,
 } from "next/server";
+import createMiddleware from "next-intl/middleware";
+import { routing } from "./i18n/routing";
 
 function withRedirectsMiddleware(middleware: NextMiddleware) {
     return async (req: NextRequest, e: NextFetchEvent) => {
@@ -43,11 +43,12 @@ function withRedirectsMiddleware(middleware: NextMiddleware) {
     };
 }
 
-function internalizationMiddleware(req: NextRequest) {
-    return i18nRouter(req, i18nConfig);
-}
+// function internalizationMiddleware(req: NextRequest) {
+//     return i18nRouter(req, i18nConfig);
+// }
 
-export default withRedirectsMiddleware(internalizationMiddleware);
+// export default withRedirectsMiddleware(internalizationMiddleware);
+export default withRedirectsMiddleware(createMiddleware(routing));
 
 export const config = {
     matcher: "/((?!api|static|.*\\..*|_next).*)",

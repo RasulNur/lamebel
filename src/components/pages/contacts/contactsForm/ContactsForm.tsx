@@ -17,7 +17,7 @@ const initialValues: IContactsForm = {
     message: "",
 };
 
-export default function ContactsForm({ lang }: IContactsFormProps) {
+export default function ContactsForm({ locale }: IContactsFormProps) {
     const { contactsValidationSchema } = useFormValidation();
     const { text } = useText();
 
@@ -29,7 +29,7 @@ export default function ContactsForm({ lang }: IContactsFormProps) {
         try {
             const formattedPhone = formatPhone(phone_number);
             sendFeedback({
-                lang,
+                locale,
                 body: { message, name, phone: formattedPhone },
             }).then(() => {
                 resetForm();

@@ -6,60 +6,28 @@ import {
     ListboxOptions,
     Listbox,
 } from "@headlessui/react";
-import { useCookies } from "next-client-cookies";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { Fragment, useEffect, useState } from "react";
-import i18nConfig from "../../../../../i18nConfig";
+import { Fragment, useState } from "react";
 import { ILangOption } from "@/types/types";
+import { Link, usePathname } from "@/i18n/routing";
+import { useLocaleTS } from "@/hooks/useLocaleTS";
 
 const langs: ILangOption[] = [
-    { id: 0, lang: "uz", label: "UZ" },
-    { id: 1, lang: "ru", label: "РУ" },
-    { id: 2, lang: "en", label: "EN" },
+    { id: 0, locale: "uz", label: "UZ" },
+    { id: 1, locale: "ru", label: "РУ" },
+    { id: 2, locale: "en", label: "EN" },
 ];
 
 export default function LangDropdown() {
-    const COOKIE_NAME = "NEXT_LOCALE";
-    const { refresh, replace } = useRouter();
-
-    const cookies = useCookies();
-    const locale = cookies.get(COOKIE_NAME);
-    const [selectedLang, setSelectedLang] = useState<ILangOption>(langs[0]);
-    const searchParams = useSearchParams();
     const pathname = usePathname();
-    const params = new URLSearchParams(searchParams);
-
-    useEffect(() => {
-        const finded = langs.find((el) => el.lang === locale);
-        if (finded) {
-            setSelectedLang(finded);
-        }
-    }, []);
-
-    const handleChange = (value: ILangOption) => {
-        setSelectedLang(value);
-        cookies.set(COOKIE_NAME, value.lang);
-        let newPathname = `${pathname}`;
-        if (locale === i18nConfig.defaultLocale && !i18nConfig.prefixDefault) {
-            newPathname = `/${value.lang}${pathname}`;
-        } else {
-            newPathname = `${pathname.replace(`/${locale}`, `/${value.lang}`)}`;
-        }
-
-        if (params.size > 0) {
-            replace(`${newPathname}?${params.toString()}`, {
-                scroll: false,
-            });
-        } else {
-            replace(`${newPathname}`, { scroll: false });
-        }
-        refresh();
-    };
+    const locale = useLocaleTS();
+    const [selectedLang, setSelectedLang] = useState<ILangOption>(
+        langs.find((item) => item.locale == locale) ?? langs[0],
+    );
 
     return (
         <Listbox
             value={selectedLang}
-            onChange={(value) => handleChange(value)}
+            onChange={(value) => setSelectedLang(value)}
             as="div"
             className="relative z-[91]">
             <ListboxButton
@@ -72,11 +40,13 @@ export default function LangDropdown() {
                 as="div"
                 transition
                 className="absolute bg-white shadow-[0_0_5px_rgba(0,0,0,0.5)] rounded-md top-[calc(100%+10px)] left-1/2 -translate-x-1/2 origin-top transition-300 data-[closed]:translate-y-[10px] data-[closed]:opacity-0 overflow-hidden">
-                {langs.map((lang) => (
-                    <ListboxOption key={lang.id} value={lang} as={Fragment}>
+                {langs.map((locale) => (
+                    <ListboxOption key={locale.id} value={locale} as={Fragment}>
                         {({ focus, selected }) => (
-                            <button
-                                className={`py-2 px-4 ${
+                            <Link
+                                href={pathname}
+                                locale={locale.locale}
+                                className={`flex py-2 px-4 ${
                                     focus ? "text-main" : ""
                                 } w-full ${
                                     selected
@@ -84,8 +54,8 @@ export default function LangDropdown() {
                                         : ""
                                 }`}
                                 type="button">
-                                {lang.label}
-                            </button>
+                                {locale.label}
+                            </Link>
                         )}
                     </ListboxOption>
                 ))}

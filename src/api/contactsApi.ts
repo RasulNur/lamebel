@@ -4,13 +4,13 @@ import { ISendFeedbackParams } from "@/types/api/contacts.types";
 
 import { fetchMutate } from "./fetch";
 
-export const sendFeedback = async ({ body, lang }: ISendFeedbackParams) => {
+export const sendFeedback = async ({ body, locale }: ISendFeedbackParams) => {
     return await fetchMutate({
         url: "feedback",
         body,
         method: "POST",
         tag: "Feedback",
-        lang,
+        locale,
     }).then((data: { message: string }) => {
         toast.success(data.message);
     });

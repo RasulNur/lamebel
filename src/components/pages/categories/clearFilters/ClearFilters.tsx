@@ -1,7 +1,8 @@
 "use client";
 
+import { usePathname, useRouter } from "@/i18n/routing";
 import { IClearFiltersProps } from "@/types/props/pages.types";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import { useEffect } from "react";
 
 export default function ClearFilters({

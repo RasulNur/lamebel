@@ -5,7 +5,7 @@ import Pagination from "./pagination/Pagination";
 import Empty from "./Empty";
 import { IProductsGridProps } from "@/types/props/ui.types";
 
-export default function ProductsGrid({ products, lang }: IProductsGridProps) {
+export default function ProductsGrid({ products, locale }: IProductsGridProps) {
     return (
         <div className="flex flex-col gap-7">
             {(!products.data ||
@@ -14,7 +14,7 @@ export default function ProductsGrid({ products, lang }: IProductsGridProps) {
                 {products.data.map((product) => {
                     return (
                         <ProductCard
-                            lang={lang}
+                            locale={locale}
                             product={product}
                             key={product.id}
                         />

@@ -2,7 +2,7 @@
 
 import { useText } from "@/context/text.context";
 import { ICheckoutProductCardProps } from "@/types/props/ui.types";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 
 export default function CheckoutProductCard({
     product,

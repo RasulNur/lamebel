@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 import { numberWithSpaces } from "@/utils/numberWithSpaces";
 import HeaderMenu from "../headerMenu/HeaderMenu";
 import HeaderList from "../headerList/HeaderList";
@@ -12,7 +12,7 @@ import HeaderSearch from "../headerSearch/HeaderSearch";
 import { IHeaderTopProps } from "@/types/props/types";
 
 export default function HeaderTop({
-    lang,
+    locale,
     settings,
     menu,
     categories,
@@ -61,7 +61,7 @@ export default function HeaderTop({
 
                     <LangDropdown />
 
-                    <HeaderIcons lang={lang} />
+                    <HeaderIcons locale={locale} />
 
                     <div className="2xl:hidden">
                         <HeaderMenu

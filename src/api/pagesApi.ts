@@ -1,20 +1,20 @@
 import { IGetPageParams, IPages, ISinglePage } from "@/types/api/pages.types";
 
 import { fetchGET } from "./fetch";
-import { Lang } from "@/types/api/api.types";
+import { Locale } from "@/types/api/api.types";
 
-export const getPages = async ({ lang }: { lang: Lang }) => {
+export const getPages = async ({ locale }: { locale: Locale }) => {
     return await fetchGET({
         url: "pages",
         tag: "Pages",
-        lang,
+        locale,
     }).then((data: IPages) => data);
 };
 
-export const getPage = async ({ lang, pageId }: IGetPageParams) => {
+export const getPage = async ({ locale, pageId }: IGetPageParams) => {
     return await fetchGET({
         url: `pages/${pageId}`,
         tag: "Pages",
-        lang,
+        locale,
     }).then((data: ISinglePage) => data);
 };

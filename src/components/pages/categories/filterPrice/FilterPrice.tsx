@@ -4,8 +4,9 @@ import HideFilter from "@/components/ui/HideFilter";
 import { useEffect, useState } from "react";
 import Slider from "rc-slider";
 import "rc-slider/assets/index.css";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import { IFilterPriceProps } from "@/types/props/pages.types";
+import { usePathname, useRouter } from "@/i18n/routing";
 
 export default function FilterPrice({
     price,

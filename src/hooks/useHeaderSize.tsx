@@ -11,6 +11,7 @@ export default function useHeaderSize() {
     useEffect(() => {
         const header = document.querySelector("header.header");
         if (header) {
+            handleScroll(header.clientHeight);
             window.addEventListener("scroll", () =>
                 handleScroll(header.clientHeight),
             );

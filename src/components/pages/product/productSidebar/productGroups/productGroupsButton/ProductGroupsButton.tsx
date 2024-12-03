@@ -2,7 +2,7 @@
 
 import { IProductGroupsButtonProps } from "@/types/props/pages.types";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
+import { useRouter } from "@/i18n/routing";
 import { useEffect, useState } from "react";
 
 export default function ProductGroupsButton({

@@ -19,7 +19,7 @@ export default function HomeSectionsWrapper({
     bestsellerProducts,
     newProducts,
     news,
-    lang,
+    locale,
 }: IHomeSectionWrapperProps) {
     return (
         <>
@@ -31,7 +31,7 @@ export default function HomeSectionsWrapper({
 
             <SectionWrapper>
                 <ProductsSwiper
-                    lang={lang}
+                    locale={locale}
                     products={newProducts.data}
                     subtitle="ШИРОКИЙ АССОРТИМЕНТ"
                     title="Новинки"
@@ -44,7 +44,7 @@ export default function HomeSectionsWrapper({
 
             <SectionWrapper className="bg-main-light section-padding">
                 <ProductsSwiper
-                    lang={lang}
+                    locale={locale}
                     products={bestsellerProducts.data}
                     subtitle="ШИРОКИЙ АССОРТИМЕНТ"
                     title="Хиты интернет продаж"
@@ -56,7 +56,7 @@ export default function HomeSectionsWrapper({
             </SectionWrapper>
 
             <SectionWrapper>
-                <HomeAbout lang={lang} />
+                <HomeAbout locale={locale} />
             </SectionWrapper>
 
             <SectionWrapper>
@@ -68,7 +68,7 @@ export default function HomeSectionsWrapper({
             </SectionWrapper>
 
             <SectionWrapper className="bg-[url(/images/contacts-bg.png)] bg-center bg-cover bg-no-repeat section-padding">
-                <ContactsSection lang={lang} />
+                <ContactsSection locale={locale} />
             </SectionWrapper>
 
             <SectionWrapper>

@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 import Quantity from "../formElements/Quantity";
 import WishlistButton from "../buttons/WishlistButton";
 import RemoveFromCart from "../../pages/cart/removeFromCart/RemoveFromCart";

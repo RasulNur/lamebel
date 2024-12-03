@@ -1,4 +1,4 @@
-import { Lang } from "./api.types";
+import { Locale } from "./api.types";
 
 export interface IContactsBody {
     name: string;
@@ -9,5 +9,5 @@ export interface IContactsBody {
 }
 export interface ISendFeedbackParams {
     body: IContactsBody;
-    lang: Lang;
+    locale: Locale;
 }

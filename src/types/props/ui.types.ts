@@ -5,7 +5,7 @@ import {
     SetState,
     SpritesName,
 } from "../types";
-import { IMeta, Lang } from "../api/api.types";
+import { IMeta, Locale } from "../api/api.types";
 import { IProduct, IProducts } from "../api/products.types";
 import { IAddress } from "../api/address.types";
 import { FormikErrors, FormikState } from "formik";
@@ -15,6 +15,7 @@ import { ISettings } from "../api/settings.types";
 import { IPublicationsPublication } from "../api/publications.types";
 import { IReview } from "../api/reviews.types";
 import { OtpTarget } from "../api/auth.types";
+import { SingleBrand } from "../api/brand.types";
 
 export interface IIconProps
     extends Omit<SVGProps<SVGSVGElement>, "name" | "type"> {
@@ -78,7 +79,7 @@ export interface IOtpModalProps<T> {
     formPhone: string;
     fulfillAfterOtp: FulfillAfterOtpType;
     setIsOpen: SetState<boolean>;
-    lang: Lang;
+    locale: Locale;
     otpTarget: OtpTarget;
     resetForm: (nextState?: Partial<FormikState<T>> | undefined) => void;
 }
@@ -87,7 +88,7 @@ export interface IOtpFormProps {
     otp: string;
     setOtp: SetState<string>;
     formPhone: string;
-    lang: Lang;
+    locale: Locale;
     otpTarget: OtpTarget;
 }
 export interface IWishlistButtonProps {
@@ -112,7 +113,7 @@ export interface IRadioInputProps {
 }
 export interface IAddressCardProps {
     address: IAddress;
-    lang: Lang;
+    locale: Locale;
 }
 export interface IRatingProps {
     strokeColor?: string;
@@ -152,11 +153,11 @@ export interface ISectionWrapperProps {
 }
 export interface IProductsGridProps {
     products: IProducts;
-    lang: Lang;
+    locale: Locale;
 }
 export interface IProductCardProps {
     product: IProduct;
-    lang: Lang;
+    locale: Locale;
 }
 export interface IProductDiscountProps {
     product: IProduct;
@@ -169,7 +170,7 @@ export interface IProductsSwiperProps {
     title: string;
     subtitle: string;
     products: IProduct[];
-    lang: Lang;
+    locale: Locale;
 }
 export interface ISectionHeaderProps {
     title: string;
@@ -184,7 +185,7 @@ export interface ICheckoutProductCardProps {
 }
 export interface IAddressModalProps<Form> {
     type: "create" | "update";
-    lang: Lang;
+    locale: Locale;
     btnClassname?: string;
     currentAddress?: IAddress;
     setFieldValue?: (
@@ -209,7 +210,7 @@ export interface IStaticMapProps {
     iframe: string;
 }
 export interface ILogoutButtonProps {
-    lang: Lang;
+    locale: Locale;
 }
 export interface INewsCardProps {
     singleNews: IPublicationsPublication;
@@ -227,18 +228,18 @@ export interface ICategoriesSwiperProps {
     categories: ICategoriesTree;
 }
 export interface IContactsSectionProps {
-    lang: Lang;
+    locale: Locale;
 }
 export interface INotFoundTextProps {
-    lang: Lang;
+    locale: Locale;
 }
 export interface IBuyModalFormProps {
     product: IProduct;
-    lang: Lang;
+    locale: Locale;
 }
 export interface IBuyModalProps {
     product: IProduct;
-    lang: Lang;
+    locale: Locale;
     className?: string;
 }
 
@@ -250,5 +251,8 @@ export interface ISearchFormProps {
 }
 export interface IViewedSwiperProps {
     productId: number;
-    lang: Lang;
+    locale: Locale;
+}
+export interface IBrandCardProps {
+    brand: SingleBrand;
 }

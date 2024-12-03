@@ -1,5 +1,6 @@
+import { usePathname, useRouter } from "@/i18n/routing";
 import { IUsePaginationParams } from "@/types/types";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
 export default function usePagination({ meta }: IUsePaginationParams) {

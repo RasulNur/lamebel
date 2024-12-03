@@ -19,7 +19,7 @@ export default function ProductTabs({
     setTabIndex,
     productAttributes,
     product,
-    lang,
+    locale,
     reviews,
 }: IProductTabsProps) {
     return (
@@ -62,7 +62,7 @@ export default function ProductTabs({
                 <TabPanel>
                     <ProductReviews
                         product={product}
-                        lang={lang}
+                        locale={locale}
                         reviews={reviews}
                     />
                 </TabPanel>

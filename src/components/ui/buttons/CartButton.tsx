@@ -54,7 +54,7 @@ export default function CartButton({
                     />
                 )
             ) : product.in_stock === 0 ? (
-                text("Нет в наличии")
+                text("нет в наличии")
             ) : (
                 <>
                     {isExist ? (
@@ -66,7 +66,7 @@ export default function CartButton({
                             {text("В корзине")}
                         </>
                     ) : (
-                        text("В корзину")
+                        text("в корзину")
                     )}
                 </>
             )}

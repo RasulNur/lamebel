@@ -4,19 +4,19 @@ import {
 } from "@/types/api/checkoutMethods.types";
 
 import { fetchGET } from "./fetch";
-import { Lang } from "@/types/api/api.types";
+import { Locale } from "@/types/api/api.types";
 
-export const getShippingMethods = async ({ lang }: { lang: Lang }) => {
+export const getShippingMethods = async ({ locale }: { locale: Locale }) => {
     return await fetchGET({
         url: `shipping-methods`,
         tag: "Shipping",
-        lang,
+        locale,
     }).then((data: IShippingMethods) => data);
 };
-export const getPaymentMethods = async ({ lang }: { lang: Lang }) => {
+export const getPaymentMethods = async ({ locale }: { locale: Locale }) => {
     return await fetchGET({
         url: `payment-methods`,
         tag: "Payment",
-        lang,
+        locale,
     }).then((data: IPaymentMethods) => data);
 };

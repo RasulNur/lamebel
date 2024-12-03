@@ -15,7 +15,7 @@ export default function ProductSidebar({
     setTabIndex,
     attributes,
     productGroup,
-    lang,
+    locale,
 }: IProductSidebarProps) {
     const { height } = useHeaderSize();
 
@@ -59,7 +59,7 @@ export default function ProductSidebar({
                 />
 
                 <BuyModal
-                    lang={lang}
+                    locale={locale}
                     product={product}
                     className="!py-4 grow"
                 />

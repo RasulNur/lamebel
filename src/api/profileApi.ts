@@ -8,21 +8,21 @@ import {
 } from "@/types/api/profile.types";
 
 import { fetchGET, fetchMutate } from "./fetch";
-import { Lang } from "@/types/api/api.types";
+import { Locale } from "@/types/api/api.types";
 
 export const getProfile = async ({
     token,
-    lang,
+    locale,
 }: {
     token?: string;
-    lang: Lang;
+    locale: Locale;
 }) => {
     if (token) {
         return await fetchGET({
             url: "profile",
             tag: "Profile",
             token,
-            lang,
+            locale,
         }).then((data: IProfile) => data);
     } else {
         return "Unauthorized";
@@ -32,7 +32,7 @@ export const getProfile = async ({
 export const updateProfile = async ({
     token,
     body,
-    lang,
+    locale,
 }: IUpdateProfileParams) => {
     return await fetchMutate({
         method: "PUT",
@@ -40,14 +40,14 @@ export const updateProfile = async ({
         tag: "Profile",
         body,
         token,
-        lang,
+        locale,
     }).then((data: IProfile) => data);
 };
 
 export const updatePassword = async ({
     token,
     body,
-    lang,
+    locale,
 }: IUpdatePasswordParams) => {
     return await fetchMutate({
         method: "PUT",
@@ -55,14 +55,14 @@ export const updatePassword = async ({
         tag: "Profile",
         body,
         token,
-        lang,
+        locale,
     });
 };
 
 export const updatePhone = async ({
     token,
     body,
-    lang,
+    locale,
 }: IUpdatePhoneParams) => {
     return await fetchMutate({
         method: "PUT",
@@ -70,7 +70,7 @@ export const updatePhone = async ({
         tag: "Profile",
         body,
         token,
-        lang,
+        locale,
     }).then((data: { message: string }) => {
         toast.success(data.message);
     });

@@ -2,7 +2,7 @@
 
 import { Formik, FormikProps } from "formik";
 import { useState } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter } from "@/i18n/routing";
 import { updatePhone } from "@/api/profileApi";
 import { useCookies } from "next-client-cookies";
 import toast from "react-hot-toast";
@@ -15,7 +15,7 @@ import { useText } from "@/context/text.context";
 import useFormValidation from "@/hooks/useFormValidation";
 import { IUpdatePhoneProps } from "@/types/props/pages.types";
 
-export default function UpdatePhone({ profile, lang }: IUpdatePhoneProps) {
+export default function UpdatePhone({ profile, locale }: IUpdatePhoneProps) {
     const initialValues: IUpdatePhoneForm = {
         phone_number: profile.data.phone_number,
     };
@@ -36,7 +36,7 @@ export default function UpdatePhone({ profile, lang }: IUpdatePhoneProps) {
         const formattedPhone = formatPhone(phone_number);
 
         try {
-            loginCheck({ lang, body: { phone_number: formattedPhone } }).then(
+            loginCheck({ locale, body: { phone_number: formattedPhone } }).then(
                 (data) => {
                     if (data.user_exists == true) {
                         toast.error(
@@ -48,7 +48,7 @@ export default function UpdatePhone({ profile, lang }: IUpdatePhoneProps) {
                         return;
                     } else {
                         sendOtp({
-                            lang,
+                            locale,
                             body: {
                                 phone_number: formattedPhone,
                                 target: "verification",
@@ -78,7 +78,7 @@ export default function UpdatePhone({ profile, lang }: IUpdatePhoneProps) {
                             phone_number: formatPhone(phone_number),
                         },
                         token,
-                        lang,
+                        locale,
                     }).then(() => {
                         setIsOtpModalOpen(false);
                         refresh();
@@ -105,7 +105,7 @@ export default function UpdatePhone({ profile, lang }: IUpdatePhoneProps) {
                 resetForm,
             }: FormikProps<IUpdatePhoneForm>) => (
                 <UpdatePhoneForm
-                    lang={lang}
+                    locale={locale}
                     fulfillAfterOtp={fulfillAfterOtp}
                     isOtpModalOpen={isOtpModalOpen}
                     setIsOtpModalOpen={setIsOtpModalOpen}

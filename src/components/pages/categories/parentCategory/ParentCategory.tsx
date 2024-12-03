@@ -1,6 +1,6 @@
 import Icon from "@/components/ui/Icon";
 import { IParentCategory } from "@/types/props/pages.types";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 
 export default function ParentCategory({ parentCategory }: IParentCategory) {
     return (

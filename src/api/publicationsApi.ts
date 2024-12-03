@@ -11,19 +11,19 @@ export const getPublications = async ({
     type,
     page,
     quantity,
-    lang,
+    locale,
 }: IGetPublicationsParams) => {
     return await fetchGET({
         url: `publications?type=${type}&page=${page}&quantity=${quantity}`,
         tag: "Publications",
-        lang,
+        locale,
     }).then((data: IPublications) => data);
 };
 
-export const getPublication = async ({ id, lang }: IGetPublicationParams) => {
+export const getPublication = async ({ id, locale }: IGetPublicationParams) => {
     return await fetchGET({
         url: `publications/${id}`,
         tag: "Publications",
-        lang,
+        locale,
     }).then((data: ISinglePublication) => data);
 };

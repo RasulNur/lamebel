@@ -1,6 +1,6 @@
 import { FormikErrors, FormikState } from "formik";
 import { IAddress, IAddresses } from "../api/address.types";
-import { Lang } from "../api/api.types";
+import { Locale } from "../api/api.types";
 import {
     ICategories,
     ICategoriesTree,
@@ -43,12 +43,12 @@ import { IReviews } from "../api/reviews.types";
 
 export interface ICategoriesPageHeaderProps {
     categoryId: number;
-    lang: Lang;
+    locale: Locale;
 }
 export interface ICategoriesProps {
     products: IProducts;
     categoryId: number;
-    lang: Lang;
+    locale: Locale;
 }
 export interface IProductsFiltersProps {
     subCategories: ICategories;
@@ -80,18 +80,18 @@ export interface IDashboardLinkProps {
 }
 export interface IUpdateProfileProps {
     profile: IProfile;
-    lang: Lang;
+    locale: Locale;
 }
 export interface IUpdatePhoneProps {
     profile: IProfile;
-    lang: Lang;
+    locale: Locale;
 }
 export interface IUpdatePhoneFormProps {
     setIsOtpModalOpen: SetState<boolean>;
     isOtpModalOpen: boolean;
     values: IUpdatePhoneForm;
     fulfillAfterOtp: ({ otp }: { otp: string }) => void;
-    lang: Lang;
+    locale: Locale;
     isSubmitting: boolean;
     resetForm: (
         nextState?: Partial<FormikState<IUpdatePhoneForm>> | undefined,
@@ -102,14 +102,14 @@ export interface ICheckoutProps {
     paymentMethods: IPaymentMethods;
     shippingMethods: IShippingMethods;
     addresses: IAddresses;
-    lang: Lang;
+    locale: Locale;
 }
 
 export interface ICheckoutFormProps {
     paymentMethods: IPaymentMethods;
     shippingMethods: IShippingMethods;
     addresses: IAddresses;
-    lang: Lang;
+    locale: Locale;
     setFieldValue: (
         field: string,
         value: any,
@@ -120,7 +120,7 @@ export interface IFilteredProductsProps {
     filterName: ProductsFilter;
     swiperName: ProductsFilter;
     page?: string;
-    lang: Lang;
+    locale: Locale;
 }
 export interface IProductGroupsProps {
     attributes: IProductAttributes;
@@ -139,7 +139,7 @@ export interface IHomeSectionWrapperProps {
     bestsellerProducts: IProducts;
     newProducts: IProducts;
     news: IPublications;
-    lang: Lang;
+    locale: Locale;
 }
 
 export interface IParentCategory {
@@ -193,7 +193,7 @@ export interface ICheckoutTotalProps {
 
 export interface ICheckoutAddressesProps {
     addresses: IAddresses;
-    lang: Lang;
+    locale: Locale;
     setFieldValue: (
         field: string,
         value: any,
@@ -208,7 +208,7 @@ export interface ICheckoutPaymentProps {
     paymentMethods: IPaymentMethods;
 }
 export interface ICreateAddressProps {
-    lang: Lang;
+    locale: Locale;
     setIsOpen: SetState<boolean>;
     setFieldValue?: (
         field: string,
@@ -217,24 +217,24 @@ export interface ICreateAddressProps {
     ) => Promise<void | FormikErrors<IAddressForm>>;
 }
 export interface IUpdateAddressProps {
-    lang: Lang;
+    locale: Locale;
     setIsOpen: SetState<boolean>;
     currentAddress?: IAddress;
 }
 export interface IContactsProps {
     settings: ISettings;
-    lang: Lang;
+    locale: Locale;
 }
 export interface IContactsLinksProps {
     settings: ISettings;
 }
 export interface IContactsFormProps {
-    lang: Lang;
+    locale: Locale;
 }
 export interface IDashboardTabsProps {
     children: React.ReactNode;
     activeRoute: DashboardRoutes;
-    lang: Lang;
+    locale: Locale;
 }
 
 export interface IOrdersProps {
@@ -254,10 +254,10 @@ export interface IOrderModalInfoProps {
     order: IOrder;
 }
 export interface IProfileProps {
-    lang: Lang;
+    locale: Locale;
 }
 export interface IUpdatePasswordProps {
-    lang: Lang;
+    locale: Locale;
 }
 export interface IUpdatePasswordFormProps {
     isSubmitting: boolean;
@@ -271,7 +271,7 @@ export interface INewsProps {
 export interface IProductProps {
     product: ISingleProduct;
     productAttributes: IProductAttributes;
-    lang: Lang;
+    locale: Locale;
     reviews: IReviews;
     productGroup: IProductGroup | "Not exist";
 }
@@ -289,7 +289,7 @@ export interface IProductTabsProps {
     setTabIndex: SetState<number>;
     productAttributes: IProductAttributes;
     product: ISingleProduct;
-    lang: Lang;
+    locale: Locale;
     reviews: IReviews;
 }
 
@@ -301,7 +301,7 @@ export interface IProductDescriptionProps {
 }
 export interface IProductReviewsProps {
     product: ISingleProduct;
-    lang: Lang;
+    locale: Locale;
     reviews: IReviews;
 }
 export interface IReviewsListProps {
@@ -310,14 +310,14 @@ export interface IReviewsListProps {
 
 export interface IReviewsFormProps {
     product: ISingleProduct;
-    lang: Lang;
+    locale: Locale;
 }
 export interface IProductSidebarProps {
     product: IProduct;
     setTabIndex: SetState<number>;
     attributes: IProductAttributes;
     productGroup: IProductGroup | "Not exist";
-    lang: Lang;
+    locale: Locale;
 }
 export interface IProductLinksProps {
     setTabIndex: SetState<number>;
@@ -325,11 +325,11 @@ export interface IProductLinksProps {
 export interface ISearchProps {
     products: IProducts;
     keyword: string;
-    lang: Lang;
+    locale: Locale;
 }
 export interface ILoginProps {
     setAuthTab: SetState<AuthTab>;
-    lang: Lang;
+    locale: Locale;
     closeModal: () => void;
 }
 export interface ILoginFormProps {
@@ -338,7 +338,7 @@ export interface ILoginFormProps {
 }
 export interface IRegisterProps {
     setAuthTab: SetState<AuthTab>;
-    lang: Lang;
+    locale: Locale;
     closeModal: () => void;
 }
 export interface IRegisterFormProps {
@@ -347,14 +347,14 @@ export interface IRegisterFormProps {
 }
 export interface IResetPasswordProps {
     setAuthTab: SetState<AuthTab>;
-    lang: Lang;
+    locale: Locale;
 }
 export interface IResetPasswordFormProps {
     isSubmitting: boolean;
     setAuthTab: SetState<AuthTab>;
 }
 export interface IHomeAboutProps {
-    lang: Lang;
+    locale: Locale;
 }
 export interface INewsSwiperProps {
     news: IPublications;
@@ -362,16 +362,29 @@ export interface INewsSwiperProps {
 export interface IProductPageWrapperProps {
     product: ISingleProduct;
     productAttributes: IProductAttributes;
-    lang: Lang;
+    locale: Locale;
     reviews: IReviews;
     productGroup: IProductGroup | "Not exist";
     bestsellerProducts: IProduct[];
     similarProducts: IProduct[];
 }
 export interface IWishlistProps {
-    lang: Lang;
+    locale: Locale;
 }
 
 export interface IAddressesProps {
-    lang: Lang;
+    locale: Locale;
+}
+export interface IBrandsProps {
+    page?: string;
+    locale: Locale;
+}
+export interface IBrandProps {
+    brandId: number;
+    page?: string;
+    locale: Locale;
+}
+export interface IBrandCategoriesProps {
+    brandId: number;
+    locale: Locale;
 }

@@ -1,7 +1,7 @@
 import { useText } from "@/context/text.context";
 import { IOrderModalProductsProps } from "@/types/props/pages.types";
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 
 export default function OrderModalProducts({
     order,

@@ -1,4 +1,4 @@
-import { Lang } from "./api/api.types";
+import { Locale } from "./api/api.types";
 import { OrderBy, SortDirectionType } from "./types";
 
 export interface IRootLayoutParams extends IPageParams {
@@ -6,7 +6,7 @@ export interface IRootLayoutParams extends IPageParams {
 }
 
 export interface ICategoryPageParams {
-    params: { id: string; lang: Lang };
+    params: { id: string; locale: Locale };
     searchParams: ICategoryPageSearchParams;
 }
 export interface ICategoryPageSearchParams {
@@ -34,6 +34,9 @@ export interface ISearchPageSearchParams {
 export interface INewsPageSearchParams {
     page?: string;
 }
+export interface IBrandsPageSearchParams {
+    page?: string;
+}
 
 export type CategoriesPagesParams = IExtendedPageParams<{
     page?: string;
@@ -44,9 +47,13 @@ export interface IExtendedPageParams<SearchParams> extends IPageParams {
 }
 
 export interface IPageParams {
-    params: { lang: Lang };
+    params: { locale: Locale };
 }
 
 export interface IPageParamsWithId {
-    params: { id: string; lang: Lang };
+    params: { id: string; locale: Locale };
+}
+export interface IBrandPageParams {
+    params: { id: string; locale: Locale };
+    searchParams: { page?: string };
 }

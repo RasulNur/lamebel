@@ -12,7 +12,7 @@ import {
 
 import { IProduct } from "@/types/api/products.types";
 import { IWishlist } from "@/types/api/wishlist.types";
-import { useRouter } from "next/navigation";
+import { useRouter } from "@/i18n/routing";
 import {
     IWishlistAdd,
     IWishlistContextProps,
@@ -34,7 +34,7 @@ const WishlistContext = createContext<IWishlistContextProps>({
 
 export const WishlistProvider = ({
     children,
-    lang,
+    locale,
 }: IWishlistProviderParams) => {
     const wishlistLocal =
         typeof window !== "undefined" && localStorage.getItem("wishlist");
@@ -50,7 +50,7 @@ export const WishlistProvider = ({
 
     useEffect(() => {
         if (token) {
-            getWishlist({ token, lang }).then((data) => {
+            getWishlist({ token, locale }).then((data) => {
                 if (typeof data !== "string") {
                     if (data.quantity === 0 && wishlist.length > 0) {
                         const products = wishlist.map((el) => {
@@ -59,7 +59,7 @@ export const WishlistProvider = ({
                         wishlistCreate({
                             token,
                             body: { products: products },
-                            lang,
+                            locale,
                         }).then((updatedData) => {
                             setWishlist([]);
                             typeof updatedData !== "string" &&
@@ -83,7 +83,7 @@ export const WishlistProvider = ({
                         wishlistCreate({
                             body: { products: arr },
                             token,
-                            lang,
+                            locale,
                         }).then((updatedData) => {
                             setWishlist([]);
                             typeof updatedData !== "string" &&
@@ -100,7 +100,7 @@ export const WishlistProvider = ({
         !token && setWishlist([...wishlist, product]);
         if (token) {
             setIsLoading(true);
-            wishlistAdd({ token, body: { product_id: product.id }, lang })
+            wishlistAdd({ token, body: { product_id: product.id }, locale })
                 .then((data) => {
                     if (typeof data !== "string") {
                         setApiWishlist(data);
@@ -114,7 +114,7 @@ export const WishlistProvider = ({
         !token && setWishlist(wishlist.filter((el) => productId !== el.id));
         if (token) {
             setIsLoading(true);
-            wishlistRemove({ token, body: { product_id: productId }, lang })
+            wishlistRemove({ token, body: { product_id: productId }, locale })
                 .then((data) => {
                     if (typeof data !== "string") {
                         setApiWishlist(data);
@@ -166,7 +166,7 @@ export const WishlistProvider = ({
         if (!token) setWishlist([]);
         else if (token) {
             setIsLoading(true);
-            wishlistClear({ token, lang })
+            wishlistClear({ token, locale })
                 .then((data) => {
                     setApiWishlist({ items: [], quantity: 0 });
                     toast.success(data.message);

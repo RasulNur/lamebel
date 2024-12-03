@@ -1,4 +1,4 @@
-import { Lang } from "./api.types";
+import { Locale } from "./api.types";
 
 export interface IAddresses {
     data: IAddress[];
@@ -28,32 +28,32 @@ export interface IMutateAddress {
 
 export interface IGetAddressesParams {
     token?: string;
-    lang: Lang;
+    locale: Locale;
 }
 
 export interface IGetAddressParams {
     token?: string;
     addressId: number;
-    lang: Lang;
+    locale: Locale;
 }
 export interface ICreateAddressParams {
     token: string;
     body: IMutateAddress;
-    lang: Lang;
+    locale: Locale;
 }
 export interface IUpdateAddressParams {
     token: string;
     body: IMutateAddress;
     addressId: number;
-    lang: Lang;
+    locale: Locale;
 }
 export interface ISetDefaultAddressParams {
     token: string;
     addressId: number;
-    lang: Lang;
+    locale: Locale;
 }
 export interface IDeleteAddressParams {
     token: string;
     addressId: number;
-    lang: Lang;
+    locale: Locale;
 }

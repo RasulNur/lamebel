@@ -1,17 +1,17 @@
 import { getMenu } from "@/api/menusApi";
 import FooterList from "../footerList/FooterList";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 import { getSettings } from "@/api/settingsApi";
 import { numberWithSpaces } from "@/utils/numberWithSpaces";
 import { getTexts } from "@/api/textsApi";
 import { IFooterMenusProps } from "@/types/props/types";
 
-export default async function FooterMenus({ lang }: IFooterMenusProps) {
-    const menu5 = await getMenu({ menuId: 5, lang });
-    const menu3 = await getMenu({ menuId: 3, lang });
-    const menu4 = await getMenu({ menuId: 4, lang });
-    const settings = await getSettings({ lang });
-    const { text } = await getTexts({ lang });
+export default async function FooterMenus({ locale }: IFooterMenusProps) {
+    const menu5 = await getMenu({ menuId: 5, locale });
+    const menu3 = await getMenu({ menuId: 3, locale });
+    const menu4 = await getMenu({ menuId: 4, locale });
+    const settings = await getSettings({ locale });
+    const { text } = await getTexts({ locale });
 
     const menuItems = [
         {

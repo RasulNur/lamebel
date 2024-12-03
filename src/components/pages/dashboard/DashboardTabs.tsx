@@ -10,7 +10,7 @@ import { IDashboardTabsProps } from "@/types/props/pages.types";
 export default function DashboardTabs({
     children,
     activeRoute,
-    lang,
+    locale,
 }: IDashboardTabsProps) {
     const cookies = useCookies();
     const token = cookies.get("token");
@@ -50,7 +50,7 @@ export default function DashboardTabs({
                                 />
                             );
                         })}
-                        {token && <LogoutButton lang={lang} />}
+                        {token && <LogoutButton locale={locale} />}
                     </div>
                     {children}
                 </div>

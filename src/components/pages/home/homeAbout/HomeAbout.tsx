@@ -1,8 +1,8 @@
 import { getTexts } from "@/api/textsApi";
 import { IHomeAboutProps } from "@/types/props/pages.types";
 
-export default async function HomeAbout({ lang }: IHomeAboutProps) {
-    const { text } = await getTexts({ lang });
+export default async function HomeAbout({ locale }: IHomeAboutProps) {
+    const { text } = await getTexts({ locale });
     return (
         <div className="xl:grid flex flex-col-reverse grid-cols-[1.5fr,1fr] sm:gap-10 gap-8">
             <div className="flex flex-col gap-7">

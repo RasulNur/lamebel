@@ -1,4 +1,4 @@
-import { Lang } from "../api/api.types";
+import { Locale } from "../api/api.types";
 import { TextKey } from "../api/text.types";
 import { ReactNode } from "react";
 
@@ -7,5 +7,5 @@ export interface ITextContextProps {
 }
 export interface ITextProvideProps {
     children: ReactNode;
-    lang: Lang;
+    locale: Locale;
 }

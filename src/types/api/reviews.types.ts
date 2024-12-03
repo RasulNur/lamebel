@@ -1,4 +1,4 @@
-import { ILinks, IMeta, Lang } from "./api.types";
+import { ILinks, IMeta, Locale } from "./api.types";
 
 export interface IReviews {
     data: IReview[];
@@ -23,9 +23,9 @@ export interface ICreateReviewParams {
         body: string;
         rating: number;
     };
-    lang: Lang;
+    locale: Locale;
 }
 export interface IGetReviewsParams {
-    lang: Lang;
+    locale: Locale;
     productId: number;
 }

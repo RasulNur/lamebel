@@ -26,7 +26,7 @@ export const getProducts = async ({
     price_from,
     price_to,
     search,
-    lang,
+    locale,
 }: IGetProductsParams) => {
     const attrParams = attributes
         ? attributes
@@ -62,28 +62,28 @@ export const getProducts = async ({
 
     const url = `products?page=${page}&quantity=${quantity}${orderByParams}${categoryParams}${orderDirParams}${priceParams}${searchParams}${isParams}${brandsParams}${attrParams}`;
 
-    return await fetchGET({ url: url, tag: "Products", lang }).then(
+    return await fetchGET({ url: url, tag: "Products", locale }).then(
         (data: IProducts) => {
             return data;
         },
     );
 };
 
-export const getProduct = async ({ lang, productId }: IGetProductParams) => {
+export const getProduct = async ({ locale, productId }: IGetProductParams) => {
     return await fetchGET({
         url: `products/${productId}`,
         tag: "Products",
-        lang,
+        locale,
     }).then((data: ISingleProduct) => data);
 };
 
 export const getProductAttributes = async ({
-    lang,
+    locale,
     productId,
 }: IGetProductAttributesParams) => {
     return await fetchGET({
         url: `products/${productId}/attributes`,
         tag: "Products",
-        lang,
+        locale,
     }).then((data: IProductAttributes) => data);
 };

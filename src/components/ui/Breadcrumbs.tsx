@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 import Icon from "./Icon";
 import { IBreadcrumbsProps } from "@/types/props/ui.types";
 

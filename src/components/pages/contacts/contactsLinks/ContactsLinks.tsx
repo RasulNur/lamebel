@@ -1,7 +1,7 @@
 import Icon from "@/components/ui/Icon";
 import { IContactsLinksProps } from "@/types/props/pages.types";
 import { numberWithSpaces } from "@/utils/numberWithSpaces";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 
 export default function ContactsLinks({ settings }: IContactsLinksProps) {
     return (

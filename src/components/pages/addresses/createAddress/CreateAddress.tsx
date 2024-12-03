@@ -6,11 +6,11 @@ import { ISubmitFormFuncParams } from "@/types/types";
 import { Form, Formik } from "formik";
 import { useCookies } from "next-client-cookies";
 import OverlapInput from "@/components/ui/OverlapInput";
-import { useRouter } from "next/navigation";
+import { useRouter } from "@/i18n/routing";
 import { ICreateAddressProps } from "@/types/props/pages.types";
 
 export default function CreateAddress({
-    lang,
+    locale,
     setIsOpen,
     setFieldValue,
 }: ICreateAddressProps) {
@@ -32,14 +32,14 @@ export default function CreateAddress({
                 body: {
                     address_line_1: address,
                 },
-                lang,
+                locale,
             }).then((data) => {
                 setFieldValue &&
                     setFieldValue("address_id", String(data.data.id));
                 setDefaultAddress({
                     addressId: data.data.id,
                     token,
-                    lang,
+                    locale,
                 }).then(() => {
                     refresh();
                     setIsOpen(false);

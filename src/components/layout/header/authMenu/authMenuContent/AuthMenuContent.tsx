@@ -10,7 +10,7 @@ import { useState } from "react";
 
 export default function AuthMenuContent({
     closeModal,
-    lang,
+    locale,
 }: IAuthMenuContentProps) {
     const [authTab, setAuthTab] = useState<AuthTab>("login");
     return (
@@ -24,18 +24,18 @@ export default function AuthMenuContent({
             {authTab === "login" ? (
                 <Login
                     setAuthTab={setAuthTab}
-                    lang={lang}
+                    locale={locale}
                     closeModal={closeModal}
                 />
             ) : authTab === "register" ? (
                 <Register
                     setAuthTab={setAuthTab}
-                    lang={lang}
+                    locale={locale}
                     closeModal={closeModal}
                 />
             ) : (
                 authTab === "reset-password" && (
-                    <ResetPassword setAuthTab={setAuthTab} lang={lang} />
+                    <ResetPassword setAuthTab={setAuthTab} locale={locale} />
                 )
             )}
         </div>

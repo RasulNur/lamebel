@@ -4,7 +4,7 @@ import Icon from "@/components/ui/Icon";
 import useHeaderScroll from "@/hooks/useHeaderScroll";
 import { IHeaderCategoriesProps } from "@/types/props/types";
 import { numberWithSpaces } from "@/utils/numberWithSpaces";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 
 const links = [
     { id: 0, title: "Диваны" },

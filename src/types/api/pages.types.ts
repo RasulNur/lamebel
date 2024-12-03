@@ -1,4 +1,4 @@
-import { ILocalization, Lang } from "./api.types";
+import { ILocalization, Locale } from "./api.types";
 
 export interface IPages {
     data: Omit<
@@ -27,5 +27,5 @@ export interface ISinglePage {
 }
 export interface IGetPageParams {
     pageId: number;
-    lang: Lang;
+    locale: Locale;
 }

@@ -1,4 +1,4 @@
-import { Lang } from "./api.types";
+import { Locale } from "./api.types";
 import { IProduct } from "./products.types";
 
 export interface IProductGroup {
@@ -29,5 +29,5 @@ export interface IProductGroupAttributeValue {
 }
 export interface IGetProductGroupParams {
     productGroupId: number | null;
-    lang: Lang;
+    locale: Locale;
 }

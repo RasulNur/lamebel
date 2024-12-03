@@ -1,4 +1,4 @@
-import { ILinks, ILocalization, IMeta, Lang } from "./api.types";
+import { ILinks, ILocalization, IMeta, Locale } from "./api.types";
 
 export interface IPromotions {
     data: IPromotion[];
@@ -24,5 +24,5 @@ export interface IGetPromotionsParams {
     page?: number;
     quantity?: number;
     type?: "active" | "archived";
-    lang: Lang;
+    locale: Locale;
 }

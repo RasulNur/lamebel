@@ -9,13 +9,13 @@ import {
 
 import { fetchGET, fetchMutate } from "./fetch";
 
-export const getWishlist = async ({ token, lang }: IGetWishlistParams) => {
+export const getWishlist = async ({ token, locale }: IGetWishlistParams) => {
     if (token) {
         return await fetchGET({
             url: "wishlist",
             tag: "Wishlist",
             token,
-            lang,
+            locale,
         }).then((data: IWishlist) => data);
     } else {
         return "Unauthorized";
@@ -25,7 +25,7 @@ export const getWishlist = async ({ token, lang }: IGetWishlistParams) => {
 export const wishlistAdd = async ({
     token,
     body,
-    lang,
+    locale,
 }: IWishlistAddParams) => {
     return await fetchMutate({
         url: "wishlist/items/add",
@@ -33,9 +33,9 @@ export const wishlistAdd = async ({
         body,
         tag: "Wishlist",
         token,
-        lang,
+        locale,
     }).then(async () => {
-        const data: IWishlist | string = await getWishlist({ token, lang });
+        const data: IWishlist | string = await getWishlist({ token, locale });
         return data;
     });
 };
@@ -43,7 +43,7 @@ export const wishlistAdd = async ({
 export const wishlistRemove = async ({
     token,
     body,
-    lang,
+    locale,
 }: IWishlistRemoveParams) => {
     return await fetchMutate({
         url: "wishlist/items/remove",
@@ -51,9 +51,9 @@ export const wishlistRemove = async ({
         tag: "Wishlist",
         body,
         token,
-        lang,
+        locale,
     }).then(async () => {
-        const data: IWishlist | string = await getWishlist({ token, lang });
+        const data: IWishlist | string = await getWishlist({ token, locale });
         return data;
     });
 };
@@ -61,7 +61,7 @@ export const wishlistRemove = async ({
 export const wishlistCreate = async ({
     token,
     body,
-    lang,
+    locale,
 }: IWishlistCreateParams) => {
     return await fetchMutate({
         url: "wishlist",
@@ -69,19 +69,22 @@ export const wishlistCreate = async ({
         tag: "Wishlist",
         body,
         token,
-        lang,
+        locale,
     }).then((data) => {
         return data;
     });
 };
 
-export const wishlistClear = async ({ token, lang }: IWishlistClearParams) => {
+export const wishlistClear = async ({
+    token,
+    locale,
+}: IWishlistClearParams) => {
     return await fetchMutate({
         url: "wishlist/clear",
         method: "POST",
         tag: "Wishlist",
         token,
-        lang,
+        locale,
     }).then((data: { message: string }) => {
         return data;
     });

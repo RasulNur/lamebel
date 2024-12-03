@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 import { useCookies } from "next-client-cookies";
 import { useCart } from "@/context/cart.context";
 import { useText } from "@/context/text.context";

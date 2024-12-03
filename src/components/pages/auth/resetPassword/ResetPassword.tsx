@@ -6,7 +6,7 @@ import { IResetPasswordForm } from "@/types/form.types";
 import { ISubmitFormFuncParams } from "@/types/types";
 import { formatPhone } from "@/utils/formatPhone";
 import { Formik } from "formik";
-import { useRouter } from "next/navigation";
+import { useRouter } from "@/i18n/routing";
 import { useState } from "react";
 import toast from "react-hot-toast";
 import ResetPasswordForm from "./resetPasswordForm/ResetPasswordForm";
@@ -20,7 +20,7 @@ const initialValues: IResetPasswordForm = {
 
 export default function ResetPassword({
     setAuthTab,
-    lang,
+    locale,
 }: IResetPasswordProps) {
     const { resetPasswordValidationSchema } = useFormValidation();
     const [isOtpModalOpen, setIsOtpModalOpen] = useState<boolean>(false);
@@ -34,7 +34,7 @@ export default function ResetPassword({
         const { phone_number } = values;
         const formattedPhone = formatPhone(phone_number);
         try {
-            loginCheck({ lang, body: { phone_number: formattedPhone } }).then(
+            loginCheck({ locale, body: { phone_number: formattedPhone } }).then(
                 (res: { user_exists: boolean }) => {
                     if (!res.user_exists) {
                         resetForm();
@@ -43,7 +43,7 @@ export default function ResetPassword({
                         return;
                     } else {
                         sendOtp({
-                            lang,
+                            locale,
                             body: {
                                 phone_number: formattedPhone,
                                 target: "reset_password",
@@ -66,7 +66,7 @@ export default function ResetPassword({
                 const { phone_number, new_password } = otpData;
                 const formattedPhone = formatPhone(phone_number);
                 resetPassword({
-                    lang,
+                    locale,
                     body: {
                         new_password,
                         phone_number: formattedPhone,
@@ -100,7 +100,7 @@ export default function ResetPassword({
                         />
 
                         <OtpModal<IResetPasswordForm>
-                            lang={lang}
+                            locale={locale}
                             isOpen={isOtpModalOpen}
                             setIsOpen={setIsOtpModalOpen}
                             formPhone={values.phone_number}

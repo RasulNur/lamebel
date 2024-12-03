@@ -13,11 +13,11 @@ const TextContext = createContext<ITextContextProps>({
     text: () => "",
 });
 
-export const TextProvider = ({ children, lang }: ITextProvideProps) => {
+export const TextProvider = ({ children, locale }: ITextProvideProps) => {
     const [texts, setTexts] = useState<ITexts>({ data: [] });
 
     useEffect(() => {
-        getTexts({ lang }).then(({ texts }) => {
+        getTexts({ locale }).then(({ texts }) => {
             setTexts(texts);
         });
     }, []);

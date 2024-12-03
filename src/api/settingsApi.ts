@@ -1,10 +1,10 @@
 import { ISettings } from "@/types/api/settings.types";
 
 import { fetchGET } from "./fetch";
-import { Lang } from "@/types/api/api.types";
+import { Locale } from "@/types/api/api.types";
 
-export const getSettings = async ({ lang }: { lang: Lang }) => {
-    return await fetchGET({ url: "settings", tag: "Settings", lang }).then(
+export const getSettings = async ({ locale }: { locale: Locale }) => {
+    return await fetchGET({ url: "settings", tag: "Settings", locale }).then(
         (data: ISettings) => data,
     );
 };

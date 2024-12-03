@@ -2,14 +2,14 @@
 
 import { logout } from "@/api/authApi";
 import { useCookies } from "next-client-cookies";
-import { useRouter } from "next/navigation";
+import { useRouter } from "@/i18n/routing";
 import Icon from "../Icon";
 import { useText } from "@/context/text.context";
 import { useState } from "react";
 import OvalSpinner from "../OvalSpinner";
 import { ILogoutButtonProps } from "@/types/props/ui.types";
 
-export default function LogoutButton({ lang }: ILogoutButtonProps) {
+export default function LogoutButton({ locale }: ILogoutButtonProps) {
     const cookies = useCookies();
     let token = cookies.get("token");
     const { refresh, replace } = useRouter();
@@ -18,7 +18,7 @@ export default function LogoutButton({ lang }: ILogoutButtonProps) {
     const handleLogout = () => {
         if (typeof token !== "undefined") {
             setIsLoading(true);
-            logout({ token, lang })
+            logout({ token, locale })
                 .then(() => {
                     replace("/");
                     refresh();

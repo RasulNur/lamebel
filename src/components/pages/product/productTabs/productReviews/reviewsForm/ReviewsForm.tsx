@@ -9,7 +9,7 @@ import { IReviewsFormProps } from "@/types/props/pages.types";
 import { ISubmitFormFuncParams } from "@/types/types";
 import { Form, Formik } from "formik";
 
-export default function ReviewsForm({ product, lang }: IReviewsFormProps) {
+export default function ReviewsForm({ product, locale }: IReviewsFormProps) {
     const { reviewsValidationSchema } = useFormValidation();
     const { text } = useText();
 
@@ -29,7 +29,7 @@ export default function ReviewsForm({ product, lang }: IReviewsFormProps) {
 
         try {
             createReview({
-                lang,
+                locale,
                 body: {
                     name,
                     email,

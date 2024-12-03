@@ -11,7 +11,7 @@ export default function CheckoutForm({
     addresses,
     paymentMethods,
     shippingMethods,
-    lang,
+    locale,
     setFieldValue,
 }: ICheckoutFormProps) {
     const { text } = useText();
@@ -42,7 +42,7 @@ export default function CheckoutForm({
 
             <CheckoutAddresses
                 addresses={addresses}
-                lang={lang}
+                locale={locale}
                 setFieldValue={setFieldValue}
             />
 
