@@ -16,29 +16,9 @@ export default function OverlapInput({
     maxLength = 25,
     minLength = 3,
 }: IOverlapInputProps) {
-    const [passwordType, setPasswordType] = useState<"password" | "text">(
-        "password",
-    );
-    const [isFocused, setIsFocused] = useState<boolean>(false);
-    const phoneMask = [
-        "+",
-        "9",
-        "9",
-        "8",
-        "(",
-        /\d/,
-        /\d/,
-        ")",
-        /\d/,
-        /\d/,
-        /\d/,
-        "-",
-        /\d/,
-        /\d/,
-        "-",
-        /\d/,
-        /\d/,
-    ];
+    const [passwordType, setPasswordType] = useState<"password" | "text">("password");
+
+    const phoneMask = ["+", "9", "9", "8", "(", /\d/, /\d/, ")", /\d/, /\d/, /\d/, "-", /\d/, /\d/, "-", /\d/, /\d/];
     const pinMask = [
         /\d/,
         /\d/,
@@ -78,16 +58,6 @@ export default function OverlapInput({
                             onChange={(e) => field.onChange(e)}
                             className={inputClass}
                             autoComplete="on"
-                            showMask={isFocused}
-                            onFocus={() => {
-                                setTimeout(() => {
-                                    setIsFocused(true);
-                                }, 100);
-                            }}
-                            onBlur={(e) => {
-                                field.onBlur(e);
-                                setIsFocused(false);
-                            }}
                         />
                     )}
                 </Field>
@@ -105,16 +75,6 @@ export default function OverlapInput({
                             onChange={(e) => field.onChange(e)}
                             className={inputClass}
                             autoComplete="on"
-                            showMask={isFocused}
-                            onFocus={() => {
-                                setTimeout(() => {
-                                    setIsFocused(true);
-                                }, 100);
-                            }}
-                            onBlur={(e) => {
-                                field.onBlur(e);
-                                setIsFocused(false);
-                            }}
                         />
                     )}
                 </Field>
@@ -132,22 +92,10 @@ export default function OverlapInput({
                             onChange={(e) => field.onChange(e)}
                             className={inputClass}
                             autoComplete="on"
-                            showMask={isFocused}
-                            onFocus={() => {
-                                setTimeout(() => {
-                                    setIsFocused(true);
-                                }, 100);
-                            }}
-                            onBlur={(e) => {
-                                field.onBlur(e);
-                                setIsFocused(false);
-                            }}
                         />
                     )}
                 </Field>
-            ) : name === "password" ||
-              name === "confrim_password" ||
-              name === "new_password" ? (
+            ) : name === "password" || name === "confrim_password" || name === "new_password" ? (
                 <Field
                     name={name}
                     className={inputClass}
@@ -162,10 +110,7 @@ export default function OverlapInput({
             ) : name === "message" ? (
                 <Field
                     name={name}
-                    className={classNames(
-                        "max-h-[250px] min-h-[100px]",
-                        inputClass,
-                    )}
+                    className={classNames("max-h-[250px] min-h-[100px]", inputClass)}
                     type="text"
                     placeholder=""
                     id={`overlap-input-${id}`}
@@ -190,9 +135,7 @@ export default function OverlapInput({
             )}
 
             <label htmlFor={`overlap-input-${id}`}>{placeholder}</label>
-            {(name === "password" ||
-                name === "confrim_password" ||
-                name === "new_password") && (
+            {(name === "password" || name === "confrim_password" || name === "new_password") && (
                 <button
                     onClick={() => {
                         if (passwordType == "password") setPasswordType("text");
@@ -201,15 +144,10 @@ export default function OverlapInput({
                     disabled={disabled}
                     type="button"
                     className="absolute right-[10px] top-[10px] p-2">
-                    <Icon
-                        className="stroke-secondary"
-                        name={passwordType === "password" ? "eye-off" : "eye"}
-                    />
+                    <Icon className="stroke-secondary" name={passwordType === "password" ? "eye-off" : "eye"} />
                 </button>
             )}
-            <ErrorMessage name={name}>
-                {(msg) => <p className="pl-1 text-xs text-red">{msg}</p>}
-            </ErrorMessage>
+            <ErrorMessage name={name}>{(msg) => <p className="pl-1 text-xs text-red">{msg}</p>}</ErrorMessage>
         </div>
     );
 }

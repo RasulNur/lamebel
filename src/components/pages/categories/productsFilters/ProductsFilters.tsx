@@ -22,39 +22,23 @@ export default function ProductsFilters({
         <div className="flex flex-col gap-10 grow h-full">
             <ParentCategory parentCategory={parentCategory} />
 
-            {subCategories.data.length > 0 && (
+            {subCategories && subCategories.data && subCategories.data.length > 0 && (
                 <FilterCategories categories={subCategories} />
             )}
-            {categoryBrands.data.length > 0 && (
-                <FilterBrands
-                    brands={categoryBrands}
-                    isDisabled={isDisabled}
-                    setIsDisabled={setIsDisabled}
-                />
+            {categoryBrands && categoryBrands.data && categoryBrands.data.length > 0 && (
+                <FilterBrands brands={categoryBrands} isDisabled={isDisabled} setIsDisabled={setIsDisabled} />
             )}
-            {attributes.data.length > 0 && (
-                <FilterAttributes
-                    attributes={attributes}
-                    isDisabled={isDisabled}
-                    setIsDisabled={setIsDisabled}
-                />
+            {attributes && attributes.data && attributes.data.length > 0 && (
+                <FilterAttributes attributes={attributes} isDisabled={isDisabled} setIsDisabled={setIsDisabled} />
             )}
-            {price.max > 0 && (
-                <FilterPrice
-                    price={price}
-                    isDisabled={isDisabled}
-                    setIsDisabled={setIsDisabled}
-                />
+            {price && price.max > 0 && (
+                <FilterPrice price={price} isDisabled={isDisabled} setIsDisabled={setIsDisabled} />
             )}
 
-            {(categoryBrands.data.length > 0 ||
-                price.max > 0 ||
-                attributes.data.length > 0) && (
-                <ClearFilters
-                    price={price}
-                    isDisabled={isDisabled}
-                    setIsDisabled={setIsDisabled}
-                />
+            {((categoryBrands && categoryBrands.data && categoryBrands.data.length > 0) ||
+                (price && price.max > 0) ||
+                (attributes && attributes.data && attributes.data.length > 0)) && (
+                <ClearFilters price={price} isDisabled={isDisabled} setIsDisabled={setIsDisabled} />
             )}
         </div>
     );
