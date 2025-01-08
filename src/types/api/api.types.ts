@@ -68,7 +68,8 @@ interface IMetaLink {
     active: boolean;
 }
 
-export type Locale = "ru" | "uz" | "en";
+// export type Locale = "ru" | "uz" | "en";
+export type Locale = "ru" | "uz";
 
 export type Tag =
     | "Auth"

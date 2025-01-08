@@ -5,12 +5,13 @@ import PageHeader from "@/components/ui/PageHeader";
 import { IPageParamsWithId } from "@/types/pageParams.types";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
+import LocalizationComponent from "../../../../components/layout/LocalizationComponent";
 
 export default async function SingleNewsPage({ params }: IPageParamsWithId) {
-    const id = params.id.split("-")[0];
+    const id = Number(params.id.split("-")[0]);
     const { text } = await getTexts({ locale: params.locale });
     const publication = await getPublication({
-        id: Number(id),
+        id: id,
         locale: params.locale,
     });
     return (
@@ -27,13 +28,13 @@ export default async function SingleNewsPage({ params }: IPageParamsWithId) {
                     <SingleNews publication={publication} />
                 </div>
             </section>
+
+            <LocalizationComponent id={id} localization={publication.data.localization} startPath="/news" />
         </>
     );
 }
 
-export async function generateMetadata({
-    params,
-}: IPageParamsWithId): Promise<Metadata> {
+export async function generateMetadata({ params }: IPageParamsWithId): Promise<Metadata> {
     const id = params.id.split("-")[0];
     const slug = params.id.split("-").slice(1).join("-");
 

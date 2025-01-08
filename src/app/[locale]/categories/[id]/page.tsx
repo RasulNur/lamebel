@@ -8,6 +8,7 @@ import { Locale } from "@/types/api/api.types";
 import { ICategoryPageParams } from "@/types/pageParams.types";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
+import LocalizationComponent from "../../../../components/layout/LocalizationComponent";
 
 export default async function CategoriesPage({
     params: { id, locale },
@@ -26,10 +27,9 @@ export default async function CategoriesPage({
         page,
     },
 }: ICategoryPageParams) {
-    const brandsArr: number[] | null = brands
-        ? brands.split(",").map((el) => Number(el.split("-")[0]))
-        : null;
-
+    const categoryId = Number(id.split("-")[0]);
+    const brandsArr: number[] | null = brands ? brands.split(",").map((el) => Number(el.split("-")[0])) : null;
+    const category = await getCategory({ categoryId, locale });
     const attrsArr:
         | {
               attrId: number;
@@ -50,7 +50,7 @@ export default async function CategoriesPage({
     const products = await getProducts({
         quantity: 20,
         page: Number(page),
-        category_id: Number(id.split("-")[0]),
+        category_id: categoryId,
         is_bestseller: is_bestseller ? 1 : null,
         is_discounted: is_discounted ? 1 : null,
         is_new: is_new ? 1 : null,
@@ -68,31 +68,22 @@ export default async function CategoriesPage({
 
     return (
         <>
-            <CategoriesPageHeader
-                categoryId={Number(id.split("-")[0])}
-                locale={locale}
-            />
+            <CategoriesPageHeader category={category} locale={locale} />
             <section className="mt-5">
                 <div className="container">
-                    <Categories
-                        locale={locale}
-                        products={products}
-                        categoryId={Number(id.split("-")[0])}
-                    />
+                    <Categories locale={locale} products={products} categoryId={categoryId} />
                 </div>
             </section>
 
             <SectionWrapper className="last-section-margin">
                 <SeoSection />
             </SectionWrapper>
+
+            <LocalizationComponent id={categoryId} localization={category.data.localization} startPath="/categories" />
         </>
     );
 }
-export async function generateMetadata({
-    params,
-}: {
-    params: { id: string; locale: Locale };
-}): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: { id: string; locale: Locale } }): Promise<Metadata> {
     const id = params.id.split("-")[0];
     const slug = params.id.split("-").slice(1).join("-");
 

@@ -1,5 +1,5 @@
 import { IFooterListProps } from "@/types/props/types";
-import { Link } from "@/i18n/routing";
+import Link from "next/link";
 
 export default function FooterList({ menu }: IFooterListProps) {
     return (
@@ -10,9 +10,7 @@ export default function FooterList({ menu }: IFooterListProps) {
                     if (item.url) {
                         return (
                             <li key={item.id}>
-                                <Link
-                                    href={item.url}
-                                    className="py-1 block hover:text-main">
+                                <Link href={item.url} className="py-1 block hover:text-main">
                                     {item.title}
                                 </Link>
                             </li>

@@ -3,13 +3,10 @@ import { getTexts } from "@/api/textsApi";
 import PageHeader from "@/components/ui/PageHeader";
 import { ICategoriesPageHeaderProps } from "@/types/props/pages.types";
 
-export default async function CategoriesPageHeader({
-    categoryId,
-    locale,
-}: ICategoriesPageHeaderProps) {
+export default async function CategoriesPageHeader({ category, locale }: ICategoriesPageHeaderProps) {
     const { text } = await getTexts({ locale });
-    const category = await getCategory({ categoryId, locale });
-    const parentCategory = await getParentCategory({ categoryId, locale });
+
+    const parentCategory = await getParentCategory({ categoryId: category.data.id, locale });
     const breadcrumbs =
         typeof parentCategory !== "string"
             ? {
@@ -26,7 +23,5 @@ export default async function CategoriesPageHeader({
                   links: [{ href: "/", title: text("Главная") }],
                   current: category.data.name,
               };
-    return (
-        <PageHeader breadcrumbs={breadcrumbs} title={category.data.h1_name} />
-    );
+    return <PageHeader breadcrumbs={breadcrumbs} title={category.data.h1_name} />;
 }

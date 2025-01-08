@@ -4,12 +4,12 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import PageHeader from "../../../../components/ui/PageHeader";
 import { IPageParamsWithId } from "@/types/pageParams.types";
+import LocalizationComponent from "../../../../components/layout/LocalizationComponent";
 
-export default async function TextPage({
-    params: { id, locale },
-}: IPageParamsWithId) {
+export default async function TextPage({ params: { id, locale } }: IPageParamsWithId) {
+    const pageId = Number(id.split("-")[0]);
     const page = await getPage({
-        pageId: Number(id.split("-")[0]),
+        pageId: pageId,
         locale,
     });
     const { text } = await getTexts({ locale });
@@ -32,13 +32,12 @@ export default async function TextPage({
                         }}></div>
                 </div>
             </section>
+            <LocalizationComponent id={pageId} localization={page.data.localization} startPath="/pages" />
         </>
     );
 }
 
-export async function generateMetadata({
-    params: { id, locale },
-}: IPageParamsWithId): Promise<Metadata> {
+export async function generateMetadata({ params: { id, locale } }: IPageParamsWithId): Promise<Metadata> {
     const slug = id.split("-").slice(1).join("-");
 
     const page = await getPage({ pageId: Number(id.split("-")[0]), locale });

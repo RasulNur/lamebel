@@ -17,10 +17,7 @@ export default async function FooterMenus({ locale }: IFooterMenusProps) {
         {
             id: 0,
             url: `tel:${settings.phone}`,
-            title: `${text("Телефон")}: ${numberWithSpaces(
-                settings.phone,
-                "#### ## ### ## ##",
-            )} `,
+            title: `${text("Телефон")}: ${numberWithSpaces(settings.phone, "#### ## ### ## ##")} `,
         },
         { id: 1, title: `${text("Режим работы")}: ${settings.work_hours}` },
         {
@@ -34,17 +31,13 @@ export default async function FooterMenus({ locale }: IFooterMenusProps) {
     return (
         <div className="grid xl:grid-cols-4 sm:grid-cols-2 2xl:gap-[100px] gap-10 w-full">
             <div className="flex flex-col sm:gap-8 gap-4 sm:items-baseline items-center">
-                <h3 className="font-bold text-lg leading-130">
-                    Свяжитесь с нами
-                </h3>
+                <h3 className="font-bold text-lg leading-130">Свяжитесь с нами</h3>
                 <ul className="flex flex-col gap-4 sm:items-baseline items-center sm:text-start text-center">
                     {menuItems.map((item) => {
                         if (item.url) {
                             return (
                                 <li key={item.id}>
-                                    <Link
-                                        href={item.url}
-                                        className="py-1 block hover:text-main">
+                                    <Link href={item.url} className="py-1 block hover:text-main">
                                         {item.title}
                                     </Link>
                                 </li>

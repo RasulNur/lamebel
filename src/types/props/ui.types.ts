@@ -1,11 +1,6 @@
 import { FormEventHandler, SVGProps } from "react";
-import {
-    FulfillAfterOtpType,
-    InputNames,
-    SetState,
-    SpritesName,
-} from "../types";
-import { IMeta, Locale } from "../api/api.types";
+import { FulfillAfterOtpType, InputNames, SetState, SpritesName } from "../types";
+import { ILocalization, IMeta, Locale } from "../api/api.types";
 import { IProduct, IProducts } from "../api/products.types";
 import { IAddress } from "../api/address.types";
 import { FormikErrors, FormikState } from "formik";
@@ -17,8 +12,7 @@ import { IReview } from "../api/reviews.types";
 import { OtpTarget } from "../api/auth.types";
 import { SingleBrand } from "../api/brand.types";
 
-export interface IIconProps
-    extends Omit<SVGProps<SVGSVGElement>, "name" | "type"> {
+export interface IIconProps extends Omit<SVGProps<SVGSVGElement>, "name" | "type"> {
     name: SpritesName;
     className?: string;
 }
@@ -255,4 +249,9 @@ export interface IViewedSwiperProps {
 }
 export interface IBrandCardProps {
     brand: SingleBrand;
+}
+export interface ILocalizationComponentProps {
+    startPath: string;
+    localization: ILocalization;
+    id: number;
 }

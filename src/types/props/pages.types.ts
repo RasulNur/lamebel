@@ -11,38 +11,19 @@ import {
     IPrices,
     ISingleCategory,
 } from "../api/categories.types";
-import {
-    IPaymentMethods,
-    IShippingMethods,
-} from "../api/checkoutMethods.types";
-import {
-    IProduct,
-    IProductAttributes,
-    IProducts,
-    ISingleProduct,
-    ProductsFilter,
-} from "../api/products.types";
+import { IPaymentMethods, IShippingMethods } from "../api/checkoutMethods.types";
+import { IProduct, IProductAttributes, IProducts, ISingleProduct, ProductsFilter } from "../api/products.types";
 import { IProfile } from "../api/profile.types";
 import { IAddressForm, ICheckoutForm, IUpdatePhoneForm } from "../form.types";
-import {
-    AuthTab,
-    DashboardRoutes,
-    IDashboardTab,
-    IGroupAttribute,
-    SetState,
-} from "../types";
-import {
-    IProductGroup,
-    IProductGroupAttribute,
-    IProductGroupAttributeValue,
-} from "../api/productGroup.types";
+import { AuthTab, DashboardRoutes, IDashboardTab, IGroupAttribute, SetState } from "../types";
+import { IProductGroup, IProductGroupAttribute, IProductGroupAttributeValue } from "../api/productGroup.types";
 import { ISettings } from "../api/settings.types";
 import { IPublications, ISinglePublication } from "../api/publications.types";
 import { IOrder, IOrders } from "../api/orders.types";
 import { IReviews } from "../api/reviews.types";
 
 export interface ICategoriesPageHeaderProps {
-    categoryId: number;
+    category: ISingleCategory;
     locale: Locale;
 }
 export interface ICategoriesProps {
@@ -93,9 +74,7 @@ export interface IUpdatePhoneFormProps {
     fulfillAfterOtp: ({ otp }: { otp: string }) => void;
     locale: Locale;
     isSubmitting: boolean;
-    resetForm: (
-        nextState?: Partial<FormikState<IUpdatePhoneForm>> | undefined,
-    ) => void;
+    resetForm: (nextState?: Partial<FormikState<IUpdatePhoneForm>> | undefined) => void;
 }
 
 export interface ICheckoutProps {

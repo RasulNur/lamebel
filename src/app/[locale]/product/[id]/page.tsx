@@ -1,19 +1,15 @@
-import {
-    getProduct,
-    getProductAttributes,
-    getProducts,
-} from "@/api/productsApi";
+import { getProduct, getProductAttributes, getProducts } from "@/api/productsApi";
 import { notFound } from "next/navigation";
 import { getReviews } from "@/api/reviewsApi";
 import { getProductGroup } from "@/api/productGroupApi";
 import { IPageParamsWithId } from "@/types/pageParams.types";
 import ProductPageWrapper from "@/components/pages/product/ProductPageWrapper";
+import LocalizationComponent from "../../../../components/layout/LocalizationComponent";
 
-export default async function ProductPage({
-    params: { id, locale },
-}: IPageParamsWithId) {
+export default async function ProductPage({ params: { id, locale } }: IPageParamsWithId) {
+    const productId = Number(id.split("-")[0]);
     const product = await getProduct({
-        productId: Number(id.split("-")[0]),
+        productId: productId,
         locale,
     });
     const bestsellerProducts = await getProducts({
@@ -39,21 +35,22 @@ export default async function ProductPage({
         productGroupId: product.data.product_group_id,
     });
     return (
-        <ProductPageWrapper
-            bestsellerProducts={bestsellerProducts.data}
-            locale={locale}
-            product={product}
-            productAttributes={productAttributes}
-            productGroup={productGroup}
-            reviews={reviews}
-            similarProducts={similarProducts.data}
-        />
+        <>
+            <ProductPageWrapper
+                bestsellerProducts={bestsellerProducts.data}
+                locale={locale}
+                product={product}
+                productAttributes={productAttributes}
+                productGroup={productGroup}
+                reviews={reviews}
+                similarProducts={similarProducts.data}
+            />
+            <LocalizationComponent id={productId} localization={product.data.localization} startPath="/product" />
+        </>
     );
 }
 
-export async function generateMetadata({
-    params: { id, locale },
-}: IPageParamsWithId) {
+export async function generateMetadata({ params: { id, locale } }: IPageParamsWithId) {
     const slug = id.split("-").slice(1).join("-");
 
     const product = await getProduct({
